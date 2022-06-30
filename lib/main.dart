@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sanbeen_zedital/aboutuspage.dart';
+import 'package:sanbeen_zedital/begin_posting.dart';
 import 'package:sanbeen_zedital/hdummy.dart';
 import 'package:sanbeen_zedital/kdummy.dart';
+import 'package:sanbeen_zedital/extentions.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -9,9 +11,18 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const MyHomePage(),
+    return GestureDetector(
+      onTap: () {
+          FocusScope.of(context).requestFocus(FocusNode());
+        },
+      child: MaterialApp(
+        theme: ThemeData(
+          backgroundColor: Colors.black,
+          primaryColor: 'D4AF37'.toColor()
+        ),
+        debugShowCheckedModeBanner: false,
+        home: const MyHomePage(),
+      ),
     );
   }
 }
@@ -62,6 +73,15 @@ class MyHomePage extends StatelessWidget {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => hdummy()));
                       },
                       label: Text('Harshini(Dummy page)'),
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.black,
+                    ),
+                    SizedBox(height: 10,),FloatingActionButton.extended(
+                      heroTag: 'Begin Posting',
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => begin_posting()));
+                      },
+                      label: Text('Property posting(22,23,24)'),
                       backgroundColor: Colors.white,
                       foregroundColor: Colors.black,
                     ),
