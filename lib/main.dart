@@ -3,10 +3,12 @@ import 'package:sanbeen_zedital/aboutuspage.dart';
 import 'package:sanbeen_zedital/hdummy.dart';
 import 'package:sanbeen_zedital/kdummy.dart';
 void main() {
+  
   runApp(const MyApp());
 }
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
