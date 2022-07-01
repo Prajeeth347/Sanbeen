@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           backgroundColor: '05090A'.toColor(),
           primaryColor: 'D4AF37'.toColor(),
-          accentColor: 'ECF1F4'.toColor()
+          hintColor: 'ECF1F4'.toColor()
         ),
         debugShowCheckedModeBanner: false,
         home: const MyHomePage(),
@@ -47,7 +47,7 @@ class MyHomePage extends StatelessWidget {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => aboutus()));
                       },
                       label: Text('About us page'),
-                      backgroundColor: Theme.of(context).accentColor,
+                      backgroundColor: Theme.of(context).hintColor,
                       foregroundColor: Theme.of(context).backgroundColor,
                     ),
                     SizedBox(height: 10,),
@@ -57,7 +57,7 @@ class MyHomePage extends StatelessWidget {
                         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => aboutus()));
                       },
                       label: Text('FAQ'),
-                      backgroundColor: Theme.of(context).accentColor,
+                      backgroundColor: Theme.of(context).hintColor,
                       foregroundColor: Theme.of(context).backgroundColor,
                     ),
                     SizedBox(height: 10,),
@@ -67,7 +67,7 @@ class MyHomePage extends StatelessWidget {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => kdummy()));
                       },
                       label: Text('Karhik(Dummy page)'),
-                      backgroundColor: Theme.of(context).accentColor,
+                      backgroundColor: Theme.of(context).hintColor,
                       foregroundColor: Theme.of(context).backgroundColor,
                     ),
                     SizedBox(height: 10,),FloatingActionButton.extended(
@@ -76,7 +76,7 @@ class MyHomePage extends StatelessWidget {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => hdummy()));
                       },
                       label: Text('Harshini(Dummy page)'),
-                      backgroundColor: Theme.of(context).accentColor,
+                      backgroundColor: Theme.of(context).hintColor,
                       foregroundColor: Theme.of(context).backgroundColor,
                     ),
                     SizedBox(height: 10,),FloatingActionButton.extended(
@@ -85,7 +85,7 @@ class MyHomePage extends StatelessWidget {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => begin_posting()));
                       },
                       label: Text('Property posting(22,23,24)'),
-                      backgroundColor: Theme.of(context).accentColor,
+                      backgroundColor: Theme.of(context).hintColor,
                       foregroundColor: Theme.of(context).backgroundColor,
                     ),
           ],

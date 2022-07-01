@@ -66,7 +66,7 @@ class _posting_propState extends State<posting_prop> {
                             keyboardType: TextInputType.text,
                             decoration: InputDecoration(
                               filled: true,
-                              fillColor: Theme.of(context).accentColor,
+                              fillColor: Theme.of(context).hintColor,
                             ),
                             controller: nameprop_controller,
                           ),
@@ -83,7 +83,7 @@ class _posting_propState extends State<posting_prop> {
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
                               filled: true,
-                              fillColor: Theme.of(context).accentColor,
+                              fillColor: Theme.of(context).hintColor,
                             ),
                             controller: price_controller,
                           ),
@@ -102,7 +102,7 @@ class _posting_propState extends State<posting_prop> {
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
                               filled: true,
-                              fillColor: Theme.of(context).accentColor,
+                              fillColor: Theme.of(context).hintColor,
                             ),
                             controller: address_controller,
                           ),
@@ -170,7 +170,7 @@ class _posting_propState extends State<posting_prop> {
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
                               filled: true,
-                              fillColor: Theme.of(context).accentColor,
+                              fillColor: Theme.of(context).hintColor,
                             ),
                             controller: pincode_controller,
                           ),
@@ -191,7 +191,7 @@ class _posting_propState extends State<posting_prop> {
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
                               filled: true,
-                              fillColor: Theme.of(context).accentColor,
+                              fillColor: Theme.of(context).hintColor,
                             ),
                             controller: area_controller,
                           ),
@@ -213,7 +213,7 @@ class _posting_propState extends State<posting_prop> {
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
                               filled: true,
-                              fillColor: Theme.of(context).accentColor,
+                              fillColor: Theme.of(context).hintColor,
                             ),
                             controller: bedrooms_controller,
                           ),
@@ -235,7 +235,7 @@ class _posting_propState extends State<posting_prop> {
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
                               filled: true,
-                              fillColor: Theme.of(context).accentColor,
+                              fillColor: Theme.of(context).hintColor,
                             ),
                             controller: shower_controller,
                           ),
@@ -258,7 +258,7 @@ class _posting_propState extends State<posting_prop> {
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: Theme.of(context).accentColor,
+                        fillColor: Theme.of(context).hintColor,
                       ),
                       controller: writesomething_controller,
                     ),
@@ -283,7 +283,7 @@ class _posting_propState extends State<posting_prop> {
                       child: Text(
                         "Upload Photos",
                         style: TextStyle(
-                            color: Theme.of(context).accentColor,
+                            color: Theme.of(context).hintColor,
                             fontWeight: FontWeight.w400,
                             fontSize: MediaQuery.of(context).size.height * 0.02),
                       )),
