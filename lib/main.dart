@@ -6,10 +6,12 @@ import 'package:sanbeen_zedital/screens/feedback.dart';
 import 'package:sanbeen_zedital/screens/hdummy.dart';
 import 'package:sanbeen_zedital/screens/kdummy.dart';
 void main() {
+  
   runApp(const MyApp());
 }
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
