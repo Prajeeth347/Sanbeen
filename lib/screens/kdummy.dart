@@ -264,10 +264,71 @@ class Contact extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: const Text(
-        'Contacted',
-        style: TextStyle(color: Color(Col.gold)),
-      ),
-    );
+        width: double.infinity,
+        padding: EdgeInsets.only(top: 20, bottom: 20),
+        decoration: BoxDecoration(
+            border:
+                Border(bottom: BorderSide(color: Color(Col.gold), width: 2))),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  width: 130,
+                  height: 150,
+                  decoration: new BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: new DecorationImage(
+                        fit: BoxFit.cover,
+                        alignment: FractionalOffset.topCenter,
+                        image: new NetworkImage(
+                            'https://www.filmibeat.com/img/popcorn/profile_photos/sree-leela-20191016105248-40142.jpg'),
+                      )),
+                ),
+                Container(
+                  width: 150,
+                  height: 170,
+                  margin: EdgeInsets.only(top: 5, bottom: 5),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Sree Leela',
+                          style: TextStyle(
+                            color: Color(Col.gold),
+                          )),
+                      Text('Company Name',
+                          style: TextStyle(
+                            color: Color(Col.gold),
+                          )),
+                      Text('Contacted for rental apartments',
+                          style: TextStyle(
+                            color: Color(Col.gold),
+                          )),
+                      Text('near Delhi Apartments',
+                          style: TextStyle(
+                            color: Color(Col.gold),
+                          )),
+                    ],
+                  ),
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.call,
+                  color: Color(Col.gold),
+                ),
+                Text('Call again',
+                    style: TextStyle(
+                      color: Color(Col.gold),
+                    ))
+              ],
+            )
+          ],
+        ));
   }
 }
