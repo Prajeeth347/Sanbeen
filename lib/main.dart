@@ -5,6 +5,7 @@ import 'package:sanbeen_zedital/screens/begin_posting.dart';
 import 'package:sanbeen_zedital/screens/feedback.dart';
 import 'package:sanbeen_zedital/screens/hdummy.dart';
 import 'package:sanbeen_zedital/screens/kdummy.dart';
+import 'package:sanbeen_zedital/screens/profilepage.dart';
 void main() {
   
   runApp(const MyApp());
@@ -94,11 +95,11 @@ class MyHomePage extends StatelessWidget {
                     ),
                     SizedBox(height: 10,),
                     FloatingActionButton.extended(
-                      heroTag: 'Feedback Page',
+                      heroTag: 'Profile page',
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => feedback()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => profile_page()));
                       },
-                      label: Text('Feedback page(25)'),
+                      label: Text('Profile page(14,15,16,25)'),
                       backgroundColor: Theme.of(context).hintColor,
                       foregroundColor: Theme.of(context).backgroundColor,
                     ),
