@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sanbeen_zedital/aboutuspage.dart';
-import 'package:sanbeen_zedital/begin_posting.dart';
-import 'package:sanbeen_zedital/hdummy.dart';
-import 'package:sanbeen_zedital/kdummy.dart';
-import 'package:sanbeen_zedital/extentions.dart';
+import 'package:sanbeen_zedital/extentions/extentions.dart';
+import 'package:sanbeen_zedital/screens/aboutuspage.dart';
+import 'package:sanbeen_zedital/screens/begin_posting.dart';
+import 'package:sanbeen_zedital/screens/feedback.dart';
+import 'package:sanbeen_zedital/screens/hdummy.dart';
+import 'package:sanbeen_zedital/screens/kdummy.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -79,12 +80,23 @@ class MyHomePage extends StatelessWidget {
                       backgroundColor: Theme.of(context).hintColor,
                       foregroundColor: Theme.of(context).backgroundColor,
                     ),
-                    SizedBox(height: 10,),FloatingActionButton.extended(
+                    SizedBox(height: 10,),
+                    FloatingActionButton.extended(
                       heroTag: 'Begin Posting',
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => begin_posting()));
                       },
                       label: Text('Property posting(22,23,24)'),
+                      backgroundColor: Theme.of(context).hintColor,
+                      foregroundColor: Theme.of(context).backgroundColor,
+                    ),
+                    SizedBox(height: 10,),
+                    FloatingActionButton.extended(
+                      heroTag: 'Feedback Page',
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => feedback()));
+                      },
+                      label: Text('Feedback page(25)'),
                       backgroundColor: Theme.of(context).hintColor,
                       foregroundColor: Theme.of(context).backgroundColor,
                     ),

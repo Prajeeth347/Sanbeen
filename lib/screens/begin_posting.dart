@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sanbeen_zedital/posting_property.dart';
+import 'package:sanbeen_zedital/screens/posting_property.dart';
 
 class begin_posting extends StatefulWidget {
   const begin_posting({Key? key}) : super(key: key);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sanbeen_zedital/photos_prop.dart';
+import 'package:sanbeen_zedital/screens/photos_prop.dart';
 
 class posting_prop extends StatefulWidget {
   const posting_prop({Key? key}) : super(key: key);
