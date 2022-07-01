@@ -19,8 +19,9 @@ class MyApp extends StatelessWidget {
         },
       child: MaterialApp(
         theme: ThemeData(
-          backgroundColor: Colors.black,
-          primaryColor: 'D4AF37'.toColor()
+          backgroundColor: '05090A'.toColor(),
+          primaryColor: 'D4AF37'.toColor(),
+          hintColor: 'ECF1F4'.toColor()
         ),
         debugShowCheckedModeBanner: false,
         home: const MyHomePage(),
@@ -34,20 +35,22 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Theme.of(context).backgroundColor,
      body: Center(
        child: SingleChildScrollView(
          child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset('assets/images/logo.jpeg'),
+            SizedBox(height: 10,),
             FloatingActionButton.extended(
                       heroTag: 'Aboutus',
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => aboutus()));
                       },
                       label: Text('About us page'),
-                      backgroundColor: Colors.white,
-                      foregroundColor: Colors.black,
+                      backgroundColor: Theme.of(context).hintColor,
+                      foregroundColor: Theme.of(context).backgroundColor,
                     ),
                     SizedBox(height: 10,),
                     FloatingActionButton.extended(
@@ -56,8 +59,8 @@ class MyHomePage extends StatelessWidget {
                         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => aboutus()));
                       },
                       label: Text('FAQ'),
-                      backgroundColor: Colors.white,
-                      foregroundColor: Colors.black,
+                      backgroundColor: Theme.of(context).hintColor,
+                      foregroundColor: Theme.of(context).backgroundColor,
                     ),
                     SizedBox(height: 10,),
                     FloatingActionButton.extended(
@@ -66,8 +69,8 @@ class MyHomePage extends StatelessWidget {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => kdummy()));
                       },
                       label: Text('Karhik(Dummy page)'),
-                      backgroundColor: Colors.white,
-                      foregroundColor: Colors.black,
+                      backgroundColor: Theme.of(context).hintColor,
+                      foregroundColor: Theme.of(context).backgroundColor,
                     ),
                     SizedBox(height: 10,),FloatingActionButton.extended(
                       heroTag: 'HDUMMY',
@@ -75,8 +78,8 @@ class MyHomePage extends StatelessWidget {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => hdummy()));
                       },
                       label: Text('Harshini(Dummy page)'),
-                      backgroundColor: Colors.white,
-                      foregroundColor: Colors.black,
+                      backgroundColor: Theme.of(context).hintColor,
+                      foregroundColor: Theme.of(context).backgroundColor,
                     ),
                     SizedBox(height: 10,),FloatingActionButton.extended(
                       heroTag: 'Begin Posting',
@@ -84,8 +87,8 @@ class MyHomePage extends StatelessWidget {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => begin_posting()));
                       },
                       label: Text('Property posting(22,23,24)'),
-                      backgroundColor: Colors.white,
-                      foregroundColor: Colors.black,
+                      backgroundColor: Theme.of(context).hintColor,
+                      foregroundColor: Theme.of(context).backgroundColor,
                     ),
           ],
           ),

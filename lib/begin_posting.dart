@@ -67,7 +67,7 @@ class _begin_postingState extends State<begin_posting> {
                     child: Text(
                       "Sell",
                       style: TextStyle(
-                          color: pressAttention ? Colors.white : Colors.black,
+                          color: pressAttention ? Theme.of(context).hintColor : Theme.of(context).backgroundColor,
                           fontWeight: FontWeight.w400,
                           fontSize: MediaQuery.of(context).size.height * 0.02),
                     )),
@@ -92,7 +92,7 @@ class _begin_postingState extends State<begin_posting> {
                     child: Text(
                       "Rent",
                       style: TextStyle(
-                          color: press ? Colors.white : Colors.black,
+                          color: press ? Theme.of(context).hintColor : Theme.of(context).backgroundColor,
                           fontWeight: FontWeight.w400,
                           fontSize: MediaQuery.of(context).size.height * 0.02),
                     )),
@@ -131,7 +131,7 @@ class _begin_postingState extends State<begin_posting> {
                     child: Text(
                       "Apartment",
                       style: TextStyle(
-                          color: secpressAttention ? Colors.white : Colors.black,
+                          color: secpressAttention ? Theme.of(context).hintColor : Theme.of(context).backgroundColor,
                           fontWeight: FontWeight.w400,
                           fontSize: MediaQuery.of(context).size.height * 0.02),
                     )),
@@ -158,7 +158,7 @@ class _begin_postingState extends State<begin_posting> {
                     child: Text(
                       "Independent house/Villa",
                       style: TextStyle(
-                          color: secpress ? Colors.white : Colors.black,
+                          color: secpress ? Theme.of(context).hintColor : Theme.of(context).backgroundColor,
                           fontWeight: FontWeight.w400,
                           fontSize: MediaQuery.of(context).size.height * 0.02),
                     )),
@@ -191,7 +191,7 @@ class _begin_postingState extends State<begin_posting> {
                     child: Text(
                       "Indepndent/Builder floor",
                       style: TextStyle(
-                          color: secpress2 ? Colors.white : Colors.black,
+                          color: secpress2 ? Theme.of(context).hintColor : Theme.of(context).backgroundColor,
                           fontWeight: FontWeight.w400,
                           fontSize: MediaQuery.of(context).size.height * 0.02),
                     )),
@@ -218,7 +218,7 @@ class _begin_postingState extends State<begin_posting> {
                     child: Text(
                       "Land",
                       style: TextStyle(
-                          color: secpress1 ? Colors.white : Colors.black,
+                          color: secpress1 ? Theme.of(context).hintColor : Theme.of(context).backgroundColor,
                           fontWeight: FontWeight.w400,
                           fontSize: MediaQuery.of(context).size.height * 0.02),
                     )),
@@ -232,12 +232,14 @@ class _begin_postingState extends State<begin_posting> {
               ),
               SizedBox(height: MediaQuery.of(context).size.height*0.02),
               TextField(
+                style: TextStyle(color: Theme.of(context).hintColor),
                 keyboardType: TextInputType.number,
+                cursorColor: Colors.white,
                 decoration: InputDecoration(
-                  hintStyle: TextStyle(color: Colors.white),
+                  hintStyle: TextStyle(color: Theme.of(context).hintColor),
                   hintText: 'Phone number',
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.white), //<-- SEE HERE
+                    borderSide: BorderSide(width: 1, color: Theme.of(context).hintColor), //<-- SEE HERE
                   ),
                 ),
                 controller: mobile_controller,
@@ -257,7 +259,7 @@ class _begin_postingState extends State<begin_posting> {
                       child: Text(
                         "Begin to Post your Property",
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Theme.of(context).hintColor,
                             fontWeight: FontWeight.w400,
                             fontSize: MediaQuery.of(context).size.height * 0.02),
                       )),
