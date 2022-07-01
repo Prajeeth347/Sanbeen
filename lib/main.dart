@@ -5,10 +5,12 @@ import 'package:sanbeen_zedital/hdummy.dart';
 import 'package:sanbeen_zedital/kdummy.dart';
 import 'package:sanbeen_zedital/extentions.dart';
 void main() {
+  
   runApp(const MyApp());
 }
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
