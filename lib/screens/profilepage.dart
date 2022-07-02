@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sanbeen_zedital/models/profile_model.dart';
 import 'package:sanbeen_zedital/screens/account_details.dart';
 import 'package:sanbeen_zedital/screens/feedback.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-
+import 'package:sanbeen_zedital/services/profile_helper.dart';
 class profile_page extends StatefulWidget {
   const profile_page({Key? key}) : super(key: key);
 
@@ -15,7 +14,21 @@ class _profile_pageState extends State<profile_page> {
   var name = "";
   var email = "sakshimallick001@gmail.com";
   var phone = "";
+  List<Profiles>? profile;
   var is_loaded = false;
+  @override
+  void initState() {
+    super.initState();
+    getProfileData();
+  }
+  getProfileData() async{
+    profile = await profile_services().getprofiles();
+    if (profile != null) {
+      setState(() {
+        is_loaded = true;
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,15 +46,15 @@ class _profile_pageState extends State<profile_page> {
             CircleAvatar(
                 radius: MediaQuery.of(context).size.width*0.15,
                 backgroundImage:
-                    NetworkImage('https://via.placeholder.com/150'),
+                    NetworkImage(profile == null ? 'https://via.placeholder.com/150' : profile![0].img ?? 'https://via.placeholder.com/150'),
                 backgroundColor: Colors.transparent,
               ),
               SizedBox(height: MediaQuery.of(context).size.height*0.02),
-              Text(name,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.06,fontWeight: FontWeight.w600),),
+              Text(profile == null ? 'Name' :profile![0].name,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.06,fontWeight: FontWeight.w600),),
               SizedBox(height: MediaQuery.of(context).size.height*0.02),
               Text(email,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.045)),
               SizedBox(height: MediaQuery.of(context).size.height*0.02),
-              Text(phone,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.045),),
+              Text(profile == null ? 'Number' :profile![0].number,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.045),),
               SizedBox(height: MediaQuery.of(context).size.height*0.02),
               Divider(
                   color: Theme.of(context).primaryColor,
