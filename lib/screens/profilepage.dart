@@ -45,16 +45,17 @@ class _profile_pageState extends State<profile_page> {
           children: [
             CircleAvatar(
                 radius: MediaQuery.of(context).size.width*0.15,
+                child: Text(profile == null ? '' : profile![2].img == null ? profile![2].name[0].toUpperCase() : '', style: TextStyle(color: Theme.of(context).backgroundColor,fontSize: MediaQuery.of(context).size.width*0.13),),
                 backgroundImage:
-                    NetworkImage(profile == null ? 'https://via.placeholder.com/150' : profile![0].img ?? 'https://via.placeholder.com/150'),
-                backgroundColor: Colors.transparent,
+                    NetworkImage(profile == null ? '' : profile![2].img ?? ''),
+                backgroundColor: profile == null ? Colors.transparent : profile![2].img == null ? Theme.of(context).primaryColor : Colors.transparent,
               ),
               SizedBox(height: MediaQuery.of(context).size.height*0.02),
-              Text(profile == null ? 'Name' :profile![0].name,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.06,fontWeight: FontWeight.w600),),
+              Text(profile == null ? 'Name' :profile![2].name,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.06,fontWeight: FontWeight.w600),),
               SizedBox(height: MediaQuery.of(context).size.height*0.02),
               Text(email,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.045)),
               SizedBox(height: MediaQuery.of(context).size.height*0.02),
-              Text(profile == null ? 'Number' :profile![0].number,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.045),),
+              Text(profile == null ? 'Number' :profile![2].number,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.045),),
               SizedBox(height: MediaQuery.of(context).size.height*0.02),
               Divider(
                   color: Theme.of(context).primaryColor,
