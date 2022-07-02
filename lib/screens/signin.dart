@@ -59,6 +59,8 @@ class _signinState extends State<signin> {
                 TextField(
                     controller: email,
                     keyboardType: TextInputType.emailAddress,
+                    cursorColor: Theme.of(context).primaryColor,
+                    style: TextStyle(color: Theme.of(context).hintColor),
                     decoration: InputDecoration(
                       enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
@@ -73,6 +75,8 @@ class _signinState extends State<signin> {
                 TextField(
                     controller: password,
                     keyboardType: TextInputType.visiblePassword,
+                    cursorColor: Theme.of(context).primaryColor,
+                    style: TextStyle(color: Theme.of(context).hintColor),
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
                         onPressed: () {

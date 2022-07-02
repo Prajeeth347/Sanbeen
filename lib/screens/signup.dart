@@ -43,6 +43,8 @@ class signup extends StatelessWidget {
                     TextField(
                         controller: firstname,
                         keyboardType: TextInputType.name,
+                        cursorColor: Theme.of(context).primaryColor,
+                        style: TextStyle(color: Theme.of(context).hintColor),
                         decoration: InputDecoration(
                           enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
@@ -59,6 +61,8 @@ class signup extends StatelessWidget {
                     TextField(
                         controller: lastname,
                         keyboardType: TextInputType.name,
+                        cursorColor: Theme.of(context).primaryColor,
+                        style: TextStyle(color: Theme.of(context).hintColor),
                         decoration: InputDecoration(
                           enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
@@ -75,6 +79,8 @@ class signup extends StatelessWidget {
                     TextField(
                         controller: email,
                         keyboardType: TextInputType.emailAddress,
+                        cursorColor: Theme.of(context).primaryColor,
+                        style: TextStyle(color: Theme.of(context).hintColor),
                         decoration: InputDecoration(
                           enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
@@ -91,6 +97,8 @@ class signup extends StatelessWidget {
                     TextField(
                         controller: password,
                         keyboardType: TextInputType.visiblePassword,
+                        cursorColor: Theme.of(context).primaryColor,
+                        style: TextStyle(color: Theme.of(context).hintColor),
                         decoration: InputDecoration(
                           enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
