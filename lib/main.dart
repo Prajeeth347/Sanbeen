@@ -9,6 +9,7 @@ import 'package:sanbeen_zedital/screens/profilepage.dart';
 import 'package:sanbeen_zedital/screens/properties(20).dart';
 import 'package:sanbeen_zedital/screens/properties.dart';
 import 'package:sanbeen_zedital/screens/signup.dart';
+import 'package:sanbeen_zedital/screens/signin.dart';
 import 'package:sanbeen_zedital/screens/testimonials.dart';
 
 void main() {
@@ -131,12 +132,12 @@ class MyHomePage extends StatelessWidget {
                 height: 10,
               ),
               FloatingActionButton.extended(
-                heroTag: 'SignUp page',
+                heroTag: 'SignIn page',
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => signup()));
+                      MaterialPageRoute(builder: (context) => signin()));
                 },
-                label: Text('Sign Up'),
+                label: Text('Sign In'),
                 backgroundColor: Theme.of(context).hintColor,
                 foregroundColor: Theme.of(context).backgroundColor,
               ),
