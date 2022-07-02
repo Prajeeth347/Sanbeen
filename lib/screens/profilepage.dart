@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sanbeen_zedital/screens/account_details.dart';
 import 'package:sanbeen_zedital/screens/feedback.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class profile_page extends StatefulWidget {
   const profile_page({Key? key}) : super(key: key);
@@ -10,9 +12,10 @@ class profile_page extends StatefulWidget {
 }
 
 class _profile_pageState extends State<profile_page> {
-  var name = "Sakshi Mallick";
+  var name = "";
   var email = "sakshimallick001@gmail.com";
-  var phone = "+91-XXXXXXXXXX";
+  var phone = "";
+  var is_loaded = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
