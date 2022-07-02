@@ -5,8 +5,8 @@ import 'package:flutter/painting.dart';
 
 TextEditingController email = TextEditingController();
 TextEditingController password = TextEditingController();
-TextEditingController first_name = TextEditingController();
-TextEditingController last_name = TextEditingController();
+TextEditingController firstname = TextEditingController();
+TextEditingController lastname = TextEditingController();
 
 class signup extends StatelessWidget {
   const signup({Key? key}) : super(key: key);
@@ -16,21 +16,21 @@ class signup extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(5, 9, 10, 225),
+        backgroundColor: Theme.of(context).backgroundColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
           icon: Icon(
             Icons.arrow_back,
-            color: Color.fromRGBO(212, 175, 55, 1),
+            color: Theme.of(context).primaryColor,
           ),
         ),
       ),
       body: SingleChildScrollView(
         child: Center(
             child: Padding(
-                padding: EdgeInsets.fromLTRB(38.0, 0.0, 38.0, 0.0),
+                padding: const EdgeInsets.fromLTRB(38.0, 0.0, 38.0, 0.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,9 +39,9 @@ class signup extends StatelessWidget {
                         style: TextStyle(
                             color: Theme.of(context).primaryColor,
                             fontSize: 24)),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.03),
                     TextField(
-                        controller: first_name,
+                        controller: firstname,
                         keyboardType: TextInputType.name,
                         decoration: InputDecoration(
                           enabledBorder: UnderlineInputBorder(
@@ -53,11 +53,11 @@ class signup extends StatelessWidget {
                               color: Theme.of(context).primaryColor,
                               backgroundColor:
                                   Theme.of(context).backgroundColor,
-                              fontSize: 20),
+                              fontSize: 18),
                         )),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                     TextField(
-                        controller: last_name,
+                        controller: lastname,
                         keyboardType: TextInputType.name,
                         decoration: InputDecoration(
                           enabledBorder: UnderlineInputBorder(
@@ -69,9 +69,9 @@ class signup extends StatelessWidget {
                               color: Theme.of(context).primaryColor,
                               backgroundColor:
                                   Theme.of(context).backgroundColor,
-                              fontSize: 20),
+                              fontSize: 18),
                         )),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                     TextField(
                         controller: email,
                         keyboardType: TextInputType.emailAddress,
@@ -85,9 +85,9 @@ class signup extends StatelessWidget {
                               color: Theme.of(context).primaryColor,
                               backgroundColor:
                                   Theme.of(context).backgroundColor,
-                              fontSize: 20),
+                              fontSize: 18),
                         )),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                     TextField(
                         controller: password,
                         keyboardType: TextInputType.visiblePassword,
@@ -101,9 +101,9 @@ class signup extends StatelessWidget {
                               color: Theme.of(context).primaryColor,
                               backgroundColor:
                                   Theme.of(context).backgroundColor,
-                              fontSize: 20),
+                              fontSize: 18),
                         )),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.08),
                     ElevatedButton(
                         onPressed: () {
                           Navigator.pop(context);
@@ -112,13 +112,13 @@ class signup extends StatelessWidget {
                           backgroundColor: MaterialStateProperty.all(
                               Theme.of(context).primaryColor),
                         ),
-                        child: SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.05,
-                            width: MediaQuery.of(context).size.width * 0.6,
+                        child: Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                55, 15, 55, 15),
                             child: Text(
                               'SIGN UP',
                               style: TextStyle(
-                                  fontSize: 30,
+                                  fontSize: 19,
                                   color: Theme.of(context).hintColor,
                                   backgroundColor:
                                       Theme.of(context).primaryColor),
