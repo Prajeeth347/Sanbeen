@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:sanbeen_zedital/models/properties_model(20).dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class properties_20 extends StatefulWidget {
   const properties_20({Key? key}) : super(key: key);
@@ -158,7 +161,28 @@ class properties_20_card extends StatelessWidget {
                                 Row(
                                   children: [
                                     IconButton(
-                                      onPressed: () {}, icon: Image.network('https://cdn-icons-png.flaticon.com/512/124/124034.png?w=740&t=st=1656751163~exp=1656751763~hmac=3e5cd586eb711d53069f6ec6c5f9fdbd67c451cca7915d8684aae3d1a53cee94')),
+                                      onPressed: () async{
+  var whatsappURl_android = "whatsapp://send?phone="+number+"&text=Hello";
+  var whatappURL_ios ="https://wa.me/$number?text=${Uri.parse("Hello")}";
+  if(Platform.isIOS){
+    // for iOS phone only
+    if( await canLaunchUrl(Uri(path: whatappURL_ios))){
+       await launchUrl(Uri(path: whatappURL_ios));
+    }else{
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: new Text("whatsapp no installed")));
+    }
+
+  }else{
+    if( await canLaunch(whatsappURl_android)){
+      await launch(whatsappURl_android);
+    }else{
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: new Text("whatsapp no installed")));
+
+    }
+  }
+                                      }, icon: Image.network('https://cdn-icons-png.flaticon.com/512/124/124034.png?w=740&t=st=1656751163~exp=1656751763~hmac=3e5cd586eb711d53069f6ec6c5f9fdbd67c451cca7915d8684aae3d1a53cee94')),
                                     IconButton(
                                       color: Theme.of(context).hintColor,
                                       onPressed: () {
