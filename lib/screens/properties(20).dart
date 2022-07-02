@@ -78,6 +78,13 @@ class properties_20_card extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Image.network(img,height: MediaQuery.of(context).size.height*0.4,width: MediaQuery.of(context).size.width*0.97),
+          Align(
+            alignment: Alignment.topRight,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(0,25,15,0),
+              child: IconButton(onPressed: (){}, icon: Icon(Icons.favorite_outline,size: MediaQuery.of(context).size.width*0.09,)),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.fromLTRB(20,0,8,8),
             child: Column(
