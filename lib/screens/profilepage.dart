@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sanbeen_zedital/models/profile_model.dart';
 import 'package:sanbeen_zedital/screens/account_details.dart';
+import 'package:sanbeen_zedital/screens/changepassword.dart';
 import 'package:sanbeen_zedital/screens/feedback.dart';
 import 'package:sanbeen_zedital/services/profile_helper.dart';
 class profile_page extends StatefulWidget {
@@ -83,7 +84,7 @@ class _profile_pageState extends State<profile_page> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextButton(onPressed: () {
-                  
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => change_password()));
                 }, child: 
                 Row(
                   children: [

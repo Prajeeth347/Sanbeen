@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sanbeen_zedital/extentions/extentions.dart';
 import 'package:sanbeen_zedital/screens/aboutuspage.dart';
 import 'package:sanbeen_zedital/screens/begin_posting.dart';
+import 'package:sanbeen_zedital/screens/exploring_page..dart';
 import 'package:sanbeen_zedital/screens/feedback.dart';
 import 'package:sanbeen_zedital/screens/hdummy.dart';
 import 'package:sanbeen_zedital/screens/kdummy.dart';
@@ -177,6 +178,19 @@ class MyHomePage extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => properties_20()));
                 },
                 label: Text('Properties(20)'),
+                backgroundColor: Theme.of(context).hintColor,
+                foregroundColor: Theme.of(context).backgroundColor,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              FloatingActionButton.extended(
+                heroTag: 'Start exploring(26)',
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => exploring_page()));
+                },
+                label: Text('Start Exploring(26)'),
                 backgroundColor: Theme.of(context).hintColor,
                 foregroundColor: Theme.of(context).backgroundColor,
               ),
