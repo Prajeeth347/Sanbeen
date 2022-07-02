@@ -7,6 +7,7 @@ import 'package:sanbeen_zedital/screens/hdummy.dart';
 import 'package:sanbeen_zedital/screens/kdummy.dart';
 import 'package:sanbeen_zedital/screens/profilepage.dart';
 import 'package:sanbeen_zedital/screens/properties.dart';
+import 'package:sanbeen_zedital/screens/signup.dart';
 import 'package:sanbeen_zedital/screens/testimonials.dart';
 
 void main() {
@@ -122,6 +123,19 @@ class MyHomePage extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => profile_page()));
                 },
                 label: Text('Profile page(14,15,16,25)'),
+                backgroundColor: Theme.of(context).hintColor,
+                foregroundColor: Theme.of(context).backgroundColor,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              FloatingActionButton.extended(
+                heroTag: 'SignUp page',
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => signup()));
+                },
+                label: Text('Sign Up'),
                 backgroundColor: Theme.of(context).hintColor,
                 foregroundColor: Theme.of(context).backgroundColor,
               ),
