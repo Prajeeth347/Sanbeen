@@ -6,6 +6,7 @@ import 'package:sanbeen_zedital/screens/feedback.dart';
 import 'package:sanbeen_zedital/screens/hdummy.dart';
 import 'package:sanbeen_zedital/screens/kdummy.dart';
 import 'package:sanbeen_zedital/screens/profilepage.dart';
+import 'package:sanbeen_zedital/screens/properties(20).dart';
 import 'package:sanbeen_zedital/screens/properties.dart';
 import 'package:sanbeen_zedital/screens/signup.dart';
 import 'package:sanbeen_zedital/screens/testimonials.dart';
@@ -162,6 +163,19 @@ class MyHomePage extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => properties()));
                 },
                 label: Text('Properties'),
+                backgroundColor: Theme.of(context).hintColor,
+                foregroundColor: Theme.of(context).backgroundColor,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              FloatingActionButton.extended(
+                heroTag: 'Properties(20)',
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => properties_20()));
+                },
+                label: Text('Properties(20)'),
                 backgroundColor: Theme.of(context).hintColor,
                 foregroundColor: Theme.of(context).backgroundColor,
               ),
