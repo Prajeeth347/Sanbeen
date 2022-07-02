@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sanbeen_zedital/models/profile_model.dart';
 import 'package:sanbeen_zedital/screens/account_details.dart';
 import 'package:sanbeen_zedital/screens/feedback.dart';
-
+import 'package:sanbeen_zedital/services/profile_helper.dart';
 class profile_page extends StatefulWidget {
   const profile_page({Key? key}) : super(key: key);
 
@@ -10,9 +11,24 @@ class profile_page extends StatefulWidget {
 }
 
 class _profile_pageState extends State<profile_page> {
-  var name = "Sakshi Mallick";
+  var name = "";
   var email = "sakshimallick001@gmail.com";
-  var phone = "+91-XXXXXXXXXX";
+  var phone = "";
+  List<Profiles>? profile;
+  var is_loaded = false;
+  @override
+  void initState() {
+    super.initState();
+    getProfileData();
+  }
+  getProfileData() async{
+    profile = await profile_services().getprofiles();
+    if (profile != null) {
+      setState(() {
+        is_loaded = true;
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,16 +45,17 @@ class _profile_pageState extends State<profile_page> {
           children: [
             CircleAvatar(
                 radius: MediaQuery.of(context).size.width*0.15,
+                child: Text(profile == null ? '' : profile![2].img == null ? profile![2].name[0].toUpperCase() : '', style: TextStyle(color: Theme.of(context).backgroundColor,fontSize: MediaQuery.of(context).size.width*0.13),),
                 backgroundImage:
-                    NetworkImage('https://via.placeholder.com/150'),
-                backgroundColor: Colors.transparent,
+                    NetworkImage(profile == null ? '' : profile![2].img ?? ''),
+                backgroundColor: profile == null ? Colors.transparent : profile![2].img == null ? Theme.of(context).primaryColor : Colors.transparent,
               ),
               SizedBox(height: MediaQuery.of(context).size.height*0.02),
-              Text(name,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.06,fontWeight: FontWeight.w600),),
+              Text(profile == null ? 'Name' :profile![2].name,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.06,fontWeight: FontWeight.w600),),
               SizedBox(height: MediaQuery.of(context).size.height*0.02),
               Text(email,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.045)),
               SizedBox(height: MediaQuery.of(context).size.height*0.02),
-              Text(phone,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.045),),
+              Text(profile == null ? 'Number' :profile![2].number,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.045),),
               SizedBox(height: MediaQuery.of(context).size.height*0.02),
               Divider(
                   color: Theme.of(context).primaryColor,

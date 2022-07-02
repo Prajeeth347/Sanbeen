@@ -104,128 +104,122 @@ class _begin_postingState extends State<begin_posting> {
                 padding: const EdgeInsets.fromLTRB(8.0,8.0,0,0),
                 child: Text('You are looking to',style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.045),),
               ),
-              SizedBox(height: MediaQuery.of(context).size.height*0.02),
-              Row(
-                children: [
-                  SizedBox(
-                width: MediaQuery.of(context).size.width * 0.07,
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20,8,8,8),
+                child: Wrap(
+                  children: [
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  child: RaisedButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                          side: BorderSide(color: Theme.of(context).primaryColor)),
+                      color: secpressAttention
+                          ? Theme.of(context).primaryColor
+                          : Theme.of(context).scaffoldBackgroundColor,
+                      onPressed: () => setState(() {
+                            if(_sellingtype != 'Apartment'){
+                            secpress = false;
+                            secpressAttention = true;
+                            secpress1 = false;
+                            secpress2 = false;
+                            _lookingfor = "Apartment";
+                            }
+                          }),
+                      child: Text(
+                        "Apartment",
+                        style: TextStyle(
+                            color: secpressAttention ? Theme.of(context).hintColor : Theme.of(context).backgroundColor,
+                            fontWeight: FontWeight.w400,
+                            fontSize: MediaQuery.of(context).size.height * 0.02),
+                      )),
+                ),
+                SizedBox(width : MediaQuery.of(context).size.width*0.03),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.52,
+                  child: RaisedButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                          side: BorderSide(color: Theme.of(context).primaryColor)),
+                      color: secpress
+                          ? Theme.of(context).primaryColor
+                          : Theme.of(context).scaffoldBackgroundColor,
+                      onPressed: () => setState(() {
+                            if(_sellingtype != 'independent house'){
+                            secpress = true;
+                            secpressAttention = false;
+                            secpress1 = false;
+                            secpress2 = false;
+                            _lookingfor = "independent house";
+                            }
+                          }),
+                      child: Text(
+                        "Independent house/Villa",
+                        style: TextStyle(
+                            color: secpress ? Theme.of(context).hintColor : Theme.of(context).backgroundColor,
+                            fontWeight: FontWeight.w400,
+                            fontSize: MediaQuery.of(context).size.height * 0.02),
+                      )),
+                ),
+                    SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.03,
+                ),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.55,
+                  child: RaisedButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                          side: BorderSide(color: Theme.of(context).primaryColor)),
+                      color: secpress2
+                          ? Theme.of(context).primaryColor
+                          : Theme.of(context).scaffoldBackgroundColor,
+                      onPressed: () => setState(() {
+                            if(_sellingtype != 'Independent/builder'){
+                            secpress = false;
+                            secpressAttention = false;
+                            secpress1 = false;
+                            secpress2 = true;
+                            _lookingfor = "Independent/builder";
+                            }
+                          }),
+                      child: Text(
+                        "Indepndent/Builder floor",
+                        style: TextStyle(
+                            color: secpress2 ? Theme.of(context).hintColor : Theme.of(context).backgroundColor,
+                            fontWeight: FontWeight.w400,
+                            fontSize: MediaQuery.of(context).size.height * 0.02),
+                      )),
+                ),
+                SizedBox(width : MediaQuery.of(context).size.width*0.03),
+                Container(
+                  width: MediaQuery.of(context).size.width * 0.18,
+                  child: RaisedButton(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                          side: BorderSide(color: Theme.of(context).primaryColor)),
+                      color: secpress1
+                          ? Theme.of(context).primaryColor
+                          : Theme.of(context).scaffoldBackgroundColor,
+                      onPressed: () => setState(() {
+                            if(_sellingtype != 'Land'){
+                            secpress = false;
+                            secpressAttention = false;
+                            secpress1 = true;
+                            secpress2 = false;
+                            _lookingfor = "Land";
+                            }
+                          }),
+                      child: Text(
+                        "Land",
+                        style: TextStyle(
+                            color: secpress1 ? Theme.of(context).hintColor : Theme.of(context).backgroundColor,
+                            fontWeight: FontWeight.w400,
+                            fontSize: MediaQuery.of(context).size.height * 0.02),
+                      )),
+                ),
+                  ],
+                ),
               ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.3,
-                child: RaisedButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor)),
-                    color: secpressAttention
-                        ? Theme.of(context).primaryColor
-                        : Theme.of(context).scaffoldBackgroundColor,
-                    onPressed: () => setState(() {
-                          if(_sellingtype != 'Apartment'){
-                          secpress = false;
-                          secpressAttention = true;
-                          secpress1 = false;
-                          secpress2 = false;
-                          _lookingfor = "Apartment";
-                          }
-                        }),
-                    child: Text(
-                      "Apartment",
-                      style: TextStyle(
-                          color: secpressAttention ? Theme.of(context).hintColor : Theme.of(context).backgroundColor,
-                          fontWeight: FontWeight.w400,
-                          fontSize: MediaQuery.of(context).size.height * 0.02),
-                    )),
-              ),
-              SizedBox(width : MediaQuery.of(context).size.width*0.03),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.52,
-                child: RaisedButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor)),
-                    color: secpress
-                        ? Theme.of(context).primaryColor
-                        : Theme.of(context).scaffoldBackgroundColor,
-                    onPressed: () => setState(() {
-                          if(_sellingtype != 'independent house'){
-                          secpress = true;
-                          secpressAttention = false;
-                          secpress1 = false;
-                          secpress2 = false;
-                          _lookingfor = "independent house";
-                          }
-                        }),
-                    child: Text(
-                      "Independent house/Villa",
-                      style: TextStyle(
-                          color: secpress ? Theme.of(context).hintColor : Theme.of(context).backgroundColor,
-                          fontWeight: FontWeight.w400,
-                          fontSize: MediaQuery.of(context).size.height * 0.02),
-                    )),
-              ),
-                ],
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                width: MediaQuery.of(context).size.width * 0.07,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.55,
-                child: RaisedButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor)),
-                    color: secpress2
-                        ? Theme.of(context).primaryColor
-                        : Theme.of(context).scaffoldBackgroundColor,
-                    onPressed: () => setState(() {
-                          if(_sellingtype != 'Independent/builder'){
-                          secpress = false;
-                          secpressAttention = false;
-                          secpress1 = false;
-                          secpress2 = true;
-                          _lookingfor = "Independent/builder";
-                          }
-                        }),
-                    child: Text(
-                      "Indepndent/Builder floor",
-                      style: TextStyle(
-                          color: secpress2 ? Theme.of(context).hintColor : Theme.of(context).backgroundColor,
-                          fontWeight: FontWeight.w400,
-                          fontSize: MediaQuery.of(context).size.height * 0.02),
-                    )),
-              ),
-              SizedBox(width : MediaQuery.of(context).size.width*0.03),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.18,
-                child: RaisedButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor)),
-                    color: secpress1
-                        ? Theme.of(context).primaryColor
-                        : Theme.of(context).scaffoldBackgroundColor,
-                    onPressed: () => setState(() {
-                          if(_sellingtype != 'Land'){
-                          secpress = false;
-                          secpressAttention = false;
-                          secpress1 = true;
-                          secpress2 = false;
-                          _lookingfor = "Land";
-                          }
-                        }),
-                    child: Text(
-                      "Land",
-                      style: TextStyle(
-                          color: secpress1 ? Theme.of(context).hintColor : Theme.of(context).backgroundColor,
-                          fontWeight: FontWeight.w400,
-                          fontSize: MediaQuery.of(context).size.height * 0.02),
-                    )),
-              ),
-                ],
-              ),
-              SizedBox(height: MediaQuery.of(context).size.height*0.02),
               Padding(
                 padding: const EdgeInsets.fromLTRB(8.0,8.0,0,0),
                 child: Text('Your contact details for the buyer to reach you',style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.040),),
