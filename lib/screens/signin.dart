@@ -76,6 +76,8 @@ class _signinState extends State<signin> {
                     controller: password,
                     keyboardType: TextInputType.visiblePassword,
                     cursorColor: Theme.of(context).primaryColor,
+                    obscureText: obscure_text,
+                    obscuringCharacter: '*',
                     style: TextStyle(color: Theme.of(context).hintColor),
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
@@ -121,9 +123,7 @@ class _signinState extends State<signin> {
                     )),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.03),
                 ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+                    onPressed: () {},
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(
                           Theme.of(context).primaryColor),
