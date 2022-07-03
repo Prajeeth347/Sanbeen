@@ -59,6 +59,8 @@ class _signinState extends State<signin> {
                 TextField(
                     controller: email,
                     keyboardType: TextInputType.emailAddress,
+                    cursorColor: Theme.of(context).primaryColor,
+                    style: TextStyle(color: Theme.of(context).hintColor),
                     decoration: InputDecoration(
                       enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
@@ -73,6 +75,10 @@ class _signinState extends State<signin> {
                 TextField(
                     controller: password,
                     keyboardType: TextInputType.visiblePassword,
+                    cursorColor: Theme.of(context).primaryColor,
+                    obscureText: obscure_text,
+                    obscuringCharacter: '*',
+                    style: TextStyle(color: Theme.of(context).hintColor),
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
                         onPressed: () {
@@ -117,9 +123,7 @@ class _signinState extends State<signin> {
                     )),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.03),
                 ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+                    onPressed: () {},
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(
                           Theme.of(context).primaryColor),
