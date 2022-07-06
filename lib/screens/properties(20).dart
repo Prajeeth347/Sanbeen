@@ -2,7 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:intl/intl.dart';
 import 'package:sanbeen_zedital/models/properties_model(20).dart';
+import 'package:sanbeen_zedital/screens/property_display.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -43,7 +45,7 @@ class _propertiesState extends State<properties_20> {
        ListView.builder(
               itemCount: property?.length,
               itemBuilder: (context, index) {
-              return properties_20_card(name: property![index].name,bedrooms: property![index].bedrooms,bath: property![index].baths,sft: property![index].sft,cost: property![index].price,dealer:property![index].dealer,number: property![index].contact, img:property![index].img,);
+              return properties_20_card(name: property![index].name,bedrooms: property![index].bedRooms,bath: property![index].bathRooms,sft: property![index].size,cost: property![index].price,dealer:property![index].account,number: property![index].account, img:property![index].images[0],id: property![index].id,);
               // return properties_20_card();
             })
       ,
@@ -61,154 +63,162 @@ class properties_20_card extends StatelessWidget {
     required this.dealer,
     required this.number,
     required this.img,
+    required this.id,
   });
   String name;
+  String id;
   String img;
   int bedrooms;
   int bath;
   int sft;
-  String cost; 
+  int cost; 
   String dealer;
   String number;
+  var indiaFormat = NumberFormat.compactSimpleCurrency(locale: 'en_IN');
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width*0.97,
-      height: MediaQuery.of(context).size.height*0.4,
-      child: Stack(
-        children: <Widget>[
-          Image.network(img,height: MediaQuery.of(context).size.height*0.4,width: MediaQuery.of(context).size.width*0.97),
-          Align(
-            alignment: Alignment.topRight,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(0,25,15,0),
-              child: IconButton(onPressed: (){}, icon: Icon(Icons.favorite_outline,size: MediaQuery.of(context).size.width*0.09,)),
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => property_display(id: id)));
+      },
+      child: Container(
+        width: MediaQuery.of(context).size.width*0.97,
+        height: MediaQuery.of(context).size.height*0.4,
+        child: Stack(
+          children: <Widget>[
+            Image.network(img,height: MediaQuery.of(context).size.height*0.4,width: MediaQuery.of(context).size.width*0.97),
+            Align(
+              alignment: Alignment.topRight,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(0,25,15,0),
+                child: IconButton(onPressed: (){}, icon: Icon(Icons.favorite_outline,size: MediaQuery.of(context).size.width*0.09,)),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20,0,8,8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                height: MediaQuery.of(context).size.height*0.14,
-                ),
-                Text(name,style: TextStyle(color: Theme.of(context).hintColor ,fontSize: MediaQuery.of(context).size.width*0.05,fontWeight: FontWeight.w900),),
-                SizedBox(height :MediaQuery.of(context).size.height*0.02),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Container(
-                    height: MediaQuery.of(context).size.height * 0.2,
-                    width: MediaQuery.of(context).size.width * 0.9,
-                    color: Theme.of(context).backgroundColor,
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(20,8,8,8),
-                      child: Column(
-                        children: [
-                          Wrap(
-                            textDirection: TextDirection.ltr,
-                            children: [
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.bed,color: Theme.of(context).hintColor,),
-                                    SizedBox(width: MediaQuery.of(context).size.width*0.01),
-                                    Text(bedrooms.toString() + " Bedrooms",style: TextStyle(color: Theme.of(context).hintColor),)
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.bathtub, color: Theme.of(context).hintColor,),
-                                    SizedBox(width: MediaQuery.of(context).size.width*0.01),
-                                    Text(bath.toString() + " Baths",style: TextStyle(color: Theme.of(context).hintColor,fontSize: MediaQuery.of(context).size.width*0.04),)
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height*0.015,
-                                width: MediaQuery.of(context).size.width * 0.9,
-                                ),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.square_foot_rounded,color: Theme.of(context).hintColor,),
-                                    SizedBox(width: MediaQuery.of(context).size.width*0.01),
-                                    Text(sft.toString() + " sq. ft.",style: TextStyle(color: Theme.of(context).hintColor))
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                width: MediaQuery.of(context).size.width * 0.4,
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.bed,color: Theme.of(context).hintColor,),
-                                    SizedBox(width: MediaQuery.of(context).size.width*0.01),
-                                    Text(cost ,style: TextStyle(color: Theme.of(context).hintColor),)
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: MediaQuery.of(context).size.height*0.015,),
-                          Divider(
-                            color: Theme.of(context).primaryColor,
-                            thickness: 1,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0,0,15,0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20,0,8,8),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                  height: MediaQuery.of(context).size.height*0.14,
+                  ),
+                  Text(name,style: TextStyle(color: Theme.of(context).hintColor ,fontSize: MediaQuery.of(context).size.width*0.05,fontWeight: FontWeight.w900),),
+                  SizedBox(height :MediaQuery.of(context).size.height*0.02),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      height: MediaQuery.of(context).size.height * 0.2,
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      color: Theme.of(context).backgroundColor,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(20,8,8,8),
+                        child: Column(
+                          children: [
+                            Wrap(
+                              // textDirection: TextDirection.ltr,
                               children: [
-                                Text(dealer,style: TextStyle(color: Colors.white),),
-                                Row(
-                                  children: [
-                                    IconButton(
-                                      onPressed: () async{
-  var whatsappURl_android = "whatsapp://send?phone="+number+"&text=Hello";
-  var whatappURL_ios ="https://wa.me/$number?text=${Uri.parse("Hello")}";
-  if(Platform.isIOS){
-    // for iOS phone only
-    if( await canLaunchUrl(Uri(path: whatappURL_ios))){
-       await launchUrl(Uri(path: whatappURL_ios));
-    }else{
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: new Text("whatsapp no installed")));
-    }
-
-  }else{
-    if( await canLaunch(whatsappURl_android)){
-      await launch(whatsappURl_android);
-    }else{
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: new Text("whatsapp no installed")));
-
-    }
-  }
-                                      }, icon: Image.network('https://cdn-icons-png.flaticon.com/512/124/124034.png?w=740&t=st=1656751163~exp=1656751763~hmac=3e5cd586eb711d53069f6ec6c5f9fdbd67c451cca7915d8684aae3d1a53cee94')),
-                                    IconButton(
-                                      color: Theme.of(context).hintColor,
-                                      onPressed: () {
-                                        FlutterPhoneDirectCaller.callNumber(number);
-                                    }, icon: Icon(Icons.phone))
-                                  ],
-                                )
+                                Container(
+                                  width: MediaQuery.of(context).size.width * 0.4,
+                                  child: Row(
+                                    children: [
+                                      Icon(Icons.bed,color: Theme.of(context).hintColor,),
+                                      SizedBox(width: MediaQuery.of(context).size.width*0.01),
+                                      Text(bedrooms.toString() + " Bedrooms",style: TextStyle(color: Theme.of(context).hintColor),)
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  width: MediaQuery.of(context).size.width * 0.4,
+                                  child: Row(
+                                    children: [
+                                      Icon(Icons.bathtub, color: Theme.of(context).hintColor,),
+                                      SizedBox(width: MediaQuery.of(context).size.width*0.01),
+                                      Text(bath.toString() + " Baths",style: TextStyle(color: Theme.of(context).hintColor,fontSize: MediaQuery.of(context).size.width*0.04),)
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: MediaQuery.of(context).size.height*0.015,
+                                  width: MediaQuery.of(context).size.width * 0.9,
+                                  ),
+                                Container(
+                                  width: MediaQuery.of(context).size.width * 0.4,
+                                  child: Row(
+                                    children: [
+                                      Icon(Icons.square_foot_rounded,color: Theme.of(context).hintColor,),
+                                      SizedBox(width: MediaQuery.of(context).size.width*0.01),
+                                      Text(sft.toString() + " sq. ft.",style: TextStyle(color: Theme.of(context).hintColor))
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  width: MediaQuery.of(context).size.width * 0.4,
+                                  child: Row(
+                                    children: [
+                                      Icon(Icons.bed,color: Theme.of(context).hintColor,),
+                                      SizedBox(width: MediaQuery.of(context).size.width*0.01),
+                                      Text(indiaFormat.format(cost) ,style: TextStyle(color: Theme.of(context).hintColor),)
+                                    ],
+                                  ),
+                                ),
                               ],
                             ),
-                          )
-                        ],
+                            SizedBox(height: MediaQuery.of(context).size.height*0.015,),
+                            Divider(
+                              color: Theme.of(context).primaryColor,
+                              thickness: 1,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0,0,15,0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(dealer,style: TextStyle(color: Colors.white),),
+                                  Row(
+                                    children: [
+                                      IconButton(
+                                        onPressed: () async{
+      var whatsappURl_android = "whatsapp://send?phone="+number+"&text=Hello";
+      var whatappURL_ios ="https://wa.me/$number?text=${Uri.parse("Hello")}";
+      if(Platform.isIOS){
+      // for iOS phone only
+      if( await canLaunchUrl(Uri(path: whatappURL_ios))){
+         await launchUrl(Uri(path: whatappURL_ios));
+      }else{
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: new Text("whatsapp no installed")));
+      }
+    
+      }else{
+      if( await canLaunch(whatsappURl_android)){
+        await launch(whatsappURl_android);
+      }else{
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: new Text("whatsapp no installed")));
+    
+      }
+      }
+                                        }, icon: Image.network('https://cdn-icons-png.flaticon.com/512/124/124034.png?w=740&t=st=1656751163~exp=1656751763~hmac=3e5cd586eb711d53069f6ec6c5f9fdbd67c451cca7915d8684aae3d1a53cee94')),
+                                      IconButton(
+                                        color: Theme.of(context).hintColor,
+                                        onPressed: () {
+                                          FlutterPhoneDirectCaller.callNumber(number);
+                                      }, icon: Icon(Icons.phone))
+                                    ],
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          )
-        ],
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

@@ -71,7 +71,7 @@ class MyHomePage extends StatelessWidget {
               FloatingActionButton.extended(
                 heroTag: 'FAQ',
                 onPressed: () {
-                  Navigator.pushReplacement(context,
+                  Navigator.push(context,
                       MaterialPageRoute(builder: (context) => faqpage()));
                 },
                 label: Text('FAQ'),
