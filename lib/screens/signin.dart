@@ -1,11 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:sanbeen_zedital/screens/forgotpassword.dart';
 import 'package:sanbeen_zedital/screens/signup.dart';
+import 'package:http/http.dart' as http;
 
-bool obscure_text = true;
-
-TextEditingController email = TextEditingController();
-TextEditingController password = TextEditingController();
 
 class signin extends StatefulWidget {
   const signin({Key? key}) : super(key: key);
@@ -15,6 +15,48 @@ class signin extends StatefulWidget {
 }
 
 class _signinState extends State<signin> {
+  signin() async{
+      var sign_client = http.Client();
+      var sign_uri = Uri.parse("https://sanbeen-real-estate.herokuapp.com/api/auth/");
+      var sign_response = await sign_client.post(sign_uri,
+      headers: { "Content-Type" : "application/json"},
+      body: jsonEncode({
+        "email": email.text,
+        "password" : password.text
+      }));
+      if (sign_response.statusCode == 200) {
+        Fluttertoast.showToast(
+          msg: "Successful",
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Theme.of(context).hintColor,
+        textColor: Theme.of(context).backgroundColor,
+        fontSize: 16.0
+          );
+      } 
+      else if(sign_response.statusCode == 404) {
+        Fluttertoast.showToast(
+          msg: "Something Went wrong",
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Theme.of(context).hintColor,
+        textColor: Theme.of(context).backgroundColor,
+        fontSize: 16.0
+          );
+      }
+      else {
+        Fluttertoast.showToast(
+          msg: sign_response.body,
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Theme.of(context).hintColor,
+        textColor: Theme.of(context).backgroundColor,
+        fontSize: 16.0
+          );
+      }
+  }
+  
+bool obscure_text = true;
+
+TextEditingController email = TextEditingController();
+TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,7 +169,9 @@ class _signinState extends State<signin> {
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.03),
                       ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            signin();
+                          },
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
                                 Theme.of(context).primaryColor),
