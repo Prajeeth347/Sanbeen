@@ -10,11 +10,17 @@ import 'package:sanbeen_zedital/screens/kdummy.dart';
 import 'package:sanbeen_zedital/screens/profilepage.dart';
 import 'package:sanbeen_zedital/screens/properties(20).dart';
 import 'package:sanbeen_zedital/screens/properties.dart';
+import 'package:sanbeen_zedital/screens/rentals_page.dart';
 import 'package:sanbeen_zedital/screens/signup.dart';
 import 'package:sanbeen_zedital/screens/signin.dart';
 import 'package:sanbeen_zedital/screens/testimonials.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIOverlays([
+     SystemUiOverlay.bottom, //This line is used for showing the bottom bar
+  ]);
   runApp(const MyApp());
 }
 
@@ -194,6 +200,21 @@ class MyHomePage extends StatelessWidget {
                           builder: (context) => exploring_page()));
                 },
                 label: Text('Start Exploring(26)'),
+                backgroundColor: Theme.of(context).hintColor,
+                foregroundColor: Theme.of(context).backgroundColor,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              FloatingActionButton.extended(
+                heroTag: 'Rentals Page(8)',
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => rentals_page()));
+                },
+                label: Text('RentalsPage (8)'),
                 backgroundColor: Theme.of(context).hintColor,
                 foregroundColor: Theme.of(context).backgroundColor,
               ),
