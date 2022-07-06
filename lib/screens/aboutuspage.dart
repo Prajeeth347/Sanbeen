@@ -18,7 +18,7 @@ class aboutus extends StatelessWidget {
             )),
         body: SingleChildScrollView(
             child: Padding(
-                padding: EdgeInsets.fromLTRB(20, 10, 20, 20),
+                padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -28,10 +28,11 @@ class aboutus extends StatelessWidget {
                               fontSize: 24)),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.03),
-                      Image.asset('assets/images/photo.jpg'),
+                      Image.network(
+                          'https://st2.depositphotos.com/1006472/5665/i/600/depositphotos_56658541-stock-photo-faceless-hooded-anonymous-computer-hacker.jpg'),
                       SizedBox(width: MediaQuery.of(context).size.width * 0.8),
                       Padding(
-                          padding: EdgeInsets.fromLTRB(30, 30, 30, 0),
+                          padding: const EdgeInsets.fromLTRB(30, 30, 30, 0),
                           child: Text(
                               'To lose fat, you need to consume fewer calories than you burn each day and exercise regularly. Frequent physical activity helps get rid of fat. If you lose weight without exercise. you are more likely to lose both muscle and fat.',
                               style: TextStyle(
@@ -40,7 +41,7 @@ class aboutus extends StatelessWidget {
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.03),
                       Padding(
-                          padding: EdgeInsets.fromLTRB(30, 0, 30, 30),
+                          padding: const EdgeInsets.fromLTRB(30, 0, 30, 30),
                           child: Text(
                               'To lose fat, you need to consume fewer calories than you burn each day and exercise regularly. Frequent physical activity helps get rid of fat. If you lose weight without exercise. you are more likely to lose both muscle and fat.',
                               style: TextStyle(

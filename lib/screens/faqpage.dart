@@ -53,7 +53,7 @@ class _faqpageState extends State<faqpage> {
                   Text(
                       'To lose fat, you need to consume fewer calories than you burn each day and exercise regularly. Frequent physical activity helps get rid of fat. If you lose weight without exercise. you are more likely to lose both muscle and fat.',
                       style: TextStyle(
-                          color: Theme.of(context).primaryColor, fontSize: 18)),
+                          color: Theme.of(context).hintColor, fontSize: 14)),
                 ],
               ),
               ExpansionTile(
@@ -68,7 +68,7 @@ class _faqpageState extends State<faqpage> {
                   Text(
                       'To lose fat, you need to consume fewer calories than you burn each day and exercise regularly. Frequent physical activity helps get rid of fat. If you lose weight without exercise. you are more likely to lose both muscle and fat.',
                       style: TextStyle(
-                          color: Theme.of(context).primaryColor, fontSize: 18)),
+                          color: Theme.of(context).hintColor, fontSize: 14)),
                 ],
               ),
               ExpansionTile(
@@ -83,7 +83,7 @@ class _faqpageState extends State<faqpage> {
                   Text(
                       'To lose fat, you need to consume fewer calories than you burn each day and exercise regularly. Frequent physical activity helps get rid of fat. If you lose weight without exercise. you are more likely to lose both muscle and fat.',
                       style: TextStyle(
-                          color: Theme.of(context).primaryColor, fontSize: 18)),
+                          color: Theme.of(context).hintColor, fontSize: 14)),
                 ],
               ),
               ExpansionTile(
@@ -98,7 +98,7 @@ class _faqpageState extends State<faqpage> {
                   Text(
                       'To lose fat, you need to consume fewer calories than you burn each day and exercise regularly. Frequent physical activity helps get rid of fat. If you lose weight without exercise. you are more likely to lose both muscle and fat.',
                       style: TextStyle(
-                          color: Theme.of(context).primaryColor, fontSize: 18)),
+                          color: Theme.of(context).hintColor, fontSize: 14)),
                 ],
               ),
               ExpansionTile(
@@ -113,19 +113,20 @@ class _faqpageState extends State<faqpage> {
                   Text(
                       'To lose fat, you need to consume fewer calories than you burn each day and exercise regularly. Frequent physical activity helps get rid of fat. If you lose weight without exercise. you are more likely to lose both muscle and fat.',
                       style: TextStyle(
-                          color: Theme.of(context).primaryColor, fontSize: 18)),
+                          color: Theme.of(context).hintColor, fontSize: 14)),
                 ],
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.09),
               Text('Contact Us',
                   style: TextStyle(
-                      color: Theme.of(context).primaryColor, fontSize: 20)),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+                      color: Theme.of(context).primaryColor, fontSize: 22)),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               TextButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    launchUrlString(
+                        'mailto:sanbeen@gmail.com?subject=This is Subject Title&body=This is Body of Email');
                   },
-                  child: Text('mail',
+                  child: Text('sanbeen@gmail.com',
                       style: TextStyle(
                           color: Theme.of(context).primaryColor, fontSize: 18)))
             ],
