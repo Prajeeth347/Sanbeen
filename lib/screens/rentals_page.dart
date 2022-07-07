@@ -174,6 +174,7 @@ class _rental_bodyState extends State<rental_body> {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: ((context, index) {
+                  if(property![index].propertyMode == "rent" )
                   return GestureDetector(
                     onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(builder: (context) => property_single_page(id: property![index].id)));
@@ -211,6 +212,7 @@ class _rental_bodyState extends State<rental_body> {
                       ],
                     ),
                   );
+                  return Container();
                 })
                 ),
             )
