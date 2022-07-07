@@ -91,7 +91,7 @@ class properties_20_card extends StatelessWidget {
             Align(
               alignment: Alignment.topRight,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(0,25,15,0),
+                padding: const EdgeInsets.fromLTRB(0,45,15,0),
                 child: IconButton(onPressed: (){}, icon: Icon(Icons.favorite_outline,size: MediaQuery.of(context).size.width*0.09,)),
               ),
             ),
