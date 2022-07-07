@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sanbeen_zedital/screens/forgotpassword.dart';
-import 'package:sanbeen_zedital/screens/signup.dart';
-
-TextEditingController email = TextEditingController();
-TextEditingController password = TextEditingController();
-
-bool obscure_text = true;
+import 'package:flutter/services.dart';
 
 class hdummy extends StatefulWidget {
+  const hdummy({Key? key}) : super(key: key);
   @override
   State<hdummy> createState() => _hdummyState();
 }
@@ -16,159 +11,132 @@ class _hdummyState extends State<hdummy> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          shadowColor: Colors.black,
+          backgroundColor: Colors.black,
+          automaticallyImplyLeading: true,
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Theme.of(context).primaryColor,
+              size: 40,
+            ),
+            onPressed: () => Navigator.pop(context, false),
+          )),
       backgroundColor: Theme.of(context).backgroundColor,
-      body: SingleChildScrollView(
-        child: Stack(
+      body: Container(
+        margin: const EdgeInsets.only(top: 20, left: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
-              'assets/images/background.png',
-              height: MediaQuery.of(context).size.height * 0.8,
-              width: MediaQuery.of(context).size.width * 1,
+            Text(
+              "My Shortlisted Properties",
+              style: TextStyle(
+                  fontSize: 25,
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.w400),
             ),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.18),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(115, 15, 115, 15),
-                        child: Image.asset('assets/images/logo.jpeg'),
-                      ),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.04),
-                      Text('SANBEEN REAL ESTATE',
-                          style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 22)),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.01),
-                      Text('& Realtors Pvt.Ltd.',
-                          style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 19)),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.03),
-                      TextField(
-                          controller: email,
-                          keyboardType: TextInputType.emailAddress,
-                          cursorColor: Theme.of(context).primaryColor,
-                          style: TextStyle(color: Theme.of(context).hintColor),
-                          decoration: InputDecoration(
-                            enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Theme.of(context).primaryColor,
-                                    width: 1)),
-                            labelText: 'Email',
-                            labelStyle: TextStyle(
-                                color: Theme.of(context).primaryColor,
-                                backgroundColor:
-                                    Theme.of(context).backgroundColor,
-                                fontSize: 18),
-                          )),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.02),
-                      TextField(
-                          controller: password,
-                          keyboardType: TextInputType.visiblePassword,
-                          cursorColor: Theme.of(context).primaryColor,
-                          obscureText: obscure_text,
-                          obscuringCharacter: '*',
-                          style: TextStyle(color: Theme.of(context).hintColor),
-                          decoration: InputDecoration(
-                            suffixIcon: IconButton(
-                              onPressed: () {
-                                setState(
-                                  () {
-                                    obscure_text = !obscure_text;
-                                  },
-                                );
-                              },
-                              icon: Icon(obscure_text
-                                  ? Icons.visibility
-                                  : Icons.visibility_off),
-                              color: Theme.of(context).primaryColor,
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: Theme.of(context).primaryColor,
-                                    width: 1)),
-                            labelText: 'Password',
-                            labelStyle: TextStyle(
-                                color: Theme.of(context).primaryColor,
-                                backgroundColor:
-                                    Theme.of(context).backgroundColor,
-                                fontSize: 18),
-                          )),
-                      TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => forgotpassword()));
-                          },
-                          child: Container(
-                            alignment: Alignment.bottomRight,
-                            child: Text(
-                              'Forgot Password?',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w300,
-                                color: Theme.of(context).hintColor,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          )),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.03),
-                      ElevatedButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                Theme.of(context).primaryColor),
-                          ),
-                          child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  75, 15, 75, 15),
-                              child: Text(
-                                'LOGIN',
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Theme.of(context).hintColor,
-                                    backgroundColor:
-                                        Theme.of(context).primaryColor),
-                                textAlign: TextAlign.center,
-                              ))),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.01),
-                      TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => signup()));
-                          },
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                5, 5, 5, 5),
-                            child: Text(
-                              'Don`t have an account? Join us',
-                              style: TextStyle(
-                                fontSize: 15,
-                                color: Theme.of(context).primaryColor,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          )),
-                    ]),
-              ),
-            ),
+            PropCard('Hello'),
           ],
         ),
       ),
+    );
+  }
+}
+
+class PropCard extends StatelessWidget {
+  final String data;
+  PropCard(this.data);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.3,
+      margin: const EdgeInsets.only(top: 40),
+      padding: const EdgeInsets.only(top: 8, bottom: 8),
+      width: double.infinity,
+      color: Theme.of(context).primaryColor,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width * 0.4,
+                height: MediaQuery.of(context).size.height * 0.2,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                  fit: BoxFit.cover,
+                  alignment: FractionalOffset.topCenter,
+                  image: NetworkImage(
+                      'https://th.bing.com/th/id/R.82e80518e2ec87c48cd0575b3748114c?rik=ILHiYtEAreCL5A&riu=http%3a%2f%2fwww.marvelrealtors.com%2fwp-content%2fuploads%2f2015%2f08%2fHero-Image3.jpg&ehk=Km7ABIhunVf%2fzkqtDFWICFwD3djYu8iQkuhbCBsjTNc%3d&risl=&pid=ImgRaw&r=0'),
+                )),
+              ),
+              Container(
+                  padding: const EdgeInsets.only(left: 20, top: 5, bottom: 5),
+                  width: 220,
+                  height: 150,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Delhi Apartments',
+                        style: TextStyle(
+                            color: Theme.of(context).backgroundColor,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      Text(
+                        'Rs:40,000(per month)',
+                        style: TextStyle(
+                            color: Theme.of(context).backgroundColor,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      Text(
+                        'South Delhi',
+                        style: TextStyle(
+                            color: Theme.of(context).backgroundColor,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      Text(
+                        'Rental 3BHK',
+                        style: TextStyle(
+                            color: Theme.of(context).backgroundColor,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      Text(
+                        'Owner - Kathika Nair',
+                        style: TextStyle(
+                            color: Theme.of(context).backgroundColor,
+                            fontSize: MediaQuery.of(context).size.width * 0.03,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  )),
+            ],
+          ),
+          Container(
+            // margin: EdgeInsets.only(right: 20),
+            color: Theme.of(context).backgroundColor,
+            padding:
+                EdgeInsets.only(top: 1.5, bottom: 1.5, left: 30, right: 30),
+            child: Text(
+              'Call Owner',
+              style: TextStyle(
+                  color: Theme.of(context).primaryColor, fontSize: 18),
+            ),
+          )
+        ],
+      ),
+
+      //  const Text(
+      //   'Viewed',
+      //   style: TextStyle(color: Theme.of(context).primaryColor),
+      // ),
     );
   }
 }
