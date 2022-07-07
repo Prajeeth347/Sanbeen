@@ -19,7 +19,7 @@ import 'package:flutter/services.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIOverlays([
-     SystemUiOverlay.bottom, //This line is used for showing the bottom bar
+    SystemUiOverlay.bottom, //This line is used for showing the bottom bar
   ]);
   runApp(const MyApp());
 }
@@ -209,10 +209,8 @@ class MyHomePage extends StatelessWidget {
               FloatingActionButton.extended(
                 heroTag: 'Rentals Page(8)',
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => rentals_page()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => rentals_page()));
                 },
                 label: Text('RentalsPage (8)'),
                 backgroundColor: Theme.of(context).hintColor,
