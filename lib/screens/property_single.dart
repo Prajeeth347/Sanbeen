@@ -69,12 +69,7 @@ class _property_single_pageState extends State<property_single_page> {
     final TextTheme textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
-      appBar: property != null ? null:  AppBar(
-        backgroundColor: Theme.of(context).backgroundColor,
-        leading: IconButton(onPressed: () {
-          Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back,color: Theme.of(context).primaryColor,)),
-      ),
+      
         backgroundColor: Theme.of(context).backgroundColor,
         body: property == null ?LinearProgressIndicator(color: Theme.of(context).primaryColor,) : NestedScrollView(
           controller: _scrollController,
