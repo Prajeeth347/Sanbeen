@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sanbeen_zedital/drawers/main_drawer.dart';
 import 'package:sanbeen_zedital/models/properties_model(20).dart';
+import 'package:sanbeen_zedital/screens/aboutuspage.dart';
+import 'package:sanbeen_zedital/screens/begin_posting.dart';
 import 'package:sanbeen_zedital/screens/profilepage.dart';
 import 'package:sanbeen_zedital/screens/properties(20).dart';
 import 'package:sanbeen_zedital/screens/property_display.dart';
@@ -100,7 +103,7 @@ class _rentals_pageState extends State<rentals_page> {
             ],
           ),
         ),
-    drawer: Drawer(),
+    drawer: main_drawer(user_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjjYXm0bKrsV1VZPuyaq-j009UD1aBDCUz5A&usqp=CAU",),
     );
   }
   Widget searchField() {
