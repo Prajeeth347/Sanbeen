@@ -5,6 +5,7 @@ import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:intl/intl.dart';
 import 'package:sanbeen_zedital/models/properties_model(20).dart';
 import 'package:sanbeen_zedital/screens/property_display.dart';
+import 'package:sanbeen_zedital/screens/property_single.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -79,11 +80,11 @@ class properties_20_card extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => property_display(id: id)));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => property_single_page(id: id)));
       },
       child: Container(
         width: MediaQuery.of(context).size.width*0.97,
-        height: MediaQuery.of(context).size.height*0.4,
+        height: MediaQuery.of(context).size.height*0.41,
         child: Stack(
           children: <Widget>[
             Image.network(img,height: MediaQuery.of(context).size.height*0.4,width: MediaQuery.of(context).size.width*0.97),
@@ -100,14 +101,14 @@ class properties_20_card extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                  height: MediaQuery.of(context).size.height*0.14,
+                  height: MediaQuery.of(context).size.height*0.13,
                   ),
                   Text(name,style: TextStyle(color: Theme.of(context).hintColor ,fontSize: MediaQuery.of(context).size.width*0.05,fontWeight: FontWeight.w900),),
                   SizedBox(height :MediaQuery.of(context).size.height*0.02),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Container(
-                      height: MediaQuery.of(context).size.height * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.21,
                       width: MediaQuery.of(context).size.width * 0.9,
                       color: Theme.of(context).backgroundColor,
                       child: Padding(

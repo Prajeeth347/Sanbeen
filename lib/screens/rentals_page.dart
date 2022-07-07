@@ -3,6 +3,7 @@ import 'package:sanbeen_zedital/models/properties_model(20).dart';
 import 'package:sanbeen_zedital/screens/profilepage.dart';
 import 'package:sanbeen_zedital/screens/properties(20).dart';
 import 'package:sanbeen_zedital/screens/property_display.dart';
+import 'package:sanbeen_zedital/screens/property_single.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
 
 class rentals_page extends StatefulWidget {
@@ -175,7 +176,7 @@ class _rental_bodyState extends State<rental_body> {
                 itemBuilder: ((context, index) {
                   return GestureDetector(
                     onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => property_display(id: property![index].id)));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => property_single_page(id: property![index].id)));
                     },
                     child: Column(
                       children: [
