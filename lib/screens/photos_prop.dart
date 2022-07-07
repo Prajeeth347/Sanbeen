@@ -10,15 +10,49 @@ class photos_prop extends StatefulWidget {
 }
 
 class _photos_propState extends State<photos_prop> {
-  File? image;
+  List<File?> image = [];
   final picker = ImagePicker();
-
-  Future<void> chooseImage() async {
+  void choose_source() {
+    showDialog(
+           context: context,
+           builder: (BuildContext context) {
+                    return SimpleDialog(
+              title:const Text('Select the source'),
+              children: <Widget>[
+                 SimpleDialogOption(
+                       onPressed: () { 
+                        chooseImage_camera();
+                        Navigator.of(context).pop();
+                       },
+                            child:const Text('Camera'),
+                         ),
+                  SimpleDialogOption(
+                     onPressed: () { 
+                      chooseImage_gallery();
+                        Navigator.of(context).pop();
+                     },
+                  child: const Text('Gallery'),
+              ),
+       ],
+  );
+       },
+  );
+  }
+  Future<void> chooseImage_camera() async {
     final XFile? pickedImage =
         await picker.pickImage(source: ImageSource.camera);
     if (pickedImage != null) {
       setState(() {
-        image = File(pickedImage.path);
+        image.add(File(pickedImage.path));
+      });
+    }
+  }
+  Future<void> chooseImage_gallery() async {
+    final XFile? pickedImage =
+        await picker.pickImage(source: ImageSource.gallery);
+    if (pickedImage != null) {
+      setState(() {
+        image.add(File(pickedImage.path));
       });
     }
   }
@@ -57,29 +91,88 @@ class _photos_propState extends State<photos_prop> {
                           color: Theme.of(context).primaryColor,
                           fontSize: MediaQuery.of(context).size.width * 0.04),
                     )),
-                //backgroundColor: Theme.of(context).backgroundColor,
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.03,
                 ),
-                Container(
-                    height: MediaQuery.of(context).size.height * 0.2,
-                    width: MediaQuery.of(context).size.width * 0.4,
-                    color: Colors.blue,
-                    alignment: Alignment.center,
-                    child: IconButton(
-                        onPressed: () => chooseImage(),
-                        icon: Icon(Icons.add_a_photo))),
+                if(image.length == 0)
+                GestureDetector(
+                  onTap: () {
+                    choose_source();
+                  },
+                  child: Container(
+                      height: MediaQuery.of(context).size.height * 0.2,
+                      width: MediaQuery.of(context).size.width * 0.7,
+                      color: Theme.of(context).hintColor,
+                      alignment: Alignment.center,
+                      child: Container(
+                        child: Icon(
+                            Icons.add_circle,color: Theme.of(context).backgroundColor,
+                            size: MediaQuery.of(context).size.width*0.07,
+                            ),
+                      )),
+                ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),
-                Container(
-                    height: MediaQuery.of(context).size.height * 0.2,
-                    width: MediaQuery.of(context).size.width * 0.35,
-                    color: Colors.blue,
-                    alignment: Alignment.center,
-                    child: image != null
-                        ? Image.file(image!, fit: BoxFit.cover)
-                        : const Text('image please')),
+                
+                if(image.length != 0)
+                    ListView.builder(
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: image.length,
+                      itemBuilder: (context, index) {
+                        return Column(
+                          children: [
+                            Image.file(
+                            height: MediaQuery.of(context).size.height * 0.2,
+                            width: MediaQuery.of(context).size.width * 0.7,
+                            image[0]!, fit: BoxFit.cover
+                            ),
+                            SizedBox(height: 40)
+                          ],
+                        );
+                      },
+                    ),
+                    if(image.length >0 && image.length <3)
+                       ElevatedButton(
+                      onPressed: () {
+                        choose_source();
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            Theme.of(context).primaryColor),
+                      ),
+                      child: Padding(
+                          padding:
+                              const EdgeInsetsDirectional.fromSTEB(25, 0, 25, 0),
+                          child: Text(
+                            'Add more',
+                            style: TextStyle(
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.04,
+                                color: Theme.of(context).hintColor),
+                            textAlign: TextAlign.center,
+                          ))),
+                    if(image.length != 0)
+                       ElevatedButton(
+                      onPressed: () {
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            Theme.of(context).primaryColor),
+                      ),
+                      child: Padding(
+                          padding:
+                              const EdgeInsetsDirectional.fromSTEB(25, 0, 25, 0),
+                          child: Text(
+                            'Post',
+                            style: TextStyle(
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.04,
+                                color: Theme.of(context).hintColor),
+                            textAlign: TextAlign.center,
+                          )))
               ]),
         ));
   }

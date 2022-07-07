@@ -13,6 +13,8 @@ class properties extends StatefulWidget {
 }
 
 class _propertiesState extends State<properties> {
+  var indiaFormat = NumberFormat.compactSimpleCurrency(locale: 'en_IN');
+
   List<Properties>? property;
   var _prop_loaded = false;
   @override
@@ -118,117 +120,136 @@ class properties_card extends StatelessWidget {
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => property_single_page(id: id)));
         },
-        child: Column(
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width * 0.9,
-              height: MediaQuery.of(context).size.height * 0.28,
-              color: Theme.of(context).primaryColor,
-              child: Column(children: [
-                Row(children: [
-                  Stack(children: <Widget>[
-                    Image.network(img,
-                        height: MediaQuery.of(context).size.height * 0.21,
-                        width: MediaQuery.of(context).size.width * 0.45,
-                        fit: BoxFit.cover),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                        child: IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.favorite_outline,
-                              size: MediaQuery.of(context).size.width * 0.08,
-                            )),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Column(
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: MediaQuery.of(context).size.height * 0.28,
+                color: Theme.of(context).primaryColor,
+                child: Column(children: [
+                  Row(children: [
+                    Stack(children: <Widget>[
+                      Image.network(img,
+                          height: MediaQuery.of(context).size.height * 0.21,
+                          width: MediaQuery.of(context).size.width * 0.45,
+                          fit: BoxFit.cover),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                          child: IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.favorite_outline,
+                                size: MediaQuery.of(context).size.width * 0.08,
+                              )),
+                        ),
                       ),
+                    ]),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.03,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text(
+                          name.toString(),
+                          style: TextStyle(
+                              color: Theme.of(context).backgroundColor,
+                              fontSize: MediaQuery.of(context).size.width * 0.04,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.02,
+                        ),
+                        Text(
+                          indiaFormat.format(cost),
+                          style: TextStyle(
+                              color: Theme.of(context).backgroundColor,
+                              fontSize: MediaQuery.of(context).size.width * 0.04,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.02,
+                        ),
+                        Text(
+                          city.toString(),
+                          style: TextStyle(
+                              color: Theme.of(context).backgroundColor,
+                              fontSize: MediaQuery.of(context).size.width * 0.04,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.02,
+                        ),
+                        Text(
+                          bedrooms.toString() + "BHK",
+                          style: TextStyle(
+                              color: Theme.of(context).backgroundColor,
+                              fontSize: MediaQuery.of(context).size.width * 0.04,
+                              fontWeight: FontWeight.w500),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.005,
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              "Owner - ",
+                              style: TextStyle(
+                                  color: Theme.of(context).backgroundColor,
+                                  fontSize: MediaQuery.of(context).size.width * 0.030,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.30,
+                              child: Text(
+                                dealer.toString(),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 2,
+                                style: TextStyle(
+                                    color: Theme.of(context).backgroundColor,
+                                    fontSize: MediaQuery.of(context).size.width * 0.030,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ]),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.03,
+                    height: MediaQuery.of(context).size.height * 0.005,
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text(
-                        name.toString(),
-                        style: TextStyle(
-                            color: Theme.of(context).backgroundColor,
-                            fontSize: MediaQuery.of(context).size.width * 0.04,
-                            fontWeight: FontWeight.w500),
+                  ElevatedButton(
+                      onPressed: () {
+                        FlutterPhoneDirectCaller.callNumber('7989772884');
+                      },
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                            Theme.of(context).backgroundColor),
                       ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.02,
-                      ),
-                      Text(
-                        cost.toString(),
-                        style: TextStyle(
-                            color: Theme.of(context).backgroundColor,
-                            fontSize: MediaQuery.of(context).size.width * 0.04,
-                            fontWeight: FontWeight.w500),
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.02,
-                      ),
-                      Text(
-                        city.toString(),
-                        style: TextStyle(
-                            color: Theme.of(context).backgroundColor,
-                            fontSize: MediaQuery.of(context).size.width * 0.04,
-                            fontWeight: FontWeight.w500),
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.02,
-                      ),
-                      Text(
-                        bedrooms.toString() + "BHK",
-                        style: TextStyle(
-                            color: Theme.of(context).backgroundColor,
-                            fontSize: MediaQuery.of(context).size.width * 0.04,
-                            fontWeight: FontWeight.w500),
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.005,
-                      ),
-                      Text(
-                        "Owner - " + dealer.toString(),
-                        style: TextStyle(
-                            color: Theme.of(context).backgroundColor,
-                            fontSize: MediaQuery.of(context).size.width * 0.022,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
+                      child: Padding(
+                          padding:
+                              const EdgeInsetsDirectional.fromSTEB(25, 0, 25, 0),
+                          child: Text(
+                            'Call Owner',
+                            style: TextStyle(
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.04,
+                                color: Theme.of(context).primaryColor),
+                            textAlign: TextAlign.center,
+                          )))
                 ]),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.005,
-                ),
-                ElevatedButton(
-                    onPressed: () {
-                      FlutterPhoneDirectCaller.callNumber('7989772884');
-                    },
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                          Theme.of(context).backgroundColor),
-                    ),
-                    child: Padding(
-                        padding:
-                            const EdgeInsetsDirectional.fromSTEB(25, 0, 25, 0),
-                        child: Text(
-                          'Call Owner',
-                          style: TextStyle(
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.04,
-                              color: Theme.of(context).primaryColor),
-                          textAlign: TextAlign.center,
-                        )))
-              ]),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.03,
-            )
-          ],
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.03,
+              )
+            ],
+          ),
         ));
   }
 }
