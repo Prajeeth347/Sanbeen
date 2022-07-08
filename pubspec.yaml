@@ -68,8 +68,8 @@ flutter:
   assets:
     - assets/images/logo.jpeg
     - assets/images/background.png
-    # - assets/images/
-    # - assets/images/
+    - assets/images/house.png
+    - assets/images/bill.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

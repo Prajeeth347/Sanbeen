@@ -10,14 +10,14 @@ import 'package:sanbeen_zedital/screens/property_display.dart';
 import 'package:sanbeen_zedital/screens/property_single.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
 
-class rentals_page extends StatefulWidget {
-  const rentals_page({Key? key}) : super(key: key);
+class buying_prop_page extends StatefulWidget {
+  const buying_prop_page({Key? key}) : super(key: key);
 
   @override
-  State<rentals_page> createState() => _rentals_pageState();
+  State<buying_prop_page> createState() => _buying_prop_pageState();
 }
 
-class _rentals_pageState extends State<rentals_page> {
+class _buying_prop_pageState extends State<buying_prop_page> {
   ScrollController? _scrollController;
   bool lastStatus = true;
   double height = 200;
@@ -102,7 +102,7 @@ class _rentals_pageState extends State<rentals_page> {
             SliverList(
               delegate: SliverChildBuilderDelegate(
                 (BuildContext context, int index) {
-                  return rental_body();
+                  return buy_prop_body();
                 },
                 childCount: 1,
               ),
@@ -134,16 +134,16 @@ class _rentals_pageState extends State<rentals_page> {
   }
 }
 
-class rental_body extends StatefulWidget {
-  const rental_body({
+class buy_prop_body extends StatefulWidget {
+  const buy_prop_body({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<rental_body> createState() => _rental_bodyState();
+  State<buy_prop_body> createState() => _buy_prop_bodyState();
 }
 
-class _rental_bodyState extends State<rental_body> {
+class _buy_prop_bodyState extends State<buy_prop_body> {
   List<Properties>? property;
   var _prop_20_loaded = false;
   @override
@@ -172,7 +172,7 @@ class _rental_bodyState extends State<rental_body> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Recently Posted Properties",
+                "Recommended Properties",
                 style: TextStyle(
                     color: Theme.of(context).primaryColor,
                     fontSize: MediaQuery.of(context).size.width * 0.05),
@@ -185,7 +185,7 @@ class _rental_bodyState extends State<rental_body> {
                 child: Text("View all",
                     style: TextStyle(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.width * 0.04,
+                        fontSize: MediaQuery.of(context).size.width * 0.033,
                         decoration: TextDecoration.underline)),
               )
             ],
@@ -204,7 +204,7 @@ class _rental_bodyState extends State<rental_body> {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: ((context, index) {
-                  if (property![index].propertyMode == "rent")
+                  if (property![index].propertyMode == "sell")
                     return GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
@@ -272,60 +272,64 @@ class _rental_bodyState extends State<rental_body> {
                     height: MediaQuery.of(context).size.height * 0.03,
                   ),
                   Text(
-                    'Want to sell/rent',
+                    'Introducing new ways',
                     style: TextStyle(
                         color: Theme.of(context).backgroundColor,
-                        fontSize: MediaQuery.of(context).size.width * 0.055,
-                        fontWeight: FontWeight.w500),
+                        fontSize: MediaQuery.of(context).size.width * 0.05,
+                        fontWeight: FontWeight.w600),
                     textAlign: TextAlign.left,
                   ),
                   Text(
-                    'your property?',
+                    'of paying rent',
                     style: TextStyle(
                         color: Theme.of(context).backgroundColor,
-                        fontSize: MediaQuery.of(context).size.width * 0.055,
-                        fontWeight: FontWeight.w500),
+                        fontSize: MediaQuery.of(context).size.width * 0.05,
+                        fontWeight: FontWeight.w600),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.02,
+                    height: MediaQuery.of(context).size.height * 0.01,
                   ),
-                  ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => begin_posting()));
-                          },
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                Theme.of(context).backgroundColor),
-                          ),
-                          child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10, 0, 10, 0),
-                              child: Text(
-                                'Post Property',
-                                style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width *
-                                            0.04,
-                                    color: Theme.of(context).primaryColor),
-                                textAlign: TextAlign.center,
-                              ))))
+                  Text(
+                    '100% secure | Lowest Convinience Fee',
+                    style: TextStyle(
+                        color: Theme.of(context).backgroundColor,
+                        fontSize: MediaQuery.of(context).size.width * 0.03,
+                        fontWeight: FontWeight.w400),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.015,
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => begin_posting()));
+                      },
+                      child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              10, 0, 10, 0),
+                          child: Text(
+                            'Pay Rent Now  ->',
+                            style: TextStyle(
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.04,
+                                color: Theme.of(context).backgroundColor),
+                            textAlign: TextAlign.center,
+                          )))
                 ],
               ),
               SizedBox(
-                width: MediaQuery.of(context).size.width * 0.06,
+                width: MediaQuery.of(context).size.width * 0.000001,
               ),
               Container(
                 height: MediaQuery.of(context).size.height * 0.19,
                 width: MediaQuery.of(context).size.width * 0.3,
                 alignment: Alignment.centerRight,
                 child: Image.asset(
-                  'assets/images/house.png',
+                  'assets/images/bill.png',
                   fit: BoxFit.cover,
                 ),
               )
@@ -336,7 +340,7 @@ class _rental_bodyState extends State<rental_body> {
           height: MediaQuery.of(context).size.height * 0.02,
         ),
         Text(
-          "Rental Collections",
+          " Collections",
           style: TextStyle(
               color: Theme.of(context).primaryColor,
               fontSize: MediaQuery.of(context).size.width * 0.05),
