@@ -11,6 +11,7 @@ import 'package:sanbeen_zedital/screens/profilepage.dart';
 import 'package:sanbeen_zedital/screens/properties(20).dart';
 import 'package:sanbeen_zedital/screens/properties.dart';
 import 'package:sanbeen_zedital/screens/rentals_page.dart';
+import 'package:sanbeen_zedital/screens/buy_prop_page.dart';
 import 'package:sanbeen_zedital/screens/signup.dart';
 import 'package:sanbeen_zedital/screens/signin.dart';
 import 'package:sanbeen_zedital/screens/testimonials.dart';
@@ -169,7 +170,7 @@ class MyHomePage extends StatelessWidget {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => properties()));
                 },
-                label: Text('Properties'),
+                label: Text('Shortlisted Properties(17)'),
                 backgroundColor: Theme.of(context).hintColor,
                 foregroundColor: Theme.of(context).backgroundColor,
               ),
@@ -211,6 +212,21 @@ class MyHomePage extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => rentals_page()));
                 },
                 label: Text('RentalsPage (8)'),
+                backgroundColor: Theme.of(context).hintColor,
+                foregroundColor: Theme.of(context).backgroundColor,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              FloatingActionButton.extended(
+                heroTag: 'buying properties Page(8)',
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => buying_prop_page()));
+                },
+                label: Text('buying properties Page (19)'),
                 backgroundColor: Theme.of(context).hintColor,
                 foregroundColor: Theme.of(context).backgroundColor,
               ),
