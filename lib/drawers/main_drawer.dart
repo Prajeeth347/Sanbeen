@@ -15,20 +15,47 @@ class main_drawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          DrawerHeader(
-            decoration: BoxDecoration(
-              // color: Theme.of(context).primaryColor,
-              image: DecorationImage(
+          // DrawerHeader(
+          //   decoration: BoxDecoration(
+          //     // color: Theme.of(context).primaryColor,
+          //     image: DecorationImage(
+          //       fit: BoxFit.cover,
+          //       image: NetworkImage(
+          //         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuw2csIYaS7KuekqlPBYserItx4Mfv-T6tuQ&usqp=CAU"),
+          //     ),
+          //   ),
+          //   child: Column(
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          //       SizedBox(height: MediaQuery.of(context).size.height*0.075),
+          //       Row(
+          //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //         children: [
+          //         CircleAvatar(
+          //         backgroundImage: NetworkImage(user_image),
+          //         minRadius: MediaQuery.of(context).size.width * 0.1,
+          //       ),
+          //       Container()
+          //         ],
+          //       )
+                
+          //     ],
+          //   )
+          // ),
+          Stack(
+            children:[
+              Image.network(
                 fit: BoxFit.cover,
-                image: NetworkImage(
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuw2csIYaS7KuekqlPBYserItx4Mfv-T6tuQ&usqp=CAU"),
-              ),
-            ),
-            child: Column(
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height*0.19,
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuw2csIYaS7KuekqlPBYserItx4Mfv-T6tuQ&usqp=CAU"),
+              Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: MediaQuery.of(context).size.height*0.075),
-                Row(
+                SizedBox(height: MediaQuery.of(context).size.height*0.12),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                  child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                   CircleAvatar(
@@ -37,11 +64,11 @@ class main_drawer extends StatelessWidget {
                 ),
                 Container()
                   ],
-                )
-                
-              ],
-            )
-          ),
+                ),)
+              ]
+              ),
+              ]
+              ),
           ListTile(
             iconColor: Theme.of(context).backgroundColor,
             textColor: Theme.of(context).backgroundColor,
