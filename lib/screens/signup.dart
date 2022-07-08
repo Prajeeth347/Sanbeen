@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
-TextEditingController email = TextEditingController();
+class signup extends StatefulWidget {
+  const signup({Key? key}) : super(key: key);
+
+  @override
+  State<signup> createState() => _signupState();
+}
+
+class _signupState extends State<signup> {
+  bool obscure_text = true;
+  TextEditingController email = TextEditingController();
 TextEditingController password = TextEditingController();
 TextEditingController firstname = TextEditingController();
 TextEditingController lastname = TextEditingController();
-
-class signup extends StatelessWidget {
-  const signup({Key? key}) : super(key: key);
-
+TextEditingController mobile_no = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,11 +99,44 @@ class signup extends StatelessWidget {
                         )),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                     TextField(
+                        controller: mobile_no,
+                        keyboardType: TextInputType.emailAddress,
+                        cursorColor: Theme.of(context).primaryColor,
+                        style: TextStyle(color: Theme.of(context).hintColor),
+                        decoration: InputDecoration(
+                          enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Theme.of(context).primaryColor,
+                                  width: 1)),
+                          labelText: 'Contact No.',
+                          labelStyle: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              backgroundColor:
+                                  Theme.of(context).backgroundColor,
+                              fontSize: 18),
+                        )),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                    TextField(
                         controller: password,
                         keyboardType: TextInputType.visiblePassword,
                         cursorColor: Theme.of(context).primaryColor,
                         style: TextStyle(color: Theme.of(context).hintColor),
+                        obscureText: obscure_text,
+                        obscuringCharacter: '*',
                         decoration: InputDecoration(
+                          suffixIcon: IconButton(
+                              onPressed: () {
+                                setState(
+                                  () {
+                                    obscure_text = !obscure_text;
+                                  },
+                                );
+                              },
+                              icon: Icon(obscure_text
+                                  ? Icons.visibility
+                                  : Icons.visibility_off),
+                              color: Theme.of(context).primaryColor,
+                            ),
                           enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                   color: Theme.of(context).primaryColor,

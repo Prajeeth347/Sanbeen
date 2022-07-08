@@ -16,6 +16,7 @@ class signin extends StatefulWidget {
 
 class _signinState extends State<signin> {
   signin() async{
+    Map<String, dynamic> responseMap;
       var sign_client = http.Client();
       var sign_uri = Uri.parse("https://sanbeen-real-estate.herokuapp.com/api/auth/");
       var sign_response = await sign_client.post(sign_uri,
@@ -25,6 +26,8 @@ class _signinState extends State<signin> {
         "password" : password.text
       }));
       if (sign_response.statusCode == 200) {
+        responseMap = jsonDecode(sign_response.body);
+        print(responseMap.toString());
         Fluttertoast.showToast(
           msg: "Successful",
         gravity: ToastGravity.BOTTOM,
