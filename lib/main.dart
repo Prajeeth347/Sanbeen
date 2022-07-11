@@ -86,29 +86,6 @@ class MyHomePage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              FloatingActionButton.extended(
-                heroTag: 'KDUMMY',
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => kdummy()));
-                },
-                label: Text('Karhik(Dummy page)'),
-                backgroundColor: Theme.of(context).hintColor,
-                foregroundColor: Theme.of(context).backgroundColor,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              FloatingActionButton.extended(
-                heroTag: 'HDUMMY',
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => hdummy()));
-                },
-                label: Text('Harshini(Dummy page)'),
-                backgroundColor: Theme.of(context).hintColor,
-                foregroundColor: Theme.of(context).backgroundColor,
-              ),
               SizedBox(
                 height: 10,
               ),
@@ -145,19 +122,6 @@ class MyHomePage extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => signin()));
                 },
                 label: Text('Sign In'),
-                backgroundColor: Theme.of(context).hintColor,
-                foregroundColor: Theme.of(context).backgroundColor,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              FloatingActionButton.extended(
-                heroTag: 'Testimonials',
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => testimonials()));
-                },
-                label: Text('testimonials'),
                 backgroundColor: Theme.of(context).hintColor,
                 foregroundColor: Theme.of(context).backgroundColor,
               ),
@@ -229,6 +193,48 @@ class MyHomePage extends StatelessWidget {
                 label: Text('buying properties Page (19)'),
                 backgroundColor: Theme.of(context).hintColor,
                 foregroundColor: Theme.of(context).backgroundColor,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              FloatingActionButton.extended(
+                heroTag: 'HDUMMY',
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => hdummy()));
+                },
+                label: Text('Harshini(Dummy page)'),
+                backgroundColor: Theme.of(context).hintColor,
+                foregroundColor: Theme.of(context).backgroundColor,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              FloatingActionButton.extended(
+                heroTag: 'KDUMMY',
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => kdummy()));
+                },
+                label: Text('Karthik(Dummy page)'),
+                backgroundColor: Theme.of(context).hintColor,
+                foregroundColor: Theme.of(context).backgroundColor,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              FloatingActionButton.extended(
+                heroTag: 'Testimonials',
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => testimonials()));
+                },
+                label: Text('testimonials'),
+                backgroundColor: Theme.of(context).hintColor,
+                foregroundColor: Theme.of(context).backgroundColor,
+              ),
+              SizedBox(
+                height: 10,
               ),
             ],
           ),
