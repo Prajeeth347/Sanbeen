@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
@@ -14,31 +15,32 @@ class _photos_propState extends State<photos_prop> {
   final picker = ImagePicker();
   void choose_source() {
     showDialog(
-           context: context,
-           builder: (BuildContext context) {
-                    return SimpleDialog(
-              title:const Text('Select the source'),
-              children: <Widget>[
-                 SimpleDialogOption(
-                       onPressed: () { 
-                        chooseImage_camera();
-                        Navigator.of(context).pop();
-                        print(image[0].toString());
-                       },
-                            child:const Text('Camera'),
-                         ),
-                  SimpleDialogOption(
-                     onPressed: () { 
-                      chooseImage_gallery();
-                        Navigator.of(context).pop();
-                     },
-                  child: const Text('Gallery'),
-              ),
-       ],
-  );
-       },
-  );
+      context: context,
+      builder: (BuildContext context) {
+        return SimpleDialog(
+          title: const Text('Select the source'),
+          children: <Widget>[
+            SimpleDialogOption(
+              onPressed: () {
+                chooseImage_camera();
+                Navigator.of(context).pop();
+                print(image[0].toString());
+              },
+              child: const Text('Camera'),
+            ),
+            SimpleDialogOption(
+              onPressed: () {
+                chooseImage_gallery();
+                Navigator.of(context).pop();
+              },
+              child: const Text('Gallery'),
+            ),
+          ],
+        );
+      },
+    );
   }
+
   Future<void> chooseImage_camera() async {
     final XFile? pickedImage =
         await picker.pickImage(source: ImageSource.camera);
@@ -48,6 +50,7 @@ class _photos_propState extends State<photos_prop> {
       });
     }
   }
+
   Future<void> chooseImage_gallery() async {
     final XFile? pickedImage =
         await picker.pickImage(source: ImageSource.gallery);
@@ -70,6 +73,7 @@ class _photos_propState extends State<photos_prop> {
               icon: Icon(
                 Icons.arrow_back,
                 color: Theme.of(context).primaryColor,
+                size: MediaQuery.of(context).size.width * 0.08,
               )),
         ),
         backgroundColor: Theme.of(context).backgroundColor,
@@ -78,65 +82,71 @@ class _photos_propState extends State<photos_prop> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'Upload Property Photos and Videos',
-                  style: TextStyle(
+                Center(
+                  child: Text(
+                    'Upload Property Photos and Videos',
+                    style: GoogleFonts.poppins(
                       color: Theme.of(context).primaryColor,
-                      fontSize: MediaQuery.of(context).size.width * 0.050),
+                      fontSize: MediaQuery.of(context).size.height * 0.023,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
                 Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
                       'Upload photos and videos of your property either via your desktop device or from your mobile phone.',
-                      style: TextStyle(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: MediaQuery.of(context).size.width * 0.04),
+                      style: GoogleFonts.poppins(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: MediaQuery.of(context).size.height * 0.018,
+                        fontWeight: FontWeight.w300,
+                      ),
                     )),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.03,
                 ),
-                if(image.length == 0)
-                GestureDetector(
-                  onTap: () {
-                    choose_source();
-                  },
-                  child: Container(
-                      height: MediaQuery.of(context).size.height * 0.2,
-                      width: MediaQuery.of(context).size.width * 0.7,
-                      color: Theme.of(context).hintColor,
-                      alignment: Alignment.center,
-                      child: Container(
-                        child: Icon(
-                            Icons.add_circle,color: Theme.of(context).backgroundColor,
-                            size: MediaQuery.of(context).size.width*0.07,
-                            ),
-                      )),
-                ),
+                if (image.length == 0)
+                  GestureDetector(
+                    onTap: () {
+                      choose_source();
+                    },
+                    child: Container(
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        width: MediaQuery.of(context).size.width * 0.7,
+                        color: Theme.of(context).hintColor,
+                        alignment: Alignment.center,
+                        child: Container(
+                          child: Icon(
+                            Icons.add_circle,
+                            color: Theme.of(context).backgroundColor,
+                            size: MediaQuery.of(context).size.width * 0.07,
+                          ),
+                        )),
+                  ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),
-                
-                if(image.length != 0)
-                    ListView.builder(
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemCount: image.length,
-                      itemBuilder: (context, index) {
-                        return Column(
-                          children: [
-                            Image.file(
-                            height: MediaQuery.of(context).size.height * 0.2,
-                            width: MediaQuery.of(context).size.width * 0.7,
-                            image[0]!, fit: BoxFit.cover
-                            ),
-                            SizedBox(height: 40)
-                          ],
-                        );
-                      },
-                    ),
-                    if(image.length >0 && image.length <3)
-                       ElevatedButton(
+                if (image.length != 0)
+                  ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemCount: image.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        children: [
+                          Image.file(
+                              height: MediaQuery.of(context).size.height * 0.2,
+                              width: MediaQuery.of(context).size.width * 0.7,
+                              image[0]!,
+                              fit: BoxFit.cover),
+                          SizedBox(height: 40)
+                        ],
+                      );
+                    },
+                  ),
+                if (image.length > 0 && image.length < 3)
+                  ElevatedButton(
                       onPressed: () {
                         choose_source();
                       },
@@ -145,30 +155,29 @@ class _photos_propState extends State<photos_prop> {
                             Theme.of(context).primaryColor),
                       ),
                       child: Padding(
-                          padding:
-                              const EdgeInsetsDirectional.fromSTEB(25, 0, 25, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              25, 0, 25, 0),
                           child: Text(
                             'Add more',
-                            style: TextStyle(
+                            style: GoogleFonts.inter(
                                 fontSize:
                                     MediaQuery.of(context).size.width * 0.04,
                                 color: Theme.of(context).hintColor),
                             textAlign: TextAlign.center,
                           ))),
-                    if(image.length != 0)
-                       ElevatedButton(
-                      onPressed: () {
-                      },
+                if (image.length != 0)
+                  ElevatedButton(
+                      onPressed: () {},
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
                             Theme.of(context).primaryColor),
                       ),
                       child: Padding(
-                          padding:
-                              const EdgeInsetsDirectional.fromSTEB(25, 0, 25, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              25, 0, 25, 0),
                           child: Text(
                             'Post',
-                            style: TextStyle(
+                            style: GoogleFonts.inter(
                                 fontSize:
                                     MediaQuery.of(context).size.width * 0.04,
                                 color: Theme.of(context).hintColor),

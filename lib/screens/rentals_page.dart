@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sanbeen_zedital/drawers/main_drawer.dart';
 import 'package:sanbeen_zedital/models/properties_model(20).dart';
 import 'package:sanbeen_zedital/screens/aboutuspage.dart';
@@ -79,7 +80,7 @@ class _rentals_pageState extends State<rentals_page> {
                 elevation: 0,
                 backgroundColor: Theme.of(context).backgroundColor,
                 pinned: true,
-                expandedHeight: 190,
+                expandedHeight: MediaQuery.of(context).size.height * 0.24,
                 flexibleSpace: FlexibleSpaceBar(
                   collapseMode: CollapseMode.parallax,
                   title: Container(
@@ -126,7 +127,9 @@ class _rentals_pageState extends State<rentals_page> {
       autofocus: true,
       decoration: InputDecoration(
           hintText: "search cities, localities, etc",
-          hintStyle: TextStyle(
+          hintStyle: GoogleFonts.inter(
+              color: Color.fromARGB(156, 76, 72, 60),
+              fontWeight: FontWeight.w400,
               fontSize: _isShrink
                   ? MediaQuery.of(context).size.width * 0.040
                   : MediaQuery.of(context).size.width * 0.025),
@@ -203,9 +206,11 @@ class _rental_bodyState extends State<rental_body> {
           children: [
             Text(
               "Recently Posted Properties",
-              style: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                  fontSize: MediaQuery.of(context).size.width * 0.05),
+              style: GoogleFonts.poppins(
+                color: Theme.of(context).primaryColor,
+                fontSize: MediaQuery.of(context).size.height * 0.02,
+                fontWeight: FontWeight.w500,
+              ),
             ),
             TextButton(
               onPressed: () {
@@ -213,9 +218,10 @@ class _rental_bodyState extends State<rental_body> {
                     MaterialPageRoute(builder: (context) => properties_20()));
               },
               child: Text("View all",
-                  style: TextStyle(
+                  style: GoogleFonts.inter(
                       color: Theme.of(context).primaryColor,
-                      fontSize: MediaQuery.of(context).size.width * 0.04,
+                      fontSize: MediaQuery.of(context).size.height * 0.015,
+                      fontWeight: FontWeight.w400,
                       decoration: TextDecoration.underline)),
             )
           ],
@@ -225,7 +231,7 @@ class _rental_bodyState extends State<rental_body> {
         CircularProgressIndicator(color: Theme.of(context).primaryColor),
       if (_prop_20_loaded == true)
         SizedBox(
-          height: 200,
+          height: MediaQuery.of(context).size.height * 0.21,
           child: ListView.builder(
               itemCount: property?.length,
               shrinkWrap: true,
@@ -246,8 +252,10 @@ class _rental_bodyState extends State<rental_body> {
                                 ClipRRect(
                                   borderRadius: BorderRadius.circular(10),
                                   child: Container(
-                                    width: 170,
-                                    height: 120,
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.4,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.15,
                                     child: Image.network(
                                       property![index].images[0],
                                       fit: BoxFit.cover,
@@ -274,10 +282,12 @@ class _rental_bodyState extends State<rental_body> {
                             ),
                             padding: EdgeInsets.fromLTRB(10, 8, 10, 12)),
                         Text(property![index].name,
-                            style: TextStyle(
-                                color: Theme.of(context).primaryColor,
-                                fontSize:
-                                    MediaQuery.of(context).size.width * 0.04)),
+                            style: GoogleFonts.inter(
+                              color: Theme.of(context).primaryColor,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.017,
+                              fontWeight: FontWeight.w500,
+                            )),
                       ],
                     ),
                   );
@@ -301,17 +311,17 @@ class _rental_bodyState extends State<rental_body> {
                   ),
                   Text(
                     'Want to sell/rent',
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                         color: Theme.of(context).backgroundColor,
-                        fontSize: MediaQuery.of(context).size.width * 0.055,
+                        fontSize: MediaQuery.of(context).size.width * 0.048,
                         fontWeight: FontWeight.w500),
                     textAlign: TextAlign.left,
                   ),
                   Text(
                     'your property?',
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                         color: Theme.of(context).backgroundColor,
-                        fontSize: MediaQuery.of(context).size.width * 0.055,
+                        fontSize: MediaQuery.of(context).size.width * 0.048,
                         fontWeight: FontWeight.w500),
                     textAlign: TextAlign.left,
                   ),
@@ -336,11 +346,12 @@ class _rental_bodyState extends State<rental_body> {
                                   10, 0, 10, 0),
                               child: Text(
                                 'Post Property',
-                                style: TextStyle(
+                                style: GoogleFonts.poppins(
                                     fontSize:
                                         MediaQuery.of(context).size.width *
                                             0.04,
-                                    color: Theme.of(context).primaryColor),
+                                    color: Theme.of(context).primaryColor,
+                                    fontWeight: FontWeight.w400),
                                 textAlign: TextAlign.center,
                               ))))
                 ],
