@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sanbeen_zedital/screens/forgotpassword.dart';
 import 'package:sanbeen_zedital/screens/signup.dart';
 import 'package:http/http.dart' as http;
-
 
 class signin extends StatefulWidget {
   const signin({Key? key}) : super(key: key);
@@ -15,51 +15,44 @@ class signin extends StatefulWidget {
 }
 
 class _signinState extends State<signin> {
-  signin() async{
+  signin() async {
     Map<String, dynamic> responseMap;
-      var sign_client = http.Client();
-      var sign_uri = Uri.parse("https://sanbeen-real-estate.herokuapp.com/api/auth/");
-      var sign_response = await sign_client.post(sign_uri,
-      headers: { "Content-Type" : "application/json"},
-      body: jsonEncode({
-        "email": email.text,
-        "password" : password.text
-      }));
-      if (sign_response.statusCode == 200) {
-        responseMap = jsonDecode(sign_response.body);
-        print(responseMap.toString());
-        Fluttertoast.showToast(
+    var sign_client = http.Client();
+    var sign_uri =
+        Uri.parse("https://sanbeen-real-estate.herokuapp.com/api/auth/");
+    var sign_response = await sign_client.post(sign_uri,
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({"email": email.text, "password": password.text}));
+    if (sign_response.statusCode == 200) {
+      responseMap = jsonDecode(sign_response.body);
+      print(responseMap.toString());
+      Fluttertoast.showToast(
           msg: "Successful",
-        gravity: ToastGravity.BOTTOM,
-        backgroundColor: Theme.of(context).hintColor,
-        textColor: Theme.of(context).backgroundColor,
-        fontSize: 16.0
-          );
-      } 
-      else if(sign_response.statusCode == 404) {
-        Fluttertoast.showToast(
+          gravity: ToastGravity.BOTTOM,
+          backgroundColor: Theme.of(context).hintColor,
+          textColor: Theme.of(context).backgroundColor,
+          fontSize: 16.0);
+    } else if (sign_response.statusCode == 404) {
+      Fluttertoast.showToast(
           msg: "Something Went wrong",
-        gravity: ToastGravity.BOTTOM,
-        backgroundColor: Theme.of(context).hintColor,
-        textColor: Theme.of(context).backgroundColor,
-        fontSize: 16.0
-          );
-      }
-      else {
-        Fluttertoast.showToast(
+          gravity: ToastGravity.BOTTOM,
+          backgroundColor: Theme.of(context).hintColor,
+          textColor: Theme.of(context).backgroundColor,
+          fontSize: 16.0);
+    } else {
+      Fluttertoast.showToast(
           msg: sign_response.body,
-        gravity: ToastGravity.BOTTOM,
-        backgroundColor: Theme.of(context).hintColor,
-        textColor: Theme.of(context).backgroundColor,
-        fontSize: 16.0
-          );
-      }
+          gravity: ToastGravity.BOTTOM,
+          backgroundColor: Theme.of(context).hintColor,
+          textColor: Theme.of(context).backgroundColor,
+          fontSize: 16.0);
+    }
   }
-  
-bool obscure_text = true;
 
-TextEditingController email = TextEditingController();
-TextEditingController password = TextEditingController();
+  bool obscure_text = true;
+
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,34 +81,48 @@ TextEditingController password = TextEditingController();
                       ),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.04),
-                      Text('SANBEEN REAL ESTATE',
-                          style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 22)),
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.01),
-                      Text('& Realtors Pvt.Ltd.',
-                          style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontSize: 19)),
+                      Text(
+                        'SANBEEN REAL ESTATE',
+                        style: GoogleFonts.poppins(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: MediaQuery.of(context).size.height * 0.025,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      // SizedBox(
+                      //     height: MediaQuery.of(context).size.height * 0.01),
+                      Text(
+                        '& Realtors Pvt. Ltd.',
+                        style: GoogleFonts.poppins(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: MediaQuery.of(context).size.height * 0.021,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.03),
                       TextField(
                           controller: email,
                           keyboardType: TextInputType.emailAddress,
                           cursorColor: Theme.of(context).primaryColor,
-                          style: TextStyle(color: Theme.of(context).hintColor),
+                          style: GoogleFonts.inter(
+                            color: Theme.of(context).hintColor,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.019,
+                            fontWeight: FontWeight.w300,
+                          ),
                           decoration: InputDecoration(
                             enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                     color: Theme.of(context).primaryColor,
                                     width: 1)),
                             labelText: 'Email',
-                            labelStyle: TextStyle(
-                                color: Theme.of(context).primaryColor,
-                                backgroundColor:
-                                    Theme.of(context).backgroundColor,
-                                fontSize: 18),
+                            labelStyle: GoogleFonts.poppins(
+                              color: Theme.of(context).primaryColor,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.02,
+                              fontWeight: FontWeight.w300,
+                            ),
                           )),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.02),
@@ -125,7 +132,12 @@ TextEditingController password = TextEditingController();
                           cursorColor: Theme.of(context).primaryColor,
                           obscureText: obscure_text,
                           obscuringCharacter: '*',
-                          style: TextStyle(color: Theme.of(context).hintColor),
+                          style: GoogleFonts.inter(
+                            color: Theme.of(context).hintColor,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.019,
+                            fontWeight: FontWeight.w300,
+                          ),
                           decoration: InputDecoration(
                             suffixIcon: IconButton(
                               onPressed: () {
@@ -145,11 +157,12 @@ TextEditingController password = TextEditingController();
                                     color: Theme.of(context).primaryColor,
                                     width: 1)),
                             labelText: 'Password',
-                            labelStyle: TextStyle(
-                                color: Theme.of(context).primaryColor,
-                                backgroundColor:
-                                    Theme.of(context).backgroundColor,
-                                fontSize: 18),
+                            labelStyle: GoogleFonts.poppins(
+                              color: Theme.of(context).primaryColor,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.02,
+                              fontWeight: FontWeight.w300,
+                            ),
                           )),
                       TextButton(
                           onPressed: () {
@@ -162,10 +175,11 @@ TextEditingController password = TextEditingController();
                             alignment: Alignment.bottomRight,
                             child: Text(
                               'Forgot Password?',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w300,
+                              style: GoogleFonts.inter(
                                 color: Theme.of(context).hintColor,
+                                fontSize:
+                                    MediaQuery.of(context).size.height * 0.015,
+                                fontWeight: FontWeight.w400,
                               ),
                               textAlign: TextAlign.center,
                             ),
@@ -185,11 +199,12 @@ TextEditingController password = TextEditingController();
                                   75, 15, 75, 15),
                               child: Text(
                                 'LOGIN',
-                                style: TextStyle(
-                                    fontSize: 19,
-                                    color: Theme.of(context).hintColor,
-                                    backgroundColor:
-                                        Theme.of(context).primaryColor),
+                                style: GoogleFonts.inter(
+                                  color: Theme.of(context).hintColor,
+                                  fontSize:
+                                      MediaQuery.of(context).size.height * 0.02,
+                                  fontWeight: FontWeight.w400,
+                                ),
                                 textAlign: TextAlign.center,
                               ))),
                       SizedBox(
@@ -206,9 +221,11 @@ TextEditingController password = TextEditingController();
                                 5, 5, 5, 5),
                             child: Text(
                               'Don`t have an account? Join us',
-                              style: TextStyle(
-                                fontSize: 15,
+                              style: GoogleFonts.inter(
                                 color: Theme.of(context).primaryColor,
+                                fontSize:
+                                    MediaQuery.of(context).size.height * 0.018,
+                                fontWeight: FontWeight.w400,
                               ),
                               textAlign: TextAlign.center,
                             ),

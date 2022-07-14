@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sanbeen_zedital/models/profile_model.dart';
 import 'package:sanbeen_zedital/screens/account_details.dart';
 import 'package:sanbeen_zedital/screens/changepassword.dart';
 import 'package:sanbeen_zedital/screens/feedback.dart';
 import 'package:sanbeen_zedital/services/profile_helper.dart';
+
 class profile_page extends StatefulWidget {
   const profile_page({Key? key}) : super(key: key);
 
@@ -22,7 +24,8 @@ class _profile_pageState extends State<profile_page> {
     super.initState();
     getProfileData();
   }
-  getProfileData() async{
+
+  getProfileData() async {
     profile = await profile_services().getprofiles();
     if (profile != null) {
       setState(() {
@@ -30,112 +33,219 @@ class _profile_pageState extends State<profile_page> {
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).backgroundColor,
-        title: Text('My Profile',style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.05),),
-        leading: IconButton(onPressed: () {
-          Navigator.pop(context);
-        }, icon: Icon(Icons.arrow_back,color: Theme.of(context).primaryColor,)),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back,
+              color: Theme.of(context).primaryColor,
+              size: MediaQuery.of(context).size.width * 0.08,
+            )),
       ),
       backgroundColor: Theme.of(context).backgroundColor,
       body: Center(
         child: Column(
           children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(24.0, 8.0, 8.0, 8.0),
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Text(
+                  'My Profile',
+                  style: GoogleFonts.poppins(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: MediaQuery.of(context).size.height * 0.025,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ),
             CircleAvatar(
-                radius: MediaQuery.of(context).size.width*0.15,
-                child: Text(profile == null ? '' : profile![2].img == null ? profile![2].name[0].toUpperCase() : '', style: TextStyle(color: Theme.of(context).backgroundColor,fontSize: MediaQuery.of(context).size.width*0.13),),
-                backgroundImage:
-                    NetworkImage(profile == null ? '' : profile![2].img ?? ''),
-                backgroundColor: profile == null ? Colors.transparent : profile![2].img == null ? Theme.of(context).primaryColor : Colors.transparent,
-              ),
-              SizedBox(height: MediaQuery.of(context).size.height*0.02),
-              Text(profile == null ? 'Name' :profile![2].name,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.06,fontWeight: FontWeight.w600),),
-              SizedBox(height: MediaQuery.of(context).size.height*0.02),
-              Text(email,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.045)),
-              SizedBox(height: MediaQuery.of(context).size.height*0.02),
-              Text(profile == null ? 'Number' :profile![2].number,style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.045),),
-              SizedBox(height: MediaQuery.of(context).size.height*0.02),
-              Divider(
-                  color: Theme.of(context).primaryColor,
-                  thickness: 1,
-                ),  
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextButton(onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => account_details()));
-                }, child: 
-                Row(
-                  children: [
-                    CircleAvatar(
-                      child: Icon(Icons.person, color: Theme.of(context).primaryColor,),
-                      backgroundColor: Theme.of(context).backgroundColor,
-                    ),
-                    SizedBox(width: MediaQuery.of(context).size.width*0.03),
-                        Text('Account Details',style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.05),),
-                        SizedBox(width: MediaQuery.of(context).size.width*0.37),
-                        Icon(Icons.arrow_forward_ios,color: Theme.of(context).primaryColor,)
-                      ],
-                )
+              radius: MediaQuery.of(context).size.width * 0.15,
+              child: Text(
+                profile == null
+                    ? ''
+                    : profile![2].img == null
+                        ? profile![2].name[0].toUpperCase()
+                        : '',
+                style: GoogleFonts.poppins(
+                  color: Theme.of(context).backgroundColor,
+                  fontSize: MediaQuery.of(context).size.height * 0.03,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextButton(onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => change_password()));
-                }, child: 
-                Row(
-                  children: [
-                    CircleAvatar(
-                      child: Icon(Icons.lock, color: Theme.of(context).primaryColor,),
-                      backgroundColor: Theme.of(context).backgroundColor,
-                    ),
-                    SizedBox(width: MediaQuery.of(context).size.width*0.03),
-                        Text('Change Password',style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.05),),
-                        SizedBox(width: MediaQuery.of(context).size.width*0.32),
-                        Icon(Icons.arrow_forward_ios,color: Theme.of(context).primaryColor,)
-                      ],
-                )
-                ),
+              backgroundImage:
+                  NetworkImage(profile == null ? '' : profile![2].img ?? ''),
+              backgroundColor: profile == null
+                  ? Colors.transparent
+                  : profile![2].img == null
+                      ? Theme.of(context).primaryColor
+                      : Colors.transparent,
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+            Text(
+              profile == null ? 'Name' : profile![2].name,
+              style: GoogleFonts.poppins(
+                color: Theme.of(context).primaryColor,
+                fontSize: MediaQuery.of(context).size.height * 0.026,
+                fontWeight: FontWeight.w500,
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextButton(onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => feedback()));
-                }, child: 
-                Row(
-                  children: [
-                    CircleAvatar(
-                      child: Icon(Icons.feedback_sharp, color: Theme.of(context).primaryColor,),
-                      backgroundColor: Theme.of(context).backgroundColor,
-                    ),
-                    SizedBox(width: MediaQuery.of(context).size.width*0.03),
-                        Text('Feedback',style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.05),),
-                        SizedBox(width: MediaQuery.of(context).size.width*0.5),
-                        Icon(Icons.arrow_forward_ios,color: Theme.of(context).primaryColor,)
-                      ],
-                )
-                ),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+            Text(
+              email,
+              style: GoogleFonts.poppins(
+                color: Theme.of(context).primaryColor,
+                fontSize: MediaQuery.of(context).size.height * 0.02,
+                fontWeight: FontWeight.w300,
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextButton(onPressed: () {
-                  
-                }, child: 
-                Row(
-                  children: [
-                    CircleAvatar(
-                      child: Icon(Icons.logout_rounded, color: Theme.of(context).primaryColor,),
-                      backgroundColor: Theme.of(context).backgroundColor,
-                    ),
-                    SizedBox(width: MediaQuery.of(context).size.width*0.03),
-                        Text('Logout',style: TextStyle(color: Theme.of(context).primaryColor,fontSize: MediaQuery.of(context).size.width*0.05),),
-                        ],
-                )
-                ),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+            Text(
+              profile == null ? 'Number' : profile![2].number,
+              style: GoogleFonts.poppins(
+                color: Theme.of(context).primaryColor,
+                fontSize: MediaQuery.of(context).size.height * 0.02,
+                fontWeight: FontWeight.w300,
               ),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+            Divider(
+              color: Theme.of(context).primaryColor,
+              thickness: 1,
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8.0, 1.5, 8.0, 1.5),
+              child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => account_details()));
+                  },
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        child: Icon(
+                          Icons.person,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                        backgroundColor: Theme.of(context).backgroundColor,
+                      ),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.03),
+                      Text(
+                        'Account Details',
+                        style: GoogleFonts.poppins(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: MediaQuery.of(context).size.height * 0.02,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.34),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: Theme.of(context).primaryColor,
+                      )
+                    ],
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8.0, 1.5, 8.0, 1.5),
+              child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => change_password()));
+                  },
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        child: Icon(
+                          Icons.lock,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                        backgroundColor: Theme.of(context).backgroundColor,
+                      ),
+                      SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.025),
+                      Text(
+                        'Change Password',
+                        style: GoogleFonts.poppins(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: MediaQuery.of(context).size.height * 0.02,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.29),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: Theme.of(context).primaryColor,
+                      )
+                    ],
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8.0, 1.5, 8.0, 1.5),
+              child: TextButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => feedback()));
+                  },
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        child: Icon(
+                          Icons.feedback_sharp,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                        backgroundColor: Theme.of(context).backgroundColor,
+                      ),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.03),
+                      Text(
+                        'Feedback',
+                        style: GoogleFonts.poppins(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: MediaQuery.of(context).size.height * 0.02,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.48),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: Theme.of(context).primaryColor,
+                      )
+                    ],
+                  )),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(8.0, 1.5, 8.0, 1.5),
+              child: TextButton(
+                  onPressed: () {},
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        child: Icon(
+                          Icons.logout_rounded,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                        backgroundColor: Theme.of(context).backgroundColor,
+                      ),
+                      SizedBox(width: MediaQuery.of(context).size.width * 0.03),
+                      Text(
+                        'Logout',
+                        style: GoogleFonts.poppins(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: MediaQuery.of(context).size.height * 0.02,
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                    ],
+                  )),
+            ),
           ],
         ),
       ),

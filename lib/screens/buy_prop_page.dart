@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sanbeen_zedital/drawers/main_drawer.dart';
 import 'package:sanbeen_zedital/models/properties_model(20).dart';
 import 'package:sanbeen_zedital/screens/aboutuspage.dart';
@@ -76,12 +77,13 @@ class _buying_prop_pageState extends State<buying_prop_page> {
                       icon: Icon(
                         Icons.person,
                         color: Theme.of(context).primaryColor,
+                        size: MediaQuery.of(context).size.width * 0.08,
                       ))
                 ],
                 elevation: 0,
                 backgroundColor: Theme.of(context).backgroundColor,
                 pinned: true,
-                expandedHeight: 190,
+                expandedHeight: MediaQuery.of(context).size.height * 0.25,
                 flexibleSpace: FlexibleSpaceBar(
                   collapseMode: CollapseMode.parallax,
                   title: Container(
@@ -96,7 +98,7 @@ class _buying_prop_pageState extends State<buying_prop_page> {
                   centerTitle: true,
                   background: SafeArea(
                       child: Image.network(
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_ezKQ7JACM7cfswq9o1FRdQ8QerKO-Yqtgw&usqp=CAU",
+                    "https://api.makemyhouse.com/public/Media/rimage/500/completed-project/500_1614104231_126.jpg?watermark=false",
                     fit: BoxFit.cover,
                   )),
                 )),
@@ -128,7 +130,9 @@ class _buying_prop_pageState extends State<buying_prop_page> {
       autofocus: true,
       decoration: InputDecoration(
           hintText: "search cities, localities, etc",
-          hintStyle: TextStyle(
+          hintStyle: GoogleFonts.inter(
+              color: Color.fromARGB(156, 76, 72, 60),
+              fontWeight: FontWeight.w400,
               fontSize: _isShrink
                   ? MediaQuery.of(context).size.width * 0.040
                   : MediaQuery.of(context).size.width * 0.025),
@@ -192,15 +196,17 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
       child: Column(children: [
         // SizedBox(height: 20),
         Padding(
-          padding: EdgeInsets.fromLTRB(24, 15, 16, 8),
+          padding: EdgeInsets.fromLTRB(16, 15, 16, 8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 "Recommended Properties",
-                style: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: MediaQuery.of(context).size.width * 0.05),
+                style: GoogleFonts.poppins(
+                  color: Theme.of(context).primaryColor,
+                  fontSize: MediaQuery.of(context).size.height * 0.02,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
               TextButton(
                 onPressed: () {
@@ -208,16 +214,14 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                       MaterialPageRoute(builder: (context) => properties_20()));
                 },
                 child: Text("View all",
-                    style: TextStyle(
+                    style: GoogleFonts.inter(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.width * 0.033,
+                        fontSize: MediaQuery.of(context).size.height * 0.015,
+                        fontWeight: FontWeight.w400,
                         decoration: TextDecoration.underline)),
               )
             ],
           ),
-        ),
-        SizedBox(
-          height: MediaQuery.of(context).size.height * 0.01,
         ),
         if (_prop_20_loaded == false)
           CircularProgressIndicator(color: Theme.of(context).primaryColor),
@@ -229,7 +233,7 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: ((context, index) {
-                  if (property![index].propertyMode == "rent")
+                  if (property![index].propertyMode == "sell")
                     return GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
@@ -244,8 +248,11 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(10),
                                     child: Container(
-                                      width: 170,
-                                      height: 120,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.4,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.15,
                                       child: Image.network(
                                         property![index].images[0],
                                         fit: BoxFit.cover,
@@ -272,10 +279,11 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                               ),
                               padding: EdgeInsets.fromLTRB(10, 8, 10, 12)),
                           Text(property![index].name,
-                              style: TextStyle(
+                              style: GoogleFonts.inter(
                                   color: Theme.of(context).primaryColor,
-                                  fontSize: MediaQuery.of(context).size.width *
-                                      0.04)),
+                                  fontSize:
+                                      MediaQuery.of(context).size.width * 0.036,
+                                  fontWeight: FontWeight.w500)),
                         ],
                       ),
                     );
@@ -283,15 +291,16 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                 })),
           ),
         Padding(
-          padding: EdgeInsets.fromLTRB(24, 15, 16, 8),
+          padding: EdgeInsets.fromLTRB(24, 5, 16, 8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 "Recommended Projects",
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                     color: Theme.of(context).primaryColor,
-                    fontSize: MediaQuery.of(context).size.width * 0.05),
+                    fontSize: MediaQuery.of(context).size.width * 0.043,
+                    fontWeight: FontWeight.w500),
               ),
               TextButton(
                 onPressed: () {
@@ -299,9 +308,10 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                       MaterialPageRoute(builder: (context) => properties_20()));
                 },
                 child: Text("View all",
-                    style: TextStyle(
+                    style: GoogleFonts.inter(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.width * 0.033,
+                        fontSize: MediaQuery.of(context).size.width * 0.03,
+                        fontWeight: FontWeight.w400,
                         decoration: TextDecoration.underline)),
               )
             ],
@@ -316,7 +326,7 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: ((context, index) {
-                    if (property![index].propertyMode == "rent")
+                    if (property![index].propertyMode == "sell")
                       return GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
@@ -366,21 +376,29 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                                     ),
                                   ),
                                   Text(property![index].name,
-                                      style: TextStyle(
+                                      style: GoogleFonts.inter(
                                           color: Theme.of(context).primaryColor,
                                           fontSize: MediaQuery.of(context)
                                                   .size
                                                   .width *
                                               0.04)),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.01,
+                                  ),
                                   Text(property![index].description,
-                                      style: TextStyle(
+                                      style: GoogleFonts.inter(
                                           color: Theme.of(context).primaryColor,
                                           fontSize: MediaQuery.of(context)
                                                   .size
                                                   .width *
                                               0.017)),
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.01,
+                                  ),
                                   Text(property![index].price.toString(),
-                                      style: TextStyle(
+                                      style: GoogleFonts.inter(
                                           color: Theme.of(context).primaryColor,
                                           fontSize: MediaQuery.of(context)
                                                   .size
@@ -395,11 +413,6 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                     return Container();
                   })),
         ),
-
-        SizedBox(
-          height: MediaQuery.of(context).size.height * 0.02,
-        ),
-
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.02,
         ),
@@ -411,16 +424,16 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                 color: Theme.of(context).primaryColor,
                 child: Text(
                   'Featured Dealers',
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                       color: Theme.of(context).backgroundColor,
-                      fontSize: MediaQuery.of(context).size.width * 0.055,
-                      fontWeight: FontWeight.w600),
+                      fontSize: MediaQuery.of(context).size.width * 0.045,
+                      fontWeight: FontWeight.w500),
                   textAlign: TextAlign.justify,
                 ))),
         Padding(
           padding: EdgeInsets.fromLTRB(16, 0, 8, 8),
           child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.35,
+            height: MediaQuery.of(context).size.height * 0.28,
             width: MediaQuery.of(context).size.width * 1,
             child: ListView.builder(
               shrinkWrap: true,
@@ -428,8 +441,8 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
               itemCount: locality.length,
               itemBuilder: ((context, index) {
                 return Container(
-                  height: MediaQuery.of(context).size.height * 0.37,
-                  width: MediaQuery.of(context).size.width * 0.45,
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  width: MediaQuery.of(context).size.width * 0.55,
                   color: Theme.of(context).primaryColor,
                   child: Padding(
                     padding: EdgeInsets.all(10),
@@ -440,8 +453,8 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Container(
-                          height: MediaQuery.of(context).size.height * 0.3,
-                          width: MediaQuery.of(context).size.width * 0.4,
+                          height: MediaQuery.of(context).size.height * 0.235,
+                          width: MediaQuery.of(context).size.width * 0.55,
                           color: Theme.of(context).backgroundColor,
                           child: Column(
                             children: [
@@ -459,31 +472,32 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                                     MediaQuery.of(context).size.height * 0.01,
                               ),
                               Text(dealer[index],
-                                  style: TextStyle(
+                                  style: GoogleFonts.poppins(
                                       color: Theme.of(context).hintColor,
                                       fontSize:
                                           MediaQuery.of(context).size.width *
-                                              0.04)),
+                                              0.035,
+                                      fontWeight: FontWeight.w500)),
                               SizedBox(
                                 height:
-                                    MediaQuery.of(context).size.height * 0.005,
+                                    MediaQuery.of(context).size.height * 0.0015,
                               ),
                               Text(buyer[index] + ' Buyers this week',
-                                  style: TextStyle(
+                                  style: GoogleFonts.inter(
                                       color: Theme.of(context).hintColor,
                                       fontSize:
                                           MediaQuery.of(context).size.width *
-                                              0.03)),
+                                              0.025)),
                               SizedBox(
                                 height:
                                     MediaQuery.of(context).size.height * 0.005,
                               ),
                               Text('Member Since ' + time[index],
-                                  style: TextStyle(
+                                  style: GoogleFonts.inter(
                                       color: Theme.of(context).hintColor,
                                       fontSize:
                                           MediaQuery.of(context).size.width *
-                                              0.025)),
+                                              0.02)),
                               SizedBox(
                                 height:
                                     MediaQuery.of(context).size.height * 0.005,
@@ -493,96 +507,122 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                                   children: [
                                     SizedBox(
                                       width: MediaQuery.of(context).size.width *
+                                          0.15,
+                                    ),
+                                    Icon(
+                                      Icons.star_rounded,
+                                      color: Theme.of(context).primaryColor,
+                                      size: MediaQuery.of(context).size.width *
                                           0.05,
                                     ),
                                     Icon(
                                       Icons.star_rounded,
                                       color: Theme.of(context).primaryColor,
+                                      size: MediaQuery.of(context).size.width *
+                                          0.05,
                                     ),
                                     Icon(
                                       Icons.star_rounded,
                                       color: Theme.of(context).primaryColor,
+                                      size: MediaQuery.of(context).size.width *
+                                          0.05,
                                     ),
                                     Icon(
                                       Icons.star_rounded,
                                       color: Theme.of(context).primaryColor,
-                                    ),
-                                    Icon(
-                                      Icons.star_rounded,
-                                      color: Theme.of(context).primaryColor,
+                                      size: MediaQuery.of(context).size.width *
+                                          0.05,
                                     )
                                   ],
                                 ),
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  IconButton(
-                                      onPressed: () async {
-                                        var whatsappURl_android =
-                                            "whatsapp://send?phone=" +
-                                                number +
-                                                "&text=Hello";
-                                        var whatappURL_ios =
-                                            "https://wa.me/$number?text=${Uri.parse("Hello")}";
-                                        if (Platform.isIOS) {
-                                          // for iOS phone only
-                                          if (await canLaunchUrl(
-                                              Uri(path: whatappURL_ios))) {
-                                            await launchUrl(
-                                                Uri(path: whatappURL_ios));
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      IconButton(
+                                        onPressed: () async {
+                                          var whatsappURl_android =
+                                              "whatsapp://send?phone=" +
+                                                  number +
+                                                  "&text=Hello";
+                                          var whatappURL_ios =
+                                              "https://wa.me/$number?text=${Uri.parse("Hello")}";
+                                          if (Platform.isIOS) {
+                                            // for iOS phone only
+                                            if (await canLaunchUrl(
+                                                Uri(path: whatappURL_ios))) {
+                                              await launchUrl(
+                                                  Uri(path: whatappURL_ios));
+                                            } else {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(SnackBar(
+                                                      content: new Text(
+                                                          "whatsapp no installed")));
+                                            }
                                           } else {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(SnackBar(
-                                                    content: new Text(
-                                                        "whatsapp no installed")));
+                                            if (await canLaunch(
+                                                whatsappURl_android)) {
+                                              await launch(whatsappURl_android);
+                                            } else {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(SnackBar(
+                                                      content: new Text(
+                                                          "whatsapp no installed")));
+                                            }
                                           }
-                                        } else {
-                                          if (await canLaunch(
-                                              whatsappURl_android)) {
-                                            await launch(whatsappURl_android);
-                                          } else {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(SnackBar(
-                                                    content: new Text(
-                                                        "whatsapp no installed")));
-                                          }
-                                        }
-                                      },
-                                      icon: Image.network(
-                                          'https://cdn-icons-png.flaticon.com/512/124/124034.png?w=740&t=st=1656751163~exp=1656751763~hmac=3e5cd586eb711d53069f6ec6c5f9fdbd67c451cca7915d8684aae3d1a53cee94')),
-                                  Text('Whatsapp',
-                                      style: TextStyle(
-                                          color: Theme.of(context).primaryColor,
-                                          fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.03,
-                                          fontWeight: FontWeight.w500)),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  IconButton(
-                                      color: Theme.of(context).hintColor,
-                                      onPressed: () {
-                                        FlutterPhoneDirectCaller.callNumber(
-                                            number);
-                                      },
-                                      icon: Icon(
-                                        Icons.phone,
-                                        color: Theme.of(context).primaryColor,
-                                        size: 20,
-                                      )),
-                                  Text('Call Now',
-                                      style: TextStyle(
-                                          color: Theme.of(context).primaryColor,
-                                          fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.03,
-                                          fontWeight: FontWeight.w500))
+                                        },
+                                        icon: Image.network(
+                                            'https://cdn-icons-png.flaticon.com/512/124/124034.png?w=740&t=st=1656751163~exp=1656751763~hmac=3e5cd586eb711d53069f6ec6c5f9fdbd67c451cca7915d8684aae3d1a53cee94'),
+                                        iconSize:
+                                            MediaQuery.of(context).size.width *
+                                                0.01,
+                                      ),
+                                      Text('Whatsapp',
+                                          style: GoogleFonts.inter(
+                                              color:
+                                                  Theme.of(context).hintColor,
+                                              fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.025,
+                                              fontWeight: FontWeight.w400)),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.001,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      IconButton(
+                                          color: Theme.of(context).hintColor,
+                                          onPressed: () {
+                                            FlutterPhoneDirectCaller.callNumber(
+                                                number);
+                                          },
+                                          icon: Icon(
+                                            Icons.phone,
+                                            color:
+                                                Theme.of(context).primaryColor,
+                                            size: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.04,
+                                          )),
+                                      Text('Call Now',
+                                          style: GoogleFonts.inter(
+                                              color:
+                                                  Theme.of(context).hintColor,
+                                              fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.025,
+                                              fontWeight: FontWeight.w400))
+                                    ],
+                                  )
                                 ],
                               )
                             ],
@@ -599,86 +639,116 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.01,
         ),
-        Text(
-          " New localities",
-          style: TextStyle(
-              color: Theme.of(context).primaryColor,
-              fontSize: MediaQuery.of(context).size.width * 0.05,
-              fontWeight: FontWeight.w500),
-          textAlign: TextAlign.start,
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 8, 8, 8),
+          child: Text(
+            "New Localities",
+            style: GoogleFonts.poppins(
+                color: Theme.of(context).primaryColor,
+                fontSize: MediaQuery.of(context).size.width * 0.045,
+                fontWeight: FontWeight.w500),
+            textAlign: TextAlign.start,
+          ),
         ),
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.01,
         ),
         Padding(
           padding: EdgeInsets.fromLTRB(16, 8, 8, 8),
-          child: Container(
-            height: MediaQuery.of(context).size.height * 0.18,
-            width: MediaQuery.of(context).size.width * 0.9,
-            child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 0.35,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 20),
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: locality.length,
-              itemBuilder: ((context, index) {
-                return Row(
-                  children: [
-                    Column(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.2,
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 0.35,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 20),
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: locality.length,
+                  itemBuilder: ((context, index) {
+                    return Row(
                       children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(90),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.15,
-                            height: MediaQuery.of(context).size.height * 0.07,
-                            color: Theme.of(context).hintColor,
-                            child: CircleAvatar(
-                              radius: MediaQuery.of(context).size.width * 0.08,
-                              backgroundImage: AssetImage(collectio[index]),
+                        Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(90),
+                              child: Container(
+                                width:
+                                    MediaQuery.of(context).size.width * 0.158,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.074,
+                                color: Theme.of(context).hintColor,
+                                child: CircleAvatar(
+                                  radius:
+                                      MediaQuery.of(context).size.width * 0.08,
+                                  backgroundImage: AssetImage(collectio[index]),
+                                ),
+                              ),
                             ),
-                          ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.01,
+                            ),
+                          ],
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.01,
+                          width: MediaQuery.of(context).size.width * 0.02,
                         ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.02,
-                    ),
-                    Column(
-                      children: [
-                        Text(
-                          locality[index],
-                          style: TextStyle(
+                        Column(
+                          children: [
+                            Text(
+                              locality[index],
+                              style: GoogleFonts.poppins(
+                                  color: Theme.of(context).hintColor,
+                                  fontSize: MediaQuery.of(context).size.width *
+                                      0.037),
+                              textAlign: TextAlign.left,
+                            ),
+                            SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.002,
+                            ),
+                            Text(
+                              localit1[index] + ' new localities',
+                              style: GoogleFonts.inter(
+                                  color: Theme.of(context).hintColor,
+                                  fontSize: MediaQuery.of(context).size.width *
+                                      0.033),
+                              textAlign: TextAlign.left,
+                            ),
+                            Divider(
                               color: Theme.of(context).primaryColor,
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.04),
-                          textAlign: TextAlign.left,
+                              thickness: 1,
+                              height: MediaQuery.of(context).size.width * 0.058,
+                            )
+                          ],
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.002,
-                        ),
-                        Text(
-                          localit1[index] + ' new localities',
-                          style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.035),
-                          textAlign: TextAlign.left,
-                        ),
+                          width: MediaQuery.of(context).size.width * 0.02,
+                        )
                       ],
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.02,
-                    )
-                  ],
-                );
-              }),
-            ),
+                    );
+                  }),
+                ),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => properties_20()));
+                },
+                child: Text("View all new localities",
+                    style: GoogleFonts.inter(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: MediaQuery.of(context).size.height * 0.017,
+                        fontWeight: FontWeight.w400,
+                        decoration: TextDecoration.underline)),
+              ),
+            ],
           ),
         ),
         Container(
@@ -697,17 +767,17 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                   ),
                   Text(
                     'Introducing new ways',
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                         color: Theme.of(context).backgroundColor,
-                        fontSize: MediaQuery.of(context).size.width * 0.05,
+                        fontSize: MediaQuery.of(context).size.width * 0.045,
                         fontWeight: FontWeight.w600),
                     textAlign: TextAlign.left,
                   ),
                   Text(
                     'of paying rent',
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                         color: Theme.of(context).backgroundColor,
-                        fontSize: MediaQuery.of(context).size.width * 0.05,
+                        fontSize: MediaQuery.of(context).size.width * 0.045,
                         fontWeight: FontWeight.w600),
                     textAlign: TextAlign.left,
                   ),
@@ -716,14 +786,14 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                   ),
                   Text(
                     '100% secure | Lowest Convinience Fee',
-                    style: TextStyle(
+                    style: GoogleFonts.inter(
                         color: Theme.of(context).backgroundColor,
                         fontSize: MediaQuery.of(context).size.width * 0.03,
                         fontWeight: FontWeight.w400),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.015,
+                    height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   TextButton(
                       onPressed: () {
@@ -737,9 +807,10 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                               10, 0, 10, 0),
                           child: Text(
                             'Pay Rent Now  ->',
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                                 fontSize:
                                     MediaQuery.of(context).size.width * 0.04,
+                                fontWeight: FontWeight.w500,
                                 color: Theme.of(context).backgroundColor),
                             textAlign: TextAlign.center,
                           )))
@@ -761,22 +832,23 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
           ),
         ),
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.02,
+          height: MediaQuery.of(context).size.height * 0.01,
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
+          padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
           child: Text(
             "Get great properties in popular cities",
-            style: TextStyle(
+            style: GoogleFonts.poppins(
                 color: Theme.of(context).primaryColor,
-                fontSize: MediaQuery.of(context).size.width * 0.05),
+                fontSize: MediaQuery.of(context).size.width * 0.042,
+                fontWeight: FontWeight.w500),
             textAlign: TextAlign.start,
           ),
         ),
         Padding(
           padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
           child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.2,
+            height: MediaQuery.of(context).size.height * 0.15,
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
@@ -789,8 +861,8 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(90),
                           child: Container(
-                            width: MediaQuery.of(context).size.width * 0.22,
-                            height: MediaQuery.of(context).size.height * 0.11,
+                            width: MediaQuery.of(context).size.width * 0.18,
+                            height: MediaQuery.of(context).size.height * 0.085,
                             color: Theme.of(context).hintColor,
                             child: CircleAvatar(
                               radius: MediaQuery.of(context).size.width * 0.08,
@@ -803,10 +875,11 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                         ),
                         Text(
                           cities[index],
-                          style: TextStyle(
+                          style: GoogleFonts.inter(
                               color: Theme.of(context).primaryColor,
                               fontSize:
-                                  MediaQuery.of(context).size.width * 0.04),
+                                  MediaQuery.of(context).size.width * 0.035,
+                              fontWeight: FontWeight.w400),
                         ),
                       ],
                     ),

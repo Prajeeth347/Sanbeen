@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sanbeen_zedital/models/properties_model(20).dart';
 import 'package:sanbeen_zedital/screens/property_single.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
@@ -44,6 +45,7 @@ class _propertiesState extends State<properties> {
               icon: Icon(
                 Icons.arrow_back,
                 color: Theme.of(context).primaryColor,
+                size: MediaQuery.of(context).size.width * 0.08,
               )),
         ),
         backgroundColor: Theme.of(context).backgroundColor,
@@ -53,16 +55,20 @@ class _propertiesState extends State<properties> {
                 color: Theme.of(context).primaryColor,
               ))
             : Padding(
-                padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
                 child: Column(
                   children: <Widget>[
-                    Text(
-                      "My Shortlisted Properties",
-                      style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.width * 0.06,
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        "My Shortlisted Properties",
+                        style: GoogleFonts.poppins(
                           color: Theme.of(context).primaryColor,
-                          fontWeight: FontWeight.w600),
-                      textAlign: TextAlign.start,
+                          fontSize: MediaQuery.of(context).size.height * 0.024,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.02,
@@ -126,14 +132,14 @@ class properties_card extends StatelessWidget {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width * 0.9,
-                height: MediaQuery.of(context).size.height * 0.28,
+                height: MediaQuery.of(context).size.height * 0.25,
                 color: Theme.of(context).primaryColor,
                 child: Column(children: [
                   Row(children: [
                     Stack(children: <Widget>[
                       Image.network(img,
-                          height: MediaQuery.of(context).size.height * 0.21,
-                          width: MediaQuery.of(context).size.width * 0.45,
+                          height: MediaQuery.of(context).size.height * 0.19,
+                          width: MediaQuery.of(context).size.width * 0.43,
                           fit: BoxFit.cover),
                       Align(
                         alignment: Alignment.topLeft,
@@ -155,42 +161,53 @@ class properties_card extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Text(
-                          name.toString(),
-                          style: TextStyle(
-                              color: Theme.of(context).backgroundColor,
-                              fontSize: MediaQuery.of(context).size.width * 0.04,
-                              fontWeight: FontWeight.w500),
-                        ),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.02,
+                        ),
+                        Text(
+                          name.toString(),
+                          style: GoogleFonts.inter(
+                            color: Theme.of(context).backgroundColor,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.018,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.01,
                         ),
                         Text(
                           indiaFormat.format(cost),
-                          style: TextStyle(
-                              color: Theme.of(context).backgroundColor,
-                              fontSize: MediaQuery.of(context).size.width * 0.04,
-                              fontWeight: FontWeight.w500),
+                          style: GoogleFonts.inter(
+                            color: Theme.of(context).backgroundColor,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.018,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.02,
+                          height: MediaQuery.of(context).size.height * 0.01,
                         ),
                         Text(
                           city.toString(),
-                          style: TextStyle(
-                              color: Theme.of(context).backgroundColor,
-                              fontSize: MediaQuery.of(context).size.width * 0.04,
-                              fontWeight: FontWeight.w500),
+                          style: GoogleFonts.inter(
+                            color: Theme.of(context).backgroundColor,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.018,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.02,
+                          height: MediaQuery.of(context).size.height * 0.01,
                         ),
                         Text(
                           bedrooms.toString() + "BHK",
-                          style: TextStyle(
-                              color: Theme.of(context).backgroundColor,
-                              fontSize: MediaQuery.of(context).size.width * 0.04,
-                              fontWeight: FontWeight.w500),
+                          style: GoogleFonts.inter(
+                            color: Theme.of(context).backgroundColor,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.018,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.005,
@@ -199,10 +216,12 @@ class properties_card extends StatelessWidget {
                           children: [
                             Text(
                               "Owner - ",
-                              style: TextStyle(
-                                  color: Theme.of(context).backgroundColor,
-                                  fontSize: MediaQuery.of(context).size.width * 0.030,
-                                  fontWeight: FontWeight.w600),
+                              style: GoogleFonts.inter(
+                                color: Theme.of(context).backgroundColor,
+                                fontSize:
+                                    MediaQuery.of(context).size.height * 0.012,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                             SizedBox(
                               width: MediaQuery.of(context).size.width * 0.30,
@@ -210,10 +229,12 @@ class properties_card extends StatelessWidget {
                                 dealer.toString(),
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 2,
-                                style: TextStyle(
-                                    color: Theme.of(context).backgroundColor,
-                                    fontSize: MediaQuery.of(context).size.width * 0.030,
-                                    fontWeight: FontWeight.w600),
+                                style: GoogleFonts.inter(
+                                  color: Theme.of(context).backgroundColor,
+                                  fontSize: MediaQuery.of(context).size.height *
+                                      0.012,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
                           ],
@@ -221,9 +242,6 @@ class properties_card extends StatelessWidget {
                       ],
                     ),
                   ]),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.005,
-                  ),
                   ElevatedButton(
                       onPressed: () {
                         FlutterPhoneDirectCaller.callNumber('7989772884');
@@ -233,14 +251,16 @@ class properties_card extends StatelessWidget {
                             Theme.of(context).backgroundColor),
                       ),
                       child: Padding(
-                          padding:
-                              const EdgeInsetsDirectional.fromSTEB(25, 0, 25, 0),
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              15, 0, 15, 0),
                           child: Text(
                             'Call Owner',
-                            style: TextStyle(
-                                fontSize:
-                                    MediaQuery.of(context).size.width * 0.04,
-                                color: Theme.of(context).primaryColor),
+                            style: GoogleFonts.inter(
+                              color: Theme.of(context).primaryColor,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.018,
+                              fontWeight: FontWeight.w500,
+                            ),
                             textAlign: TextAlign.center,
                           )))
                 ]),

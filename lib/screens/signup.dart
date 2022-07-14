@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class signup extends StatefulWidget {
   const signup({Key? key}) : super(key: key);
@@ -11,10 +12,10 @@ class signup extends StatefulWidget {
 class _signupState extends State<signup> {
   bool obscure_text = true;
   TextEditingController email = TextEditingController();
-TextEditingController password = TextEditingController();
-TextEditingController firstname = TextEditingController();
-TextEditingController lastname = TextEditingController();
-TextEditingController mobile_no = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController firstname = TextEditingController();
+  TextEditingController lastname = TextEditingController();
+  TextEditingController mobile_no = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +29,7 @@ TextEditingController mobile_no = TextEditingController();
           icon: Icon(
             Icons.arrow_back,
             color: Theme.of(context).primaryColor,
+            size: MediaQuery.of(context).size.width * 0.08,
           ),
         ),
       ),
@@ -39,114 +41,143 @@ TextEditingController mobile_no = TextEditingController();
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text('Welcome Back!',
-                        style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                            fontSize: 24)),
+                    Text(
+                      'Welcome Back!',
+                      style: GoogleFonts.poppins(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: MediaQuery.of(context).size.height * 0.024,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.03),
                     TextField(
                         controller: firstname,
                         keyboardType: TextInputType.name,
                         cursorColor: Theme.of(context).primaryColor,
-                        style: TextStyle(color: Theme.of(context).hintColor),
+                        style: GoogleFonts.inter(
+                          color: Theme.of(context).hintColor,
+                          fontSize: MediaQuery.of(context).size.height * 0.018,
+                          fontWeight: FontWeight.w400,
+                        ),
                         decoration: InputDecoration(
                           enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                   color: Theme.of(context).primaryColor,
                                   width: 1)),
                           labelText: 'First Name',
-                          labelStyle: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              backgroundColor:
-                                  Theme.of(context).backgroundColor,
-                              fontSize: 18),
+                          labelStyle: GoogleFonts.poppins(
+                            color: Theme.of(context).primaryColor,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.019,
+                            fontWeight: FontWeight.w400,
+                          ),
                         )),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                     TextField(
                         controller: lastname,
                         keyboardType: TextInputType.name,
                         cursorColor: Theme.of(context).primaryColor,
-                        style: TextStyle(color: Theme.of(context).hintColor),
+                        style: GoogleFonts.inter(
+                          color: Theme.of(context).hintColor,
+                          fontSize: MediaQuery.of(context).size.height * 0.018,
+                          fontWeight: FontWeight.w400,
+                        ),
                         decoration: InputDecoration(
                           enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                   color: Theme.of(context).primaryColor,
                                   width: 1)),
                           labelText: 'Last Name',
-                          labelStyle: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              backgroundColor:
-                                  Theme.of(context).backgroundColor,
-                              fontSize: 18),
+                          labelStyle: GoogleFonts.poppins(
+                            color: Theme.of(context).primaryColor,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.019,
+                            fontWeight: FontWeight.w400,
+                          ),
                         )),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                     TextField(
                         controller: email,
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: Theme.of(context).primaryColor,
-                        style: TextStyle(color: Theme.of(context).hintColor),
+                        style: GoogleFonts.inter(
+                          color: Theme.of(context).hintColor,
+                          fontSize: MediaQuery.of(context).size.height * 0.018,
+                          fontWeight: FontWeight.w400,
+                        ),
                         decoration: InputDecoration(
                           enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                   color: Theme.of(context).primaryColor,
                                   width: 1)),
                           labelText: 'Email',
-                          labelStyle: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              backgroundColor:
-                                  Theme.of(context).backgroundColor,
-                              fontSize: 18),
+                          labelStyle: GoogleFonts.poppins(
+                            color: Theme.of(context).primaryColor,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.019,
+                            fontWeight: FontWeight.w400,
+                          ),
                         )),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                     TextField(
                         controller: mobile_no,
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: Theme.of(context).primaryColor,
-                        style: TextStyle(color: Theme.of(context).hintColor),
+                        style: GoogleFonts.inter(
+                          color: Theme.of(context).hintColor,
+                          fontSize: MediaQuery.of(context).size.height * 0.018,
+                          fontWeight: FontWeight.w400,
+                        ),
                         decoration: InputDecoration(
                           enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                   color: Theme.of(context).primaryColor,
                                   width: 1)),
                           labelText: 'Contact No.',
-                          labelStyle: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              backgroundColor:
-                                  Theme.of(context).backgroundColor,
-                              fontSize: 18),
+                          labelStyle: GoogleFonts.poppins(
+                            color: Theme.of(context).primaryColor,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.019,
+                            fontWeight: FontWeight.w400,
+                          ),
                         )),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                     TextField(
                         controller: password,
                         keyboardType: TextInputType.visiblePassword,
                         cursorColor: Theme.of(context).primaryColor,
-                        style: TextStyle(color: Theme.of(context).hintColor),
+                        style: GoogleFonts.inter(
+                          color: Theme.of(context).hintColor,
+                          fontSize: MediaQuery.of(context).size.height * 0.018,
+                          fontWeight: FontWeight.w400,
+                        ),
                         obscureText: obscure_text,
                         obscuringCharacter: '*',
                         decoration: InputDecoration(
                           suffixIcon: IconButton(
-                              onPressed: () {
-                                setState(
-                                  () {
-                                    obscure_text = !obscure_text;
-                                  },
-                                );
-                              },
-                              icon: Icon(obscure_text
-                                  ? Icons.visibility
-                                  : Icons.visibility_off),
-                              color: Theme.of(context).primaryColor,
-                            ),
+                            onPressed: () {
+                              setState(
+                                () {
+                                  obscure_text = !obscure_text;
+                                },
+                              );
+                            },
+                            icon: Icon(obscure_text
+                                ? Icons.visibility
+                                : Icons.visibility_off),
+                            color: Theme.of(context).primaryColor,
+                          ),
                           enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                   color: Theme.of(context).primaryColor,
                                   width: 1)),
                           labelText: 'Password',
-                          labelStyle: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              backgroundColor:
-                                  Theme.of(context).backgroundColor,
-                              fontSize: 18),
+                          labelStyle: GoogleFonts.poppins(
+                            color: Theme.of(context).primaryColor,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.019,
+                            fontWeight: FontWeight.w400,
+                          ),
                         )),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.08),
                     ElevatedButton(
@@ -159,14 +190,15 @@ TextEditingController mobile_no = TextEditingController();
                         ),
                         child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                55, 15, 55, 15),
+                                55, 10, 55, 10),
                             child: Text(
                               'SIGN UP',
-                              style: TextStyle(
-                                  fontSize: 19,
-                                  color: Theme.of(context).hintColor,
-                                  backgroundColor:
-                                      Theme.of(context).primaryColor),
+                              style: GoogleFonts.poppins(
+                                color: Theme.of(context).hintColor,
+                                fontSize:
+                                    MediaQuery.of(context).size.height * 0.025,
+                                fontWeight: FontWeight.w500,
+                              ),
                               textAlign: TextAlign.center,
                             )))
                   ],

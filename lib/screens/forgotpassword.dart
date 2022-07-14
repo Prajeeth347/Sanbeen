@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class forgotpassword extends StatelessWidget {
   TextEditingController email = TextEditingController();
@@ -26,30 +28,42 @@ class forgotpassword extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text('Forgot Password',
-                        style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                            fontSize: 24)),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        'Forgot Password',
+                        style: GoogleFonts.poppins(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: MediaQuery.of(context).size.height * 0.023,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.03),
                     TextField(
                         controller: email,
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: Theme.of(context).primaryColor,
-                        style: TextStyle(color: Theme.of(context).hintColor),
+                        style: GoogleFonts.inter(
+                          color: Theme.of(context).hintColor,
+                          fontSize: MediaQuery.of(context).size.height * 0.019,
+                          fontWeight: FontWeight.w300,
+                        ),
                         decoration: InputDecoration(
                           enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(
                                   color: Theme.of(context).primaryColor,
                                   width: 1)),
                           labelText: 'Email',
-                          labelStyle: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              backgroundColor:
-                                  Theme.of(context).backgroundColor,
-                              fontSize: 18),
+                          labelStyle: GoogleFonts.poppins(
+                            color: Theme.of(context).primaryColor,
+                            fontSize: MediaQuery.of(context).size.height * 0.02,
+                            fontWeight: FontWeight.w300,
+                          ),
                         )),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                   ElevatedButton(
+                    ElevatedButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },
@@ -62,11 +76,12 @@ class forgotpassword extends StatelessWidget {
                                 55, 15, 55, 15),
                             child: Text(
                               'Reset Password',
-                              style: TextStyle(
-                                  fontSize: 19,
-                                  color: Theme.of(context).hintColor,
-                                  backgroundColor:
-                                      Theme.of(context).primaryColor),
+                              style: GoogleFonts.poppins(
+                                color: Theme.of(context).hintColor,
+                                fontSize:
+                                    MediaQuery.of(context).size.height * 0.02,
+                                fontWeight: FontWeight.w400,
+                              ),
                               textAlign: TextAlign.center,
                             )))
                   ],
