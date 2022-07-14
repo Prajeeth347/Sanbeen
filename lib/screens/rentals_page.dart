@@ -75,12 +75,13 @@ class _rentals_pageState extends State<rentals_page> {
                       icon: Icon(
                         Icons.person,
                         color: Theme.of(context).primaryColor,
+                        size: MediaQuery.of(context).size.width * 0.08,
                       ))
                 ],
                 elevation: 0,
                 backgroundColor: Theme.of(context).backgroundColor,
                 pinned: true,
-                expandedHeight: MediaQuery.of(context).size.height * 0.24,
+                expandedHeight: MediaQuery.of(context).size.height * 0.25,
                 flexibleSpace: FlexibleSpaceBar(
                   collapseMode: CollapseMode.parallax,
                   title: Container(
@@ -95,7 +96,7 @@ class _rentals_pageState extends State<rentals_page> {
                   centerTitle: true,
                   background: SafeArea(
                       child: Image.network(
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_ezKQ7JACM7cfswq9o1FRdQ8QerKO-Yqtgw&usqp=CAU",
+                    "https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?cs=srgb&dl=pexels-binyamin-mellish-186077.jpg&fm=jpg",
                     fit: BoxFit.cover,
                   )),
                 )),
@@ -296,8 +297,8 @@ class _rental_bodyState extends State<rental_body> {
         ),
       Center(
         child: Container(
-          width: MediaQuery.of(context).size.width * 0.9,
-          height: MediaQuery.of(context).size.height * 0.2,
+          width: MediaQuery.of(context).size.width * 0.88,
+          height: MediaQuery.of(context).size.height * 0.18,
           color: Theme.of(context).primaryColor,
           child: Row(
             children: [
@@ -307,13 +308,13 @@ class _rental_bodyState extends State<rental_body> {
               Column(
                 children: [
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.03,
+                    height: MediaQuery.of(context).size.height * 0.02,
                   ),
                   Text(
                     'Want to sell/rent',
                     style: GoogleFonts.poppins(
                         color: Theme.of(context).backgroundColor,
-                        fontSize: MediaQuery.of(context).size.width * 0.048,
+                        fontSize: MediaQuery.of(context).size.width * 0.045,
                         fontWeight: FontWeight.w500),
                     textAlign: TextAlign.left,
                   ),
@@ -321,15 +322,15 @@ class _rental_bodyState extends State<rental_body> {
                     'your property?',
                     style: GoogleFonts.poppins(
                         color: Theme.of(context).backgroundColor,
-                        fontSize: MediaQuery.of(context).size.width * 0.048,
+                        fontSize: MediaQuery.of(context).size.width * 0.045,
                         fontWeight: FontWeight.w500),
                     textAlign: TextAlign.left,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.02,
+                    height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(25),
                       child: ElevatedButton(
                           onPressed: () {
                             Navigator.push(
@@ -343,13 +344,13 @@ class _rental_bodyState extends State<rental_body> {
                           ),
                           child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  10, 0, 10, 0),
+                                  8, 0, 8, 0),
                               child: Text(
                                 'Post Property',
                                 style: GoogleFonts.poppins(
                                     fontSize:
                                         MediaQuery.of(context).size.width *
-                                            0.04,
+                                            0.038,
                                     color: Theme.of(context).primaryColor,
                                     fontWeight: FontWeight.w400),
                                 textAlign: TextAlign.center,
@@ -373,22 +374,23 @@ class _rental_bodyState extends State<rental_body> {
         ),
       ),
       SizedBox(
-        height: MediaQuery.of(context).size.height * 0.02,
+        height: MediaQuery.of(context).size.height * 0.01,
       ),
       Padding(
         padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
         child: Text(
           "Rental Collections",
-          style: TextStyle(
+          style: GoogleFonts.poppins(
               color: Theme.of(context).primaryColor,
-              fontSize: MediaQuery.of(context).size.width * 0.05),
+              fontSize: MediaQuery.of(context).size.width * 0.045,
+              fontWeight: FontWeight.w500),
           textAlign: TextAlign.start,
         ),
       ),
       Padding(
         padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.25,
+          height: MediaQuery.of(context).size.height * 0.2,
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
@@ -401,7 +403,7 @@ class _rental_bodyState extends State<rental_body> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Container(
-                          width: MediaQuery.of(context).size.width * 0.55,
+                          width: MediaQuery.of(context).size.width * 0.5,
                           height: MediaQuery.of(context).size.height * 0.25,
                           color: Color.fromARGB(255, 225, 214, 182),
                           child: Image.asset(
@@ -418,7 +420,7 @@ class _rental_bodyState extends State<rental_body> {
                               children: [
                                 Text(
                                   collectio1[index],
-                                  style: TextStyle(
+                                  style: GoogleFonts.inter(
                                       fontSize:
                                           MediaQuery.of(context).size.width *
                                               0.05,
@@ -428,11 +430,11 @@ class _rental_bodyState extends State<rental_body> {
                                 ),
                                 Text(
                                   collectio2[index],
-                                  style: TextStyle(
+                                  style: GoogleFonts.inter(
                                       fontSize:
                                           MediaQuery.of(context).size.width *
-                                              0.04,
-                                      fontWeight: FontWeight.w500,
+                                              0.035,
+                                      fontWeight: FontWeight.w300,
                                       color: Theme.of(context).backgroundColor),
                                   textAlign: TextAlign.center,
                                 ),
@@ -442,7 +444,7 @@ class _rental_bodyState extends State<rental_body> {
                     ],
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.06,
+                    width: MediaQuery.of(context).size.width * 0.04,
                   ),
                 ],
               );
@@ -451,22 +453,23 @@ class _rental_bodyState extends State<rental_body> {
         ),
       ),
       SizedBox(
-        height: MediaQuery.of(context).size.height * 0.02,
+        height: MediaQuery.of(context).size.height * 0.01,
       ),
       Padding(
         padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
         child: Text(
           "Homes by furnishing",
-          style: TextStyle(
+          style: GoogleFonts.poppins(
               color: Theme.of(context).primaryColor,
-              fontSize: MediaQuery.of(context).size.width * 0.05),
+              fontSize: MediaQuery.of(context).size.width * 0.044,
+              fontWeight: FontWeight.w500),
           textAlign: TextAlign.start,
         ),
       ),
       Padding(
         padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.21,
+          height: MediaQuery.of(context).size.height * 0.18,
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
@@ -478,7 +481,7 @@ class _rental_bodyState extends State<rental_body> {
                     children: [
                       Container(
                         width: MediaQuery.of(context).size.width * 0.4,
-                        height: MediaQuery.of(context).size.height * 0.16,
+                        height: MediaQuery.of(context).size.height * 0.13,
                         color: Color.fromARGB(255, 225, 214, 182),
                         child: Image.asset(
                           collectio[index],
@@ -486,18 +489,19 @@ class _rental_bodyState extends State<rental_body> {
                         ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.01,
+                        height: MediaQuery.of(context).size.height * 0.014,
                       ),
                       Text(
                         furnishing[index],
-                        style: TextStyle(
+                        style: GoogleFonts.inter(
                             color: Theme.of(context).primaryColor,
-                            fontSize: MediaQuery.of(context).size.width * 0.04),
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            fontWeight: FontWeight.w400),
                       ),
                     ],
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.06,
+                    width: MediaQuery.of(context).size.width * 0.03,
                   )
                 ],
               );
@@ -511,17 +515,129 @@ class _rental_bodyState extends State<rental_body> {
       Padding(
         padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
         child: Text(
-          "Residential Zones",
-          style: TextStyle(
+          "Popular Localities",
+          style: GoogleFonts.poppins(
               color: Theme.of(context).primaryColor,
-              fontSize: MediaQuery.of(context).size.width * 0.05),
+              fontSize: MediaQuery.of(context).size.width * 0.045,
+              fontWeight: FontWeight.w500),
+          textAlign: TextAlign.start,
+        ),
+      ),
+      SizedBox(
+        height: MediaQuery.of(context).size.height * 0.01,
+      ),
+      Padding(
+        padding: EdgeInsets.fromLTRB(16, 8, 8, 8),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.2,
+              width: MediaQuery.of(context).size.width * 0.9,
+              child: GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: 0.35,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 20),
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: locality.length,
+                itemBuilder: ((context, index) {
+                  return Row(
+                    children: [
+                      Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(90),
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * 0.158,
+                              height:
+                                  MediaQuery.of(context).size.height * 0.074,
+                              color: Theme.of(context).hintColor,
+                              child: CircleAvatar(
+                                radius:
+                                    MediaQuery.of(context).size.width * 0.08,
+                                backgroundImage: AssetImage(collectio[index]),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.01,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.02,
+                      ),
+                      Column(
+                        children: [
+                          Text(
+                            locality[index],
+                            style: GoogleFonts.poppins(
+                                color: Theme.of(context).hintColor,
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.037),
+                            textAlign: TextAlign.left,
+                          ),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.002,
+                          ),
+                          Text(
+                            localit1[index] + ' new localities',
+                            style: GoogleFonts.inter(
+                                color: Theme.of(context).hintColor,
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.033),
+                            textAlign: TextAlign.left,
+                          ),
+                          Divider(
+                            color: Theme.of(context).primaryColor,
+                            thickness: 1,
+                            height: MediaQuery.of(context).size.width * 0.058,
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.02,
+                      )
+                    ],
+                  );
+                }),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => properties_20()));
+              },
+              child: Text("View all new localities",
+                  style: GoogleFonts.inter(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: MediaQuery.of(context).size.height * 0.017,
+                      fontWeight: FontWeight.w400,
+                      decoration: TextDecoration.underline)),
+            ),
+          ],
+        ),
+      ),
+
+      Padding(
+        padding: const EdgeInsets.fromLTRB(16, 5, 8, 8),
+        child: Text(
+          "Residential Zones",
+          style: GoogleFonts.poppins(
+              color: Theme.of(context).primaryColor,
+              fontSize: MediaQuery.of(context).size.width * 0.045,
+              fontWeight: FontWeight.w500),
           textAlign: TextAlign.start,
         ),
       ),
       Padding(
         padding: EdgeInsets.fromLTRB(16, 8, 8, 8),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.25,
+          height: MediaQuery.of(context).size.height * 0.2,
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
@@ -532,8 +648,8 @@ class _rental_bodyState extends State<rental_body> {
                   Column(
                     children: [
                       Container(
-                        width: MediaQuery.of(context).size.width * 0.5,
-                        height: MediaQuery.of(context).size.height * 0.2,
+                        width: MediaQuery.of(context).size.width * 0.48,
+                        height: MediaQuery.of(context).size.height * 0.15,
                         color: Color.fromARGB(255, 225, 214, 182),
                         child: Image.asset(
                           collectio[index],
@@ -545,98 +661,16 @@ class _rental_bodyState extends State<rental_body> {
                       ),
                       Text(
                         zones[index],
-                        style: TextStyle(
+                        style: GoogleFonts.inter(
                             color: Theme.of(context).primaryColor,
-                            fontSize: MediaQuery.of(context).size.width * 0.04),
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            fontWeight: FontWeight.w500),
+                        textAlign: TextAlign.start,
                       ),
                     ],
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.06,
-                  )
-                ],
-              );
-            }),
-          ),
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
-        child: Text(
-          "Popular Localities",
-          style: TextStyle(
-              color: Theme.of(context).primaryColor,
-              fontSize: MediaQuery.of(context).size.width * 0.05,
-              fontWeight: FontWeight.w600),
-          textAlign: TextAlign.start,
-        ),
-      ),
-      SizedBox(
-        height: MediaQuery.of(context).size.height * 0.01,
-      ),
-      Padding(
-        padding: EdgeInsets.fromLTRB(16, 8, 8, 8),
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.18,
-          width: MediaQuery.of(context).size.width * 0.9,
-          child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 0.35,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 20),
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemCount: locality.length,
-            itemBuilder: ((context, index) {
-              return Row(
-                children: [
-                  Column(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(90),
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.15,
-                          height: MediaQuery.of(context).size.height * 0.07,
-                          color: Theme.of(context).hintColor,
-                          child: CircleAvatar(
-                            radius: MediaQuery.of(context).size.width * 0.08,
-                            backgroundImage: AssetImage(collectio[index]),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.01,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.02,
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        locality[index],
-                        style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                            fontSize: MediaQuery.of(context).size.width * 0.04),
-                        textAlign: TextAlign.left,
-                      ),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.002,
-                      ),
-                      Text(
-                        localit1[index] + ' new localities',
-                        style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                            fontSize:
-                                MediaQuery.of(context).size.width * 0.035),
-                        textAlign: TextAlign.left,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.02,
+                    width: MediaQuery.of(context).size.width * 0.03,
                   )
                 ],
               );
@@ -652,16 +686,16 @@ class _rental_bodyState extends State<rental_body> {
               color: Theme.of(context).primaryColor,
               child: Text(
                 'Featured Dealers',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                     color: Theme.of(context).backgroundColor,
-                    fontSize: MediaQuery.of(context).size.width * 0.05,
-                    fontWeight: FontWeight.w600),
+                    fontSize: MediaQuery.of(context).size.width * 0.045,
+                    fontWeight: FontWeight.w500),
                 textAlign: TextAlign.justify,
               ))),
       Padding(
         padding: EdgeInsets.fromLTRB(16, 0, 8, 8),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.35,
+          height: MediaQuery.of(context).size.height * 0.28,
           width: MediaQuery.of(context).size.width * 1,
           child: ListView.builder(
             shrinkWrap: true,
@@ -669,8 +703,8 @@ class _rental_bodyState extends State<rental_body> {
             itemCount: locality.length,
             itemBuilder: ((context, index) {
               return Container(
-                height: MediaQuery.of(context).size.height * 0.37,
-                width: MediaQuery.of(context).size.width * 0.45,
+                height: MediaQuery.of(context).size.height * 0.3,
+                width: MediaQuery.of(context).size.width * 0.55,
                 color: Theme.of(context).primaryColor,
                 child: Padding(
                   padding: EdgeInsets.all(10),
@@ -681,8 +715,8 @@ class _rental_bodyState extends State<rental_body> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Container(
-                        height: MediaQuery.of(context).size.height * 0.3,
-                        width: MediaQuery.of(context).size.width * 0.4,
+                        height: MediaQuery.of(context).size.height * 0.235,
+                        width: MediaQuery.of(context).size.width * 0.55,
                         color: Theme.of(context).backgroundColor,
                         child: Column(
                           children: [
@@ -697,31 +731,32 @@ class _rental_bodyState extends State<rental_body> {
                               height: MediaQuery.of(context).size.height * 0.01,
                             ),
                             Text(dealer[index],
-                                style: TextStyle(
+                                style: GoogleFonts.poppins(
                                     color: Theme.of(context).hintColor,
                                     fontSize:
                                         MediaQuery.of(context).size.width *
-                                            0.04)),
+                                            0.035,
+                                    fontWeight: FontWeight.w500)),
                             SizedBox(
                               height:
-                                  MediaQuery.of(context).size.height * 0.005,
+                                  MediaQuery.of(context).size.height * 0.0015,
                             ),
                             Text(buyer[index] + ' Buyers this week',
-                                style: TextStyle(
+                                style: GoogleFonts.inter(
                                     color: Theme.of(context).hintColor,
                                     fontSize:
                                         MediaQuery.of(context).size.width *
-                                            0.03)),
+                                            0.025)),
                             SizedBox(
                               height:
                                   MediaQuery.of(context).size.height * 0.005,
                             ),
                             Text('Member Since ' + time[index],
-                                style: TextStyle(
+                                style: GoogleFonts.inter(
                                     color: Theme.of(context).hintColor,
                                     fontSize:
                                         MediaQuery.of(context).size.width *
-                                            0.025)),
+                                            0.02)),
                             SizedBox(
                               height:
                                   MediaQuery.of(context).size.height * 0.005,
@@ -731,94 +766,119 @@ class _rental_bodyState extends State<rental_body> {
                                 children: [
                                   SizedBox(
                                     width: MediaQuery.of(context).size.width *
+                                        0.15,
+                                  ),
+                                  Icon(
+                                    Icons.star_rounded,
+                                    color: Theme.of(context).primaryColor,
+                                    size: MediaQuery.of(context).size.width *
                                         0.05,
                                   ),
                                   Icon(
                                     Icons.star_rounded,
                                     color: Theme.of(context).primaryColor,
+                                    size: MediaQuery.of(context).size.width *
+                                        0.05,
                                   ),
                                   Icon(
                                     Icons.star_rounded,
                                     color: Theme.of(context).primaryColor,
+                                    size: MediaQuery.of(context).size.width *
+                                        0.05,
                                   ),
                                   Icon(
                                     Icons.star_rounded,
                                     color: Theme.of(context).primaryColor,
-                                  ),
-                                  Icon(
-                                    Icons.star_rounded,
-                                    color: Theme.of(context).primaryColor,
+                                    size: MediaQuery.of(context).size.width *
+                                        0.05,
                                   )
                                 ],
                               ),
                             ),
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                IconButton(
-                                    onPressed: () async {
-                                      var whatsappURl_android =
-                                          "whatsapp://send?phone=" +
-                                              number +
-                                              "&text=Hello";
-                                      var whatappURL_ios =
-                                          "https://wa.me/$number?text=${Uri.parse("Hello")}";
-                                      if (Platform.isIOS) {
-                                        // for iOS phone only
-                                        if (await canLaunchUrl(
-                                            Uri(path: whatappURL_ios))) {
-                                          await launchUrl(
-                                              Uri(path: whatappURL_ios));
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    IconButton(
+                                      onPressed: () async {
+                                        var whatsappURl_android =
+                                            "whatsapp://send?phone=" +
+                                                number +
+                                                "&text=Hello";
+                                        var whatappURL_ios =
+                                            "https://wa.me/$number?text=${Uri.parse("Hello")}";
+                                        if (Platform.isIOS) {
+                                          // for iOS phone only
+                                          if (await canLaunchUrl(
+                                              Uri(path: whatappURL_ios))) {
+                                            await launchUrl(
+                                                Uri(path: whatappURL_ios));
+                                          } else {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(SnackBar(
+                                                    content: new Text(
+                                                        "whatsapp no installed")));
+                                          }
                                         } else {
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(SnackBar(
-                                                  content: new Text(
-                                                      "whatsapp no installed")));
+                                          if (await canLaunch(
+                                              whatsappURl_android)) {
+                                            await launch(whatsappURl_android);
+                                          } else {
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(SnackBar(
+                                                    content: new Text(
+                                                        "whatsapp no installed")));
+                                          }
                                         }
-                                      } else {
-                                        if (await canLaunch(
-                                            whatsappURl_android)) {
-                                          await launch(whatsappURl_android);
-                                        } else {
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(SnackBar(
-                                                  content: new Text(
-                                                      "whatsapp no installed")));
-                                        }
-                                      }
-                                    },
-                                    icon: Image.network(
-                                        'https://cdn-icons-png.flaticon.com/512/124/124034.png?w=740&t=st=1656751163~exp=1656751763~hmac=3e5cd586eb711d53069f6ec6c5f9fdbd67c451cca7915d8684aae3d1a53cee94')),
-                                Text('Whatsapp',
-                                    style: TextStyle(
-                                        color: Theme.of(context).primaryColor,
-                                        fontSize:
-                                            MediaQuery.of(context).size.width *
-                                                0.03,
-                                        fontWeight: FontWeight.w500)),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                IconButton(
-                                    color: Theme.of(context).hintColor,
-                                    onPressed: () {
-                                      FlutterPhoneDirectCaller.callNumber(
-                                          number);
-                                    },
-                                    icon: Icon(
-                                      Icons.phone,
-                                      color: Theme.of(context).primaryColor,
-                                      size: 20,
-                                    )),
-                                Text('Call Now',
-                                    style: TextStyle(
-                                        color: Theme.of(context).primaryColor,
-                                        fontSize:
-                                            MediaQuery.of(context).size.width *
-                                                0.03,
-                                        fontWeight: FontWeight.w500))
+                                      },
+                                      icon: Image.network(
+                                          'https://cdn-icons-png.flaticon.com/512/124/124034.png?w=740&t=st=1656751163~exp=1656751763~hmac=3e5cd586eb711d53069f6ec6c5f9fdbd67c451cca7915d8684aae3d1a53cee94'),
+                                      iconSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.01,
+                                    ),
+                                    Text('Whatsapp',
+                                        style: GoogleFonts.inter(
+                                            color: Theme.of(context).hintColor,
+                                            fontSize: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.025,
+                                            fontWeight: FontWeight.w400)),
+                                  ],
+                                ),
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.001,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    IconButton(
+                                        color: Theme.of(context).hintColor,
+                                        onPressed: () {
+                                          FlutterPhoneDirectCaller.callNumber(
+                                              number);
+                                        },
+                                        icon: Icon(
+                                          Icons.phone,
+                                          color: Theme.of(context).primaryColor,
+                                          size: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.04,
+                                        )),
+                                    Text('Call Now',
+                                        style: GoogleFonts.inter(
+                                            color: Theme.of(context).hintColor,
+                                            fontSize: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.025,
+                                            fontWeight: FontWeight.w400))
+                                  ],
+                                )
                               ],
                             )
                           ],
