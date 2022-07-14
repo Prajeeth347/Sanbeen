@@ -364,7 +364,7 @@ class _rental_bodyState extends State<rental_body> {
         CircularProgressIndicator(color: Theme.of(context).primaryColor),
       if (_prop_20_loaded == true)
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.39,
+          height: MediaQuery.of(context).size.height * 0.42,
           child: ListView.builder(
               itemCount: property?.length,
               shrinkWrap: true,
@@ -708,8 +708,8 @@ class _rental_bodyState extends State<rental_body> {
       ),
 
       SizedBox(
-        height: MediaQuery.of(context).size.height * 0.6,
-        child: GridView.builder(
+        height: MediaQuery.of(context).size.height * 0.65,
+        child: property != null ? GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 0.8,
@@ -717,7 +717,6 @@ class _rental_bodyState extends State<rental_body> {
                 mainAxisSpacing: 0),
             itemCount: 4,
             shrinkWrap: true,
-            //scrollDirection: Axis.horizontal,
             itemBuilder: ((context, index) {
               if (property![index].propertyMode == "rent")
                 return GestureDetector(
@@ -726,134 +725,130 @@ class _rental_bodyState extends State<rental_body> {
                         builder: (context) =>
                             property_single_page(id: property![index].id)));
                   },
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.fromLTRB(10, 8, 10, 12),
-                        child: Stack(
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(10, 8, 10, 12),
+                    child: Stack(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            height:
+                                MediaQuery.of(context).size.height * 0.25,
+                            child: Image.network(
+                              property![index].images[0],
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.topRight,
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                            child: IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.favorite_outline,
+                                  size: MediaQuery.of(context).size.width *
+                                      0.065,
+                                  color: Theme.of(context).backgroundColor,
+                                )),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.fromLTRB(4, 140, 5, 10),
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
                               child: Container(
-                                width: MediaQuery.of(context).size.width * 0.5,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.25,
-                                child: Image.network(
-                                  property![index].images[0],
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                            Align(
-                              alignment: Alignment.topRight,
-                              child: Padding(
-                                padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                child: IconButton(
-                                    onPressed: () {},
-                                    icon: Icon(
-                                      Icons.favorite_outline,
-                                      size: MediaQuery.of(context).size.width *
-                                          0.065,
-                                      color: Theme.of(context).backgroundColor,
-                                    )),
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(4, 140, 5, 10),
-                              child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(12),
-                                  child: Container(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.1,
-                                    width: MediaQuery.of(context).size.width *
-                                        0.48,
-                                    color: Theme.of(context).backgroundColor,
-                                    child: Column(
+                                height: MediaQuery.of(context).size.height *
+                                    0.1,
+                                width: MediaQuery.of(context).size.width *
+                                    0.48,
+                                color: Theme.of(context).backgroundColor,
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.center,
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.center,
+                                  children: [
+                                    Text(property![index].name,
+                                        style: GoogleFonts.inter(
+                                          color: Theme.of(context)
+                                              .primaryColor,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.02,
+                                          fontWeight: FontWeight.w500,
+                                        )),
+                                    SizedBox(
+                                      height: MediaQuery.of(context)
+                                              .size
+                                              .height *
+                                          0.005,
+                                    ),
+                                    Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        Text(property![index].name,
-                                            style: GoogleFonts.inter(
-                                              color: Theme.of(context)
-                                                  .primaryColor,
-                                              fontSize: MediaQuery.of(context)
-                                                      .size
-                                                      .height *
-                                                  0.02,
-                                              fontWeight: FontWeight.w500,
-                                            )),
-                                        SizedBox(
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.005,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                                property![index]
-                                                        .bedRooms
-                                                        .toString() +
-                                                    'BHK ',
-                                                style: GoogleFonts.inter(
-                                                  color: Theme.of(context)
-                                                      .primaryColor,
-                                                  fontSize:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .height *
-                                                          0.012,
-                                                  fontWeight: FontWeight.w400,
-                                                )),
-                                            Text(property![index].type,
-                                                style: GoogleFonts.inter(
-                                                  color: Theme.of(context)
-                                                      .primaryColor,
-                                                  fontSize:
-                                                      MediaQuery.of(context)
-                                                              .size
-                                                              .height *
-                                                          0.012,
-                                                  fontWeight: FontWeight.w400,
-                                                )),
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.005,
-                                        ),
                                         Text(
-                                            indiaFormat
-                                                .format(property![index].price),
+                                            property![index]
+                                                    .bedRooms
+                                                    .toString() +
+                                                'BHK ',
                                             style: GoogleFonts.inter(
                                               color: Theme.of(context)
                                                   .primaryColor,
-                                              fontSize: MediaQuery.of(context)
-                                                      .size
-                                                      .height *
-                                                  0.015,
-                                              fontWeight: FontWeight.w500,
+                                              fontSize:
+                                                  MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.012,
+                                              fontWeight: FontWeight.w400,
+                                            )),
+                                        Text(property![index].type,
+                                            style: GoogleFonts.inter(
+                                              color: Theme.of(context)
+                                                  .primaryColor,
+                                              fontSize:
+                                                  MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.012,
+                                              fontWeight: FontWeight.w400,
                                             )),
                                       ],
                                     ),
-                                  )),
-                            ),
-                          ],
+                                    SizedBox(
+                                      height: MediaQuery.of(context)
+                                              .size
+                                              .height *
+                                          0.005,
+                                    ),
+                                    Text(
+                                        indiaFormat
+                                            .format(property![index].price),
+                                        style: GoogleFonts.inter(
+                                          color: Theme.of(context)
+                                              .primaryColor,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.015,
+                                          fontWeight: FontWeight.w500,
+                                        )),
+                                  ],
+                                ),
+                              )),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 );
               return Container();
-            })),
+            })) : Container(),
       ),
       Padding(
         padding: EdgeInsets.fromLTRB(16, 15, 16, 8),

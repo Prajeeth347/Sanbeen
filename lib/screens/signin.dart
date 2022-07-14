@@ -24,8 +24,8 @@ class _signinState extends State<signin> {
         headers: {"Content-Type": "application/json"},
         body: jsonEncode({"email": email.text, "password": password.text}));
     if (sign_response.statusCode == 200) {
-      responseMap = jsonDecode(sign_response.body);
-      print(responseMap.toString());
+      // responseMap = jsonDecode(sign_response.body);
+      // print(responseMap.toString());
       Fluttertoast.showToast(
           msg: "Successful",
           gravity: ToastGravity.BOTTOM,
@@ -89,8 +89,6 @@ class _signinState extends State<signin> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      // SizedBox(
-                      //     height: MediaQuery.of(context).size.height * 0.01),
                       Text(
                         '& Realtors Pvt. Ltd.',
                         style: GoogleFonts.poppins(

@@ -212,7 +212,8 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
           ),
         ),
         if (_prop_20_loaded == false)
-          CircularProgressIndicator(color: Theme.of(context).primaryColor),
+                  CircularProgressIndicator(color: Theme.of(context).primaryColor),
+
         if (_prop_20_loaded == true)
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.2,
