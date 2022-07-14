@@ -130,12 +130,14 @@ class _profile_pageState extends State<profile_page> {
                   },
                   child: Row(
                     children: [
-                      CircleAvatar(
-                        child: Icon(
-                          Icons.person,
-                          color: Theme.of(context).primaryColor,
+                      Container(
+                        child: CircleAvatar(
+                          child: Icon(
+                            Icons.person,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                          backgroundColor: Theme.of(context).backgroundColor,
                         ),
-                        backgroundColor: Theme.of(context).backgroundColor,
                       ),
                       SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                       Text(
@@ -146,10 +148,14 @@ class _profile_pageState extends State<profile_page> {
                           fontWeight: FontWeight.w300,
                         ),
                       ),
-                      SizedBox(width: MediaQuery.of(context).size.width * 0.34),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: Theme.of(context).primaryColor,
+                      // SizedBox(
+                      //     width: MediaQuery.of(context).size.width * 0.3),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(120, 0, 0, 0),
+                        child: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Theme.of(context).primaryColor,
+                        ),
                       )
                     ],
                   )),
@@ -180,10 +186,13 @@ class _profile_pageState extends State<profile_page> {
                           fontWeight: FontWeight.w300,
                         ),
                       ),
-                      SizedBox(width: MediaQuery.of(context).size.width * 0.29),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: Theme.of(context).primaryColor,
+                      //SizedBox(width: MediaQuery.of(context).size.width * 0.29),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(110, 0, 0, 0),
+                        child: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Theme.of(context).primaryColor,
+                        ),
                       )
                     ],
                   )),
@@ -213,10 +222,13 @@ class _profile_pageState extends State<profile_page> {
                           fontWeight: FontWeight.w300,
                         ),
                       ),
-                      SizedBox(width: MediaQuery.of(context).size.width * 0.48),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: Theme.of(context).primaryColor,
+                      //SizedBox(width: MediaQuery.of(context).size.width * 0.48),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(160, 0, 0, 0),
+                        child: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Theme.of(context).primaryColor,
+                        ),
                       )
                     ],
                   )),

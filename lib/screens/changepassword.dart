@@ -46,91 +46,121 @@ class _account_detailsState extends State<change_password> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.03,
             ),
-            Row(
-              children: [
-                Text(
-                  'Current password',
-                  style: GoogleFonts.poppins(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: MediaQuery.of(context).size.height * 0.018,
-                    fontWeight: FontWeight.w300,
-                  ),
-                ),
-                SizedBox(width: MediaQuery.of(context).size.width * 0.04),
-                SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    child: TextField(
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        suffixIcon: Icon(
-                          Icons.edit,
-                          color: Theme.of(context).backgroundColor,
-                        ),
-                        filled: true,
-                        fillColor: Theme.of(context).primaryColor,
+            Container(
+              height: MediaQuery.of(context).size.height * 0.1,
+              width: MediaQuery.of(context).size.width * 0.95,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.05,
+                    width: MediaQuery.of(context).size.width * 0.35,
+                    child: Text(
+                      'Current password',
+                      style: GoogleFonts.poppins(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontWeight: FontWeight.w300,
                       ),
-                      controller: currcon,
-                    )),
-              ],
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-            Row(
-              children: [
-                Text(
-                  'New password',
-                  style: GoogleFonts.poppins(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: MediaQuery.of(context).size.height * 0.018,
-                    fontWeight: FontWeight.w300,
+                      textAlign: TextAlign.start,
+                    ),
                   ),
-                ),
-                SizedBox(width: MediaQuery.of(context).size.width * 0.11),
-                SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    child: TextField(
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        suffixIcon: Icon(
-                          Icons.edit,
-                          color: Theme.of(context).backgroundColor,
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.05),
+                  SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.5,
+                      child: TextField(
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          suffixIcon: Icon(
+                            Icons.edit,
+                            color: Theme.of(context).backgroundColor,
+                          ),
+                          filled: true,
+                          fillColor: Theme.of(context).primaryColor,
                         ),
-                        filled: true,
-                        fillColor: Theme.of(context).primaryColor,
-                      ),
-                      controller: newcon,
-                    )),
-              ],
+                        controller: newcon,
+                      )),
+                ],
+              ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-            Row(
-              children: [
-                Container(
-                    width: MediaQuery.of(context).size.width * 0.36,
-                    child: Flexible(
-                        child: Text(
+            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+            Container(
+              height: MediaQuery.of(context).size.height * 0.1,
+              width: MediaQuery.of(context).size.width * 0.95,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.05,
+                    width: MediaQuery.of(context).size.width * 0.35,
+                    child: Text(
+                      'New password',
+                      style: GoogleFonts.poppins(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontWeight: FontWeight.w300,
+                      ),
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.05),
+                  SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.5,
+                      child: TextField(
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          suffixIcon: Icon(
+                            Icons.edit,
+                            color: Theme.of(context).backgroundColor,
+                          ),
+                          filled: true,
+                          fillColor: Theme.of(context).primaryColor,
+                        ),
+                        controller: newcon,
+                      )),
+                ],
+              ),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+            Container(
+              height: MediaQuery.of(context).size.height * 0.1,
+              width: MediaQuery.of(context).size.width * 0.95,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.08,
+                    width: MediaQuery.of(context).size.width * 0.35,
+                    child: Text(
                       'Confirm new password',
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.018,
+                        fontSize: MediaQuery.of(context).size.height * 0.02,
                         fontWeight: FontWeight.w300,
                       ),
-                    ))),
-                SizedBox(width: MediaQuery.of(context).size.width * 0.05),
-                SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.5,
-                    child: TextField(
-                      keyboardType: TextInputType.text,
-                      decoration: InputDecoration(
-                        suffixIcon: Icon(
-                          Icons.edit,
-                          color: Theme.of(context).backgroundColor,
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.05),
+                  SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.5,
+                      child: TextField(
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          suffixIcon: Icon(
+                            Icons.edit,
+                            color: Theme.of(context).backgroundColor,
+                          ),
+                          filled: true,
+                          fillColor: Theme.of(context).primaryColor,
                         ),
-                        filled: true,
-                        fillColor: Theme.of(context).primaryColor,
-                      ),
-                      controller: newconfcon,
-                    )),
-              ],
+                        controller: newcon,
+                      )),
+                ],
+              ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.02),
             Center(
