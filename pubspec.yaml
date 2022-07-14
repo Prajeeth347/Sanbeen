@@ -71,6 +71,10 @@ flutter:
     - assets/images/background.png
     - assets/images/house.png
     - assets/images/bill.png
+    - assets/images/home.png
+    - assets/images/homie.png
+    - assets/images/location.png
+    - assets/images/whatsapp.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
