@@ -208,18 +208,6 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => properties_20()));
-                },
-                child: Text("View all",
-                    style: GoogleFonts.inter(
-                        color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.015,
-                        fontWeight: FontWeight.w400,
-                        decoration: TextDecoration.underline)),
-              )
             ],
           ),
         ),
@@ -233,7 +221,7 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: ((context, index) {
-                  if (property![index].propertyMode == "sell")
+                  if (property![index].propertyMode == "rent")
                     return GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
@@ -243,41 +231,41 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                       child: Column(
                         children: [
                           Padding(
-                              child: Stack(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: Container(
-                                      width: MediaQuery.of(context).size.width *
-                                          0.4,
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.15,
-                                      child: Image.network(
-                                        property![index].images[0],
-                                        fit: BoxFit.cover,
-                                      ),
+                            padding: EdgeInsets.fromLTRB(4, 8, 4, 10),
+                            child: Stack(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: Container(
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.4,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.15,
+                                    child: Image.network(
+                                      property![index].images[0],
+                                      fit: BoxFit.cover,
                                     ),
                                   ),
-                                  Align(
-                                    alignment: Alignment.topRight,
-                                    child: Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                          120, 0, 0, 0),
-                                      child: IconButton(
-                                          onPressed: () {},
-                                          icon: Icon(
-                                            Icons.favorite_outline,
-                                            size: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.065,
-                                          )),
-                                    ),
+                                ),
+                                Align(
+                                  alignment: Alignment.topRight,
+                                  child: Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(120, 0, 0, 0),
+                                    child: IconButton(
+                                        onPressed: () {},
+                                        icon: Icon(
+                                          Icons.favorite_outline,
+                                          size: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.065,
+                                        )),
                                   ),
-                                ],
-                              ),
-                              padding: EdgeInsets.fromLTRB(10, 8, 10, 12)),
+                                ),
+                              ],
+                            ),
+                          ),
                           Text(property![index].name,
                               style: GoogleFonts.inter(
                                   color: Theme.of(context).primaryColor,
@@ -291,7 +279,7 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                 })),
           ),
         Padding(
-          padding: EdgeInsets.fromLTRB(24, 5, 16, 8),
+          padding: EdgeInsets.fromLTRB(20, 15, 16, 8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -302,18 +290,6 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                     fontSize: MediaQuery.of(context).size.width * 0.043,
                     fontWeight: FontWeight.w500),
               ),
-              TextButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => properties_20()));
-                },
-                child: Text("View all",
-                    style: GoogleFonts.inter(
-                        color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.width * 0.03,
-                        fontWeight: FontWeight.w400,
-                        decoration: TextDecoration.underline)),
-              )
             ],
           ),
         ),
@@ -326,7 +302,7 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: ((context, index) {
-                    if (property![index].propertyMode == "sell")
+                    if (property![index].propertyMode == "rent")
                       return GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
