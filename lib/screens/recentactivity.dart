@@ -69,6 +69,7 @@ class _recent_activityState extends State<recent_activity> {
                                   pressed_contact = false;
                                   lookfor = "viewed";
                                 }
+                                print(lookfor);
                               }),
                           child: Text(
                             "Viewed",
@@ -102,6 +103,7 @@ class _recent_activityState extends State<recent_activity> {
                                   pressed_contact = false;
                                   lookfor = "shortlisted";
                                 }
+                                print(lookfor);
                               }),
                           child: Text(
                             "Shortlisted",
@@ -135,6 +137,7 @@ class _recent_activityState extends State<recent_activity> {
                                   pressed_contact = true;
                                   lookfor = "contacted";
                                 }
+                                print(lookfor);
                               }),
                           child: Text(
                             "Contacted",
@@ -148,14 +151,60 @@ class _recent_activityState extends State<recent_activity> {
                           ))),
                 ],
               ),
+              SizedBox(height: 8,),
               Divider(
                 height: 10,
-                thickness: 5,
+                thickness: 1,
+                color: Theme.of(context).primaryColor,
               ),
+              SizedBox(height: 8,),
+              (lookfor == "viewed") ?
+              Viewed() : (lookfor == "shortlisted") ?
+              Shortlisted() :
+              Contacted()
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class Contacted extends StatelessWidget {
+  const Contacted({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text("Contacted",style: TextStyle(color: Theme.of(context).primaryColor),),
+    );
+  }
+}
+
+class Shortlisted extends StatelessWidget {
+  const Shortlisted({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text("Shortlisted",style: TextStyle(color: Theme.of(context).primaryColor),),
+    );
+  }
+}
+
+class Viewed extends StatelessWidget {
+  const Viewed({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text("Viewed",style: TextStyle(color: Theme.of(context).primaryColor),),
     );
   }
 }
