@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class testimonials extends StatefulWidget {
   const testimonials({Key? key}) : super(key: key);
@@ -48,66 +49,104 @@ class _testimonialsState extends State<testimonials> {
   }
 }
 
+List cities = [
+  "Delhi",
+  "Mumbai",
+  "Chennai",
+  "Kolkata",
+  "Delhi",
+  "Mumbai",
+  "Chennai",
+  "Kolkata"
+];
+List dealer = ["Loreal Paris", "Sid Mathews", "Loreal Paris", "Sid Mathews"];
+List collection = [
+  'assets/images/home.png',
+  'assets/images/house.png',
+  'assets/images/bill.png',
+  'assets/images/homie.png',
+  'assets/images/home.png',
+  'assets/images/house.png',
+  'assets/images/bill.png',
+  'assets/images/homie.png'
+];
+
 class TestimonialCard extends StatelessWidget {
   const TestimonialCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: double.maxFinite,
-        child: Row(
-          children: [
-            Container(
-              width: 80,
-              height: 80,
-              decoration: new BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: new DecorationImage(
-                    fit: BoxFit.cover,
-                    alignment: FractionalOffset.topCenter,
-                    image: new NetworkImage(
-                        'https://www.filmibeat.com/img/popcorn/profile_photos/sree-leela-20191016105248-40142.jpg'),
-                  )),
-
-              // style: TextStyle(color: Colors.white),
-            ),
-            Container(
-              width: 280,
-              height: 80,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.9,
+      child: ListView.builder(
+        shrinkWrap: true,
+        scrollDirection: Axis.horizontal,
+        itemCount: dealer.length,
+        itemBuilder: ((context, index) {
+          return Column(
+            children: [
+              Row(
                 children: [
-                  Text(
-                    'Sree leela',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'NotoSans',
-                      fontSize: 15,
-                    ),
+                  Column(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(90),
+                        child: CircleAvatar(
+                          radius: MediaQuery.of(context).size.width * 0.07,
+                          backgroundImage: AssetImage(collection[index]),
+                        ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.01,
+                      ),
+                    ],
                   ),
-                  Text(
-                    'Owner,Mumbai',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'NotoSans',
-                      fontSize: 15,
-                    ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.02,
                   ),
-                  Text(
-                    '''Lorem ipsum dolor sit amet, consectetur adipisci elit, ''',
-                    // overflow: TextOverflow.ellipsis,
-                    // softWrap: true,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'NotoSans',
-                      fontSize: 15,
-                    ),
+                  Column(
+                    children: [
+                      Text(
+                        dealer[index],
+                        style: GoogleFonts.poppins(
+                            color: Theme.of(context).hintColor,
+                            fontSize:
+                                MediaQuery.of(context).size.width * 0.037),
+                        textAlign: TextAlign.left,
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.002,
+                      ),
+                      Text(
+                        'owner, ' + cities[index],
+                        style: GoogleFonts.inter(
+                            color: Theme.of(context).hintColor,
+                            fontSize: MediaQuery.of(context).size.width * 0.03),
+                        textAlign: TextAlign.left,
+                      ),
+                      Divider(
+                        color: Theme.of(context).primaryColor,
+                        thickness: 1,
+                        height: MediaQuery.of(context).size.width * 0.058,
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.02,
                   )
                 ],
               ),
-            )
-          ],
-        ));
+              Text(
+                  'Lorem ipsum dolor sit amet. Sed debitis accusantium non iste impedit et architecto quasi. Qui voluptate dolor et quia Quis quo cupiditate corrupti ut ipsam voluptas et rerum doloremque! Aut doloremque accusamus in voluptatem possimus nihil perferendis rem magnam tempore. Est eaque libero est quos dolor in quia veritatis est nisi recusandae ad pariatur laborum.',
+                  style: GoogleFonts.inter(
+                    color: Theme.of(context).hintColor,
+                    fontSize: MediaQuery.of(context).size.height * 0.01,
+                    fontWeight: FontWeight.w400,
+                  ))
+            ],
+          );
+        }),
+      ),
+    );
   }
 }

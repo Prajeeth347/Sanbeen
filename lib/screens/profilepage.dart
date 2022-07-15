@@ -128,36 +128,52 @@ class _profile_pageState extends State<profile_page> {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => account_details()));
                   },
-                  child: Row(
-                    children: [
-                      Container(
-                        child: CircleAvatar(
-                          child: Icon(
-                            Icons.person,
-                            color: Theme.of(context).primaryColor,
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.07,
+                    width: MediaQuery.of(context).size.width * 0.95,
+                    child: Row(
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.05,
+                          width: MediaQuery.of(context).size.width * 0.1,
+                          child: CircleAvatar(
+                            child: Icon(
+                              Icons.person,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                            backgroundColor: Theme.of(context).backgroundColor,
                           ),
-                          backgroundColor: Theme.of(context).backgroundColor,
                         ),
-                      ),
-                      SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-                      Text(
-                        'Account Details',
-                        style: GoogleFonts.poppins(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.02,
-                          fontWeight: FontWeight.w300,
+                        SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.03),
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.04,
+                          width: MediaQuery.of(context).size.width * 0.55,
+                          child: Text(
+                            'Account Details',
+                            style: GoogleFonts.poppins(
+                              color: Theme.of(context).primaryColor,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.02,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
                         ),
-                      ),
-                      // SizedBox(
-                      //     width: MediaQuery.of(context).size.width * 0.3),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(120, 0, 0, 0),
-                        child: Icon(
-                          Icons.arrow_forward_ios,
-                          color: Theme.of(context).primaryColor,
-                        ),
-                      )
-                    ],
+                        SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.1),
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.05,
+                          width: MediaQuery.of(context).size.width * 0.1,
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                            child: Icon(
+                              Icons.arrow_forward_ios,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   )),
             ),
             Padding(
@@ -167,34 +183,52 @@ class _profile_pageState extends State<profile_page> {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => change_password()));
                   },
-                  child: Row(
-                    children: [
-                      CircleAvatar(
-                        child: Icon(
-                          Icons.lock,
-                          color: Theme.of(context).primaryColor,
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.07,
+                    width: MediaQuery.of(context).size.width * 0.95,
+                    child: Row(
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.05,
+                          width: MediaQuery.of(context).size.width * 0.1,
+                          child: CircleAvatar(
+                            child: Icon(
+                              Icons.lock,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                            backgroundColor: Theme.of(context).backgroundColor,
+                          ),
                         ),
-                        backgroundColor: Theme.of(context).backgroundColor,
-                      ),
-                      SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.025),
-                      Text(
-                        'Change Password',
-                        style: GoogleFonts.poppins(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.02,
-                          fontWeight: FontWeight.w300,
+                        SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.03),
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.04,
+                          width: MediaQuery.of(context).size.width * 0.55,
+                          child: Text(
+                            'Change Password',
+                            style: GoogleFonts.poppins(
+                              color: Theme.of(context).primaryColor,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.02,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
                         ),
-                      ),
-                      //SizedBox(width: MediaQuery.of(context).size.width * 0.29),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(110, 0, 0, 0),
-                        child: Icon(
-                          Icons.arrow_forward_ios,
-                          color: Theme.of(context).primaryColor,
-                        ),
-                      )
-                    ],
+                        SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.1),
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.05,
+                          width: MediaQuery.of(context).size.width * 0.1,
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                            child: Icon(
+                              Icons.arrow_forward_ios,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   )),
             ),
             Padding(
@@ -204,33 +238,52 @@ class _profile_pageState extends State<profile_page> {
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => feedback()));
                   },
-                  child: Row(
-                    children: [
-                      CircleAvatar(
-                        child: Icon(
-                          Icons.feedback_sharp,
-                          color: Theme.of(context).primaryColor,
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.07,
+                    width: MediaQuery.of(context).size.width * 0.95,
+                    child: Row(
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.05,
+                          width: MediaQuery.of(context).size.width * 0.1,
+                          child: CircleAvatar(
+                            child: Icon(
+                              Icons.feedback_sharp,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                            backgroundColor: Theme.of(context).backgroundColor,
+                          ),
                         ),
-                        backgroundColor: Theme.of(context).backgroundColor,
-                      ),
-                      SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-                      Text(
-                        'Feedback',
-                        style: GoogleFonts.poppins(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.02,
-                          fontWeight: FontWeight.w300,
+                        SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.03),
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.04,
+                          width: MediaQuery.of(context).size.width * 0.55,
+                          child: Text(
+                            'Feedback',
+                            style: GoogleFonts.poppins(
+                              color: Theme.of(context).primaryColor,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.02,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
                         ),
-                      ),
-                      //SizedBox(width: MediaQuery.of(context).size.width * 0.48),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(160, 0, 0, 0),
-                        child: Icon(
-                          Icons.arrow_forward_ios,
-                          color: Theme.of(context).primaryColor,
-                        ),
-                      )
-                    ],
+                        SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.1),
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.05,
+                          width: MediaQuery.of(context).size.width * 0.1,
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                            child: Icon(
+                              Icons.arrow_forward_ios,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   )),
             ),
             Padding(

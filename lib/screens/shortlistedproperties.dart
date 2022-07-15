@@ -132,7 +132,7 @@ class properties_card extends StatelessWidget {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width * 0.9,
-                height: MediaQuery.of(context).size.height * 0.3,
+                height: MediaQuery.of(context).size.height * 0.27,
                 color: Theme.of(context).primaryColor,
                 child: Column(children: [
                   Row(children: [
@@ -243,7 +243,7 @@ class properties_card extends StatelessWidget {
                     ),
                   ]),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.02,
+                    height: MediaQuery.of(context).size.height * 0.01,
                   ),
                   ElevatedButton(
                       onPressed: () {

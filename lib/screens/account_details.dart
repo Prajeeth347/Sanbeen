@@ -58,7 +58,7 @@ class _account_detailsState extends State<account_details> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.1,
+                    height: MediaQuery.of(context).size.height * 0.05,
                     width: MediaQuery.of(context).size.width * 0.25,
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.05,
@@ -99,7 +99,7 @@ class _account_detailsState extends State<account_details> {
                 ],
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+            //SizedBox(height: MediaQuery.of(context).size.height * 0.01),
             Container(
               height: MediaQuery.of(context).size.height * 0.1,
               width: MediaQuery.of(context).size.width * 0.95,
@@ -108,7 +108,7 @@ class _account_detailsState extends State<account_details> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.1,
+                    height: MediaQuery.of(context).size.height * 0.08,
                     width: MediaQuery.of(context).size.width * 0.25,
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.05,
@@ -149,7 +149,7 @@ class _account_detailsState extends State<account_details> {
                 ],
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+            //SizedBox(height: MediaQuery.of(context).size.height * 0.01),
             Container(
               height: MediaQuery.of(context).size.height * 0.1,
               width: MediaQuery.of(context).size.width * 0.95,
@@ -158,7 +158,7 @@ class _account_detailsState extends State<account_details> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.1,
+                    height: MediaQuery.of(context).size.height * 0.05,
                     width: MediaQuery.of(context).size.width * 0.25,
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.05,
