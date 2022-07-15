@@ -215,7 +215,7 @@ class Contacted extends StatelessWidget {
         itemCount: dealer.length,
         itemBuilder: (context, index) {
           return Container(
-            height: MediaQuery.of(context).size.height * 0.2,
+            height: MediaQuery.of(context).size.height * 0.23,
             child: Column(
               children: [
                 Row(
@@ -248,7 +248,7 @@ class Contacted extends StatelessWidget {
                           textAlign: TextAlign.start,
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.005,
+                          height: MediaQuery.of(context).size.height * 0.003,
                         ),
                         Text(
                           'Company name',
@@ -260,14 +260,14 @@ class Contacted extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.005,
+                          height: MediaQuery.of(context).size.height * 0.003,
                         ),
                         Text(
                           "Contacted for rental apartments near ",
                           style: GoogleFonts.poppins(
                             color: Theme.of(context).primaryColor,
                             fontSize:
-                                MediaQuery.of(context).size.height * 0.013,
+                                MediaQuery.of(context).size.height * 0.011,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -276,12 +276,12 @@ class Contacted extends StatelessWidget {
                           style: GoogleFonts.poppins(
                             color: Theme.of(context).primaryColor,
                             fontSize:
-                                MediaQuery.of(context).size.height * 0.013,
+                                MediaQuery.of(context).size.height * 0.011,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.005,
+                          height: MediaQuery.of(context).size.height * 0.003,
                         ),
                       ],
                     )
