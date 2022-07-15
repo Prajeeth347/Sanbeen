@@ -14,21 +14,21 @@ import 'package:sanbeen_zedital/screens/buy_prop_page.dart';
 import 'package:sanbeen_zedital/screens/exploring_page..dart';
 import 'package:sanbeen_zedital/screens/posting_property.dart';
 import 'package:sanbeen_zedital/screens/profilepage.dart';
-import 'package:sanbeen_zedital/screens/properties(20).dart';
+import 'package:sanbeen_zedital/screens/properties_all.dart';
 import 'package:sanbeen_zedital/screens/property_display.dart';
 import 'package:sanbeen_zedital/screens/property_single.dart';
 import 'package:sanbeen_zedital/screens/testimonials.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class hdummy extends StatefulWidget {
-  const hdummy({Key? key}) : super(key: key);
+class main_page extends StatefulWidget {
+  const main_page({Key? key}) : super(key: key);
 
   @override
-  State<hdummy> createState() => _hdummyState();
+  State<main_page> createState() => _main_pageState();
 }
 
-class _hdummyState extends State<hdummy> {
+class _main_pageState extends State<main_page> {
   ScrollController? _scrollController;
   bool lastStatus = true;
   double height = 200;
@@ -197,11 +197,30 @@ class _rental_bodyState extends State<rental_body> {
     "locality-3",
     "locality-4",
   ];
+  List collection = [
+    'assets/images/home.png',
+    'assets/images/house.png',
+    'assets/images/bill.png',
+    'assets/images/homie.png',
+    'assets/images/home.png',
+    'assets/images/house.png',
+    'assets/images/bill.png',
+    'assets/images/homie.png'
+  ];
   List localit1 = ["4", "3", "2", "1"];
   List dealer = ["Loreal Paris", "Sid Mathews", "Loreal Paris", "Sid Mathews"];
   List buyer = ["5", "6", "8", "2"];
   List time = ["Mar 2022", "Apr 2022", "Jan 2022", "Jul 2022"];
-  List cities = ["Delhi", "Mumbai", "Chennai", "Kolkata"];
+  List cities = [
+    "Delhi",
+    "Mumbai",
+    "Chennai",
+    "Kolkata",
+    "Delhi",
+    "Mumbai",
+    "Chennai",
+    "Kolkata"
+  ];
   List zones = [
     "Buying a house",
     "Selling a house",
@@ -323,7 +342,7 @@ class _rental_bodyState extends State<rental_body> {
           borderRadius: BorderRadius.circular(15),
           child: Container(
             width: MediaQuery.of(context).size.width * 0.95,
-            height: MediaQuery.of(context).size.height * 0.25,
+            height: MediaQuery.of(context).size.height * 0.3,
             color: Color.fromARGB(255, 225, 214, 182),
             child: Image.network(
               'https://thumbs.dreamstime.com/b/modern-house-interior-exterior-design-46517595.jpg',
@@ -364,7 +383,7 @@ class _rental_bodyState extends State<rental_body> {
         CircularProgressIndicator(color: Theme.of(context).primaryColor),
       if (_prop_20_loaded == true)
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.42,
+          height: MediaQuery.of(context).size.height * 0.5,
           child: ListView.builder(
               itemCount: property?.length,
               shrinkWrap: true,
@@ -389,7 +408,7 @@ class _rental_bodyState extends State<rental_body> {
                                   width:
                                       MediaQuery.of(context).size.width * 0.55,
                                   height:
-                                      MediaQuery.of(context).size.height * 0.33,
+                                      MediaQuery.of(context).size.height * 0.4,
                                   child: Image.network(
                                     property![index].images[0],
                                     fit: BoxFit.cover,
@@ -531,7 +550,7 @@ class _rental_bodyState extends State<rental_body> {
           borderRadius: BorderRadius.circular(15),
           child: Container(
             width: MediaQuery.of(context).size.width * 0.95,
-            height: MediaQuery.of(context).size.height * 0.25,
+            height: MediaQuery.of(context).size.height * 0.3,
             color: Color.fromARGB(255, 225, 214, 182),
             child: Image.network(
               'https://thumbs.dreamstime.com/b/modern-house-interior-exterior-design-46517595.jpg',
@@ -647,11 +666,11 @@ class _rental_bodyState extends State<rental_body> {
       Padding(
         padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.12,
+          height: MediaQuery.of(context).size.height * 0.15,
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
-            itemCount: locality.length,
+            itemCount: 8,
             itemBuilder: ((context, index) {
               return Row(
                 children: [
@@ -659,14 +678,9 @@ class _rental_bodyState extends State<rental_body> {
                     children: [
                       ClipRRect(
                         borderRadius: BorderRadius.circular(90),
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.18,
-                          height: MediaQuery.of(context).size.height * 0.085,
-                          color: Theme.of(context).hintColor,
-                          child: CircleAvatar(
-                            radius: MediaQuery.of(context).size.width * 0.08,
-                            backgroundImage: AssetImage(collectio[index]),
-                          ),
+                        child: CircleAvatar(
+                          radius: MediaQuery.of(context).size.width * 0.07,
+                          backgroundImage: AssetImage(collection[index]),
                         ),
                       ),
                       SizedBox(
@@ -706,150 +720,159 @@ class _rental_bodyState extends State<rental_body> {
           ],
         ),
       ),
-
-      SizedBox(
-        height: MediaQuery.of(context).size.height * 0.65,
-        child: property != null ? GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 0.8,
-                crossAxisSpacing: 0,
-                mainAxisSpacing: 0),
-            itemCount: 4,
-            shrinkWrap: true,
-            itemBuilder: ((context, index) {
-              if (property![index].propertyMode == "rent")
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) =>
-                            property_single_page(id: property![index].id)));
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(10, 8, 10, 12),
-                    child: Stack(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.5,
-                            height:
-                                MediaQuery.of(context).size.height * 0.25,
-                            child: Image.network(
-                              property![index].images[0],
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.topRight,
-                          child: Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                            child: IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.favorite_outline,
-                                  size: MediaQuery.of(context).size.width *
-                                      0.065,
-                                  color: Theme.of(context).backgroundColor,
-                                )),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.fromLTRB(4, 140, 5, 10),
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(12),
-                              child: Container(
-                                height: MediaQuery.of(context).size.height *
-                                    0.1,
-                                width: MediaQuery.of(context).size.width *
-                                    0.48,
-                                color: Theme.of(context).backgroundColor,
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.center,
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.center,
-                                  children: [
-                                    Text(property![index].name,
-                                        style: GoogleFonts.inter(
-                                          color: Theme.of(context)
-                                              .primaryColor,
-                                          fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.02,
-                                          fontWeight: FontWeight.w500,
-                                        )),
-                                    SizedBox(
-                                      height: MediaQuery.of(context)
-                                              .size
-                                              .height *
-                                          0.005,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                            property![index]
-                                                    .bedRooms
-                                                    .toString() +
-                                                'BHK ',
-                                            style: GoogleFonts.inter(
-                                              color: Theme.of(context)
-                                                  .primaryColor,
-                                              fontSize:
-                                                  MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.012,
-                                              fontWeight: FontWeight.w400,
-                                            )),
-                                        Text(property![index].type,
-                                            style: GoogleFonts.inter(
-                                              color: Theme.of(context)
-                                                  .primaryColor,
-                                              fontSize:
-                                                  MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.012,
-                                              fontWeight: FontWeight.w400,
-                                            )),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: MediaQuery.of(context)
-                                              .size
-                                              .height *
-                                          0.005,
-                                    ),
-                                    Text(
-                                        indiaFormat
-                                            .format(property![index].price),
-                                        style: GoogleFonts.inter(
-                                          color: Theme.of(context)
-                                              .primaryColor,
-                                          fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.015,
-                                          fontWeight: FontWeight.w500,
-                                        )),
-                                  ],
+      if (_prop_20_loaded == false)
+        CircularProgressIndicator(color: Theme.of(context).primaryColor),
+      if (_prop_20_loaded == true)
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.7,
+          child: property != null
+              ? GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 0.8,
+                      crossAxisSpacing: 0,
+                      mainAxisSpacing: 0),
+                  itemCount: 4,
+                  shrinkWrap: true,
+                  itemBuilder: ((context, index) {
+                    if (property![index].propertyMode == "rent")
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => property_single_page(
+                                  id: property![index].id)));
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(10, 8, 10, 12),
+                          child: Stack(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.5,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.25,
+                                  child: Image.network(
+                                    property![index].images[0],
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
-                              )),
+                              ),
+                              Align(
+                                alignment: Alignment.topRight,
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                  child: IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.favorite_outline,
+                                        size:
+                                            MediaQuery.of(context).size.width *
+                                                0.065,
+                                        color:
+                                            Theme.of(context).backgroundColor,
+                                      )),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(4, 140, 5, 10),
+                                child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(12),
+                                    child: Container(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.1,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.48,
+                                      color: Theme.of(context).backgroundColor,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Text(property![index].name,
+                                              style: GoogleFonts.inter(
+                                                color: Theme.of(context)
+                                                    .primaryColor,
+                                                fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .height *
+                                                    0.02,
+                                                fontWeight: FontWeight.w500,
+                                              )),
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.005,
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                  property![index]
+                                                          .bedRooms
+                                                          .toString() +
+                                                      'BHK ',
+                                                  style: GoogleFonts.inter(
+                                                    color: Theme.of(context)
+                                                        .primaryColor,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.012,
+                                                    fontWeight: FontWeight.w400,
+                                                  )),
+                                              Text(property![index].type,
+                                                  style: GoogleFonts.inter(
+                                                    color: Theme.of(context)
+                                                        .primaryColor,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.012,
+                                                    fontWeight: FontWeight.w400,
+                                                  )),
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.005,
+                                          ),
+                                          Text(
+                                              indiaFormat.format(
+                                                  property![index].price),
+                                              style: GoogleFonts.inter(
+                                                color: Theme.of(context)
+                                                    .primaryColor,
+                                                fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .height *
+                                                    0.015,
+                                                fontWeight: FontWeight.w500,
+                                              )),
+                                        ],
+                                      ),
+                                    )),
+                              ),
+                            ],
+                          ),
                         ),
-                      ],
-                    ),
-                  ),
-                );
-              return Container();
-            })) : Container(),
-      ),
+                      );
+                    return Container();
+                  }))
+              : Container(),
+        ),
       Padding(
         padding: EdgeInsets.fromLTRB(16, 15, 16, 8),
         child: Row(
@@ -998,7 +1021,7 @@ class _rental_bodyState extends State<rental_body> {
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 1,
-                    childAspectRatio: 0.65,
+                    childAspectRatio: 0.55,
                     crossAxisSpacing: 0,
                     mainAxisSpacing: 0),
                 shrinkWrap: true,
@@ -1013,18 +1036,10 @@ class _rental_bodyState extends State<rental_body> {
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(90),
-                                child: Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.158,
-                                  height: MediaQuery.of(context).size.height *
-                                      0.074,
-                                  color: Theme.of(context).hintColor,
-                                  child: CircleAvatar(
-                                    radius: MediaQuery.of(context).size.width *
-                                        0.08,
-                                    backgroundImage:
-                                        AssetImage(collectio[index]),
-                                  ),
+                                child: CircleAvatar(
+                                  radius:
+                                      MediaQuery.of(context).size.width * 0.07,
+                                  backgroundImage: AssetImage(collectio[index]),
                                 ),
                               ),
                               SizedBox(

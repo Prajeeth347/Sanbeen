@@ -6,14 +6,14 @@ import 'package:sanbeen_zedital/screens/property_single.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
 import 'package:intl/intl.dart';
 
-class properties extends StatefulWidget {
-  const properties({Key? key}) : super(key: key);
+class short_properties extends StatefulWidget {
+  const short_properties({Key? key}) : super(key: key);
 
   @override
-  State<properties> createState() => _propertiesState();
+  State<short_properties> createState() => _propertiesState();
 }
 
-class _propertiesState extends State<properties> {
+class _propertiesState extends State<short_properties> {
   var indiaFormat = NumberFormat.compactSimpleCurrency(locale: 'en_IN');
 
   List<Properties>? property;
@@ -132,7 +132,7 @@ class properties_card extends StatelessWidget {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width * 0.9,
-                height: MediaQuery.of(context).size.height * 0.25,
+                height: MediaQuery.of(context).size.height * 0.3,
                 color: Theme.of(context).primaryColor,
                 child: Column(children: [
                   Row(children: [
@@ -242,6 +242,9 @@ class properties_card extends StatelessWidget {
                       ],
                     ),
                   ]),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.02,
+                  ),
                   ElevatedButton(
                       onPressed: () {
                         FlutterPhoneDirectCaller.callNumber('7989772884');

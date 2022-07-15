@@ -10,14 +10,14 @@ import 'package:sanbeen_zedital/screens/property_single.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class properties_20 extends StatefulWidget {
-  const properties_20({Key? key}) : super(key: key);
+class properties_all extends StatefulWidget {
+  const properties_all({Key? key}) : super(key: key);
 
   @override
-  State<properties_20> createState() => _propertiesState();
+  State<properties_all> createState() => _propertiesState();
 }
 
-class _propertiesState extends State<properties_20> {
+class _propertiesState extends State<properties_all> {
   List<Properties>? property;
   var _prop_20_loaded = false;
   @override
@@ -106,8 +106,8 @@ class properties_20_card extends StatelessWidget {
             builder: (context) => property_single_page(id: id)));
       },
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.97,
-        height: MediaQuery.of(context).size.height * 0.444,
+        width: MediaQuery.of(context).size.width * 0.99,
+        height: MediaQuery.of(context).size.height * 0.49,
         child: Stack(
           children: <Widget>[
             Image.network(img,
@@ -116,7 +116,7 @@ class properties_20_card extends StatelessWidget {
             Align(
               alignment: Alignment.topRight,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
+                padding: const EdgeInsets.fromLTRB(0, 10, 15, 0),
                 child: IconButton(
                     onPressed: () {},
                     icon: Icon(
@@ -126,7 +126,7 @@ class properties_20_card extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 0, 8, 8),
+              padding: const EdgeInsets.fromLTRB(20, 0, 15, 8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -145,11 +145,11 @@ class properties_20_card extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Container(
-                      height: MediaQuery.of(context).size.height * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.25,
                       width: MediaQuery.of(context).size.width * 0.9,
                       color: Theme.of(context).backgroundColor,
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 8, 8, 8),
+                        padding: const EdgeInsets.fromLTRB(25, 8, 8, 8),
                         child: Column(
                           children: [
                             Wrap(

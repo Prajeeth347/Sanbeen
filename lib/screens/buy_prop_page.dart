@@ -8,14 +8,15 @@ import 'package:sanbeen_zedital/drawers/main_drawer.dart';
 import 'package:sanbeen_zedital/models/properties_model(20).dart';
 import 'package:sanbeen_zedital/screens/aboutuspage.dart';
 import 'package:sanbeen_zedital/screens/begin_posting.dart';
-import 'package:sanbeen_zedital/screens/kdummy.dart';
+import 'package:sanbeen_zedital/screens/recentactivity.dart';
 import 'package:sanbeen_zedital/screens/profilepage.dart';
-import 'package:sanbeen_zedital/screens/properties(20).dart';
+import 'package:sanbeen_zedital/screens/properties_all.dart';
 import 'package:sanbeen_zedital/screens/property_display.dart';
 import 'package:sanbeen_zedital/screens/property_single.dart';
 import 'package:sanbeen_zedital/screens/signin.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:intl/intl.dart';
 
 class buying_prop_page extends StatefulWidget {
   const buying_prop_page({Key? key}) : super(key: key);
@@ -172,11 +173,22 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
   }
 
   var number;
+  var indiaFormat = NumberFormat.compactSimpleCurrency(locale: 'en_IN');
   List collectio = [
     'assets/images/bill.png',
     'assets/images/house.png',
     'assets/images/bill.png',
     'assets/images/house.png'
+  ];
+  List collection = [
+    'assets/images/home.png',
+    'assets/images/house.png',
+    'assets/images/bill.png',
+    'assets/images/homie.png',
+    'assets/images/home.png',
+    'assets/images/house.png',
+    'assets/images/bill.png',
+    'assets/images/homie.png'
   ];
   List locality = [
     "locality-1",
@@ -188,7 +200,16 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
   List dealer = ["Loreal Paris", "Sid Mathews", "Loreal Paris", "Sid Mathews"];
   List buyer = ["5", "6", "8", "2"];
   List time = ["Mar 2022", "Apr 2022", "Jan 2022", "Jul 2022"];
-  List cities = ["Delhi", "Mumbai", "Chennai", "Kolkata"];
+  List cities = [
+    "Delhi",
+    "Mumbai",
+    "Chennai",
+    "Kolkata",
+    "Delhi",
+    "Mumbai",
+    "Chennai",
+    "Kolkata"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -204,7 +225,7 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                 "Recommended Properties",
                 style: GoogleFonts.poppins(
                   color: Theme.of(context).primaryColor,
-                  fontSize: MediaQuery.of(context).size.height * 0.02,
+                  fontSize: MediaQuery.of(context).size.height * 0.025,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -212,11 +233,11 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
           ),
         ),
         if (_prop_20_loaded == false)
-                  CircularProgressIndicator(color: Theme.of(context).primaryColor),
+          CircularProgressIndicator(color: Theme.of(context).primaryColor),
 
         if (_prop_20_loaded == true)
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.2,
+            height: MediaQuery.of(context).size.height * 0.22,
             child: ListView.builder(
                 itemCount: property?.length,
                 shrinkWrap: true,
@@ -232,7 +253,7 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                       child: Column(
                         children: [
                           Padding(
-                            padding: EdgeInsets.fromLTRB(4, 8, 4, 10),
+                            padding: EdgeInsets.fromLTRB(3, 8, 3, 10),
                             child: Stack(
                               children: [
                                 ClipRRect(
@@ -252,7 +273,7 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                                   alignment: Alignment.topRight,
                                   child: Padding(
                                     padding:
-                                        const EdgeInsets.fromLTRB(120, 0, 0, 0),
+                                        const EdgeInsets.fromLTRB(95, 0, 4, 0),
                                     child: IconButton(
                                         onPressed: () {},
                                         icon: Icon(
@@ -280,7 +301,7 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                 })),
           ),
         Padding(
-          padding: EdgeInsets.fromLTRB(20, 15, 16, 8),
+          padding: EdgeInsets.fromLTRB(16, 15, 16, 8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -314,7 +335,7 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                           children: [
                             Container(
                               height: MediaQuery.of(context).size.height * 0.35,
-                              width: MediaQuery.of(context).size.width * 0.5,
+                              width: MediaQuery.of(context).size.width * 0.65,
                               child: Column(
                                 children: [
                                   Padding(
@@ -325,8 +346,14 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                                           borderRadius:
                                               BorderRadius.circular(10),
                                           child: Container(
-                                            width: 170,
-                                            height: 120,
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                0.6,
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.15,
                                             child: Image.network(
                                               property![index].images[0],
                                               fit: BoxFit.cover,
@@ -374,7 +401,9 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                                     height: MediaQuery.of(context).size.height *
                                         0.01,
                                   ),
-                                  Text(property![index].price.toString(),
+                                  Text(
+                                      indiaFormat
+                                          .format(property![index].price),
                                       style: GoogleFonts.inter(
                                           color: Theme.of(context).primaryColor,
                                           fontSize: MediaQuery.of(context)
@@ -394,13 +423,13 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
           height: MediaQuery.of(context).size.height * 0.02,
         ),
         Padding(
-            padding: EdgeInsets.fromLTRB(16, 8, 8, 0),
+            padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
             child: Container(
                 height: MediaQuery.of(context).size.height * 0.03,
                 width: MediaQuery.of(context).size.width * 1,
                 color: Theme.of(context).primaryColor,
                 child: Text(
-                  'Featured Dealers',
+                  '   Featured Dealers',
                   style: GoogleFonts.poppins(
                       color: Theme.of(context).backgroundColor,
                       fontSize: MediaQuery.of(context).size.width * 0.045,
@@ -408,9 +437,9 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                   textAlign: TextAlign.justify,
                 ))),
         Padding(
-          padding: EdgeInsets.fromLTRB(16, 0, 8, 8),
+          padding: EdgeInsets.fromLTRB(8, 0, 8, 8),
           child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.28,
+            height: MediaQuery.of(context).size.height * 0.35,
             width: MediaQuery.of(context).size.width * 1,
             child: ListView.builder(
               shrinkWrap: true,
@@ -418,8 +447,8 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
               itemCount: locality.length,
               itemBuilder: ((context, index) {
                 return Container(
-                  height: MediaQuery.of(context).size.height * 0.3,
-                  width: MediaQuery.of(context).size.width * 0.55,
+                  height: MediaQuery.of(context).size.height * 0.33,
+                  width: MediaQuery.of(context).size.width * 0.57,
                   color: Theme.of(context).primaryColor,
                   child: Padding(
                     padding: EdgeInsets.all(10),
@@ -430,7 +459,7 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Container(
-                          height: MediaQuery.of(context).size.height * 0.235,
+                          height: MediaQuery.of(context).size.height * 0.3,
                           width: MediaQuery.of(context).size.width * 0.55,
                           color: Theme.of(context).backgroundColor,
                           child: Column(
@@ -550,11 +579,11 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                                             }
                                           }
                                         },
-                                        icon: Image.network(
-                                            'https://cdn-icons-png.flaticon.com/512/124/124034.png?w=740&t=st=1656751163~exp=1656751763~hmac=3e5cd586eb711d53069f6ec6c5f9fdbd67c451cca7915d8684aae3d1a53cee94'),
+                                        icon: Image.asset(
+                                            'assets/images/whatsapp.png'),
                                         iconSize:
                                             MediaQuery.of(context).size.width *
-                                                0.01,
+                                                0.005,
                                       ),
                                       Text('Whatsapp',
                                           style: GoogleFonts.inter(
@@ -617,14 +646,18 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
           height: MediaQuery.of(context).size.height * 0.01,
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(0, 8, 8, 8),
-          child: Text(
-            "New Localities",
-            style: GoogleFonts.poppins(
-                color: Theme.of(context).primaryColor,
-                fontSize: MediaQuery.of(context).size.width * 0.045,
-                fontWeight: FontWeight.w500),
-            textAlign: TextAlign.start,
+          padding: EdgeInsets.fromLTRB(16, 15, 16, 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "New Localities",
+                style: GoogleFonts.poppins(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: MediaQuery.of(context).size.width * 0.043,
+                    fontWeight: FontWeight.w500),
+              ),
+            ],
           ),
         ),
         SizedBox(
@@ -655,17 +688,10 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                           children: [
                             ClipRRect(
                               borderRadius: BorderRadius.circular(90),
-                              child: Container(
-                                width:
-                                    MediaQuery.of(context).size.width * 0.158,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.074,
-                                color: Theme.of(context).hintColor,
-                                child: CircleAvatar(
-                                  radius:
-                                      MediaQuery.of(context).size.width * 0.08,
-                                  backgroundImage: AssetImage(collectio[index]),
-                                ),
+                              child: CircleAvatar(
+                                radius:
+                                    MediaQuery.of(context).size.width * 0.07,
+                                backgroundImage: AssetImage(collectio[index]),
                               ),
                             ),
                             SizedBox(
@@ -715,8 +741,8 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => properties_20()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => properties_all()));
                 },
                 child: Text("View all new localities",
                     style: GoogleFonts.inter(
@@ -730,7 +756,7 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
         ),
         Container(
           width: MediaQuery.of(context).size.width * 0.95,
-          height: MediaQuery.of(context).size.height * 0.2,
+          height: MediaQuery.of(context).size.height * 0.25,
           color: Theme.of(context).primaryColor,
           child: Row(
             children: [
@@ -812,14 +838,18 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
           height: MediaQuery.of(context).size.height * 0.01,
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
-          child: Text(
-            "Get great properties in popular cities",
-            style: GoogleFonts.poppins(
-                color: Theme.of(context).primaryColor,
-                fontSize: MediaQuery.of(context).size.width * 0.042,
-                fontWeight: FontWeight.w500),
-            textAlign: TextAlign.start,
+          padding: EdgeInsets.fromLTRB(16, 15, 16, 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Get great properties in popular cities",
+                style: GoogleFonts.poppins(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: MediaQuery.of(context).size.width * 0.043,
+                    fontWeight: FontWeight.w500),
+              ),
+            ],
           ),
         ),
         Padding(
@@ -829,7 +859,7 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemCount: locality.length,
+              itemCount: 8,
               itemBuilder: ((context, index) {
                 return Row(
                   children: [
@@ -837,14 +867,9 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(90),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.18,
-                            height: MediaQuery.of(context).size.height * 0.085,
-                            color: Theme.of(context).hintColor,
-                            child: CircleAvatar(
-                              radius: MediaQuery.of(context).size.width * 0.08,
-                              backgroundImage: AssetImage(collectio[index]),
-                            ),
+                          child: CircleAvatar(
+                            radius: MediaQuery.of(context).size.width * 0.07,
+                            backgroundImage: AssetImage(collection[index]),
                           ),
                         ),
                         SizedBox(

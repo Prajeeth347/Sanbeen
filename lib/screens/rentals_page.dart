@@ -10,7 +10,7 @@ import 'package:sanbeen_zedital/models/properties_model(20).dart';
 import 'package:sanbeen_zedital/screens/aboutuspage.dart';
 import 'package:sanbeen_zedital/screens/begin_posting.dart';
 import 'package:sanbeen_zedital/screens/profilepage.dart';
-import 'package:sanbeen_zedital/screens/properties(20).dart';
+import 'package:sanbeen_zedital/screens/properties_all.dart';
 import 'package:sanbeen_zedital/screens/property_display.dart';
 import 'package:sanbeen_zedital/screens/property_single.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
@@ -209,19 +209,19 @@ class _rental_bodyState extends State<rental_body> {
               "Recently Posted Properties",
               style: GoogleFonts.poppins(
                 color: Theme.of(context).primaryColor,
-                fontSize: MediaQuery.of(context).size.height * 0.02,
+                fontSize: MediaQuery.of(context).size.height * 0.025,
                 fontWeight: FontWeight.w500,
               ),
             ),
             TextButton(
               onPressed: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => properties_20()));
+                    MaterialPageRoute(builder: (context) => properties_all()));
               },
               child: Text("View all",
                   style: GoogleFonts.inter(
                       color: Theme.of(context).primaryColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.015,
+                      fontSize: MediaQuery.of(context).size.height * 0.018,
                       fontWeight: FontWeight.w400,
                       decoration: TextDecoration.underline)),
             )
@@ -232,7 +232,7 @@ class _rental_bodyState extends State<rental_body> {
         CircularProgressIndicator(color: Theme.of(context).primaryColor),
       if (_prop_20_loaded == true)
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.21,
+          height: MediaQuery.of(context).size.height * 0.22,
           child: ListView.builder(
               itemCount: property?.length,
               shrinkWrap: true,
@@ -248,40 +248,40 @@ class _rental_bodyState extends State<rental_body> {
                     child: Column(
                       children: [
                         Padding(
-                            child: Stack(
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(10),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.4,
-                                    height: MediaQuery.of(context).size.height *
-                                        0.15,
-                                    child: Image.network(
-                                      property![index].images[0],
-                                      fit: BoxFit.cover,
-                                    ),
+                          padding: EdgeInsets.fromLTRB(3, 8, 3, 10),
+                          child: Stack(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.4,
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.15,
+                                  child: Image.network(
+                                    property![index].images[0],
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
-                                Align(
-                                  alignment: Alignment.topRight,
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsets.fromLTRB(120, 0, 0, 0),
-                                    child: IconButton(
-                                        onPressed: () {},
-                                        icon: Icon(
-                                          Icons.favorite_outline,
-                                          size: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.065,
-                                        )),
-                                  ),
+                              ),
+                              Align(
+                                alignment: Alignment.topRight,
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.fromLTRB(90, 0, 0, 0),
+                                  child: IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.favorite_outline,
+                                        size:
+                                            MediaQuery.of(context).size.width *
+                                                0.065,
+                                      )),
                                 ),
-                              ],
-                            ),
-                            padding: EdgeInsets.fromLTRB(10, 8, 10, 12)),
+                              ),
+                            ],
+                          ),
+                        ),
                         Text(property![index].name,
                             style: GoogleFonts.inter(
                               color: Theme.of(context).primaryColor,
@@ -298,7 +298,7 @@ class _rental_bodyState extends State<rental_body> {
       Center(
         child: Container(
           width: MediaQuery.of(context).size.width * 0.88,
-          height: MediaQuery.of(context).size.height * 0.18,
+          height: MediaQuery.of(context).size.height * 0.2,
           color: Theme.of(context).primaryColor,
           child: Row(
             children: [
@@ -390,7 +390,7 @@ class _rental_bodyState extends State<rental_body> {
       Padding(
         padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.2,
+          height: MediaQuery.of(context).size.height * 0.22,
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
@@ -551,16 +551,9 @@ class _rental_bodyState extends State<rental_body> {
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(90),
-                            child: Container(
-                              width: MediaQuery.of(context).size.width * 0.158,
-                              height:
-                                  MediaQuery.of(context).size.height * 0.074,
-                              color: Theme.of(context).hintColor,
-                              child: CircleAvatar(
-                                radius:
-                                    MediaQuery.of(context).size.width * 0.08,
-                                backgroundImage: AssetImage(collectio[index]),
-                              ),
+                            child: CircleAvatar(
+                              radius: MediaQuery.of(context).size.width * 0.07,
+                              backgroundImage: AssetImage(collectio[index]),
                             ),
                           ),
                           SizedBox(
@@ -610,7 +603,7 @@ class _rental_bodyState extends State<rental_body> {
             TextButton(
               onPressed: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => properties_20()));
+                    MaterialPageRoute(builder: (context) => properties_all()));
               },
               child: Text("View all new localities",
                   style: GoogleFonts.inter(
@@ -679,7 +672,7 @@ class _rental_bodyState extends State<rental_body> {
         ),
       ),
       Padding(
-          padding: EdgeInsets.fromLTRB(16, 8, 8, 0),
+          padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
           child: Container(
               height: MediaQuery.of(context).size.height * 0.03,
               width: MediaQuery.of(context).size.width * 1,
@@ -693,9 +686,9 @@ class _rental_bodyState extends State<rental_body> {
                 textAlign: TextAlign.justify,
               ))),
       Padding(
-        padding: EdgeInsets.fromLTRB(16, 0, 8, 8),
+        padding: EdgeInsets.fromLTRB(8, 0, 8, 8),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.28,
+          height: MediaQuery.of(context).size.height * 0.35,
           width: MediaQuery.of(context).size.width * 1,
           child: ListView.builder(
             shrinkWrap: true,
@@ -703,8 +696,8 @@ class _rental_bodyState extends State<rental_body> {
             itemCount: locality.length,
             itemBuilder: ((context, index) {
               return Container(
-                height: MediaQuery.of(context).size.height * 0.3,
-                width: MediaQuery.of(context).size.width * 0.55,
+                height: MediaQuery.of(context).size.height * 0.33,
+                width: MediaQuery.of(context).size.width * 0.57,
                 color: Theme.of(context).primaryColor,
                 child: Padding(
                   padding: EdgeInsets.all(10),
@@ -715,7 +708,7 @@ class _rental_bodyState extends State<rental_body> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Container(
-                        height: MediaQuery.of(context).size.height * 0.235,
+                        height: MediaQuery.of(context).size.height * 0.3,
                         width: MediaQuery.of(context).size.width * 0.55,
                         color: Theme.of(context).backgroundColor,
                         child: Column(

@@ -5,7 +5,7 @@ class Col {
   static const int gold = 0xFFD4AF37;
 }
 
-class kdummy extends StatefulWidget {
+class recent_activity extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -13,7 +13,7 @@ class kdummy extends StatefulWidget {
   }
 }
 
-class recentActivity extends State<kdummy> {
+class recentActivity extends State<recent_activity> {
   String index = 'Viewed';
   void onPress(String k) {
     setState(() {
