@@ -10,7 +10,7 @@ import 'package:sanbeen_zedital/models/properties_model(20).dart';
 import 'package:sanbeen_zedital/screens/aboutuspage.dart';
 import 'package:sanbeen_zedital/screens/begin_posting.dart';
 import 'package:sanbeen_zedital/screens/profilepage.dart';
-import 'package:sanbeen_zedital/screens/properties(20).dart';
+import 'package:sanbeen_zedital/screens/properties_all.dart';
 import 'package:sanbeen_zedital/screens/property_display.dart';
 import 'package:sanbeen_zedital/screens/property_single.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
@@ -216,7 +216,7 @@ class _rental_bodyState extends State<rental_body> {
             TextButton(
               onPressed: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => properties_20()));
+                    MaterialPageRoute(builder: (context) => properties_all()));
               },
               child: Text("View all",
                   style: GoogleFonts.inter(
@@ -603,7 +603,7 @@ class _rental_bodyState extends State<rental_body> {
             TextButton(
               onPressed: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => properties_20()));
+                    MaterialPageRoute(builder: (context) => properties_all()));
               },
               child: Text("View all new localities",
                   style: GoogleFonts.inter(

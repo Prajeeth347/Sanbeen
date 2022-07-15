@@ -6,14 +6,14 @@ import 'package:sanbeen_zedital/screens/property_single.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
 import 'package:intl/intl.dart';
 
-class properties extends StatefulWidget {
-  const properties({Key? key}) : super(key: key);
+class short_properties extends StatefulWidget {
+  const short_properties({Key? key}) : super(key: key);
 
   @override
-  State<properties> createState() => _propertiesState();
+  State<short_properties> createState() => _propertiesState();
 }
 
-class _propertiesState extends State<properties> {
+class _propertiesState extends State<short_properties> {
   var indiaFormat = NumberFormat.compactSimpleCurrency(locale: 'en_IN');
 
   List<Properties>? property;

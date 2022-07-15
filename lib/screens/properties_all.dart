@@ -10,14 +10,14 @@ import 'package:sanbeen_zedital/screens/property_single.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class properties_20 extends StatefulWidget {
-  const properties_20({Key? key}) : super(key: key);
+class properties_all extends StatefulWidget {
+  const properties_all({Key? key}) : super(key: key);
 
   @override
-  State<properties_20> createState() => _propertiesState();
+  State<properties_all> createState() => _propertiesState();
 }
 
-class _propertiesState extends State<properties_20> {
+class _propertiesState extends State<properties_all> {
   List<Properties>? property;
   var _prop_20_loaded = false;
   @override

@@ -14,21 +14,21 @@ import 'package:sanbeen_zedital/screens/buy_prop_page.dart';
 import 'package:sanbeen_zedital/screens/exploring_page..dart';
 import 'package:sanbeen_zedital/screens/posting_property.dart';
 import 'package:sanbeen_zedital/screens/profilepage.dart';
-import 'package:sanbeen_zedital/screens/properties(20).dart';
+import 'package:sanbeen_zedital/screens/properties_all.dart';
 import 'package:sanbeen_zedital/screens/property_display.dart';
 import 'package:sanbeen_zedital/screens/property_single.dart';
 import 'package:sanbeen_zedital/screens/testimonials.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class hdummy extends StatefulWidget {
-  const hdummy({Key? key}) : super(key: key);
+class main_page extends StatefulWidget {
+  const main_page({Key? key}) : super(key: key);
 
   @override
-  State<hdummy> createState() => _hdummyState();
+  State<main_page> createState() => _main_pageState();
 }
 
-class _hdummyState extends State<hdummy> {
+class _main_pageState extends State<main_page> {
   ScrollController? _scrollController;
   bool lastStatus = true;
   double height = 200;

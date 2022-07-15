@@ -5,11 +5,11 @@ import 'package:sanbeen_zedital/screens/begin_posting.dart';
 import 'package:sanbeen_zedital/screens/exploring_page..dart';
 import 'package:sanbeen_zedital/screens/faqpage.dart';
 import 'package:sanbeen_zedital/screens/feedback.dart';
-import 'package:sanbeen_zedital/screens/hdummy.dart';
-import 'package:sanbeen_zedital/screens/kdummy.dart';
+import 'package:sanbeen_zedital/screens/mainpage.dart';
+import 'package:sanbeen_zedital/screens/recentactivity.dart';
 import 'package:sanbeen_zedital/screens/profilepage.dart';
-import 'package:sanbeen_zedital/screens/properties(20).dart';
-import 'package:sanbeen_zedital/screens/properties.dart';
+import 'package:sanbeen_zedital/screens/properties_all.dart';
+import 'package:sanbeen_zedital/screens/shortlistedproperties.dart';
 import 'package:sanbeen_zedital/screens/rentals_page.dart';
 import 'package:sanbeen_zedital/screens/buy_prop_page.dart';
 import 'package:sanbeen_zedital/screens/signup.dart';
@@ -129,10 +129,12 @@ class MyHomePage extends StatelessWidget {
                 height: 10,
               ),
               FloatingActionButton.extended(
-                heroTag: 'Properties',
+                heroTag: 'Shortlisted Properties',
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => properties()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => short_properties()));
                 },
                 label: Text('Shortlisted Properties(17)'),
                 backgroundColor: Theme.of(context).hintColor,
@@ -144,8 +146,10 @@ class MyHomePage extends StatelessWidget {
               FloatingActionButton.extended(
                 heroTag: 'Properties(20)',
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => properties_20()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => properties_all()));
                 },
                 label: Text('Properties(20)'),
                 backgroundColor: Theme.of(context).hintColor,
@@ -198,12 +202,12 @@ class MyHomePage extends StatelessWidget {
                 height: 10,
               ),
               FloatingActionButton.extended(
-                heroTag: 'HDUMMY',
+                heroTag: 'mainpage',
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => hdummy()));
+                      MaterialPageRoute(builder: (context) => main_page()));
                 },
-                label: Text('Harshini(Dummy page)'),
+                label: Text('Main Page'),
                 backgroundColor: Theme.of(context).hintColor,
                 foregroundColor: Theme.of(context).backgroundColor,
               ),
@@ -211,12 +215,14 @@ class MyHomePage extends StatelessWidget {
                 height: 10,
               ),
               FloatingActionButton.extended(
-                heroTag: 'KDUMMY',
+                heroTag: 'recent activity',
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => kdummy()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => recent_activity()));
                 },
-                label: Text('Karthik(Dummy page)'),
+                label: Text('recent activity'),
                 backgroundColor: Theme.of(context).hintColor,
                 foregroundColor: Theme.of(context).backgroundColor,
               ),
