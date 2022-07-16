@@ -1,5 +1,7 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:sanbeen_zedital/extentions/extentions.dart';
+import 'package:sanbeen_zedital/main_navbar.dart';
 import 'package:sanbeen_zedital/screens/aboutuspage.dart';
 import 'package:sanbeen_zedital/screens/begin_posting.dart';
 import 'package:sanbeen_zedital/screens/exploring_page..dart';
@@ -20,7 +22,7 @@ import 'package:flutter/services.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -38,7 +40,14 @@ class MyApp extends StatelessWidget {
             primaryColor: 'D4AF37'.toColor(),
             hintColor: 'ECF1F4'.toColor()),
         debugShowCheckedModeBanner: false,
-        home: const MyHomePage(),
+        home: AnimatedSplashScreen(
+            splash: Center(
+              child: Image.asset('assets/images/logoo.png'),
+            ),
+            duration: 3000,
+            // splashTransition: SplashTransition.decoratedBoxTransition,
+            backgroundColor: '05090A'.toColor(),
+            nextScreen: MyHomePage()),
       ),
     );
   }
@@ -56,7 +65,7 @@ class MyHomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/images/logo.jpeg'),
+              Image.asset('assets/images/logoo.png'),
               SizedBox(
                 height: 10,
               ),
@@ -205,7 +214,7 @@ class MyHomePage extends StatelessWidget {
                 heroTag: 'mainpage',
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => main_page()));
+                      MaterialPageRoute(builder: (context) => mainnavbar()));
                 },
                 label: Text('Main Page'),
                 backgroundColor: Theme.of(context).hintColor,

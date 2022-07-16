@@ -63,67 +63,60 @@ class _main_pageState extends State<main_page> {
   Widget build(BuildContext context) {
     final TextTheme textTheme = Theme.of(context).textTheme;
 
-    return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
-      body: NestedScrollView(
-        controller: _scrollController,
-        headerSliverBuilder: (context, innerBoxIsScrolled) {
-          return [
-            SliverAppBar(
-                iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
-                actions: [
-                  IconButton(
-                      onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => profile_page()));
-                      },
-                      icon: Icon(
-                        Icons.person,
-                        color: Theme.of(context).primaryColor,
-                        size: MediaQuery.of(context).size.width * 0.08,
-                      ))
-                ],
-                elevation: 0,
-                backgroundColor: Theme.of(context).backgroundColor,
-                pinned: true,
-                expandedHeight: MediaQuery.of(context).size.height * 0.25,
-                flexibleSpace: FlexibleSpaceBar(
-                  collapseMode: CollapseMode.parallax,
-                  title: Container(
-                      width: _isShrink
-                          ? MediaQuery.of(context).size.width * 0.75
-                          : MediaQuery.of(context).size.width * 0.5,
-                      child: GestureDetector(
-                          onTap: () {
-                            print("Search");
-                          },
-                          child: searchField())),
-                  centerTitle: true,
-                  background: SafeArea(
-                      child: Image.network(
-                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZNp_NidXN04al4mK6-_ea0ut3ySY6wl7WhA&usqp=CAU',
-                    fit: BoxFit.cover,
-                  )),
+    return NestedScrollView(
+      controller: _scrollController,
+      headerSliverBuilder: (context, innerBoxIsScrolled) {
+        return [
+          SliverAppBar(
+              iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
+              actions: [
+                IconButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => profile_page()));
+                    },
+                    icon: Icon(
+                      Icons.person,
+                      color: Theme.of(context).primaryColor,
+                      size: MediaQuery.of(context).size.width * 0.08,
+                    ))
+              ],
+              elevation: 0,
+              backgroundColor: Theme.of(context).backgroundColor,
+              pinned: true,
+              expandedHeight: MediaQuery.of(context).size.height * 0.25,
+              flexibleSpace: FlexibleSpaceBar(
+                collapseMode: CollapseMode.parallax,
+                title: Container(
+                    width: _isShrink
+                        ? MediaQuery.of(context).size.width * 0.75
+                        : MediaQuery.of(context).size.width * 0.5,
+                    child: GestureDetector(
+                        onTap: () {
+                          print("Search");
+                        },
+                        child: searchField())),
+                centerTitle: true,
+                background: SafeArea(
+                    child: Image.network(
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZNp_NidXN04al4mK6-_ea0ut3ySY6wl7WhA&usqp=CAU',
+                  fit: BoxFit.cover,
                 )),
-          ];
-        },
-        body: CustomScrollView(
-          scrollBehavior: const ScrollBehavior(),
-          slivers: [
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-                  return rental_body();
-                },
-                childCount: 1,
-              ),
+              )),
+        ];
+      },
+      body: CustomScrollView(
+        scrollBehavior: const ScrollBehavior(),
+        slivers: [
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return rental_body();
+              },
+              childCount: 1,
             ),
-          ],
-        ),
-      ),
-      drawer: main_drawer(
-        user_image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjjYXm0bKrsV1VZPuyaq-j009UD1aBDCUz5A&usqp=CAU",
+          ),
+        ],
       ),
     );
   }

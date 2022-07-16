@@ -35,63 +35,49 @@ class _propertiesState extends State<short_properties> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).backgroundColor,
-          leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: Icon(
-                Icons.arrow_back,
-                color: Theme.of(context).primaryColor,
-                size: MediaQuery.of(context).size.width * 0.08,
-              )),
-        ),
-        backgroundColor: Theme.of(context).backgroundColor,
-        body: _prop_loaded == false
-            ? Center(
-                child: CircularProgressIndicator(
-                color: Theme.of(context).primaryColor,
-              ))
-            : Padding(
-                padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
-                child: Column(
-                  children: <Widget>[
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        "My Shortlisted Properties",
-                        style: GoogleFonts.poppins(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.024,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        textAlign: TextAlign.start,
-                      ),
+    return _prop_loaded == false
+        ? Center(
+            child: CircularProgressIndicator(
+            color: Theme.of(context).primaryColor,
+          ))
+        : Padding(
+            padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
+            child: Column(
+              children: <Widget>[
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "My Shortlisted Properties",
+                    style: GoogleFonts.poppins(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: MediaQuery.of(context).size.height * 0.024,
+                      fontWeight: FontWeight.w500,
                     ),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.02,
-                    ),
-                    Expanded(
-                      child: ListView.builder(
-                          itemCount: property?.length,
-                          itemBuilder: (context, index) {
-                            return properties_card(
-                              name: property![index].name,
-                              bedrooms: property![index].bedRooms,
-                              cost: property![index].price,
-                              dealer: property![index].account,
-                              number: property![index].account,
-                              img: property![index].images[0],
-                              id: property![index].id,
-                              city: property![index].city,
-                            );
-                            // return properties_20_card();
-                          }),
-                    ),
-                  ],
-                )));
+                    textAlign: TextAlign.start,
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.02,
+                ),
+                Expanded(
+                  child: ListView.builder(
+                      itemCount: property?.length,
+                      itemBuilder: (context, index) {
+                        return properties_card(
+                          name: property![index].name,
+                          bedrooms: property![index].bedRooms,
+                          cost: property![index].price,
+                          dealer: property![index].account,
+                          number: property![index].account,
+                          img: property![index].images[0],
+                          id: property![index].id,
+                          city: property![index].city,
+                        );
+                        // return properties_20_card();
+                      }),
+                ),
+              ],
+            ));
   }
 }
 
