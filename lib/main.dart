@@ -1,6 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:sanbeen_zedital/extentions/extentions.dart';
+import 'package:sanbeen_zedital/main_navbar.dart';
 import 'package:sanbeen_zedital/screens/aboutuspage.dart';
 import 'package:sanbeen_zedital/screens/begin_posting.dart';
 import 'package:sanbeen_zedital/screens/exploring_page..dart';
@@ -213,7 +214,7 @@ class MyHomePage extends StatelessWidget {
                 heroTag: 'mainpage',
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => main_page()));
+                      MaterialPageRoute(builder: (context) => mainnavbar()));
                 },
                 label: Text('Main Page'),
                 backgroundColor: Theme.of(context).hintColor,
