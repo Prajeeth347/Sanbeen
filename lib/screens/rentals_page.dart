@@ -116,10 +116,10 @@ class _rentals_pageState extends State<rentals_page> {
           ],
         ),
       ),
-      drawer: main_drawer(
-        user_image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjjYXm0bKrsV1VZPuyaq-j009UD1aBDCUz5A&usqp=CAU",
-      ),
+      // drawer: main_drawer(
+      //   user_image:
+      //       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjjYXm0bKrsV1VZPuyaq-j009UD1aBDCUz5A&usqp=CAU",
+      // ),
     );
   }
 
@@ -169,7 +169,7 @@ class _rental_bodyState extends State<rental_body> {
     }
   }
 
-  var number;
+  String number = "7989772884";
   List collectio = [
     'assets/images/bill.png',
     'assets/images/house.png',
@@ -209,7 +209,7 @@ class _rental_bodyState extends State<rental_body> {
               "Recently Posted Properties",
               style: GoogleFonts.poppins(
                 color: Theme.of(context).primaryColor,
-                fontSize: MediaQuery.of(context).size.height * 0.025,
+                fontSize: MediaQuery.of(context).size.width * 0.04,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -228,8 +228,9 @@ class _rental_bodyState extends State<rental_body> {
           ],
         ),
       ),
-      if (_prop_20_loaded == false)
-        CircularProgressIndicator(color: Theme.of(context).primaryColor),
+      // if (_prop_20_loaded == false)
+
+        // CircularProgressIndicator(color: Theme.of(context).primaryColor),
       if (_prop_20_loaded == true)
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.22,
@@ -268,7 +269,7 @@ class _rental_bodyState extends State<rental_body> {
                                 alignment: Alignment.topRight,
                                 child: Padding(
                                   padding:
-                                      const EdgeInsets.fromLTRB(90, 0, 0, 0),
+                                      const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                   child: IconButton(
                                       onPressed: () {},
                                       icon: Icon(
@@ -821,7 +822,7 @@ class _rental_bodyState extends State<rental_body> {
                                             ScaffoldMessenger.of(context)
                                                 .showSnackBar(SnackBar(
                                                     content: new Text(
-                                                        "whatsapp no installed")));
+                                                        "whatsapp not installed")));
                                           }
                                         }
                                       },
@@ -843,34 +844,34 @@ class _rental_bodyState extends State<rental_body> {
                                 ),
                                 SizedBox(
                                   width:
-                                      MediaQuery.of(context).size.width * 0.001,
+                                      MediaQuery.of(context).size.width * 0.06,
                                 ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    IconButton(
-                                        color: Theme.of(context).hintColor,
-                                        onPressed: () {
-                                          FlutterPhoneDirectCaller.callNumber(
+                                GestureDetector(
+                                  onTap: () {
+                                    FlutterPhoneDirectCaller.callNumber(
                                               number);
-                                        },
-                                        icon: Icon(
-                                          Icons.phone,
-                                          color: Theme.of(context).primaryColor,
-                                          size: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.04,
-                                        )),
-                                    Text('Call Now',
-                                        style: GoogleFonts.inter(
-                                            color: Theme.of(context).hintColor,
-                                            fontSize: MediaQuery.of(context)
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(
+                                            Icons.phone,
+                                            color: Theme.of(context).primaryColor,
+                                            size: MediaQuery.of(context)
                                                     .size
                                                     .width *
-                                                0.025,
-                                            fontWeight: FontWeight.w400))
-                                  ],
+                                                0.04,
+                                          ),
+                                      Text('Call Now',
+                                          style: GoogleFonts.inter(
+                                              color: Theme.of(context).hintColor,
+                                              fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  0.025,
+                                              fontWeight: FontWeight.w400))
+                                    ],
+                                  ),
                                 )
                               ],
                             )

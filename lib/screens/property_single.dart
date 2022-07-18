@@ -179,7 +179,7 @@ class _property_bodyState extends State<property_body> {
     "https://sanbeen.s3.ap-south-1.amazonaws.com/1656932938885_prop.png"
   ];
   var indiaFormat = NumberFormat.compactSimpleCurrency(locale: 'en_IN');
-  var number;
+  String number = "7989772884";
   @override
   Widget build(BuildContext context) {
     return Column(

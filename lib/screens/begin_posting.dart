@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sanbeen_zedital/screens/posting_property.dart';
 
@@ -295,6 +296,7 @@ class _begin_postingState extends State<begin_posting> {
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.75,
                 child: TextField(
+                  maxLength: 10,
                   style: GoogleFonts.inter(
                     color: Theme.of(context).hintColor,
                     fontSize: MediaQuery.of(context).size.height * 0.02,
@@ -303,6 +305,7 @@ class _begin_postingState extends State<begin_posting> {
                   keyboardType: TextInputType.number,
                   cursorColor: Theme.of(context).hintColor,
                   decoration: InputDecoration(
+                    counterText: '',
                     hintStyle: GoogleFonts.inter(
                       color: Theme.of(context).hintColor,
                       fontSize: MediaQuery.of(context).size.height * 0.02,
@@ -329,8 +332,18 @@ class _begin_postingState extends State<begin_posting> {
                               color: Theme.of(context).primaryColor)),
                       color: Theme.of(context).primaryColor,
                       onPressed: () {
+                        if(mobile_controller.text.length <10){
+                          Fluttertoast.showToast(
+                          msg: "Please enter a valid mobile number",
+                          gravity: ToastGravity.BOTTOM,
+                          backgroundColor: Theme.of(context).hintColor,
+                          textColor: Theme.of(context).backgroundColor,
+                          fontSize: 16.0);
+                        }
+                        else{
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => posting_prop()));
+                      }
                       },
                       child: Text(
                         "Begin to Post your Property",

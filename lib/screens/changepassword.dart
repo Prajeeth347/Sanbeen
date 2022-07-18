@@ -70,7 +70,7 @@ class _account_detailsState extends State<change_password> {
                   SizedBox(
                       width: MediaQuery.of(context).size.width * 0.5,
                       child: TextField(
-                        keyboardType: TextInputType.number,
+                        keyboardType: TextInputType.visiblePassword,
                         decoration: InputDecoration(
                           suffixIcon: Icon(
                             Icons.edit,
@@ -79,7 +79,7 @@ class _account_detailsState extends State<change_password> {
                           filled: true,
                           fillColor: Theme.of(context).primaryColor,
                         ),
-                        controller: newcon,
+                        controller: currcon,
                       )),
                 ],
               ),
@@ -109,7 +109,7 @@ class _account_detailsState extends State<change_password> {
                   SizedBox(
                       width: MediaQuery.of(context).size.width * 0.5,
                       child: TextField(
-                        keyboardType: TextInputType.number,
+                        keyboardType: TextInputType.visiblePassword,
                         decoration: InputDecoration(
                           suffixIcon: Icon(
                             Icons.edit,
@@ -148,7 +148,7 @@ class _account_detailsState extends State<change_password> {
                   SizedBox(
                       width: MediaQuery.of(context).size.width * 0.5,
                       child: TextField(
-                        keyboardType: TextInputType.number,
+                        keyboardType: TextInputType.visiblePassword,
                         decoration: InputDecoration(
                           suffixIcon: Icon(
                             Icons.edit,
@@ -157,7 +157,7 @@ class _account_detailsState extends State<change_password> {
                           filled: true,
                           fillColor: Theme.of(context).primaryColor,
                         ),
-                        controller: newcon,
+                        controller: newconfcon,
                       )),
                 ],
               ),

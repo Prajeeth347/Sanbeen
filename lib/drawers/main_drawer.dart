@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sanbeen_zedital/screens/aboutuspage.dart';
 import 'package:sanbeen_zedital/screens/begin_posting.dart';
+import 'package:sanbeen_zedital/screens/properties_all.dart';
 import 'package:sanbeen_zedital/screens/rentals_page.dart';
+import 'package:sanbeen_zedital/screens/signin.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class main_drawer extends StatelessWidget {
   main_drawer({
@@ -15,33 +18,6 @@ class main_drawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          // DrawerHeader(
-          //   decoration: BoxDecoration(
-          //     // color: Theme.of(context).primaryColor,
-          //     image: DecorationImage(
-          //       fit: BoxFit.cover,
-          //       image: NetworkImage(
-          //         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuw2csIYaS7KuekqlPBYserItx4Mfv-T6tuQ&usqp=CAU"),
-          //     ),
-          //   ),
-          //   child: Column(
-          //     crossAxisAlignment: CrossAxisAlignment.start,
-          //     children: [
-          //       SizedBox(height: MediaQuery.of(context).size.height*0.075),
-          //       Row(
-          //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //         children: [
-          //         CircleAvatar(
-          //         backgroundImage: NetworkImage(user_image),
-          //         minRadius: MediaQuery.of(context).size.width * 0.1,
-          //       ),
-          //       Container()
-          //         ],
-          //       )
-                
-          //     ],
-          //   )
-          // ),
           Stack(
             children:[
               Image.network(
@@ -90,7 +66,7 @@ class main_drawer extends StatelessWidget {
             title: const Text('Find houses or property'),
             onTap: () {
               Navigator.pop(context);
-              // Navigator.of(context).push(MaterialPageRoute(builder: (context) => begin_posting(),));
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => properties_all(),));
             },
           ),
           ListTile(
@@ -136,8 +112,12 @@ class main_drawer extends StatelessWidget {
               Icons.logout_sharp,
             ),
             title: const Text('Logout'),
-            onTap: () {
+            onTap: () async{
+              SharedPreferences prefs = await SharedPreferences.getInstance();
+                                                prefs.remove('Email');
               Navigator.pop(context);
+              Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => signin()));
               // Navigator.of(context).push(MaterialPageRoute(builder: (context) => begin_posting(),));
             },
           ),

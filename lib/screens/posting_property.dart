@@ -142,7 +142,7 @@ class _posting_propState extends State<posting_prop> {
                         child: TextField(
                           minLines: 3,
                           maxLines: 10,
-                          keyboardType: TextInputType.number,
+                          keyboardType: TextInputType.name,
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Theme.of(context).hintColor,
@@ -290,7 +290,7 @@ class _posting_propState extends State<posting_prop> {
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width * 0.8,
                         child: TextField(
-                          keyboardType: TextInputType.number,
+                          keyboardType: TextInputType.name,
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Theme.of(context).hintColor,
@@ -386,7 +386,7 @@ class _posting_propState extends State<posting_prop> {
                         child: TextField(
                           minLines: 3,
                           maxLines: 10,
-                          keyboardType: TextInputType.number,
+                          keyboardType: TextInputType.name,
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Theme.of(context).hintColor,

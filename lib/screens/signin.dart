@@ -3,9 +3,13 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sanbeen_zedital/drawers/main_drawer.dart';
+import 'package:sanbeen_zedital/main_navbar.dart';
 import 'package:sanbeen_zedital/screens/forgotpassword.dart';
+import 'package:sanbeen_zedital/screens/mainpage.dart';
 import 'package:sanbeen_zedital/screens/signup.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class signin extends StatefulWidget {
   const signin({Key? key}) : super(key: key);
@@ -24,14 +28,19 @@ class _signinState extends State<signin> {
         headers: {"Content-Type": "application/json"},
         body: jsonEncode({"email": email.text, "password": password.text}));
     if (sign_response.statusCode == 200) {
-      // responseMap = jsonDecode(sign_response.body);
-      // print(responseMap.toString());
       Fluttertoast.showToast(
           msg: "Successful",
           gravity: ToastGravity.BOTTOM,
           backgroundColor: Theme.of(context).hintColor,
           textColor: Theme.of(context).backgroundColor,
           fontSize: 16.0);
+          SharedPreferences prefs =
+                                await SharedPreferences.getInstance();
+                            prefs.setString('Email', email.text.trim());
+          Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => mainnavbar()));
     } else if (sign_response.statusCode == 404) {
       Fluttertoast.showToast(
           msg: "Something Went wrong",
@@ -77,7 +86,7 @@ class _signinState extends State<signin> {
                           height: MediaQuery.of(context).size.height * 0.18),
                       Padding(
                         padding: const EdgeInsets.fromLTRB(115, 15, 115, 15),
-                        child: Image.asset('assets/images/logo.jpeg'),
+                        child: Image.asset('assets/images/logoo.png'),
                       ),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.04),

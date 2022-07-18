@@ -47,7 +47,7 @@ class _feedbackState extends State<feedback> {
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               TextField(
                 style: TextStyle(color: Theme.of(context).primaryColor),
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.text,
                 cursorColor: Theme.of(context).hintColor,
                 decoration: InputDecoration(
                   labelStyle: GoogleFonts.poppins(
@@ -66,7 +66,7 @@ class _feedbackState extends State<feedback> {
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               TextField(
                 style: TextStyle(color: Theme.of(context).primaryColor),
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.emailAddress,
                 cursorColor: Theme.of(context).hintColor,
                 decoration: InputDecoration(
                   labelStyle: GoogleFonts.poppins(
@@ -85,7 +85,7 @@ class _feedbackState extends State<feedback> {
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               TextField(
                 style: TextStyle(color: Theme.of(context).primaryColor),
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.name,
                 cursorColor: Theme.of(context).hintColor,
                 decoration: InputDecoration(
                   labelStyle: GoogleFonts.poppins(

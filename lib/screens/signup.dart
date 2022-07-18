@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,6 +18,43 @@ class _signupState extends State<signup> {
   TextEditingController firstname = TextEditingController();
   TextEditingController lastname = TextEditingController();
   TextEditingController mobile_no = TextEditingController();
+  signup() async {
+    Map<String, dynamic> responseMap;
+    var sign_client = http.Client();
+    var sign_uri =
+        Uri.parse("https://sanbeen-real-estate.herokuapp.com/api/users/");
+    var sign_response = await sign_client.post(sign_uri,
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({"email": email.text,
+    "password" : password.text,
+    "first_name":firstname.text,
+    "last_name" : lastname.text,
+    "user_role" : "user"}));
+      print(sign_response.statusCode);
+      print(sign_response.body);
+    // if (sign_response.statusCode == 200) {
+    //   Fluttertoast.showToast(
+    //       msg: "Successful",
+    //       gravity: ToastGravity.BOTTOM,
+    //       backgroundColor: Theme.of(context).hintColor,
+    //       textColor: Theme.of(context).backgroundColor,
+    //       fontSize: 16.0);
+    // } else if (sign_response.statusCode == 404) {
+    //   Fluttertoast.showToast(
+    //       msg: "Something Went wrong",
+    //       gravity: ToastGravity.BOTTOM,
+    //       backgroundColor: Theme.of(context).hintColor,
+    //       textColor: Theme.of(context).backgroundColor,
+    //       fontSize: 16.0);
+    // } else {
+    //   Fluttertoast.showToast(
+    //       msg: sign_response.body,
+    //       gravity: ToastGravity.BOTTOM,
+    //       backgroundColor: Theme.of(context).hintColor,
+    //       textColor: Theme.of(context).backgroundColor,
+    //       fontSize: 16.0);
+    // }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -182,7 +221,7 @@ class _signupState extends State<signup> {
                     SizedBox(height: MediaQuery.of(context).size.height * 0.08),
                     ElevatedButton(
                         onPressed: () {
-                          Navigator.pop(context);
+                          signup();
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(

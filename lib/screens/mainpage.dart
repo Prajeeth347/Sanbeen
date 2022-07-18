@@ -17,6 +17,7 @@ import 'package:sanbeen_zedital/screens/profilepage.dart';
 import 'package:sanbeen_zedital/screens/properties_all.dart';
 import 'package:sanbeen_zedital/screens/property_display.dart';
 import 'package:sanbeen_zedital/screens/property_single.dart';
+import 'package:sanbeen_zedital/screens/rentals_page.dart';
 import 'package:sanbeen_zedital/screens/testimonials.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -221,10 +222,10 @@ class _rental_bodyState extends State<rental_body> {
     "Commercial projects"
   ];
   List hello = [
-    buy_prop_body(),
-    posting_prop(),
-    rental_body(),
-    exploring_page()
+    buying_prop_page(),
+    begin_posting(),
+    rentals_page(),
+    properties_all()
   ];
 
   @override
@@ -372,8 +373,8 @@ class _rental_bodyState extends State<rental_body> {
           ],
         ),
       ),
-      if (_prop_20_loaded == false)
-        CircularProgressIndicator(color: Theme.of(context).primaryColor),
+      // if (_prop_20_loaded == false)
+      //   CircularProgressIndicator(color: Theme.of(context).primaryColor),
       if (_prop_20_loaded == true)
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.5,
@@ -555,7 +556,7 @@ class _rental_bodyState extends State<rental_body> {
       TextButton(
         onPressed: () {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => rental_body()));
+              .push(MaterialPageRoute(builder: (context) => rentals_page()));
         },
         child: Text("Find more house renting options",
             style: GoogleFonts.inter(
@@ -713,13 +714,14 @@ class _rental_bodyState extends State<rental_body> {
           ],
         ),
       ),
-      if (_prop_20_loaded == false)
-        CircularProgressIndicator(color: Theme.of(context).primaryColor),
+      // if (_prop_20_loaded == false)
+      //   CircularProgressIndicator(color: Theme.of(context).primaryColor),
       if (_prop_20_loaded == true)
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.7,
           child: property != null
               ? GridView.builder(
+                  physics: NeverScrollableScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: 0.8,

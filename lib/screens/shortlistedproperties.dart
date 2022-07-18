@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sanbeen_zedital/drawers/main_drawer.dart';
 import 'package:sanbeen_zedital/models/properties_model(20).dart';
+import 'package:sanbeen_zedital/screens/profilepage.dart';
 import 'package:sanbeen_zedital/screens/property_single.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
 import 'package:intl/intl.dart';
@@ -35,49 +37,69 @@ class _propertiesState extends State<short_properties> {
 
   @override
   Widget build(BuildContext context) {
-    return _prop_loaded == false
-        ? Center(
-            child: CircularProgressIndicator(
-            color: Theme.of(context).primaryColor,
-          ))
-        : Padding(
-            padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
-            child: Column(
-              children: <Widget>[
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    "My Shortlisted Properties",
-                    style: GoogleFonts.poppins(
+    return Scaffold(
+      drawer: main_drawer(user_image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjjYXm0bKrsV1VZPuyaq-j009UD1aBDCUz5A&usqp=CAU"),
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
+        backgroundColor: Theme.of(context).backgroundColor,
+        actions: [
+          IconButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => profile_page()));
+                    },
+                    icon: Icon(
+                      Icons.person,
                       color: Theme.of(context).primaryColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.024,
-                      fontWeight: FontWeight.w500,
+                      size: MediaQuery.of(context).size.width * 0.08,
+                    ))
+        ],
+      ),
+      backgroundColor: Theme.of(context).backgroundColor,
+      body: _prop_loaded == false
+          ? Center(
+              child: CircularProgressIndicator(
+              color: Theme.of(context).primaryColor,
+            ))
+          : Padding(
+              padding: EdgeInsets.fromLTRB(20, 0, 20, 10),
+              child: Column(
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      "My Shortlisted Properties",
+                      style: GoogleFonts.poppins(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: MediaQuery.of(context).size.height * 0.024,
+                        fontWeight: FontWeight.w500,
+                      ),
+                      textAlign: TextAlign.start,
                     ),
-                    textAlign: TextAlign.start,
                   ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.02,
-                ),
-                Expanded(
-                  child: ListView.builder(
-                      itemCount: property?.length,
-                      itemBuilder: (context, index) {
-                        return properties_card(
-                          name: property![index].name,
-                          bedrooms: property![index].bedRooms,
-                          cost: property![index].price,
-                          dealer: property![index].account,
-                          number: property![index].account,
-                          img: property![index].images[0],
-                          id: property![index].id,
-                          city: property![index].city,
-                        );
-                        // return properties_20_card();
-                      }),
-                ),
-              ],
-            ));
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                  Expanded(
+                    child: ListView.builder(
+                        itemCount: property?.length,
+                        itemBuilder: (context, index) {
+                          return properties_card(
+                            name: property![index].name,
+                            bedrooms: property![index].bedRooms,
+                            cost: property![index].price,
+                            dealer: property![index].account,
+                            number: property![index].account,
+                            img: property![index].images[0],
+                            id: property![index].id,
+                            city: property![index].city,
+                          );
+                          // return properties_20_card();
+                        }),
+                  ),
+                ],
+              )),
+    );
   }
 }
 

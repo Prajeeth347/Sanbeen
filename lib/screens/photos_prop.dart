@@ -24,7 +24,7 @@ class _photos_propState extends State<photos_prop> {
               onPressed: () {
                 chooseImage_camera();
                 Navigator.of(context).pop();
-                print(image[0].toString());
+                // print(image[0].toString());
               },
               child: const Text('Camera'),
             ),

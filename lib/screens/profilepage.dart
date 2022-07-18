@@ -4,7 +4,9 @@ import 'package:sanbeen_zedital/models/profile_model.dart';
 import 'package:sanbeen_zedital/screens/account_details.dart';
 import 'package:sanbeen_zedital/screens/changepassword.dart';
 import 'package:sanbeen_zedital/screens/feedback.dart';
+import 'package:sanbeen_zedital/screens/signin.dart';
 import 'package:sanbeen_zedital/services/profile_helper.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class profile_page extends StatefulWidget {
   const profile_page({Key? key}) : super(key: key);
@@ -289,7 +291,13 @@ class _profile_pageState extends State<profile_page> {
             Padding(
               padding: const EdgeInsets.fromLTRB(8.0, 1.5, 8.0, 1.5),
               child: TextButton(
-                  onPressed: () {},
+                  onPressed: () async{
+                    SharedPreferences prefs = await SharedPreferences.getInstance();
+                                                prefs.remove('Email');
+              Navigator.pop(context);
+              Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => signin()));
+                  },
                   child: Row(
                     children: [
                       CircleAvatar(

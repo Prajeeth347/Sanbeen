@@ -119,10 +119,10 @@ class _buying_prop_pageState extends State<buying_prop_page> {
           ],
         ),
       ),
-      drawer: main_drawer(
-        user_image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjjYXm0bKrsV1VZPuyaq-j009UD1aBDCUz5A&usqp=CAU",
-      ),
+      // drawer: main_drawer(
+      //   user_image:
+      //       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjjYXm0bKrsV1VZPuyaq-j009UD1aBDCUz5A&usqp=CAU",
+      // ),
     );
   }
 
@@ -225,15 +225,15 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                 "Recommended Properties",
                 style: GoogleFonts.poppins(
                   color: Theme.of(context).primaryColor,
-                  fontSize: MediaQuery.of(context).size.height * 0.025,
+                  fontSize: MediaQuery.of(context).size.width * 0.043,
                   fontWeight: FontWeight.w500,
                 ),
               ),
             ],
           ),
         ),
-        if (_prop_20_loaded == false)
-          CircularProgressIndicator(color: Theme.of(context).primaryColor),
+        // if (_prop_20_loaded == false)
+        //   CircularProgressIndicator(color: Theme.of(context).primaryColor),
 
         if (_prop_20_loaded == true)
           SizedBox(
@@ -270,10 +270,10 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: Alignment.topRight,
+                                  alignment: Alignment.topLeft,
                                   child: Padding(
                                     padding:
-                                        const EdgeInsets.fromLTRB(95, 0, 4, 0),
+                                        const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     child: IconButton(
                                         onPressed: () {},
                                         icon: Icon(
@@ -318,8 +318,9 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.35,
           child: property == null
-              ? CircularProgressIndicator(color: Theme.of(context).primaryColor)
-              : ListView.builder(
+              ? 
+              // CircularProgressIndicator(color: Theme.of(context).primaryColor)
+              Container(): ListView.builder(
                   itemCount: property?.length,
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
@@ -598,37 +599,35 @@ class _buy_prop_bodyState extends State<buy_prop_body> {
                                   ),
                                   SizedBox(
                                     width: MediaQuery.of(context).size.width *
-                                        0.001,
+                                        0.05,
                                   ),
-                                  Row(
+                                  GestureDetector(
+                                  onTap: () {
+                                    FlutterPhoneDirectCaller.callNumber(
+                                              number);
+                                  },
+                                  child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      IconButton(
-                                          color: Theme.of(context).hintColor,
-                                          onPressed: () {
-                                            FlutterPhoneDirectCaller.callNumber(
-                                                number);
-                                          },
-                                          icon: Icon(
+                                      Icon(
                                             Icons.phone,
-                                            color:
-                                                Theme.of(context).primaryColor,
+                                            color: Theme.of(context).primaryColor,
                                             size: MediaQuery.of(context)
                                                     .size
                                                     .width *
                                                 0.04,
-                                          )),
+                                          ),
                                       Text('Call Now',
                                           style: GoogleFonts.inter(
-                                              color:
-                                                  Theme.of(context).hintColor,
+                                              color: Theme.of(context).hintColor,
                                               fontSize: MediaQuery.of(context)
                                                       .size
                                                       .width *
                                                   0.025,
                                               fontWeight: FontWeight.w400))
                                     ],
-                                  )
+                                  ),
+                                )
                                 ],
                               )
                             ],
