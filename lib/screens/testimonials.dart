@@ -144,7 +144,7 @@ class testii extends StatelessWidget {
                           style: GoogleFonts.poppins(
                             color: Theme.of(context).hintColor,
                             fontSize:
-                                MediaQuery.of(context).size.height * 0.011,
+                                MediaQuery.of(context).size.width * 0.025,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
