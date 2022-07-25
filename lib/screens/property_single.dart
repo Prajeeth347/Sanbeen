@@ -13,15 +13,15 @@ import 'package:sanbeen_zedital/services/properties_20_helper.dart';
 import 'package:sanbeen_zedital/services/property_single_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class property_single_page extends StatefulWidget {
-  property_single_page({required this.id});
+class PropertySinglePage extends StatefulWidget {
+  PropertySinglePage({Key? key, required this.id}) : super(key: key);
   String id;
 
   @override
-  State<property_single_page> createState() => _property_single_pageState();
+  State<PropertySinglePage> createState() => _PropertySinglePageState();
 }
 
-class _property_single_pageState extends State<property_single_page> {
+class _PropertySinglePageState extends State<PropertySinglePage> {
   ScrollController? _scrollController;
   bool lastStatus = true;
   double height = 200;
@@ -56,21 +56,21 @@ class _property_single_pageState extends State<property_single_page> {
   }
 
   List<Properties>? property;
-  var _prop_20_loaded = false;
-  final _controller = ScrollController();
+  var prop20loaded = false;
+  final controller = ScrollController();
   @override
   getProfileData() async {
-    property = await property_single_services().getprofiles(widget.id);
+    property = await PropertySingleServices().getprofiles(widget.id);
     if (property != null) {
       setState(() {
-        _prop_20_loaded = true;
+        prop20loaded = true;
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final TextTheme textTheme = Theme.of(context).textTheme;
+    //final TextTheme textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
@@ -89,7 +89,7 @@ class _property_single_pageState extends State<property_single_page> {
                         IconButton(
                             onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) => profile_page()));
+                                  builder: (context) => const ProfilePage()));
                             },
                             icon: Icon(
                               Icons.favorite_border,
@@ -111,11 +111,11 @@ class _property_single_pageState extends State<property_single_page> {
                           fit: BoxFit.cover,
                         )),
                         titlePadding: _isShrink == false
-                            ? EdgeInsets.only(top: 40)
+                            ? const EdgeInsets.only(top: 40)
                             : null,
                         title: _isShrink == false
                             ? ClipRRect(
-                                borderRadius: BorderRadius.only(
+                                borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(10),
                                     topRight: Radius.circular(10)),
                                 child: Container(
@@ -152,7 +152,7 @@ class _property_single_pageState extends State<property_single_page> {
                   SliverList(
                     delegate: SliverChildBuilderDelegate(
                       (BuildContext context, int index) {
-                        return property_body(
+                        return PropertyBody(
                           property: property,
                         );
                       },
@@ -166,14 +166,14 @@ class _property_single_pageState extends State<property_single_page> {
   }
 }
 
-class property_body extends StatefulWidget {
-  property_body({required this.property});
+class PropertyBody extends StatefulWidget {
+  PropertyBody({Key? key, required this.property}) : super(key: key);
   List<Properties>? property;
   @override
-  State<property_body> createState() => _property_bodyState();
+  State<PropertyBody> createState() => _PropertyBodyState();
 }
 
-class _property_bodyState extends State<property_body> {
+class _PropertyBodyState extends State<PropertyBody> {
   List aminities = ["Swimming Pool", "Gym Facilities", "Parking"];
   List images = [
     "https://sanbeen.s3.ap-south-1.amazonaws.com/1656932938885_prop.png"
@@ -237,7 +237,7 @@ class _property_bodyState extends State<property_body> {
                   ),
                   Wrap(
                     children: [
-                      Container(
+                      SizedBox(
                         width: MediaQuery.of(context).size.width * 0.34,
                         child: Row(
                           children: [
@@ -248,9 +248,7 @@ class _property_bodyState extends State<property_body> {
                             SizedBox(
                                 width:
                                     MediaQuery.of(context).size.width * 0.015),
-                            Text(
-                                widget.property![0].bedRooms.toString() +
-                                    " Bedrooms",
+                            Text("${widget.property![0].bedRooms} Bedrooms",
                                 style: GoogleFonts.poppins(
                                     color: Theme.of(context).hintColor,
                                     fontSize:
@@ -260,7 +258,7 @@ class _property_bodyState extends State<property_body> {
                           ],
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         width: MediaQuery.of(context).size.width * 0.25,
                         child: Row(
                           children: [
@@ -271,9 +269,7 @@ class _property_bodyState extends State<property_body> {
                             SizedBox(
                                 width:
                                     MediaQuery.of(context).size.width * 0.015),
-                            Text(
-                                widget.property![0].bathRooms.toString() +
-                                    " Baths",
+                            Text("${widget.property![0].bathRooms} Baths",
                                 style: GoogleFonts.poppins(
                                     color: Theme.of(context).hintColor,
                                     fontSize:
@@ -283,7 +279,7 @@ class _property_bodyState extends State<property_body> {
                           ],
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         width: MediaQuery.of(context).size.width * 0.32,
                         child: Row(
                           children: [
@@ -294,9 +290,7 @@ class _property_bodyState extends State<property_body> {
                             SizedBox(
                                 width:
                                     MediaQuery.of(context).size.width * 0.015),
-                            Text(
-                                widget.property![0].size.toString() +
-                                    " sq. ft.",
+                            Text("${widget.property![0].size} sq. ft.",
                                 style: GoogleFonts.poppins(
                                     color: Theme.of(context).hintColor,
                                     fontSize:
@@ -344,12 +338,12 @@ class _property_bodyState extends State<property_body> {
                         StaggeredGridTile.count(
                           mainAxisCellCount: ((i + 1) % 2) == 0 ? 1 : 2,
                           crossAxisCellCount: 2,
-                          child: Container(
+                          child: SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.15,
+                              width: MediaQuery.of(context).size.width * 0.35,
                               child: FittedBox(
                                   fit: BoxFit.fill,
-                                  child: Image.network(images[i])),
-                              height: MediaQuery.of(context).size.height * 0.15,
-                              width: MediaQuery.of(context).size.width * 0.35),
+                                  child: Image.network(images[i]))),
                         ),
                       ]
                     ],
@@ -359,7 +353,7 @@ class _property_bodyState extends State<property_body> {
                   ),
                   Row(
                     children: [
-                      Container(
+                      SizedBox(
                         width: MediaQuery.of(context).size.width * 0.6,
                         child: Text(widget.property![0].account,
                             style: GoogleFonts.poppins(
@@ -370,30 +364,29 @@ class _property_bodyState extends State<property_body> {
                       ),
                       IconButton(
                           onPressed: () async {
-                            var whatsappURl_android = "whatsapp://send?phone=" +
-                                number +
-                                "&text=Hello";
-                            var whatappURL_ios =
+                            var whatsappURlandroid =
+                                "whatsapp://send?phone=$number&text=Hello";
+                            var whatappURLios =
                                 "https://wa.me/$number?text=${Uri.parse("Hello")}";
                             if (Platform.isIOS) {
                               // for iOS phone only
                               if (await canLaunchUrl(
-                                  Uri(path: whatappURL_ios))) {
-                                await launchUrl(Uri(path: whatappURL_ios));
+                                  Uri(path: whatappURLios))) {
+                                await launchUrl(Uri(path: whatappURLios));
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
+                                    const SnackBar(
                                         content:
-                                            new Text("whatsapp no installed")));
+                                            Text("whatsapp no installed")));
                               }
                             } else {
-                              if (await canLaunch(whatsappURl_android)) {
-                                await launch(whatsappURl_android);
+                              if (await canLaunch(whatsappURlandroid)) {
+                                await launch(whatsappURlandroid);
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
+                                    const SnackBar(
                                         content:
-                                            new Text("whatsapp no installed")));
+                                            Text("whatsapp no installed")));
                               }
                             }
                           },
@@ -404,7 +397,7 @@ class _property_bodyState extends State<property_body> {
                           onPressed: () {
                             FlutterPhoneDirectCaller.callNumber(number);
                           },
-                          icon: Icon(Icons.phone))
+                          icon: const Icon(Icons.phone))
                     ],
                   ),
                 ],

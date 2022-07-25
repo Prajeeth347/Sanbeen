@@ -3,18 +3,18 @@ import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sanbeen_zedital/main.dart';
 
-class feedback extends StatefulWidget {
-  const feedback({Key? key}) : super(key: key);
+class FeedBack extends StatefulWidget {
+  const FeedBack({Key? key}) : super(key: key);
 
   @override
-  State<feedback> createState() => _feedbackState();
+  State<FeedBack> createState() => _FeedBackState();
 }
 
-class _feedbackState extends State<feedback> {
-  TextEditingController feedback_controller = TextEditingController();
-  TextEditingController email_controller = TextEditingController();
-  TextEditingController name_controller = TextEditingController();
-  TextEditingController mobile_controller = TextEditingController();
+class _FeedBackState extends State<FeedBack> {
+  TextEditingController FeedBackcontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController namecontroller = TextEditingController();
+  TextEditingController mobilecontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,12 +33,12 @@ class _feedbackState extends State<feedback> {
       backgroundColor: Theme.of(context).backgroundColor,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+          padding: const EdgeInsets.fromLTRB(20, 8, 8, 8),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Feedback',
+                'FeedBack',
                 style: TextStyle(
                     color: Theme.of(context).primaryColor,
                     fontSize: MediaQuery.of(context).size.width * 0.06,
@@ -54,14 +54,14 @@ class _feedbackState extends State<feedback> {
                       color: Theme.of(context).primaryColor,
                       fontSize: MediaQuery.of(context).size.height * 0.02,
                       fontWeight: FontWeight.w300),
-                  labelText: 'Write your feedback',
+                  labelText: 'Write your FeedBack',
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
                         width: 1,
                         color: Theme.of(context).primaryColor), //<-- SEE HERE
                   ),
                 ),
-                controller: feedback_controller,
+                controller: FeedBackcontroller,
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               TextField(
@@ -80,7 +80,7 @@ class _feedbackState extends State<feedback> {
                         color: Theme.of(context).primaryColor), //<-- SEE HERE
                   ),
                 ),
-                controller: email_controller,
+                controller: emailcontroller,
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               TextField(
@@ -99,7 +99,7 @@ class _feedbackState extends State<feedback> {
                         color: Theme.of(context).primaryColor), //<-- SEE HERE
                   ),
                 ),
-                controller: name_controller,
+                controller: namecontroller,
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               TextField(
@@ -118,11 +118,11 @@ class _feedbackState extends State<feedback> {
                         color: Theme.of(context).primaryColor), //<-- SEE HERE
                   ),
                 ),
-                controller: mobile_controller,
+                controller: mobilecontroller,
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               Center(
-                child: Container(
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.5,
                   child: RaisedButton(
                       shape: RoundedRectangleBorder(
@@ -134,7 +134,7 @@ class _feedbackState extends State<feedback> {
                         showAlertDialog(context);
                       },
                       child: Text(
-                        "Submit feedback",
+                        "Submit FeedBack",
                         style: GoogleFonts.poppins(
                             color: Theme.of(context).hintColor,
                             fontSize: MediaQuery.of(context).size.height * 0.02,
@@ -190,10 +190,10 @@ class _feedbackState extends State<feedback> {
       child:
           Text("OK", style: TextStyle(color: Theme.of(context).primaryColor)),
       onPressed: () {
-        feedback_controller.clear();
-        email_controller.clear();
-        name_controller.clear();
-        mobile_controller.clear();
+        FeedBackcontroller.clear();
+        emailcontroller.clear();
+        namecontroller.clear();
+        mobilecontroller.clear();
         Navigator.of(context).pop();
       },
     );

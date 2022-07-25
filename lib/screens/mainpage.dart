@@ -1,35 +1,35 @@
-import 'dart:io';
+//import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+//import 'package:flutter/rendering.dart';
+//import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+//import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:sanbeen_zedital/drawers/main_drawer.dart';
+//import 'package:sanbeen_zedital/drawers/main_drawer.dart';
 import 'package:sanbeen_zedital/models/properties_model(20).dart';
-import 'package:sanbeen_zedital/screens/aboutuspage.dart';
+//import 'package:sanbeen_zedital/screens/aboutuspage.dart';
 import 'package:sanbeen_zedital/screens/begin_posting.dart';
 import 'package:sanbeen_zedital/screens/buy_prop_page.dart';
 import 'package:sanbeen_zedital/screens/exploring_page..dart';
-import 'package:sanbeen_zedital/screens/posting_property.dart';
+//import 'package:sanbeen_zedital/screens/posting_property.dart';
 import 'package:sanbeen_zedital/screens/profilepage.dart';
 import 'package:sanbeen_zedital/screens/properties_all.dart';
-import 'package:sanbeen_zedital/screens/property_display.dart';
+//import 'package:sanbeen_zedital/screens/property_display.dart';
 import 'package:sanbeen_zedital/screens/property_single.dart';
 import 'package:sanbeen_zedital/screens/rentals_page.dart';
 import 'package:sanbeen_zedital/screens/testimonials.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
-import 'package:url_launcher/url_launcher.dart';
+//import 'package:url_launcher/url_launcher.dart';
 
-class main_page extends StatefulWidget {
-  const main_page({Key? key}) : super(key: key);
+class MainPage extends StatefulWidget {
+  const MainPage({Key? key}) : super(key: key);
 
   @override
-  State<main_page> createState() => _main_pageState();
+  State<MainPage> createState() => _MainPageState();
 }
 
-class _main_pageState extends State<main_page> {
+class _MainPageState extends State<MainPage> {
   ScrollController? _scrollController;
   bool lastStatus = true;
   double height = 200;
@@ -62,7 +62,7 @@ class _main_pageState extends State<main_page> {
 
   @override
   Widget build(BuildContext context) {
-    final TextTheme textTheme = Theme.of(context).textTheme;
+    //final TextTheme textTheme = Theme.of(context).textTheme;
 
     return NestedScrollView(
       controller: _scrollController,
@@ -74,7 +74,7 @@ class _main_pageState extends State<main_page> {
                 IconButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => profile_page()));
+                          builder: (context) => const ProfilePage()));
                     },
                     icon: Icon(
                       Icons.person,
@@ -88,7 +88,7 @@ class _main_pageState extends State<main_page> {
               expandedHeight: MediaQuery.of(context).size.height * 0.25,
               flexibleSpace: FlexibleSpaceBar(
                 collapseMode: CollapseMode.parallax,
-                title: Container(
+                title: SizedBox(
                     width: _isShrink
                         ? MediaQuery.of(context).size.width * 0.75
                         : MediaQuery.of(context).size.width * 0.5,
@@ -112,7 +112,7 @@ class _main_pageState extends State<main_page> {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
-                return rental_body();
+                return const RentalBody();
               },
               childCount: 1,
             ),
@@ -128,31 +128,31 @@ class _main_pageState extends State<main_page> {
       decoration: InputDecoration(
           hintText: "search cities, localities, etc",
           hintStyle: GoogleFonts.inter(
-              color: Color.fromARGB(156, 76, 72, 60),
+              color: const Color.fromARGB(156, 76, 72, 60),
               fontWeight: FontWeight.w400,
               fontSize: _isShrink
                   ? MediaQuery.of(context).size.width * 0.040
                   : MediaQuery.of(context).size.width * 0.025),
           enabled: false,
-          suffixIcon: Icon(Icons.search),
+          suffixIcon: const Icon(Icons.search),
           fillColor: Theme.of(context).hintColor,
           filled: true),
     );
   }
 }
 
-class rental_body extends StatefulWidget {
-  const rental_body({
+class RentalBody extends StatefulWidget {
+  const RentalBody({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<rental_body> createState() => _rental_bodyState();
+  State<RentalBody> createState() => _RentalBodyState();
 }
 
-class _rental_bodyState extends State<rental_body> {
+class _RentalBodyState extends State<RentalBody> {
   List<Properties>? property;
-  var _prop_20_loaded = false;
+  var prop20loaded = false;
   @override
   void initState() {
     super.initState();
@@ -160,10 +160,10 @@ class _rental_bodyState extends State<rental_body> {
   }
 
   getProfileData() async {
-    property = await property_services().getprofiles();
+    property = await PropertyServices().getprofiles();
     if (property != null) {
       setState(() {
-        _prop_20_loaded = true;
+        prop20loaded = true;
       });
     }
   }
@@ -222,10 +222,10 @@ class _rental_bodyState extends State<rental_body> {
     "Commercial projects"
   ];
   List hello = [
-    buying_prop_page(),
-    begin_posting(),
-    rentals_page(),
-    properties_all()
+    const BuyingPropPage(),
+    const BeginPosting(),
+    const RentalsPage(),
+    const PropertiesAll()
   ];
 
   @override
@@ -233,7 +233,7 @@ class _rental_bodyState extends State<rental_body> {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       // SizedBox(height: 20),
       Padding(
-        padding: EdgeInsets.fromLTRB(16, 15, 16, 8),
+        padding: const EdgeInsets.fromLTRB(16, 15, 16, 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -247,8 +247,8 @@ class _rental_bodyState extends State<rental_body> {
             ),
             TextButton(
               onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => exploring_page()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const ExploringPage()));
               },
               child: Text("View all",
                   style: GoogleFonts.inter(
@@ -261,7 +261,7 @@ class _rental_bodyState extends State<rental_body> {
         ),
       ),
       Padding(
-        padding: EdgeInsets.fromLTRB(16, 8, 8, 8),
+        padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
         child: SizedBox(
           height: MediaQuery.of(context).size.height * 0.2,
           child: ListView.builder(
@@ -283,7 +283,7 @@ class _rental_bodyState extends State<rental_body> {
                           child: Container(
                             width: MediaQuery.of(context).size.width * 0.38,
                             height: MediaQuery.of(context).size.height * 0.15,
-                            color: Color.fromARGB(255, 225, 214, 182),
+                            color: const Color.fromARGB(255, 225, 214, 182),
                             child: Image.asset(
                               collectio[index],
                               fit: BoxFit.cover,
@@ -315,7 +315,7 @@ class _rental_bodyState extends State<rental_body> {
         ),
       ),
       Padding(
-        padding: EdgeInsets.fromLTRB(16, 15, 16, 8),
+        padding: const EdgeInsets.fromLTRB(16, 15, 16, 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -337,7 +337,7 @@ class _rental_bodyState extends State<rental_body> {
           child: Container(
             width: MediaQuery.of(context).size.width * 0.95,
             height: MediaQuery.of(context).size.height * 0.3,
-            color: Color.fromARGB(255, 225, 214, 182),
+            color: const Color.fromARGB(255, 225, 214, 182),
             child: Image.network(
               'https://thumbs.dreamstime.com/b/modern-house-interior-exterior-design-46517595.jpg',
               fit: BoxFit.cover,
@@ -348,7 +348,7 @@ class _rental_bodyState extends State<rental_body> {
       TextButton(
         onPressed: () {
           Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => buying_prop_page()));
+              MaterialPageRoute(builder: (context) => const BuyingPropPage()));
         },
         child: Text("Find more house buying options",
             style: GoogleFonts.inter(
@@ -358,7 +358,7 @@ class _rental_bodyState extends State<rental_body> {
                 decoration: TextDecoration.underline)),
       ),
       Padding(
-        padding: EdgeInsets.fromLTRB(16, 15, 16, 8),
+        padding: const EdgeInsets.fromLTRB(16, 15, 16, 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -373,9 +373,9 @@ class _rental_bodyState extends State<rental_body> {
           ],
         ),
       ),
-      // if (_prop_20_loaded == false)
+      // if (prop20loaded == false)
       //   CircularProgressIndicator(color: Theme.of(context).primaryColor),
-      if (_prop_20_loaded == true)
+      if (prop20loaded == true)
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.5,
           child: ListView.builder(
@@ -383,22 +383,22 @@ class _rental_bodyState extends State<rental_body> {
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
               itemBuilder: ((context, index) {
-                if (property![index].propertyMode == "rent")
+                if (property![index].propertyMode == "rent") {
                   return GestureDetector(
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) =>
-                              property_single_page(id: property![index].id)));
+                              PropertySinglePage(id: property![index].id)));
                     },
                     child: Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.fromLTRB(10, 8, 10, 12),
+                          padding: const EdgeInsets.fromLTRB(10, 8, 10, 12),
                           child: Stack(
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
-                                child: Container(
+                                child: SizedBox(
                                   width:
                                       MediaQuery.of(context).size.width * 0.55,
                                   height:
@@ -425,7 +425,8 @@ class _rental_bodyState extends State<rental_body> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.fromLTRB(20, 210, 19, 10),
+                                padding:
+                                    const EdgeInsets.fromLTRB(20, 210, 19, 10),
                                 child: ClipRRect(
                                     borderRadius: BorderRadius.circular(12),
                                     child: Container(
@@ -464,10 +465,7 @@ class _rental_bodyState extends State<rental_body> {
                                                 CrossAxisAlignment.center,
                                             children: [
                                               Text(
-                                                  property![index]
-                                                          .bedRooms
-                                                          .toString() +
-                                                      'BHK ',
+                                                  '${property![index].bedRooms}BHK ',
                                                   style: GoogleFonts.inter(
                                                     color: Theme.of(context)
                                                         .primaryColor,
@@ -519,11 +517,12 @@ class _rental_bodyState extends State<rental_body> {
                       ],
                     ),
                   );
+                }
                 return Container();
               })),
         ),
       Padding(
-        padding: EdgeInsets.fromLTRB(16, 15, 16, 8),
+        padding: const EdgeInsets.fromLTRB(16, 15, 16, 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -545,7 +544,7 @@ class _rental_bodyState extends State<rental_body> {
           child: Container(
             width: MediaQuery.of(context).size.width * 0.95,
             height: MediaQuery.of(context).size.height * 0.3,
-            color: Color.fromARGB(255, 225, 214, 182),
+            color: const Color.fromARGB(255, 225, 214, 182),
             child: Image.network(
               'https://thumbs.dreamstime.com/b/modern-house-interior-exterior-design-46517595.jpg',
               fit: BoxFit.cover,
@@ -555,8 +554,8 @@ class _rental_bodyState extends State<rental_body> {
       ),
       TextButton(
         onPressed: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => rentals_page()));
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const RentalsPage()));
         },
         child: Text("Find more house renting options",
             style: GoogleFonts.inter(
@@ -577,7 +576,7 @@ class _rental_bodyState extends State<rental_body> {
         ),
       ),
       Padding(
-        padding: EdgeInsets.fromLTRB(16, 8, 8, 8),
+        padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -586,7 +585,7 @@ class _rental_bodyState extends State<rental_body> {
               height: MediaQuery.of(context).size.height * 0.19,
               width: MediaQuery.of(context).size.width * 0.9,
               child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 1,
                     childAspectRatio: 0.65,
                     crossAxisSpacing: 0,
@@ -658,7 +657,7 @@ class _rental_bodyState extends State<rental_body> {
         ),
       ),
       Padding(
-        padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+        padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
         child: SizedBox(
           height: MediaQuery.of(context).size.height * 0.15,
           child: ListView.builder(
@@ -699,7 +698,7 @@ class _rental_bodyState extends State<rental_body> {
         ),
       ),
       Padding(
-        padding: EdgeInsets.fromLTRB(16, 15, 16, 8),
+        padding: const EdgeInsets.fromLTRB(16, 15, 16, 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -714,15 +713,15 @@ class _rental_bodyState extends State<rental_body> {
           ],
         ),
       ),
-      // if (_prop_20_loaded == false)
+      // if (prop20loaded == false)
       //   CircularProgressIndicator(color: Theme.of(context).primaryColor),
-      if (_prop_20_loaded == true)
+      if (prop20loaded == true)
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.7,
           child: property != null
               ? GridView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: 0.8,
                       crossAxisSpacing: 0,
@@ -730,20 +729,20 @@ class _rental_bodyState extends State<rental_body> {
                   itemCount: 4,
                   shrinkWrap: true,
                   itemBuilder: ((context, index) {
-                    if (property![index].propertyMode == "rent")
+                    if (property![index].propertyMode == "rent") {
                       return GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => property_single_page(
-                                  id: property![index].id)));
+                              builder: (context) =>
+                                  PropertySinglePage(id: property![index].id)));
                         },
                         child: Padding(
-                          padding: EdgeInsets.fromLTRB(10, 8, 10, 12),
+                          padding: const EdgeInsets.fromLTRB(10, 8, 10, 12),
                           child: Stack(
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
-                                child: Container(
+                                child: SizedBox(
                                   width:
                                       MediaQuery.of(context).size.width * 0.5,
                                   height:
@@ -772,7 +771,8 @@ class _rental_bodyState extends State<rental_body> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.fromLTRB(4, 140, 5, 10),
+                                padding:
+                                    const EdgeInsets.fromLTRB(4, 140, 5, 10),
                                 child: ClipRRect(
                                     borderRadius: BorderRadius.circular(12),
                                     child: Container(
@@ -811,10 +811,7 @@ class _rental_bodyState extends State<rental_body> {
                                                 CrossAxisAlignment.center,
                                             children: [
                                               Text(
-                                                  property![index]
-                                                          .bedRooms
-                                                          .toString() +
-                                                      'BHK ',
+                                                  '${property![index].bedRooms}BHK ',
                                                   style: GoogleFonts.inter(
                                                     color: Theme.of(context)
                                                         .primaryColor,
@@ -864,12 +861,13 @@ class _rental_bodyState extends State<rental_body> {
                           ),
                         ),
                       );
+                    }
                     return Container();
                   }))
               : Container(),
         ),
       Padding(
-        padding: EdgeInsets.fromLTRB(16, 15, 16, 8),
+        padding: const EdgeInsets.fromLTRB(16, 15, 16, 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -892,13 +890,13 @@ class _rental_bodyState extends State<rental_body> {
           color: Theme.of(context).primaryColor,
           child: Row(children: [
             Padding(
-              padding: EdgeInsets.all(6.0),
+              padding: const EdgeInsets.all(6.0),
               child: Column(
                 children: [
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.015,
                   ),
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height * 0.08,
                     width: MediaQuery.of(context).size.width * 0.265,
                     child: Image.asset('assets/images/homie.png'),
@@ -926,13 +924,13 @@ class _rental_bodyState extends State<rental_body> {
               width: MediaQuery.of(context).size.width * 0.015,
             ),
             Padding(
-              padding: EdgeInsets.all(6.0),
+              padding: const EdgeInsets.all(6.0),
               child: Column(
                 children: [
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.015,
                   ),
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height * 0.08,
                     width: MediaQuery.of(context).size.width * 0.265,
                     child: Image.asset('assets/images/home.png'),
@@ -957,13 +955,13 @@ class _rental_bodyState extends State<rental_body> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(6.0),
+              padding: const EdgeInsets.all(6.0),
               child: Column(
                 children: [
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.019,
                   ),
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height * 0.08,
                     width: MediaQuery.of(context).size.width * 0.265,
                     child: Image.asset('assets/images/location.png'),
@@ -1005,7 +1003,7 @@ class _rental_bodyState extends State<rental_body> {
         height: MediaQuery.of(context).size.height * 0.01,
       ),
       Padding(
-        padding: EdgeInsets.fromLTRB(16, 8, 8, 8),
+        padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -1014,7 +1012,7 @@ class _rental_bodyState extends State<rental_body> {
               height: MediaQuery.of(context).size.height * 0.19,
               width: MediaQuery.of(context).size.width * 0.9,
               child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 1,
                     childAspectRatio: 0.55,
                     crossAxisSpacing: 0,
@@ -1097,8 +1095,8 @@ class _rental_bodyState extends State<rental_body> {
             ),
             TextButton(
               onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => testimonials()));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const Testimonials()));
               },
               child: Text("View more testimonials",
                   style: GoogleFonts.inter(

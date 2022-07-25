@@ -5,21 +5,21 @@ import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:sanbeen_zedital/models/properties_model(20).dart';
-import 'package:sanbeen_zedital/screens/property_display.dart';
+//import 'package:sanbeen_zedital/screens/property_display.dart';
 import 'package:sanbeen_zedital/screens/property_single.dart';
 import 'package:sanbeen_zedital/services/properties_20_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class properties_all extends StatefulWidget {
-  const properties_all({Key? key}) : super(key: key);
+class PropertiesAll extends StatefulWidget {
+  const PropertiesAll({Key? key}) : super(key: key);
 
   @override
-  State<properties_all> createState() => _propertiesState();
+  State<PropertiesAll> createState() => PropertiesState();
 }
 
-class _propertiesState extends State<properties_all> {
+class PropertiesState extends State<PropertiesAll> {
   List<Properties>? property;
-  var _prop_20_loaded = false;
+  var prop20loaded = false;
   @override
   void initState() {
     super.initState();
@@ -27,10 +27,10 @@ class _propertiesState extends State<properties_all> {
   }
 
   getProfileData() async {
-    property = await property_services().getprofiles();
+    property = await PropertyServices().getprofiles();
     if (property != null) {
       setState(() {
-        _prop_20_loaded = true;
+        prop20loaded = true;
       });
     }
   }
@@ -51,7 +51,7 @@ class _propertiesState extends State<properties_all> {
             )),
       ),
       backgroundColor: Theme.of(context).backgroundColor,
-      body: _prop_20_loaded == false
+      body: prop20loaded == false
           ? Center(
               child: CircularProgressIndicator(
               color: Theme.of(context).primaryColor,
@@ -59,7 +59,7 @@ class _propertiesState extends State<properties_all> {
           : ListView.builder(
               itemCount: property?.length,
               itemBuilder: (context, index) {
-                return properties_20_card(
+                return Properties20Card(
                   name: property![index].name,
                   bedrooms: property![index].bedRooms,
                   bath: property![index].bathRooms,
@@ -70,14 +70,15 @@ class _propertiesState extends State<properties_all> {
                   img: property![index].images[0],
                   id: property![index].id,
                 );
-                // return properties_20_card();
+                // return Properties20Card();
               }),
     );
   }
 }
 
-class properties_20_card extends StatelessWidget {
-  properties_20_card({
+class Properties20Card extends StatelessWidget {
+  Properties20Card({
+    Key? key,
     required this.name,
     required this.bedrooms,
     required this.bath,
@@ -87,7 +88,7 @@ class properties_20_card extends StatelessWidget {
     required this.number,
     required this.img,
     required this.id,
-  });
+  }) : super(key: key);
   String name;
   String id;
   String img;
@@ -103,9 +104,9 @@ class properties_20_card extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => property_single_page(id: id)));
+            builder: (context) => PropertySinglePage(id: id)));
       },
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.99,
         height: MediaQuery.of(context).size.height * 0.49,
         child: Stack(
@@ -155,7 +156,7 @@ class properties_20_card extends StatelessWidget {
                             Wrap(
                               // textDirection: TextDirection.ltr,
                               children: [
-                                Container(
+                                SizedBox(
                                   width:
                                       MediaQuery.of(context).size.width * 0.4,
                                   child: Row(
@@ -169,7 +170,7 @@ class properties_20_card extends StatelessWidget {
                                                   .size
                                                   .width *
                                               0.01),
-                                      Text(bedrooms.toString() + " Bedrooms",
+                                      Text("$bedrooms Bedrooms",
                                           style: GoogleFonts.inter(
                                               color:
                                                   Theme.of(context).hintColor,
@@ -181,7 +182,7 @@ class properties_20_card extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                Container(
+                                SizedBox(
                                   width:
                                       MediaQuery.of(context).size.width * 0.4,
                                   child: Row(
@@ -196,7 +197,7 @@ class properties_20_card extends StatelessWidget {
                                                   .width *
                                               0.01),
                                       Text(
-                                        bath.toString() + " Baths",
+                                        "$bath Baths",
                                         style: GoogleFonts.inter(
                                             color: Theme.of(context).hintColor,
                                             fontSize: MediaQuery.of(context)
@@ -214,7 +215,7 @@ class properties_20_card extends StatelessWidget {
                                   width:
                                       MediaQuery.of(context).size.width * 0.8,
                                 ),
-                                Container(
+                                SizedBox(
                                   width:
                                       MediaQuery.of(context).size.width * 0.4,
                                   child: Row(
@@ -228,7 +229,7 @@ class properties_20_card extends StatelessWidget {
                                                   .size
                                                   .width *
                                               0.01),
-                                      Text(sft.toString() + " sq. ft.",
+                                      Text("$sft sq. ft.",
                                           style: GoogleFonts.inter(
                                               color:
                                                   Theme.of(context).hintColor,
@@ -240,7 +241,7 @@ class properties_20_card extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                Container(
+                                SizedBox(
                                   width:
                                       MediaQuery.of(context).size.width * 0.4,
                                   child: Row(
@@ -295,33 +296,31 @@ class properties_20_card extends StatelessWidget {
                                     children: [
                                       IconButton(
                                           onPressed: () async {
-                                            var whatsappURl_android =
-                                                "whatsapp://send?phone=" +
-                                                    number +
-                                                    "&text=Hello";
-                                            var whatappURL_ios =
+                                            var whatsappURlandroid =
+                                                "whatsapp://send?phone=$number&text=Hello";
+                                            var whatsappURLios =
                                                 "https://wa.me/$number?text=${Uri.parse("Hello")}";
                                             if (Platform.isIOS) {
                                               // for iOS phone only
                                               if (await canLaunchUrl(
-                                                  Uri(path: whatappURL_ios))) {
+                                                  Uri(path: whatsappURLios))) {
                                                 await launchUrl(
-                                                    Uri(path: whatappURL_ios));
+                                                    Uri(path: whatsappURLios));
                                               } else {
                                                 ScaffoldMessenger.of(context)
-                                                    .showSnackBar(SnackBar(
-                                                        content: new Text(
+                                                    .showSnackBar(const SnackBar(
+                                                        content: Text(
                                                             "whatsapp no installed")));
                                               }
                                             } else {
                                               if (await canLaunch(
-                                                  whatsappURl_android)) {
+                                                  whatsappURlandroid)) {
                                                 await launch(
-                                                    whatsappURl_android);
+                                                    whatsappURlandroid);
                                               } else {
                                                 ScaffoldMessenger.of(context)
-                                                    .showSnackBar(SnackBar(
-                                                        content: new Text(
+                                                    .showSnackBar(const SnackBar(
+                                                        content: Text(
                                                             "whatsapp no installed")));
                                               }
                                             }
@@ -334,7 +333,7 @@ class properties_20_card extends StatelessWidget {
                                             FlutterPhoneDirectCaller.callNumber(
                                                 number);
                                           },
-                                          icon: Icon(Icons.phone))
+                                          icon: const Icon(Icons.phone))
                                     ],
                                   )
                                 ],

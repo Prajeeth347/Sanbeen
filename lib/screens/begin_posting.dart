@@ -3,15 +3,15 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sanbeen_zedital/screens/posting_property.dart';
 
-class begin_posting extends StatefulWidget {
-  const begin_posting({Key? key}) : super(key: key);
+class BeginPosting extends StatefulWidget {
+  const BeginPosting({Key? key}) : super(key: key);
 
   @override
-  State<begin_posting> createState() => _begin_postingState();
+  State<BeginPosting> createState() => _BeginPostingState();
 }
 
-class _begin_postingState extends State<begin_posting> {
-  @override
+class _BeginPostingState extends State<BeginPosting> {
+  //@override
   String _lookingfor = 'Apartment';
   String _sellingtype = "Sell";
   bool pressAttention = true;
@@ -20,8 +20,10 @@ class _begin_postingState extends State<begin_posting> {
   bool secpress = false;
   bool secpress1 = false;
   bool secpress2 = false;
-  TextEditingController mobile_controller = TextEditingController();
+  TextEditingController mobilecontroller = TextEditingController();
   List<bool> isSelected = [true, false, false];
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -78,7 +80,7 @@ class _begin_postingState extends State<begin_posting> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.03,
                   ),
-                  Container(
+                  SizedBox(
                     width: MediaQuery.of(context).size.width * 0.25,
                     child: RaisedButton(
                         shape: RoundedRectangleBorder(
@@ -107,7 +109,7 @@ class _begin_postingState extends State<begin_posting> {
                         )),
                   ),
                   SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-                  Container(
+                  SizedBox(
                     width: MediaQuery.of(context).size.width * 0.25,
                     child: RaisedButton(
                         shape: RoundedRectangleBorder(
@@ -153,7 +155,7 @@ class _begin_postingState extends State<begin_posting> {
                 padding: const EdgeInsets.fromLTRB(10, 8, 8, 8),
                 child: Wrap(
                   children: [
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width * 0.3,
                       child: RaisedButton(
                           shape: RoundedRectangleBorder(
@@ -184,7 +186,7 @@ class _begin_postingState extends State<begin_posting> {
                           )),
                     ),
                     SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width * 0.55,
                       child: RaisedButton(
                           shape: RoundedRectangleBorder(
@@ -217,7 +219,7 @@ class _begin_postingState extends State<begin_posting> {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.01,
                     ),
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width * 0.6,
                       child: RaisedButton(
                           shape: RoundedRectangleBorder(
@@ -248,7 +250,7 @@ class _begin_postingState extends State<begin_posting> {
                           )),
                     ),
                     SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width * 0.18,
                       child: RaisedButton(
                           shape: RoundedRectangleBorder(
@@ -318,12 +320,12 @@ class _begin_postingState extends State<begin_posting> {
                           color: Theme.of(context).hintColor), //<-- SEE HERE
                     ),
                   ),
-                  controller: mobile_controller,
+                  controller: mobilecontroller,
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               Center(
-                child: Container(
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.8,
                   child: RaisedButton(
                       shape: RoundedRectangleBorder(
@@ -332,18 +334,17 @@ class _begin_postingState extends State<begin_posting> {
                               color: Theme.of(context).primaryColor)),
                       color: Theme.of(context).primaryColor,
                       onPressed: () {
-                        if(mobile_controller.text.length <10){
+                        if (mobilecontroller.text.length < 10) {
                           Fluttertoast.showToast(
-                          msg: "Please enter a valid mobile number",
-                          gravity: ToastGravity.BOTTOM,
-                          backgroundColor: Theme.of(context).hintColor,
-                          textColor: Theme.of(context).backgroundColor,
-                          fontSize: 16.0);
+                              msg: "Please enter a valid mobile number",
+                              gravity: ToastGravity.BOTTOM,
+                              backgroundColor: Theme.of(context).hintColor,
+                              textColor: Theme.of(context).backgroundColor,
+                              fontSize: 16.0);
+                        } else {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const PostingProp()));
                         }
-                        else{
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => posting_prop()));
-                      }
                       },
                       child: Text(
                         "Begin to Post your Property",

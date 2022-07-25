@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class testimonials extends StatefulWidget {
-  const testimonials({Key? key}) : super(key: key);
+class Testimonials extends StatefulWidget {
+  const Testimonials({Key? key}) : super(key: key);
 
   @override
-  State<testimonials> createState() => _testimonialsState();
+  State<Testimonials> createState() => _TestimonialsState();
 }
 
-class _testimonialsState extends State<testimonials> {
+class _TestimonialsState extends State<Testimonials> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +42,7 @@ class _testimonialsState extends State<testimonials> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.02,
               ),
-              testii(),
+              Testii(),
             ],
           ),
         ),
@@ -52,13 +51,13 @@ class _testimonialsState extends State<testimonials> {
   }
 }
 
-class testii extends StatelessWidget {
-  testii({
+class Testii extends StatelessWidget {
+  Testii({
     Key? key,
   }) : super(key: key);
 
-  @override
-  List collection = [
+  //@override
+  final List collection = [
     'assets/images/home.png',
     'assets/images/house.png',
     'assets/images/bill.png',
@@ -68,7 +67,7 @@ class testii extends StatelessWidget {
     'assets/images/bill.png',
     'assets/images/homie.png'
   ];
-  List dealer = [
+  final List dealer = [
     "Loreal Paris",
     "Sid Mathews",
     "Loreal Paris",
@@ -78,7 +77,7 @@ class testii extends StatelessWidget {
     "Loreal Paris",
     "Sid Mathews",
   ];
-  List cities = [
+  final List cities = [
     "Delhi",
     "Mumbai",
     "Chennai",
@@ -88,20 +87,21 @@ class testii extends StatelessWidget {
     "Chennai",
     "Kolkata"
   ];
+  @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
         itemCount: dealer.length,
         itemBuilder: (context, index) {
-          return Container(
+          return SizedBox(
             height: MediaQuery.of(context).size.height * 0.13,
             child: Column(
               children: [
                 Row(
                   children: [
-                    Container(
+                    SizedBox(
                         height: MediaQuery.of(context).size.height * 0.1,
                         width: MediaQuery.of(context).size.width * 0.2,
                         child: ClipRRect(
@@ -129,7 +129,7 @@ class testii extends StatelessWidget {
                           textAlign: TextAlign.start,
                         ),
                         Text(
-                          'Owner, ' + cities[index].toString(),
+                          'Owner, ${cities[index]}',
                           style: GoogleFonts.inter(
                             color: Theme.of(context).hintColor,
                             fontSize: MediaQuery.of(context).size.height * 0.01,
@@ -143,8 +143,7 @@ class testii extends StatelessWidget {
                           "'Lorem ipsum dolor sit amet. Sed debitis ipsum  amet.",
                           style: GoogleFonts.poppins(
                             color: Theme.of(context).hintColor,
-                            fontSize:
-                                MediaQuery.of(context).size.width * 0.025,
+                            fontSize: MediaQuery.of(context).size.width * 0.025,
                             fontWeight: FontWeight.w500,
                           ),
                         ),

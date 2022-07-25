@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class account_details extends StatefulWidget {
-  const account_details({Key? key}) : super(key: key);
+class AccountDetails extends StatefulWidget {
+  const AccountDetails({Key? key}) : super(key: key);
 
   @override
-  State<account_details> createState() => _account_detailsState();
+  State<AccountDetails> createState() => _AccountDetailsState();
 }
 
-class _account_detailsState extends State<account_details> {
-  TextEditingController name_controller = TextEditingController()
+class _AccountDetailsState extends State<AccountDetails> {
+  TextEditingController namecontroller = TextEditingController()
     ..text = 'Sakshi Mallick';
-  TextEditingController phone_controller = TextEditingController()
+  TextEditingController phonecontroller = TextEditingController()
     ..text = 'XXXXXXXXXX';
-  TextEditingController address_controller = TextEditingController()
+  TextEditingController addresscontroller = TextEditingController()
     ..text = 'XXXXX';
   bool iseditablename = false;
   bool iseditablephone = false;
@@ -50,14 +50,14 @@ class _account_detailsState extends State<account_details> {
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.04),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.1,
               width: MediaQuery.of(context).size.width * 0.95,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height * 0.05,
                     width: MediaQuery.of(context).size.width * 0.25,
                     child: SizedBox(
@@ -94,20 +94,20 @@ class _account_detailsState extends State<account_details> {
                           filled: true,
                           fillColor: Theme.of(context).primaryColor,
                         ),
-                        controller: name_controller,
+                        controller: namecontroller,
                       )),
                 ],
               ),
             ),
             //SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.1,
               width: MediaQuery.of(context).size.width * 0.95,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height * 0.08,
                     width: MediaQuery.of(context).size.width * 0.25,
                     child: SizedBox(
@@ -144,20 +144,20 @@ class _account_detailsState extends State<account_details> {
                           filled: true,
                           fillColor: Theme.of(context).primaryColor,
                         ),
-                        controller: phone_controller,
+                        controller: phonecontroller,
                       )),
                 ],
               ),
             ),
             //SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.1,
               width: MediaQuery.of(context).size.width * 0.95,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height * 0.05,
                     width: MediaQuery.of(context).size.width * 0.25,
                     child: SizedBox(
@@ -194,14 +194,14 @@ class _account_detailsState extends State<account_details> {
                           filled: true,
                           fillColor: Theme.of(context).primaryColor,
                         ),
-                        controller: address_controller,
+                        controller: addresscontroller,
                       )),
                 ],
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05),
             Center(
-              child: Container(
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.4,
                 child: RaisedButton(
                     shape: RoundedRectangleBorder(

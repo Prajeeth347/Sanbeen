@@ -8,19 +8,19 @@ import 'package:sanbeen_zedital/screens/signin.dart';
 import 'package:sanbeen_zedital/services/profile_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class profile_page extends StatefulWidget {
-  const profile_page({Key? key}) : super(key: key);
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
-  State<profile_page> createState() => _profile_pageState();
+  State<ProfilePage> createState() => _ProfilePageState();
 }
 
-class _profile_pageState extends State<profile_page> {
+class _ProfilePageState extends State<ProfilePage> {
   var name = "";
   var email = "sakshimallick001@gmail.com";
   var phone = "";
   List<Profiles>? profile;
-  var is_loaded = false;
+  var isloaded = false;
   @override
   void initState() {
     super.initState();
@@ -28,10 +28,10 @@ class _profile_pageState extends State<profile_page> {
   }
 
   getProfileData() async {
-    profile = await profile_services().getprofiles();
+    profile = await ProfileServices().getprofiles();
     if (profile != null) {
       setState(() {
-        is_loaded = true;
+        isloaded = true;
       });
     }
   }
@@ -71,6 +71,13 @@ class _profile_pageState extends State<profile_page> {
             ),
             CircleAvatar(
               radius: MediaQuery.of(context).size.width * 0.15,
+              backgroundImage:
+                  NetworkImage(profile == null ? '' : profile![2].img ?? ''),
+              backgroundColor: profile == null
+                  ? Colors.transparent
+                  : profile![2].img == null
+                      ? Theme.of(context).primaryColor
+                      : Colors.transparent,
               child: Text(
                 profile == null
                     ? ''
@@ -83,13 +90,6 @@ class _profile_pageState extends State<profile_page> {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              backgroundImage:
-                  NetworkImage(profile == null ? '' : profile![2].img ?? ''),
-              backgroundColor: profile == null
-                  ? Colors.transparent
-                  : profile![2].img == null
-                      ? Theme.of(context).primaryColor
-                      : Colors.transparent,
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.01),
             Text(
@@ -128,27 +128,27 @@ class _profile_pageState extends State<profile_page> {
               child: TextButton(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => account_details()));
+                        builder: (context) => const AccountDetails()));
                   },
-                  child: Container(
+                  child: SizedBox(
                     height: MediaQuery.of(context).size.height * 0.07,
                     width: MediaQuery.of(context).size.width * 0.95,
                     child: Row(
                       children: [
-                        Container(
+                        SizedBox(
                           height: MediaQuery.of(context).size.height * 0.05,
                           width: MediaQuery.of(context).size.width * 0.1,
                           child: CircleAvatar(
+                            backgroundColor: Theme.of(context).backgroundColor,
                             child: Icon(
                               Icons.person,
                               color: Theme.of(context).primaryColor,
                             ),
-                            backgroundColor: Theme.of(context).backgroundColor,
                           ),
                         ),
                         SizedBox(
                             width: MediaQuery.of(context).size.width * 0.03),
-                        Container(
+                        SizedBox(
                           height: MediaQuery.of(context).size.height * 0.04,
                           width: MediaQuery.of(context).size.width * 0.55,
                           child: Text(
@@ -163,7 +163,7 @@ class _profile_pageState extends State<profile_page> {
                         ),
                         SizedBox(
                             width: MediaQuery.of(context).size.width * 0.1),
-                        Container(
+                        SizedBox(
                           height: MediaQuery.of(context).size.height * 0.05,
                           width: MediaQuery.of(context).size.width * 0.1,
                           child: Padding(
@@ -183,27 +183,27 @@ class _profile_pageState extends State<profile_page> {
               child: TextButton(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => change_password()));
+                        builder: (context) => const ChangePassword()));
                   },
-                  child: Container(
+                  child: SizedBox(
                     height: MediaQuery.of(context).size.height * 0.07,
                     width: MediaQuery.of(context).size.width * 0.95,
                     child: Row(
                       children: [
-                        Container(
+                        SizedBox(
                           height: MediaQuery.of(context).size.height * 0.05,
                           width: MediaQuery.of(context).size.width * 0.1,
                           child: CircleAvatar(
+                            backgroundColor: Theme.of(context).backgroundColor,
                             child: Icon(
                               Icons.lock,
                               color: Theme.of(context).primaryColor,
                             ),
-                            backgroundColor: Theme.of(context).backgroundColor,
                           ),
                         ),
                         SizedBox(
                             width: MediaQuery.of(context).size.width * 0.03),
-                        Container(
+                        SizedBox(
                           height: MediaQuery.of(context).size.height * 0.04,
                           width: MediaQuery.of(context).size.width * 0.55,
                           child: Text(
@@ -218,7 +218,7 @@ class _profile_pageState extends State<profile_page> {
                         ),
                         SizedBox(
                             width: MediaQuery.of(context).size.width * 0.1),
-                        Container(
+                        SizedBox(
                           height: MediaQuery.of(context).size.height * 0.05,
                           width: MediaQuery.of(context).size.width * 0.1,
                           child: Padding(
@@ -237,28 +237,28 @@ class _profile_pageState extends State<profile_page> {
               padding: const EdgeInsets.fromLTRB(8.0, 1.5, 8.0, 1.5),
               child: TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => feedback()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const FeedBack()));
                   },
-                  child: Container(
+                  child: SizedBox(
                     height: MediaQuery.of(context).size.height * 0.07,
                     width: MediaQuery.of(context).size.width * 0.95,
                     child: Row(
                       children: [
-                        Container(
+                        SizedBox(
                           height: MediaQuery.of(context).size.height * 0.05,
                           width: MediaQuery.of(context).size.width * 0.1,
                           child: CircleAvatar(
+                            backgroundColor: Theme.of(context).backgroundColor,
                             child: Icon(
                               Icons.feedback_sharp,
                               color: Theme.of(context).primaryColor,
                             ),
-                            backgroundColor: Theme.of(context).backgroundColor,
                           ),
                         ),
                         SizedBox(
                             width: MediaQuery.of(context).size.width * 0.03),
-                        Container(
+                        SizedBox(
                           height: MediaQuery.of(context).size.height * 0.04,
                           width: MediaQuery.of(context).size.width * 0.55,
                           child: Text(
@@ -273,7 +273,7 @@ class _profile_pageState extends State<profile_page> {
                         ),
                         SizedBox(
                             width: MediaQuery.of(context).size.width * 0.1),
-                        Container(
+                        SizedBox(
                           height: MediaQuery.of(context).size.height * 0.05,
                           width: MediaQuery.of(context).size.width * 0.1,
                           child: Padding(
@@ -291,21 +291,25 @@ class _profile_pageState extends State<profile_page> {
             Padding(
               padding: const EdgeInsets.fromLTRB(8.0, 1.5, 8.0, 1.5),
               child: TextButton(
-                  onPressed: () async{
-                    SharedPreferences prefs = await SharedPreferences.getInstance();
-                                                prefs.remove('Email');
-              Navigator.pop(context);
-              Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => signin()));
+                  onPressed: () async {
+                    SharedPreferences prefs =
+                        await SharedPreferences.getInstance();
+                    prefs.remove('Email');
+                    if (!mounted) return;
+                    Navigator.pop(context);
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignIn()));
                   },
                   child: Row(
                     children: [
                       CircleAvatar(
+                        backgroundColor: Theme.of(context).backgroundColor,
                         child: Icon(
                           Icons.logout_rounded,
                           color: Theme.of(context).primaryColor,
                         ),
-                        backgroundColor: Theme.of(context).backgroundColor,
                       ),
                       SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                       Text(

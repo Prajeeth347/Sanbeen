@@ -5,21 +5,21 @@ import 'package:sanbeen_zedital/screens/mainpage.dart';
 import 'package:sanbeen_zedital/screens/recentactivity.dart';
 import 'package:sanbeen_zedital/screens/shortlistedproperties.dart';
 
-class mainnavbar extends StatefulWidget {
-  const mainnavbar({Key? key}) : super(key: key);
+class MainNavbar extends StatefulWidget {
+  const MainNavbar({Key? key}) : super(key: key);
 
   @override
-  State<mainnavbar> createState() => _mainnavbarState();
+  State<MainNavbar> createState() => _MainNavbarState();
 }
 
-class _mainnavbarState extends State<mainnavbar> {
+class _MainNavbarState extends State<MainNavbar> {
   int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      drawer: main_drawer(
-        user_image:
+      drawer: MainDrawer(
+        userimage:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjjYXm0bKrsV1VZPuyaq-j009UD1aBDCUz5A&usqp=CAU",
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -51,13 +51,13 @@ class _mainnavbarState extends State<mainnavbar> {
 
   selectindex() {
     if (selectedIndex == 0) {
-      return main_page();
+      return const MainPage();
     } else if (selectedIndex == 1) {
-      return short_properties();
+      return const ShortProperties();
     } else if (selectedIndex == 2) {
-      return recent_activity();
+      return const RecentActivity();
     } else {
-      return faqpage();
+      return const FaqPage();
     }
   }
 }

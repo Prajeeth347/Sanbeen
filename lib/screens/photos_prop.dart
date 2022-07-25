@@ -3,17 +3,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
-class photos_prop extends StatefulWidget {
-  const photos_prop({Key? key}) : super(key: key);
+class PhotosProp extends StatefulWidget {
+  const PhotosProp({Key? key}) : super(key: key);
 
   @override
-  State<photos_prop> createState() => _photos_propState();
+  State<PhotosProp> createState() => _PhotosPropState();
 }
 
-class _photos_propState extends State<photos_prop> {
+class _PhotosPropState extends State<PhotosProp> {
   List<File?> image = [];
   final picker = ImagePicker();
-  void choose_source() {
+  void choosesource() {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -22,7 +22,7 @@ class _photos_propState extends State<photos_prop> {
           children: <Widget>[
             SimpleDialogOption(
               onPressed: () {
-                chooseImage_camera();
+                chooseImagecamera();
                 Navigator.of(context).pop();
                 // print(image[0].toString());
               },
@@ -30,7 +30,7 @@ class _photos_propState extends State<photos_prop> {
             ),
             SimpleDialogOption(
               onPressed: () {
-                chooseImage_gallery();
+                chooseImagegallery();
                 Navigator.of(context).pop();
               },
               child: const Text('Gallery'),
@@ -41,7 +41,7 @@ class _photos_propState extends State<photos_prop> {
     );
   }
 
-  Future<void> chooseImage_camera() async {
+  Future<void> chooseImagecamera() async {
     final XFile? pickedImage =
         await picker.pickImage(source: ImageSource.camera);
     if (pickedImage != null) {
@@ -51,7 +51,7 @@ class _photos_propState extends State<photos_prop> {
     }
   }
 
-  Future<void> chooseImage_gallery() async {
+  Future<void> chooseImagegallery() async {
     final XFile? pickedImage =
         await picker.pickImage(source: ImageSource.gallery);
     if (pickedImage != null) {
@@ -108,19 +108,17 @@ class _photos_propState extends State<photos_prop> {
                 if (image.length == 0)
                   GestureDetector(
                     onTap: () {
-                      choose_source();
+                      choosesource();
                     },
                     child: Container(
                         height: MediaQuery.of(context).size.height * 0.2,
                         width: MediaQuery.of(context).size.width * 0.7,
                         color: Theme.of(context).hintColor,
                         alignment: Alignment.center,
-                        child: Container(
-                          child: Icon(
-                            Icons.add_circle,
-                            color: Theme.of(context).backgroundColor,
-                            size: MediaQuery.of(context).size.width * 0.07,
-                          ),
+                        child: Icon(
+                          Icons.add_circle,
+                          color: Theme.of(context).backgroundColor,
+                          size: MediaQuery.of(context).size.width * 0.07,
                         )),
                   ),
                 SizedBox(
@@ -128,7 +126,7 @@ class _photos_propState extends State<photos_prop> {
                 ),
                 if (image.length != 0)
                   ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     itemCount: image.length,
@@ -140,7 +138,7 @@ class _photos_propState extends State<photos_prop> {
                               width: MediaQuery.of(context).size.width * 0.7,
                               image[0]!,
                               fit: BoxFit.cover),
-                          SizedBox(height: 40)
+                          const SizedBox(height: 40)
                         ],
                       );
                     },
@@ -148,7 +146,7 @@ class _photos_propState extends State<photos_prop> {
                 if (image.length > 0 && image.length < 3)
                   ElevatedButton(
                       onPressed: () {
-                        choose_source();
+                        choosesource();
                       },
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(

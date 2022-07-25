@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class change_password extends StatefulWidget {
-  const change_password({Key? key}) : super(key: key);
+class ChangePassword extends StatefulWidget {
+  const ChangePassword({Key? key}) : super(key: key);
 
   @override
-  State<change_password> createState() => _account_detailsState();
+  State<ChangePassword> createState() => _AccountDetailsState();
 }
 
-class _account_detailsState extends State<change_password> {
+class _AccountDetailsState extends State<ChangePassword> {
   TextEditingController currcon = TextEditingController();
   TextEditingController newcon = TextEditingController();
   TextEditingController newconfcon = TextEditingController();
@@ -46,14 +46,14 @@ class _account_detailsState extends State<change_password> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.03,
             ),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.1,
               width: MediaQuery.of(context).size.width * 0.95,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height * 0.07,
                     width: MediaQuery.of(context).size.width * 0.35,
                     child: Text(
@@ -85,14 +85,14 @@ class _account_detailsState extends State<change_password> {
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.1,
               width: MediaQuery.of(context).size.width * 0.95,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height * 0.05,
                     width: MediaQuery.of(context).size.width * 0.35,
                     child: Text(
@@ -124,14 +124,14 @@ class _account_detailsState extends State<change_password> {
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-            Container(
+            SizedBox(
               height: MediaQuery.of(context).size.height * 0.1,
               width: MediaQuery.of(context).size.width * 0.95,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
+                  SizedBox(
                     height: MediaQuery.of(context).size.height * 0.08,
                     width: MediaQuery.of(context).size.width * 0.35,
                     child: Text(
@@ -164,7 +164,7 @@ class _account_detailsState extends State<change_password> {
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.02),
             Center(
-              child: Container(
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.25,
                 child: RaisedButton(
                     shape: RoundedRectangleBorder(

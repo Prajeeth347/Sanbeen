@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,19 +6,20 @@ import 'package:intl/intl.dart';
 import 'package:sanbeen_zedital/models/properties_model(20).dart';
 import 'package:sanbeen_zedital/services/property_single_helper.dart';
 
-class property_display extends StatefulWidget {
-  property_display({
+class PropertyDisplay extends StatefulWidget {
+  PropertyDisplay({
+    Key? key,
     required this.id,
-  });
+  }) : super(key: key);
   String id;
   @override
-  State<property_display> createState() => _property_displayState();
+  State<PropertyDisplay> createState() => _PropertyDisplayState();
 }
 
-class _property_displayState extends State<property_display> {
+class _PropertyDisplayState extends State<PropertyDisplay> {
   List<Properties>? property;
-  var _prop_20_loaded = false;
-  final _controller = ScrollController();
+  var prop20loaded = false;
+  final controller = ScrollController();
   @override
   void initState() {
     super.initState();
@@ -26,10 +27,10 @@ class _property_displayState extends State<property_display> {
   }
 
   getProfileData() async {
-    property = await property_single_services().getprofiles(widget.id);
+    property = await PropertySingleServices().getprofiles(widget.id);
     if (property != null) {
       setState(() {
-        _prop_20_loaded = true;
+        prop20loaded = true;
       });
     }
   }
@@ -51,7 +52,7 @@ class _property_displayState extends State<property_display> {
           )),
       backgroundColor: Theme.of(context).backgroundColor,
       body: property != null
-          ? property_single_body(property: property)
+          ? PropertySingleBody(property: property)
           : LinearProgressIndicator(
               color: Theme.of(context).primaryColor,
             ),
@@ -59,8 +60,8 @@ class _property_displayState extends State<property_display> {
   }
 }
 
-class property_single_body extends StatelessWidget {
-  property_single_body({
+class PropertySingleBody extends StatelessWidget {
+  const PropertySingleBody({
     Key? key,
     required this.property,
   }) : super(key: key);
@@ -74,11 +75,12 @@ class property_single_body extends StatelessWidget {
     return Stack(
       alignment: Alignment.topLeft,
       children: [
-        Container(
-            child: FittedBox(
-                fit: BoxFit.fill, child: Image.network(property![0].images[0])),
+        SizedBox(
             height: MediaQuery.of(context).size.height * 0.3,
-            width: MediaQuery.of(context).size.width),
+            width: MediaQuery.of(context).size.width,
+            child: FittedBox(
+                fit: BoxFit.fill,
+                child: Image.network(property![0].images[0]))),
         SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -165,7 +167,7 @@ class property_single_body extends StatelessWidget {
                         ),
                         Wrap(
                           children: [
-                            Container(
+                            SizedBox(
                               width: MediaQuery.of(context).size.width * 0.34,
                               child: Row(
                                 children: [
@@ -177,15 +179,14 @@ class property_single_body extends StatelessWidget {
                                       width: MediaQuery.of(context).size.width *
                                           0.01),
                                   Text(
-                                    property![0].bedRooms.toString() +
-                                        " Bedrooms",
+                                    "${property![0].bedRooms} Bedrooms",
                                     style: TextStyle(
                                         color: Theme.of(context).hintColor),
                                   )
                                 ],
                               ),
                             ),
-                            Container(
+                            SizedBox(
                               width: MediaQuery.of(context).size.width * 0.25,
                               child: Row(
                                 children: [
@@ -197,8 +198,7 @@ class property_single_body extends StatelessWidget {
                                       width: MediaQuery.of(context).size.width *
                                           0.01),
                                   Text(
-                                    property![0].bathRooms.toString() +
-                                        " Baths",
+                                    "${property![0].bathRooms} Baths",
                                     style: TextStyle(
                                         color: Theme.of(context).hintColor,
                                         fontSize:
@@ -208,7 +208,7 @@ class property_single_body extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            Container(
+                            SizedBox(
                               width: MediaQuery.of(context).size.width * 0.32,
                               child: Row(
                                 children: [
@@ -219,8 +219,7 @@ class property_single_body extends StatelessWidget {
                                   SizedBox(
                                       width: MediaQuery.of(context).size.width *
                                           0.01),
-                                  Text(
-                                      property![0].size.toString() + " sq. ft.",
+                                  Text("${property![0].size} sq. ft.",
                                       style: TextStyle(
                                           color: Theme.of(context).hintColor))
                                 ],
@@ -266,14 +265,14 @@ class property_single_body extends StatelessWidget {
                               StaggeredGridTile.count(
                                 mainAxisCellCount: ((i + 1) % 2) == 0 ? 1 : 2,
                                 crossAxisCellCount: 2,
-                                child: Container(
-                                    child: FittedBox(
-                                        fit: BoxFit.fill,
-                                        child: Image.network(images[i])),
+                                child: SizedBox(
                                     height: MediaQuery.of(context).size.height *
                                         0.15,
                                     width: MediaQuery.of(context).size.width *
-                                        0.35),
+                                        0.35,
+                                    child: FittedBox(
+                                        fit: BoxFit.fill,
+                                        child: Image.network(images[i]))),
                               ),
                             ]
                           ],
@@ -283,7 +282,7 @@ class property_single_body extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Container(
+                            SizedBox(
                                 width: MediaQuery.of(context).size.width * 0.5,
                                 child: Text(property![0].account,
                                     style: TextStyle(
