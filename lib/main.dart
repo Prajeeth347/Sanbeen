@@ -2,17 +2,17 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:sanbeen_zedital/extentions/extentions.dart';
 import 'package:sanbeen_zedital/main_navbar.dart';
-import 'package:sanbeen_zedital/screens/properties_all.dart';
-import 'package:sanbeen_zedital/screens/signin.dart';
+//import 'package:sanbeen_zedital/screens/properties_all.dart';
 import 'package:flutter/services.dart';
+import 'package:sanbeen_zedital/screens/signin.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   SharedPreferences prefs = await SharedPreferences.getInstance();
   var email = prefs.getString('Email');
-  runApp(email == null ? MyApp() : MyApp1());
+  runApp(email == null ? const MyApp() : const MyApp1());
 }
 
 class MyApp extends StatelessWidget {
@@ -37,11 +37,12 @@ class MyApp extends StatelessWidget {
             duration: 3000,
             // splashTransition: SplashTransition.decoratedBoxTransition,
             backgroundColor: '05090A'.toColor(),
-            nextScreen: signin()),
+            nextScreen: const SignIn()),
       ),
     );
   }
 }
+
 class MyApp1 extends StatelessWidget {
   const MyApp1({Key? key}) : super(key: key);
 
@@ -64,7 +65,7 @@ class MyApp1 extends StatelessWidget {
             duration: 3000,
             // splashTransition: SplashTransition.decoratedBoxTransition,
             backgroundColor: '05090A'.toColor(),
-            nextScreen: mainnavbar()),
+            nextScreen: const MainNavbar()),
       ),
     );
   }
@@ -83,33 +84,35 @@ class MyHomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset('assets/images/logoo.png'),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               FloatingActionButton.extended(
                 heroTag: 'SignIn page',
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => signin()));
+                      MaterialPageRoute(builder: (context) => const SignIn()));
                 },
-                label: Text('Sign In'),
+                label: const Text('Sign In'),
                 backgroundColor: Theme.of(context).hintColor,
                 foregroundColor: Theme.of(context).backgroundColor,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               FloatingActionButton.extended(
                 heroTag: 'mainpage',
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => mainnavbar()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MainNavbar()));
                 },
-                label: Text('Main Page'),
+                label: const Text('Main Page'),
                 backgroundColor: Theme.of(context).hintColor,
                 foregroundColor: Theme.of(context).backgroundColor,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
             ],

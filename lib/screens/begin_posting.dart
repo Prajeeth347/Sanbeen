@@ -3,15 +3,15 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sanbeen_zedital/screens/posting_property.dart';
 
-class begin_posting extends StatefulWidget {
-  const begin_posting({Key? key}) : super(key: key);
+class BeginPosting extends StatefulWidget {
+  const BeginPosting({Key? key}) : super(key: key);
 
   @override
-  State<begin_posting> createState() => _begin_postingState();
+  State<BeginPosting> createState() => _BeginPostingState();
 }
 
-class _begin_postingState extends State<begin_posting> {
-  @override
+class _BeginPostingState extends State<BeginPosting> {
+  //@override
   String _lookingfor = 'Apartment';
   String _sellingtype = "Sell";
   bool pressAttention = true;
@@ -20,8 +20,10 @@ class _begin_postingState extends State<begin_posting> {
   bool secpress = false;
   bool secpress1 = false;
   bool secpress2 = false;
-  TextEditingController mobile_controller = TextEditingController();
+  TextEditingController mobilecontroller = TextEditingController();
   List<bool> isSelected = [true, false, false];
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -47,8 +49,8 @@ class _begin_postingState extends State<begin_posting> {
                 'Begin Posting your Property',
                 style: GoogleFonts.poppins(
                   color: Theme.of(context).primaryColor,
-                  fontSize: MediaQuery.of(context).size.height * 0.025,
-                  fontWeight: FontWeight.w400,
+                  fontSize: MediaQuery.of(context).size.width * 0.042,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.015),
@@ -56,8 +58,8 @@ class _begin_postingState extends State<begin_posting> {
                 'Add Basic Details',
                 style: GoogleFonts.poppins(
                   color: Theme.of(context).primaryColor,
-                  fontSize: MediaQuery.of(context).size.height * 0.022,
-                  fontWeight: FontWeight.w300,
+                  fontSize: MediaQuery.of(context).size.width * 0.04,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.015),
@@ -67,7 +69,7 @@ class _begin_postingState extends State<begin_posting> {
                   'You are looking to',
                   style: GoogleFonts.poppins(
                     color: Theme.of(context).primaryColor,
-                    fontSize: MediaQuery.of(context).size.height * 0.02,
+                    fontSize: MediaQuery.of(context).size.width * 0.04,
                     fontWeight: FontWeight.w300,
                   ),
                 ),
@@ -78,16 +80,18 @@ class _begin_postingState extends State<begin_posting> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.03,
                   ),
-                  Container(
+                  SizedBox(
                     width: MediaQuery.of(context).size.width * 0.25,
-                    child: RaisedButton(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0),
-                            side: BorderSide(
-                                color: Theme.of(context).primaryColor)),
-                        color: pressAttention
-                            ? Theme.of(context).primaryColor
-                            : Theme.of(context).scaffoldBackgroundColor,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                              side: BorderSide(
+                                  color: Theme.of(context).primaryColor)),
+                          primary: pressAttention
+                              ? Theme.of(context).primaryColor
+                              : Theme.of(context).scaffoldBackgroundColor,
+                        ),
                         onPressed: () => setState(() {
                               if (_sellingtype != 'Sell') {
                                 press = !press;
@@ -103,20 +107,22 @@ class _begin_postingState extends State<begin_posting> {
                                   : Theme.of(context).backgroundColor,
                               fontWeight: FontWeight.w400,
                               fontSize:
-                                  MediaQuery.of(context).size.height * 0.02),
+                                  MediaQuery.of(context).size.width * 0.035),
                         )),
                   ),
                   SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-                  Container(
+                  SizedBox(
                     width: MediaQuery.of(context).size.width * 0.25,
-                    child: RaisedButton(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0),
-                            side: BorderSide(
-                                color: Theme.of(context).primaryColor)),
-                        color: press
-                            ? Theme.of(context).primaryColor
-                            : Theme.of(context).scaffoldBackgroundColor,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                              side: BorderSide(
+                                  color: Theme.of(context).primaryColor)),
+                          primary: press
+                              ? Theme.of(context).primaryColor
+                              : Theme.of(context).scaffoldBackgroundColor,
+                        ),
                         onPressed: () => setState(() {
                               if (_sellingtype != 'Rent') {
                                 press = !press;
@@ -132,7 +138,7 @@ class _begin_postingState extends State<begin_posting> {
                                   : Theme.of(context).backgroundColor,
                               fontWeight: FontWeight.w400,
                               fontSize:
-                                  MediaQuery.of(context).size.height * 0.02),
+                                  MediaQuery.of(context).size.width * 0.035),
                         )),
                   ),
                 ],
@@ -153,16 +159,18 @@ class _begin_postingState extends State<begin_posting> {
                 padding: const EdgeInsets.fromLTRB(10, 8, 8, 8),
                 child: Wrap(
                   children: [
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width * 0.3,
-                      child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                              side: BorderSide(
-                                  color: Theme.of(context).primaryColor)),
-                          color: secpressAttention
-                              ? Theme.of(context).primaryColor
-                              : Theme.of(context).scaffoldBackgroundColor,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                                side: BorderSide(
+                                    color: Theme.of(context).primaryColor)),
+                            primary: secpressAttention
+                                ? Theme.of(context).primaryColor
+                                : Theme.of(context).scaffoldBackgroundColor,
+                          ),
                           onPressed: () => setState(() {
                                 if (_sellingtype != 'Apartment') {
                                   secpress = false;
@@ -180,20 +188,22 @@ class _begin_postingState extends State<begin_posting> {
                                     : Theme.of(context).backgroundColor,
                                 fontWeight: FontWeight.w400,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.019),
+                                    MediaQuery.of(context).size.width * 0.035),
                           )),
                     ),
                     SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width * 0.55,
-                      child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                              side: BorderSide(
-                                  color: Theme.of(context).primaryColor)),
-                          color: secpress
-                              ? Theme.of(context).primaryColor
-                              : Theme.of(context).scaffoldBackgroundColor,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                                side: BorderSide(
+                                    color: Theme.of(context).primaryColor)),
+                            primary: secpress
+                                ? Theme.of(context).primaryColor
+                                : Theme.of(context).scaffoldBackgroundColor,
+                          ),
                           onPressed: () => setState(() {
                                 if (_sellingtype != 'independent house') {
                                   secpress = true;
@@ -211,22 +221,24 @@ class _begin_postingState extends State<begin_posting> {
                                     : Theme.of(context).backgroundColor,
                                 fontWeight: FontWeight.w400,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.018),
+                                    MediaQuery.of(context).size.width * 0.034),
                           )),
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.01,
                     ),
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width * 0.6,
-                      child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                              side: BorderSide(
-                                  color: Theme.of(context).primaryColor)),
-                          color: secpress2
-                              ? Theme.of(context).primaryColor
-                              : Theme.of(context).scaffoldBackgroundColor,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                                side: BorderSide(
+                                    color: Theme.of(context).primaryColor)),
+                            primary: secpress2
+                                ? Theme.of(context).primaryColor
+                                : Theme.of(context).scaffoldBackgroundColor,
+                          ),
                           onPressed: () => setState(() {
                                 if (_sellingtype != 'Independent/builder') {
                                   secpress = false;
@@ -244,20 +256,22 @@ class _begin_postingState extends State<begin_posting> {
                                     : Theme.of(context).backgroundColor,
                                 fontWeight: FontWeight.w400,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.017),
+                                    MediaQuery.of(context).size.width * 0.034),
                           )),
                     ),
                     SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.width * 0.18,
-                      child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                              side: BorderSide(
-                                  color: Theme.of(context).primaryColor)),
-                          color: secpress1
-                              ? Theme.of(context).primaryColor
-                              : Theme.of(context).scaffoldBackgroundColor,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                                side: BorderSide(
+                                    color: Theme.of(context).primaryColor)),
+                            primary: secpress1
+                                ? Theme.of(context).primaryColor
+                                : Theme.of(context).scaffoldBackgroundColor,
+                          ),
                           onPressed: () => setState(() {
                                 if (_sellingtype != 'Land') {
                                   secpress = false;
@@ -275,7 +289,7 @@ class _begin_postingState extends State<begin_posting> {
                                     : Theme.of(context).backgroundColor,
                                 fontWeight: FontWeight.w400,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.017),
+                                    MediaQuery.of(context).size.width * 0.035),
                           )),
                     ),
                   ],
@@ -287,7 +301,7 @@ class _begin_postingState extends State<begin_posting> {
                   'Your contact details for the buyer to reach you',
                   style: GoogleFonts.poppins(
                     color: Theme.of(context).primaryColor,
-                    fontSize: MediaQuery.of(context).size.height * 0.02,
+                    fontSize: MediaQuery.of(context).size.width * 0.04,
                     fontWeight: FontWeight.w300,
                   ),
                 ),
@@ -299,7 +313,7 @@ class _begin_postingState extends State<begin_posting> {
                   maxLength: 10,
                   style: GoogleFonts.inter(
                     color: Theme.of(context).hintColor,
-                    fontSize: MediaQuery.of(context).size.height * 0.02,
+                    fontSize: MediaQuery.of(context).size.width * 0.038,
                     fontWeight: FontWeight.w300,
                   ),
                   keyboardType: TextInputType.number,
@@ -308,7 +322,7 @@ class _begin_postingState extends State<begin_posting> {
                     counterText: '',
                     hintStyle: GoogleFonts.inter(
                       color: Theme.of(context).hintColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.02,
+                      fontSize: MediaQuery.of(context).size.width * 0.038,
                       fontWeight: FontWeight.w300,
                     ),
                     hintText: 'Phone number',
@@ -318,32 +332,33 @@ class _begin_postingState extends State<begin_posting> {
                           color: Theme.of(context).hintColor), //<-- SEE HERE
                     ),
                   ),
-                  controller: mobile_controller,
+                  controller: mobilecontroller,
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               Center(
-                child: Container(
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.8,
-                  child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          side: BorderSide(
-                              color: Theme.of(context).primaryColor)),
-                      color: Theme.of(context).primaryColor,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0),
+                            side: BorderSide(
+                                color: Theme.of(context).primaryColor)),
+                        primary: Theme.of(context).primaryColor,
+                      ),
                       onPressed: () {
-                        if(mobile_controller.text.length <10){
+                        if (mobilecontroller.text.length < 10) {
                           Fluttertoast.showToast(
-                          msg: "Please enter a valid mobile number",
-                          gravity: ToastGravity.BOTTOM,
-                          backgroundColor: Theme.of(context).hintColor,
-                          textColor: Theme.of(context).backgroundColor,
-                          fontSize: 16.0);
+                              msg: "Please enter a valid mobile number",
+                              gravity: ToastGravity.BOTTOM,
+                              backgroundColor: Theme.of(context).hintColor,
+                              textColor: Theme.of(context).backgroundColor,
+                              fontSize: 16.0);
+                        } else {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const PostingProp()));
                         }
-                        else{
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => posting_prop()));
-                      }
                       },
                       child: Text(
                         "Begin to Post your Property",
@@ -351,7 +366,7 @@ class _begin_postingState extends State<begin_posting> {
                             color: Theme.of(context).hintColor,
                             fontWeight: FontWeight.w500,
                             fontSize:
-                                MediaQuery.of(context).size.height * 0.02),
+                                MediaQuery.of(context).size.width * 0.038),
                       )),
                 ),
               ),

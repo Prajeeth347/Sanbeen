@@ -1,45 +1,49 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
+//import 'package:flutter/painting.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class signup extends StatefulWidget {
-  const signup({Key? key}) : super(key: key);
+class SignUp extends StatefulWidget {
+  const SignUp({Key? key}) : super(key: key);
 
   @override
-  State<signup> createState() => _signupState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _signupState extends State<signup> {
-  bool obscure_text = true;
+class _SignUpState extends State<SignUp> {
+  bool obscuretext = true;
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController firstname = TextEditingController();
   TextEditingController lastname = TextEditingController();
-  TextEditingController mobile_no = TextEditingController();
+  TextEditingController mobileno = TextEditingController();
   signup() async {
-    Map<String, dynamic> responseMap;
-    var sign_client = http.Client();
-    var sign_uri =
+    Map<String, dynamic>; // responseMap;
+    var signclient = http.Client();
+    var signuri =
         Uri.parse("https://sanbeen-real-estate.herokuapp.com/api/users/");
-    var sign_response = await sign_client.post(sign_uri,
+    var signresponse = await signclient.post(signuri,
         headers: {"Content-Type": "application/json"},
-        body: jsonEncode({"email": email.text,
-    "password" : password.text,
-    "first_name":firstname.text,
-    "last_name" : lastname.text,
-    "user_role" : "user"}));
-      print(sign_response.statusCode);
-      print(sign_response.body);
-    // if (sign_response.statusCode == 200) {
+        body: jsonEncode({
+          "email": email.text,
+          "password": password.text,
+          "first_name": firstname.text,
+          "last_name": lastname.text,
+          "user_role": "user"
+        }));
+
+    print(signresponse.statusCode);
+    print(signresponse.body);
+
+    // if (signresponse.statusCode == 200) {
     //   Fluttertoast.showToast(
     //       msg: "Successful",
     //       gravity: ToastGravity.BOTTOM,
     //       backgroundColor: Theme.of(context).hintColor,
     //       textColor: Theme.of(context).backgroundColor,
     //       fontSize: 16.0);
-    // } else if (sign_response.statusCode == 404) {
+    // } else if (signresponse.statusCode == 404) {
     //   Fluttertoast.showToast(
     //       msg: "Something Went wrong",
     //       gravity: ToastGravity.BOTTOM,
@@ -48,13 +52,14 @@ class _signupState extends State<signup> {
     //       fontSize: 16.0);
     // } else {
     //   Fluttertoast.showToast(
-    //       msg: sign_response.body,
+    //       msg: signresponse.body,
     //       gravity: ToastGravity.BOTTOM,
     //       backgroundColor: Theme.of(context).hintColor,
     //       textColor: Theme.of(context).backgroundColor,
     //       fontSize: 16.0);
     // }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +73,7 @@ class _signupState extends State<signup> {
           icon: Icon(
             Icons.arrow_back,
             color: Theme.of(context).primaryColor,
-            size: MediaQuery.of(context).size.width * 0.08,
+            size: MediaQuery.of(context).size.width * 0.07,
           ),
         ),
       ),
@@ -84,7 +89,7 @@ class _signupState extends State<signup> {
                       'Welcome Back!',
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.024,
+                        fontSize: MediaQuery.of(context).size.width * 0.045,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -95,7 +100,7 @@ class _signupState extends State<signup> {
                         cursorColor: Theme.of(context).primaryColor,
                         style: GoogleFonts.inter(
                           color: Theme.of(context).hintColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.018,
+                          fontSize: MediaQuery.of(context).size.width * 0.039,
                           fontWeight: FontWeight.w400,
                         ),
                         decoration: InputDecoration(
@@ -106,8 +111,7 @@ class _signupState extends State<signup> {
                           labelText: 'First Name',
                           labelStyle: GoogleFonts.poppins(
                             color: Theme.of(context).primaryColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.019,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
                             fontWeight: FontWeight.w400,
                           ),
                         )),
@@ -118,7 +122,7 @@ class _signupState extends State<signup> {
                         cursorColor: Theme.of(context).primaryColor,
                         style: GoogleFonts.inter(
                           color: Theme.of(context).hintColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.018,
+                          fontSize: MediaQuery.of(context).size.width * 0.039,
                           fontWeight: FontWeight.w400,
                         ),
                         decoration: InputDecoration(
@@ -129,8 +133,7 @@ class _signupState extends State<signup> {
                           labelText: 'Last Name',
                           labelStyle: GoogleFonts.poppins(
                             color: Theme.of(context).primaryColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.019,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
                             fontWeight: FontWeight.w400,
                           ),
                         )),
@@ -141,7 +144,7 @@ class _signupState extends State<signup> {
                         cursorColor: Theme.of(context).primaryColor,
                         style: GoogleFonts.inter(
                           color: Theme.of(context).hintColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.018,
+                          fontSize: MediaQuery.of(context).size.width * 0.039,
                           fontWeight: FontWeight.w400,
                         ),
                         decoration: InputDecoration(
@@ -152,19 +155,18 @@ class _signupState extends State<signup> {
                           labelText: 'Email',
                           labelStyle: GoogleFonts.poppins(
                             color: Theme.of(context).primaryColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.019,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
                             fontWeight: FontWeight.w400,
                           ),
                         )),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                     TextField(
-                        controller: mobile_no,
+                        controller: mobileno,
                         keyboardType: TextInputType.emailAddress,
                         cursorColor: Theme.of(context).primaryColor,
                         style: GoogleFonts.inter(
                           color: Theme.of(context).hintColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.018,
+                          fontSize: MediaQuery.of(context).size.width * 0.039,
                           fontWeight: FontWeight.w400,
                         ),
                         decoration: InputDecoration(
@@ -175,8 +177,7 @@ class _signupState extends State<signup> {
                           labelText: 'Contact No.',
                           labelStyle: GoogleFonts.poppins(
                             color: Theme.of(context).primaryColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.019,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
                             fontWeight: FontWeight.w400,
                           ),
                         )),
@@ -187,21 +188,21 @@ class _signupState extends State<signup> {
                         cursorColor: Theme.of(context).primaryColor,
                         style: GoogleFonts.inter(
                           color: Theme.of(context).hintColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.018,
+                          fontSize: MediaQuery.of(context).size.width * 0.039,
                           fontWeight: FontWeight.w400,
                         ),
-                        obscureText: obscure_text,
+                        obscureText: obscuretext,
                         obscuringCharacter: '*',
                         decoration: InputDecoration(
                           suffixIcon: IconButton(
                             onPressed: () {
                               setState(
                                 () {
-                                  obscure_text = !obscure_text;
+                                  obscuretext = !obscuretext;
                                 },
                               );
                             },
-                            icon: Icon(obscure_text
+                            icon: Icon(obscuretext
                                 ? Icons.visibility
                                 : Icons.visibility_off),
                             color: Theme.of(context).primaryColor,
@@ -213,15 +214,14 @@ class _signupState extends State<signup> {
                           labelText: 'Password',
                           labelStyle: GoogleFonts.poppins(
                             color: Theme.of(context).primaryColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.019,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
                             fontWeight: FontWeight.w400,
                           ),
                         )),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.08),
                     ElevatedButton(
                         onPressed: () {
-                          signup();
+                          const SignUp();
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all(
@@ -235,7 +235,7 @@ class _signupState extends State<signup> {
                               style: GoogleFonts.poppins(
                                 color: Theme.of(context).hintColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.025,
+                                    MediaQuery.of(context).size.width * 0.045,
                                 fontWeight: FontWeight.w500,
                               ),
                               textAlign: TextAlign.center,

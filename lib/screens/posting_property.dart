@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sanbeen_zedital/screens/photos_prop.dart';
 
-class posting_prop extends StatefulWidget {
-  const posting_prop({Key? key}) : super(key: key);
+class PostingProp extends StatefulWidget {
+  const PostingProp({Key? key}) : super(key: key);
 
   @override
-  State<posting_prop> createState() => _posting_propState();
+  State<PostingProp> createState() => _PostingPropState();
 }
 
-class _posting_propState extends State<posting_prop> {
-  TextEditingController nameprop_controller = TextEditingController();
-  TextEditingController price_controller = TextEditingController();
-  TextEditingController address_controller = TextEditingController();
-  TextEditingController pincode_controller = TextEditingController();
-  TextEditingController area_controller = TextEditingController();
-  TextEditingController bedrooms_controller = TextEditingController();
-  TextEditingController shower_controller = TextEditingController();
-  TextEditingController writesomething_controller = TextEditingController();
+class _PostingPropState extends State<PostingProp> {
+  TextEditingController namepropcontroller = TextEditingController();
+  TextEditingController pricecontroller = TextEditingController();
+  TextEditingController addresscontroller = TextEditingController();
+  TextEditingController pincodecontroller = TextEditingController();
+  TextEditingController areacontroller = TextEditingController();
+  TextEditingController bedroomscontroller = TextEditingController();
+  TextEditingController showercontroller = TextEditingController();
+  TextEditingController writesomethingcontroller = TextEditingController();
   String city = 'City 1';
   var cities = [
     'City 1',
@@ -34,6 +34,7 @@ class _posting_propState extends State<posting_prop> {
     'State 4',
     'State 5',
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +48,7 @@ class _posting_propState extends State<posting_prop> {
             icon: Icon(
               Icons.arrow_back,
               color: Theme.of(context).primaryColor,
-              size: MediaQuery.of(context).size.width * 0.08,
+              size: MediaQuery.of(context).size.width * 0.07,
             )),
       ),
       body: SingleChildScrollView(
@@ -60,7 +61,7 @@ class _posting_propState extends State<posting_prop> {
                 'Posting your Property',
                 style: GoogleFonts.poppins(
                   color: Theme.of(context).primaryColor,
-                  fontSize: MediaQuery.of(context).size.height * 0.028,
+                  fontSize: MediaQuery.of(context).size.width * 0.04,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -69,12 +70,12 @@ class _posting_propState extends State<posting_prop> {
                 'Add Basic Details',
                 style: GoogleFonts.poppins(
                   color: Theme.of(context).primaryColor,
-                  fontSize: MediaQuery.of(context).size.height * 0.02,
+                  fontSize: MediaQuery.of(context).size.width * 0.035,
                   fontWeight: FontWeight.w300,
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(10, 16, 0, 0),
+                padding: const EdgeInsets.fromLTRB(10, 16, 0, 0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -82,7 +83,7 @@ class _posting_propState extends State<posting_prop> {
                       'Name of the property is',
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontSize: MediaQuery.of(context).size.width * 0.035,
                         fontWeight: FontWeight.w300,
                       ),
                     ),
@@ -97,7 +98,7 @@ class _posting_propState extends State<posting_prop> {
                             filled: true,
                             fillColor: Theme.of(context).hintColor,
                           ),
-                          controller: nameprop_controller,
+                          controller: namepropcontroller,
                         ),
                       ),
                     ),
@@ -106,7 +107,7 @@ class _posting_propState extends State<posting_prop> {
                       'Starting price is',
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontSize: MediaQuery.of(context).size.width * 0.035,
                         fontWeight: FontWeight.w300,
                       ),
                     ),
@@ -121,7 +122,7 @@ class _posting_propState extends State<posting_prop> {
                             filled: true,
                             fillColor: Theme.of(context).hintColor,
                           ),
-                          controller: price_controller,
+                          controller: pricecontroller,
                         ),
                       ),
                     ),
@@ -130,7 +131,7 @@ class _posting_propState extends State<posting_prop> {
                       'Add address of the property',
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontSize: MediaQuery.of(context).size.width * 0.035,
                         fontWeight: FontWeight.w300,
                       ),
                     ),
@@ -147,7 +148,7 @@ class _posting_propState extends State<posting_prop> {
                             filled: true,
                             fillColor: Theme.of(context).hintColor,
                           ),
-                          controller: address_controller,
+                          controller: addresscontroller,
                         ),
                       ),
                     ),
@@ -162,7 +163,7 @@ class _posting_propState extends State<posting_prop> {
                               style: GoogleFonts.poppins(
                                 color: Theme.of(context).primaryColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.02,
+                                    MediaQuery.of(context).size.width * 0.035,
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
@@ -180,8 +181,8 @@ class _posting_propState extends State<posting_prop> {
                                     style: GoogleFonts.poppins(
                                       color: Theme.of(context).primaryColor,
                                       fontSize:
-                                          MediaQuery.of(context).size.height *
-                                              0.02,
+                                          MediaQuery.of(context).size.width *
+                                              0.035,
                                       fontWeight: FontWeight.w300,
                                     ),
                                   ),
@@ -206,7 +207,7 @@ class _posting_propState extends State<posting_prop> {
                               style: GoogleFonts.poppins(
                                 color: Theme.of(context).primaryColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.02,
+                                    MediaQuery.of(context).size.width * 0.035,
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
@@ -224,8 +225,8 @@ class _posting_propState extends State<posting_prop> {
                                     style: GoogleFonts.poppins(
                                       color: Theme.of(context).primaryColor,
                                       fontSize:
-                                          MediaQuery.of(context).size.height *
-                                              0.02,
+                                          MediaQuery.of(context).size.width *
+                                              0.035,
                                       fontWeight: FontWeight.w300,
                                     ),
                                   ),
@@ -250,7 +251,7 @@ class _posting_propState extends State<posting_prop> {
                               style: GoogleFonts.poppins(
                                 color: Theme.of(context).primaryColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.02,
+                                    MediaQuery.of(context).size.width * 0.035,
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
@@ -267,7 +268,7 @@ class _posting_propState extends State<posting_prop> {
                                     filled: true,
                                     fillColor: Theme.of(context).hintColor,
                                   ),
-                                  controller: pincode_controller,
+                                  controller: pincodecontroller,
                                 ),
                               ),
                             ),
@@ -280,7 +281,7 @@ class _posting_propState extends State<posting_prop> {
                       'Priority Area',
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontSize: MediaQuery.of(context).size.width * 0.035,
                         fontWeight: FontWeight.w300,
                       ),
                     ),
@@ -295,7 +296,7 @@ class _posting_propState extends State<posting_prop> {
                             filled: true,
                             fillColor: Theme.of(context).hintColor,
                           ),
-                          controller: area_controller,
+                          controller: areacontroller,
                         ),
                       ),
                     ),
@@ -310,7 +311,7 @@ class _posting_propState extends State<posting_prop> {
                               style: GoogleFonts.poppins(
                                 color: Theme.of(context).primaryColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.02,
+                                    MediaQuery.of(context).size.width * 0.035,
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
@@ -327,7 +328,7 @@ class _posting_propState extends State<posting_prop> {
                                     filled: true,
                                     fillColor: Theme.of(context).hintColor,
                                   ),
-                                  controller: bedrooms_controller,
+                                  controller: bedroomscontroller,
                                 ),
                               ),
                             ),
@@ -344,7 +345,7 @@ class _posting_propState extends State<posting_prop> {
                               style: GoogleFonts.poppins(
                                 color: Theme.of(context).primaryColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.02,
+                                    MediaQuery.of(context).size.width * 0.035,
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
@@ -361,7 +362,7 @@ class _posting_propState extends State<posting_prop> {
                                     filled: true,
                                     fillColor: Theme.of(context).hintColor,
                                   ),
-                                  controller: shower_controller,
+                                  controller: showercontroller,
                                 ),
                               ),
                             ),
@@ -374,7 +375,7 @@ class _posting_propState extends State<posting_prop> {
                       'Write something about the property',
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontSize: MediaQuery.of(context).size.width * 0.035,
                         fontWeight: FontWeight.w300,
                       ),
                     ),
@@ -391,7 +392,7 @@ class _posting_propState extends State<posting_prop> {
                             filled: true,
                             fillColor: Theme.of(context).hintColor,
                           ),
-                          controller: writesomething_controller,
+                          controller: writesomethingcontroller,
                         ),
                       ),
                     ),
@@ -401,23 +402,25 @@ class _posting_propState extends State<posting_prop> {
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               Center(
-                child: Container(
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.44,
-                  child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          side: BorderSide(
-                              color: Theme.of(context).primaryColor)),
-                      color: Theme.of(context).primaryColor,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0),
+                            side: BorderSide(
+                                color: Theme.of(context).primaryColor)),
+                        primary: Theme.of(context).primaryColor,
+                      ),
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => photos_prop()));
+                            builder: (context) => const PhotosProp()));
                       },
                       child: Text(
                         "Upload Photos",
                         style: GoogleFonts.poppins(
                           color: Theme.of(context).hintColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.02,
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
                           fontWeight: FontWeight.w400,
                         ),
                       )),

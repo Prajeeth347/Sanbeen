@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sanbeen_zedital/main.dart';
+//import 'package:sanbeen_zedital/main.dart';
 
-class feedback extends StatefulWidget {
-  const feedback({Key? key}) : super(key: key);
+class FeedBack extends StatefulWidget {
+  const FeedBack({Key? key}) : super(key: key);
 
   @override
-  State<feedback> createState() => _feedbackState();
+  State<FeedBack> createState() => _FeedBackState();
 }
 
-class _feedbackState extends State<feedback> {
-  TextEditingController feedback_controller = TextEditingController();
-  TextEditingController email_controller = TextEditingController();
-  TextEditingController name_controller = TextEditingController();
-  TextEditingController mobile_controller = TextEditingController();
+class _FeedBackState extends State<FeedBack> {
+  TextEditingController feedBackcontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController namecontroller = TextEditingController();
+  TextEditingController mobilecontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,51 +27,51 @@ class _feedbackState extends State<feedback> {
             icon: Icon(
               Icons.arrow_back,
               color: Theme.of(context).primaryColor,
-              size: MediaQuery.of(context).size.width * 0.08,
+              size: MediaQuery.of(context).size.width * 0.07,
             )),
       ),
       backgroundColor: Theme.of(context).backgroundColor,
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(20, 8, 8, 8),
+          padding: const EdgeInsets.fromLTRB(20, 8, 8, 8),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Feedback',
+                'FeedBack',
                 style: TextStyle(
                     color: Theme.of(context).primaryColor,
-                    fontSize: MediaQuery.of(context).size.width * 0.06,
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
                     fontWeight: FontWeight.w400),
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               TextField(
-                style: TextStyle(color: Theme.of(context).primaryColor),
+                style: TextStyle(color: Theme.of(context).hintColor),
                 keyboardType: TextInputType.text,
                 cursorColor: Theme.of(context).hintColor,
                 decoration: InputDecoration(
                   labelStyle: GoogleFonts.poppins(
                       color: Theme.of(context).primaryColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.02,
+                      fontSize: MediaQuery.of(context).size.width * 0.038,
                       fontWeight: FontWeight.w300),
-                  labelText: 'Write your feedback',
+                  labelText: 'Write your FeedBack',
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
                         width: 1,
                         color: Theme.of(context).primaryColor), //<-- SEE HERE
                   ),
                 ),
-                controller: feedback_controller,
+                controller: feedBackcontroller,
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               TextField(
-                style: TextStyle(color: Theme.of(context).primaryColor),
+                style: TextStyle(color: Theme.of(context).hintColor),
                 keyboardType: TextInputType.emailAddress,
                 cursorColor: Theme.of(context).hintColor,
                 decoration: InputDecoration(
                   labelStyle: GoogleFonts.poppins(
                       color: Theme.of(context).primaryColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.02,
+                      fontSize: MediaQuery.of(context).size.width * 0.038,
                       fontWeight: FontWeight.w300),
                   labelText: 'Email',
                   enabledBorder: UnderlineInputBorder(
@@ -80,17 +80,17 @@ class _feedbackState extends State<feedback> {
                         color: Theme.of(context).primaryColor), //<-- SEE HERE
                   ),
                 ),
-                controller: email_controller,
+                controller: emailcontroller,
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               TextField(
-                style: TextStyle(color: Theme.of(context).primaryColor),
+                style: TextStyle(color: Theme.of(context).hintColor),
                 keyboardType: TextInputType.name,
                 cursorColor: Theme.of(context).hintColor,
                 decoration: InputDecoration(
                   labelStyle: GoogleFonts.poppins(
                       color: Theme.of(context).primaryColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.02,
+                      fontSize: MediaQuery.of(context).size.width * 0.038,
                       fontWeight: FontWeight.w300),
                   labelText: 'Name',
                   enabledBorder: UnderlineInputBorder(
@@ -99,17 +99,17 @@ class _feedbackState extends State<feedback> {
                         color: Theme.of(context).primaryColor), //<-- SEE HERE
                   ),
                 ),
-                controller: name_controller,
+                controller: namecontroller,
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               TextField(
-                style: TextStyle(color: Theme.of(context).primaryColor),
+                style: TextStyle(color: Theme.of(context).hintColor),
                 keyboardType: TextInputType.number,
                 cursorColor: Theme.of(context).hintColor,
                 decoration: InputDecoration(
                   labelStyle: GoogleFonts.poppins(
                       color: Theme.of(context).primaryColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.02,
+                      fontSize: MediaQuery.of(context).size.width * 0.038,
                       fontWeight: FontWeight.w300),
                   labelText: 'Mobile no.',
                   enabledBorder: UnderlineInputBorder(
@@ -118,26 +118,28 @@ class _feedbackState extends State<feedback> {
                         color: Theme.of(context).primaryColor), //<-- SEE HERE
                   ),
                 ),
-                controller: mobile_controller,
+                controller: mobilecontroller,
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               Center(
-                child: Container(
+                child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.5,
-                  child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          side: BorderSide(
-                              color: Theme.of(context).primaryColor)),
-                      color: Theme.of(context).primaryColor,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0),
+                            side: BorderSide(
+                                color: Theme.of(context).primaryColor)),
+                        primary: Theme.of(context).primaryColor,
+                      ),
                       onPressed: () {
                         showAlertDialog(context);
                       },
                       child: Text(
-                        "Submit feedback",
+                        "Submit FeedBack",
                         style: GoogleFonts.poppins(
                             color: Theme.of(context).hintColor,
-                            fontSize: MediaQuery.of(context).size.height * 0.02,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
                             fontWeight: FontWeight.w400),
                       )),
                 ),
@@ -148,7 +150,7 @@ class _feedbackState extends State<feedback> {
                   'or you can call the tollfree number',
                   style: GoogleFonts.poppins(
                       color: Theme.of(context).primaryColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.02,
+                      fontSize: MediaQuery.of(context).size.width * 0.04,
                       fontWeight: FontWeight.w400),
                 ),
               ),
@@ -169,7 +171,7 @@ class _feedbackState extends State<feedback> {
                       '1800-XXXX-YYYY',
                       style: GoogleFonts.poppins(
                           color: Theme.of(context).primaryColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.02,
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
                           fontWeight: FontWeight.w400),
                     )
                   ],
@@ -186,14 +188,14 @@ class _feedbackState extends State<feedback> {
   }
 
   showAlertDialog(BuildContext context) {
-    Widget okButton = FlatButton(
+    Widget okButton = TextButton(
       child:
           Text("OK", style: TextStyle(color: Theme.of(context).primaryColor)),
       onPressed: () {
-        feedback_controller.clear();
-        email_controller.clear();
-        name_controller.clear();
-        mobile_controller.clear();
+        feedBackcontroller.clear();
+        emailcontroller.clear();
+        namecontroller.clear();
+        mobilecontroller.clear();
         Navigator.of(context).pop();
       },
     );

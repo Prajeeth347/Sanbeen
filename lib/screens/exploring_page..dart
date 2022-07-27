@@ -4,14 +4,14 @@ import 'package:sanbeen_zedital/screens/begin_posting.dart';
 import 'package:sanbeen_zedital/screens/buy_prop_page.dart';
 import 'package:sanbeen_zedital/screens/rentals_page.dart';
 
-class exploring_page extends StatefulWidget {
-  const exploring_page({Key? key}) : super(key: key);
+class ExploringPage extends StatefulWidget {
+  const ExploringPage({Key? key}) : super(key: key);
 
   @override
-  State<exploring_page> createState() => _exploring_pageState();
+  State<ExploringPage> createState() => _ExploringPageState();
 }
 
-class _exploring_pageState extends State<exploring_page> {
+class _ExploringPageState extends State<ExploringPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +24,7 @@ class _exploring_pageState extends State<exploring_page> {
             icon: Icon(
               Icons.arrow_back,
               color: Theme.of(context).primaryColor,
-              size: MediaQuery.of(context).size.height * 0.05,
+              size: MediaQuery.of(context).size.width * 0.08,
             )),
       ),
       backgroundColor: Theme.of(context).backgroundColor,
@@ -38,7 +38,7 @@ class _exploring_pageState extends State<exploring_page> {
                 'Start Exploring',
                 style: GoogleFonts.poppins(
                   color: Theme.of(context).primaryColor,
-                  fontSize: MediaQuery.of(context).size.height * 0.024,
+                  fontSize: MediaQuery.of(context).size.width * 0.045,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -50,9 +50,9 @@ class _exploring_pageState extends State<exploring_page> {
                   GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => buying_prop_page()));
+                            builder: (context) => const BuyingPropPage()));
                       },
-                      child: exploring_cards(
+                      child: ExploringCards(
                         textreq: 'Buying a house',
                         image:
                             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiLo-UH7EZCj0O_dYCoHj6pDhv3YAM4Flfw&usqp=CAU',
@@ -63,9 +63,9 @@ class _exploring_pageState extends State<exploring_page> {
                   GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => begin_posting()));
+                            builder: (context) => const BeginPosting()));
                       },
-                      child: exploring_cards(
+                      child: ExploringCards(
                         textreq: 'Selling your property',
                         image:
                             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiLo-UH7EZCj0O_dYCoHj6pDhv3YAM4Flfw&usqp=CAU',
@@ -73,9 +73,9 @@ class _exploring_pageState extends State<exploring_page> {
                   GestureDetector(
                       onTap: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => rentals_page()));
+                            builder: (context) => const RentalsPage()));
                       },
-                      child: exploring_cards(
+                      child: ExploringCards(
                         textreq: 'Renting property',
                         image:
                             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiLo-UH7EZCj0O_dYCoHj6pDhv3YAM4Flfw&usqp=CAU',
@@ -84,7 +84,7 @@ class _exploring_pageState extends State<exploring_page> {
                     width: MediaQuery.of(context).size.width * 0.06,
                   ),
                   GestureDetector(
-                      child: exploring_cards(
+                      child: ExploringCards(
                     textreq: 'Commercial Projects',
                     image:
                         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmiLo-UH7EZCj0O_dYCoHj6pDhv3YAM4Flfw&usqp=CAU',
@@ -99,18 +99,19 @@ class _exploring_pageState extends State<exploring_page> {
   }
 }
 
-class exploring_cards extends StatelessWidget {
-  exploring_cards({
+class ExploringCards extends StatelessWidget {
+  ExploringCards({
+    Key? key,
     required this.image,
     required this.textreq,
-  });
+  }) : super(key: key);
   String image;
   String textreq;
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.4,
         height: MediaQuery.of(context).size.height * 0.27,
         child: Stack(
@@ -135,8 +136,7 @@ class exploring_cards extends StatelessWidget {
                         textreq,
                         style: GoogleFonts.inter(
                             color: Theme.of(context).hintColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.017),
+                            fontSize: MediaQuery.of(context).size.width * 0.03),
                       ),
                     ),
                   ),

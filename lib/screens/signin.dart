@@ -3,45 +3,43 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sanbeen_zedital/drawers/main_drawer.dart';
+//import 'package:sanbeen_zedital/drawers/main_drawer.dart';
 import 'package:sanbeen_zedital/main_navbar.dart';
 import 'package:sanbeen_zedital/screens/forgotpassword.dart';
-import 'package:sanbeen_zedital/screens/mainpage.dart';
+//import 'package:sanbeen_zedital/screens/mainpage.dart';
 import 'package:sanbeen_zedital/screens/signup.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
-class signin extends StatefulWidget {
-  const signin({Key? key}) : super(key: key);
+class SignIn extends StatefulWidget {
+  const SignIn({Key? key}) : super(key: key);
 
   @override
-  State<signin> createState() => _signinState();
+  State<SignIn> createState() => _SignInState();
 }
 
-class _signinState extends State<signin> {
+class _SignInState extends State<SignIn> {
   signin() async {
-    Map<String, dynamic> responseMap;
-    var sign_client = http.Client();
-    var sign_uri =
+    Map<String, dynamic>; //responseMap;
+    var signclient = http.Client();
+    var signuri =
         Uri.parse("https://sanbeen-real-estate.herokuapp.com/api/auth/");
-    var sign_response = await sign_client.post(sign_uri,
+    var signresponse = await signclient.post(signuri,
         headers: {"Content-Type": "application/json"},
         body: jsonEncode({"email": email.text, "password": password.text}));
-    if (sign_response.statusCode == 200) {
+    if (signresponse.statusCode == 200) {
       Fluttertoast.showToast(
           msg: "Successful",
           gravity: ToastGravity.BOTTOM,
           backgroundColor: Theme.of(context).hintColor,
           textColor: Theme.of(context).backgroundColor,
           fontSize: 16.0);
-          SharedPreferences prefs =
-                                await SharedPreferences.getInstance();
-                            prefs.setString('Email', email.text.trim());
-          Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => mainnavbar()));
-    } else if (sign_response.statusCode == 404) {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setString('Email', email.text.trim());
+      if (!mounted) return;
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => const MainNavbar()));
+    } else if (signresponse.statusCode == 404) {
       Fluttertoast.showToast(
           msg: "Something Went wrong",
           gravity: ToastGravity.BOTTOM,
@@ -50,7 +48,7 @@ class _signinState extends State<signin> {
           fontSize: 16.0);
     } else {
       Fluttertoast.showToast(
-          msg: sign_response.body,
+          msg: signresponse.body,
           gravity: ToastGravity.BOTTOM,
           backgroundColor: Theme.of(context).hintColor,
           textColor: Theme.of(context).backgroundColor,
@@ -58,7 +56,7 @@ class _signinState extends State<signin> {
     }
   }
 
-  bool obscure_text = true;
+  bool obscuretext = true;
 
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
@@ -94,7 +92,7 @@ class _signinState extends State<signin> {
                         'SANBEEN REAL ESTATE',
                         style: GoogleFonts.poppins(
                           color: Theme.of(context).primaryColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.025,
+                          fontSize: MediaQuery.of(context).size.width * 0.05,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -102,7 +100,7 @@ class _signinState extends State<signin> {
                         '& Realtors Pvt. Ltd.',
                         style: GoogleFonts.poppins(
                           color: Theme.of(context).primaryColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.021,
+                          fontSize: MediaQuery.of(context).size.width * 0.045,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
@@ -114,8 +112,7 @@ class _signinState extends State<signin> {
                           cursorColor: Theme.of(context).primaryColor,
                           style: GoogleFonts.inter(
                             color: Theme.of(context).hintColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.019,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
                             fontWeight: FontWeight.w300,
                           ),
                           decoration: InputDecoration(
@@ -127,7 +124,7 @@ class _signinState extends State<signin> {
                             labelStyle: GoogleFonts.poppins(
                               color: Theme.of(context).primaryColor,
                               fontSize:
-                                  MediaQuery.of(context).size.height * 0.02,
+                                  MediaQuery.of(context).size.width * 0.04,
                               fontWeight: FontWeight.w300,
                             ),
                           )),
@@ -137,12 +134,11 @@ class _signinState extends State<signin> {
                           controller: password,
                           keyboardType: TextInputType.visiblePassword,
                           cursorColor: Theme.of(context).primaryColor,
-                          obscureText: obscure_text,
+                          obscureText: obscuretext,
                           obscuringCharacter: '*',
                           style: GoogleFonts.inter(
                             color: Theme.of(context).hintColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.019,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
                             fontWeight: FontWeight.w300,
                           ),
                           decoration: InputDecoration(
@@ -150,11 +146,11 @@ class _signinState extends State<signin> {
                               onPressed: () {
                                 setState(
                                   () {
-                                    obscure_text = !obscure_text;
+                                    obscuretext = !obscuretext;
                                   },
                                 );
                               },
-                              icon: Icon(obscure_text
+                              icon: Icon(obscuretext
                                   ? Icons.visibility
                                   : Icons.visibility_off),
                               color: Theme.of(context).primaryColor,
@@ -167,7 +163,7 @@ class _signinState extends State<signin> {
                             labelStyle: GoogleFonts.poppins(
                               color: Theme.of(context).primaryColor,
                               fontSize:
-                                  MediaQuery.of(context).size.height * 0.02,
+                                  MediaQuery.of(context).size.width * 0.04,
                               fontWeight: FontWeight.w300,
                             ),
                           )),
@@ -176,7 +172,7 @@ class _signinState extends State<signin> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => forgotpassword()));
+                                    builder: (context) => ForgotPassword()));
                           },
                           child: Container(
                             alignment: Alignment.bottomRight,
@@ -185,7 +181,7 @@ class _signinState extends State<signin> {
                               style: GoogleFonts.inter(
                                 color: Theme.of(context).hintColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.015,
+                                    MediaQuery.of(context).size.width * 0.03,
                                 fontWeight: FontWeight.w400,
                               ),
                               textAlign: TextAlign.center,
@@ -195,7 +191,7 @@ class _signinState extends State<signin> {
                           height: MediaQuery.of(context).size.height * 0.03),
                       ElevatedButton(
                           onPressed: () {
-                            signin();
+                            const SignIn();
                           },
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
@@ -203,13 +199,13 @@ class _signinState extends State<signin> {
                           ),
                           child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  75, 15, 75, 15),
+                                  70, 10, 70, 10),
                               child: Text(
                                 'LOGIN',
                                 style: GoogleFonts.inter(
                                   color: Theme.of(context).hintColor,
                                   fontSize:
-                                      MediaQuery.of(context).size.height * 0.02,
+                                      MediaQuery.of(context).size.width * 0.045,
                                   fontWeight: FontWeight.w400,
                                 ),
                                 textAlign: TextAlign.center,
@@ -221,17 +217,17 @@ class _signinState extends State<signin> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => signup()));
+                                    builder: (context) => const SignUp()));
                           },
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 5, 5, 5, 5),
                             child: Text(
-                              'Don`t have an account? Join us',
+                              "Don't have an account? Join us",
                               style: GoogleFonts.inter(
                                 color: Theme.of(context).primaryColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.018,
+                                    MediaQuery.of(context).size.width * 0.038,
                                 fontWeight: FontWeight.w400,
                               ),
                               textAlign: TextAlign.center,
