@@ -82,14 +82,12 @@ class _PhotosPropState extends State<PhotosProp> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
-                  child: Text(
-                    'Upload Property Photos and Videos',
-                    style: GoogleFonts.poppins(
-                      color: Theme.of(context).primaryColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.023,
-                      fontWeight: FontWeight.w500,
-                    ),
+                Text(
+                  'Upload Property Photos and Videos',
+                  style: GoogleFonts.poppins(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: MediaQuery.of(context).size.width * 0.04,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 Padding(
@@ -98,14 +96,14 @@ class _PhotosPropState extends State<PhotosProp> {
                       'Upload photos and videos of your property either via your desktop device or from your mobile phone.',
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.018,
+                        fontSize: MediaQuery.of(context).size.width * 0.037,
                         fontWeight: FontWeight.w300,
                       ),
                     )),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.03,
                 ),
-                if (image.length == 0)
+                if (image.isEmpty)
                   GestureDetector(
                     onTap: () {
                       choosesource();
@@ -124,7 +122,7 @@ class _PhotosPropState extends State<PhotosProp> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.1,
                 ),
-                if (image.length != 0)
+                if (image.isNotEmpty)
                   ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
@@ -159,11 +157,11 @@ class _PhotosPropState extends State<PhotosProp> {
                             'Add more',
                             style: GoogleFonts.inter(
                                 fontSize:
-                                    MediaQuery.of(context).size.width * 0.04,
+                                    MediaQuery.of(context).size.width * 0.035,
                                 color: Theme.of(context).hintColor),
                             textAlign: TextAlign.center,
                           ))),
-                if (image.length != 0)
+                if (image.isNotEmpty)
                   ElevatedButton(
                       onPressed: () {},
                       style: ButtonStyle(

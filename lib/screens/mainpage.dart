@@ -233,7 +233,7 @@ class _RentalBodyState extends State<RentalBody> {
     return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       // SizedBox(height: 20),
       Padding(
-        padding: const EdgeInsets.fromLTRB(16, 15, 16, 8),
+        padding: const EdgeInsets.fromLTRB(16, 15, 16, 4),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -241,7 +241,7 @@ class _RentalBodyState extends State<RentalBody> {
               "Start Exploring",
               style: GoogleFonts.poppins(
                 color: Theme.of(context).primaryColor,
-                fontSize: MediaQuery.of(context).size.height * 0.02,
+                fontSize: MediaQuery.of(context).size.width * 0.04,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -253,7 +253,7 @@ class _RentalBodyState extends State<RentalBody> {
               child: Text("View all",
                   style: GoogleFonts.inter(
                       color: Theme.of(context).primaryColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.015,
+                      fontSize: MediaQuery.of(context).size.width * 0.03,
                       fontWeight: FontWeight.w400,
                       decoration: TextDecoration.underline)),
             )
@@ -261,7 +261,7 @@ class _RentalBodyState extends State<RentalBody> {
         ),
       ),
       Padding(
-        padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
+        padding: const EdgeInsets.fromLTRB(16, 4, 8, 8),
         child: SizedBox(
           height: MediaQuery.of(context).size.height * 0.2,
           child: ListView.builder(
@@ -315,7 +315,7 @@ class _RentalBodyState extends State<RentalBody> {
         ),
       ),
       Padding(
-        padding: const EdgeInsets.fromLTRB(16, 15, 16, 8),
+        padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -323,7 +323,7 @@ class _RentalBodyState extends State<RentalBody> {
               "Buying a house",
               style: GoogleFonts.poppins(
                 color: Theme.of(context).primaryColor,
-                fontSize: MediaQuery.of(context).size.height * 0.02,
+                fontSize: MediaQuery.of(context).size.width * 0.04,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -331,7 +331,7 @@ class _RentalBodyState extends State<RentalBody> {
         ),
       ),
       Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15),
           child: Container(
@@ -350,15 +350,24 @@ class _RentalBodyState extends State<RentalBody> {
           Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => const BuyingPropPage()));
         },
-        child: Text("Find more house buying options",
-            style: GoogleFonts.inter(
-                color: Theme.of(context).primaryColor,
-                fontSize: MediaQuery.of(context).size.height * 0.017,
-                fontWeight: FontWeight.w500,
-                decoration: TextDecoration.underline)),
+        child: Row(
+          children: [
+            Text("Find more house buying options",
+                style: GoogleFonts.inter(
+                  color: Theme.of(context).primaryColor,
+                  fontSize: MediaQuery.of(context).size.width * 0.03,
+                  fontWeight: FontWeight.w500,
+                )),
+            Icon(
+              Icons.arrow_right_alt,
+              size: MediaQuery.of(context).size.width * 0.06,
+              color: Theme.of(context).primaryColor,
+            )
+          ],
+        ),
       ),
       Padding(
-        padding: const EdgeInsets.fromLTRB(16, 15, 16, 8),
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -366,7 +375,7 @@ class _RentalBodyState extends State<RentalBody> {
               "Best Residential Properties",
               style: GoogleFonts.poppins(
                 color: Theme.of(context).primaryColor,
-                fontSize: MediaQuery.of(context).size.height * 0.02,
+                fontSize: MediaQuery.of(context).size.width * 0.04,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -377,7 +386,7 @@ class _RentalBodyState extends State<RentalBody> {
       //   CircularProgressIndicator(color: Theme.of(context).primaryColor),
       if (prop20loaded == true)
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.5,
+          height: MediaQuery.of(context).size.height * 0.45,
           child: ListView.builder(
               itemCount: property?.length,
               shrinkWrap: true,
@@ -448,8 +457,8 @@ class _RentalBodyState extends State<RentalBody> {
                                                     .primaryColor,
                                                 fontSize: MediaQuery.of(context)
                                                         .size
-                                                        .height *
-                                                    0.02,
+                                                        .width *
+                                                    0.04,
                                                 fontWeight: FontWeight.w500,
                                               )),
                                           SizedBox(
@@ -472,8 +481,8 @@ class _RentalBodyState extends State<RentalBody> {
                                                     fontSize:
                                                         MediaQuery.of(context)
                                                                 .size
-                                                                .height *
-                                                            0.012,
+                                                                .width *
+                                                            0.025,
                                                     fontWeight: FontWeight.w400,
                                                   )),
                                               Text(property![index].type,
@@ -483,8 +492,8 @@ class _RentalBodyState extends State<RentalBody> {
                                                     fontSize:
                                                         MediaQuery.of(context)
                                                                 .size
-                                                                .height *
-                                                            0.012,
+                                                                .width *
+                                                            0.03,
                                                     fontWeight: FontWeight.w400,
                                                   )),
                                             ],
@@ -503,8 +512,8 @@ class _RentalBodyState extends State<RentalBody> {
                                                     .primaryColor,
                                                 fontSize: MediaQuery.of(context)
                                                         .size
-                                                        .height *
-                                                    0.015,
+                                                        .width *
+                                                    0.03,
                                                 fontWeight: FontWeight.w500,
                                               )),
                                         ],
@@ -522,7 +531,7 @@ class _RentalBodyState extends State<RentalBody> {
               })),
         ),
       Padding(
-        padding: const EdgeInsets.fromLTRB(16, 15, 16, 8),
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -530,7 +539,7 @@ class _RentalBodyState extends State<RentalBody> {
               "Renting a home",
               style: GoogleFonts.poppins(
                 color: Theme.of(context).primaryColor,
-                fontSize: MediaQuery.of(context).size.height * 0.02,
+                fontSize: MediaQuery.of(context).size.width * 0.04,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -557,12 +566,21 @@ class _RentalBodyState extends State<RentalBody> {
           Navigator.of(context).push(
               MaterialPageRoute(builder: (context) => const RentalsPage()));
         },
-        child: Text("Find more house renting options",
-            style: GoogleFonts.inter(
-                color: Theme.of(context).primaryColor,
-                fontSize: MediaQuery.of(context).size.height * 0.017,
-                fontWeight: FontWeight.w500,
-                decoration: TextDecoration.underline)),
+        child: Row(
+          children: [
+            Text("Find more house renting options",
+                style: GoogleFonts.inter(
+                  color: Theme.of(context).primaryColor,
+                  fontSize: MediaQuery.of(context).size.width * 0.03,
+                  fontWeight: FontWeight.w500,
+                )),
+            Icon(
+              Icons.arrow_right_alt,
+              size: MediaQuery.of(context).size.width * 0.06,
+              color: Theme.of(context).primaryColor,
+            )
+          ],
+        ),
       ),
       Padding(
         padding: const EdgeInsets.fromLTRB(8, 8, 8, 8),
@@ -570,7 +588,7 @@ class _RentalBodyState extends State<RentalBody> {
           "Services provided by us",
           style: GoogleFonts.poppins(
               color: Theme.of(context).primaryColor,
-              fontSize: MediaQuery.of(context).size.width * 0.042,
+              fontSize: MediaQuery.of(context).size.width * 0.04,
               fontWeight: FontWeight.w500),
           textAlign: TextAlign.start,
         ),
@@ -610,20 +628,25 @@ class _RentalBodyState extends State<RentalBody> {
                             style: GoogleFonts.poppins(
                                 color: Theme.of(context).backgroundColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.width * 0.037),
+                                    MediaQuery.of(context).size.width * 0.035),
                             textAlign: TextAlign.left,
                           ),
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.002,
                           ),
-                          Text(
-                              'Lorem ipsum dolor sit amet. Sed debitis accusantium non iste impedit et architecto quasi. Qui voluptate dolor et quia Quis quo cupiditate corrupti ut ipsam voluptas et rerum doloremque! Aut doloremque accusamus in voluptatem possimus nihil perferendis rem magnam tempore. Est eaque libero est quos dolor in quia veritatis est nisi recusandae ad pariatur laborum.',
-                              style: GoogleFonts.inter(
-                                color: Theme.of(context).backgroundColor,
-                                fontSize:
-                                    MediaQuery.of(context).size.height * 0.01,
-                                fontWeight: FontWeight.w400,
-                              )),
+                          Wrap(
+                            children: [
+                              Text(
+                                  'Lorem ipsum dolor sit amet. Sed debitis accusantium non iste impedit et architecto quasi. Qui voluptate dolor et quia Quis quo cupiditate corrupti ut ipsam voluptas et rerum doloremque! Aut doloremque accusamus in voluptatem possimus nihil perferendis rem magnam tempore. Est eaque libero est quos dolor in quia veritatis est nisi recusandae ad pariatur laborum.',
+                                  style: GoogleFonts.inter(
+                                    color: Theme.of(context).backgroundColor,
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.02,
+                                    fontWeight: FontWeight.w400,
+                                  )),
+                            ],
+                          ),
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.002,
                           ),
@@ -632,7 +655,7 @@ class _RentalBodyState extends State<RentalBody> {
                             style: GoogleFonts.poppins(
                                 color: Theme.of(context).backgroundColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.width * 0.037),
+                                    MediaQuery.of(context).size.width * 0.035),
                             textAlign: TextAlign.left,
                           ),
                         ],
@@ -651,7 +674,7 @@ class _RentalBodyState extends State<RentalBody> {
           "Get great properties in popular cities",
           style: GoogleFonts.poppins(
               color: Theme.of(context).primaryColor,
-              fontSize: MediaQuery.of(context).size.width * 0.042,
+              fontSize: MediaQuery.of(context).size.width * 0.04,
               fontWeight: FontWeight.w500),
           textAlign: TextAlign.start,
         ),
@@ -659,7 +682,7 @@ class _RentalBodyState extends State<RentalBody> {
       Padding(
         padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.15,
+          height: MediaQuery.of(context).size.height * 0.1,
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
@@ -683,13 +706,13 @@ class _RentalBodyState extends State<RentalBody> {
                         cities[index],
                         style: GoogleFonts.inter(
                             color: Theme.of(context).primaryColor,
-                            fontSize: MediaQuery.of(context).size.width * 0.033,
+                            fontSize: MediaQuery.of(context).size.width * 0.03,
                             fontWeight: FontWeight.w400),
                       ),
                     ],
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.06,
+                    width: MediaQuery.of(context).size.width * 0.05,
                   )
                 ],
               );
@@ -698,7 +721,7 @@ class _RentalBodyState extends State<RentalBody> {
         ),
       ),
       Padding(
-        padding: const EdgeInsets.fromLTRB(16, 15, 16, 8),
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -706,7 +729,7 @@ class _RentalBodyState extends State<RentalBody> {
               "Handpicked Properties",
               style: GoogleFonts.poppins(
                 color: Theme.of(context).primaryColor,
-                fontSize: MediaQuery.of(context).size.height * 0.02,
+                fontSize: MediaQuery.of(context).size.width * 0.04,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -717,7 +740,7 @@ class _RentalBodyState extends State<RentalBody> {
       //   CircularProgressIndicator(color: Theme.of(context).primaryColor),
       if (prop20loaded == true)
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.7,
+          height: MediaQuery.of(context).size.height * 0.6,
           child: property != null
               ? GridView.builder(
                   physics: const NeverScrollableScrollPhysics(),
@@ -794,8 +817,8 @@ class _RentalBodyState extends State<RentalBody> {
                                                     .primaryColor,
                                                 fontSize: MediaQuery.of(context)
                                                         .size
-                                                        .height *
-                                                    0.02,
+                                                        .width *
+                                                    0.04,
                                                 fontWeight: FontWeight.w500,
                                               )),
                                           SizedBox(
@@ -818,8 +841,8 @@ class _RentalBodyState extends State<RentalBody> {
                                                     fontSize:
                                                         MediaQuery.of(context)
                                                                 .size
-                                                                .height *
-                                                            0.012,
+                                                                .width *
+                                                            0.02,
                                                     fontWeight: FontWeight.w400,
                                                   )),
                                               Text(property![index].type,
@@ -829,8 +852,8 @@ class _RentalBodyState extends State<RentalBody> {
                                                     fontSize:
                                                         MediaQuery.of(context)
                                                                 .size
-                                                                .height *
-                                                            0.012,
+                                                                .width *
+                                                            0.025,
                                                     fontWeight: FontWeight.w400,
                                                   )),
                                             ],
@@ -849,8 +872,8 @@ class _RentalBodyState extends State<RentalBody> {
                                                     .primaryColor,
                                                 fontSize: MediaQuery.of(context)
                                                         .size
-                                                        .height *
-                                                    0.015,
+                                                        .width *
+                                                    0.03,
                                                 fontWeight: FontWeight.w500,
                                               )),
                                         ],
@@ -867,7 +890,7 @@ class _RentalBodyState extends State<RentalBody> {
               : Container(),
         ),
       Padding(
-        padding: const EdgeInsets.fromLTRB(16, 15, 16, 8),
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -875,7 +898,7 @@ class _RentalBodyState extends State<RentalBody> {
               "Why trust us",
               style: GoogleFonts.poppins(
                 color: Theme.of(context).primaryColor,
-                fontSize: MediaQuery.of(context).size.height * 0.02,
+                fontSize: MediaQuery.of(context).size.width * 0.04,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -905,7 +928,7 @@ class _RentalBodyState extends State<RentalBody> {
                     '230+',
                     style: GoogleFonts.poppins(
                       color: Theme.of(context).backgroundColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.016,
+                      fontSize: MediaQuery.of(context).size.width * 0.035,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -913,7 +936,7 @@ class _RentalBodyState extends State<RentalBody> {
                     'Properties sold',
                     style: GoogleFonts.inter(
                       color: Theme.of(context).backgroundColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.015,
+                      fontSize: MediaQuery.of(context).size.width * 0.03,
                       fontWeight: FontWeight.w500,
                     ),
                   )
@@ -939,7 +962,7 @@ class _RentalBodyState extends State<RentalBody> {
                     '350+',
                     style: GoogleFonts.poppins(
                       color: Theme.of(context).backgroundColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.016,
+                      fontSize: MediaQuery.of(context).size.width * 0.035,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -947,7 +970,7 @@ class _RentalBodyState extends State<RentalBody> {
                     'Properties listed',
                     style: GoogleFonts.inter(
                       color: Theme.of(context).backgroundColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.015,
+                      fontSize: MediaQuery.of(context).size.width * 0.03,
                       fontWeight: FontWeight.w500,
                     ),
                   )
@@ -970,7 +993,7 @@ class _RentalBodyState extends State<RentalBody> {
                     'Great',
                     style: GoogleFonts.inter(
                       color: Theme.of(context).backgroundColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.016,
+                      fontSize: MediaQuery.of(context).size.width * 0.033,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -978,7 +1001,7 @@ class _RentalBodyState extends State<RentalBody> {
                     'locations',
                     style: GoogleFonts.inter(
                       color: Theme.of(context).backgroundColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.016,
+                      fontSize: MediaQuery.of(context).size.width * 0.033,
                       fontWeight: FontWeight.w500,
                     ),
                   )
@@ -994,7 +1017,7 @@ class _RentalBodyState extends State<RentalBody> {
           "What our users say about us?",
           style: GoogleFonts.poppins(
               color: Theme.of(context).primaryColor,
-              fontSize: MediaQuery.of(context).size.width * 0.045,
+              fontSize: MediaQuery.of(context).size.width * 0.04,
               fontWeight: FontWeight.w500),
           textAlign: TextAlign.start,
         ),
@@ -1003,13 +1026,13 @@ class _RentalBodyState extends State<RentalBody> {
         height: MediaQuery.of(context).size.height * 0.01,
       ),
       Padding(
-        padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
+        padding: const EdgeInsets.fromLTRB(16, 8, 8, 0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.19,
+              height: MediaQuery.of(context).size.height * 0.175,
               width: MediaQuery.of(context).size.width * 0.9,
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -1085,7 +1108,7 @@ class _RentalBodyState extends State<RentalBody> {
                           'Lorem ipsum dolor sit amet. Sed debitis accusantium non iste impedit et architecto quasi. Qui voluptate dolor et quia Quis quo cupiditate corrupti ut ipsam voluptas et rerum doloremque! Aut doloremque accusamus in voluptatem possimus nihil perferendis rem magnam tempore. Est eaque libero est quos dolor in quia veritatis est nisi recusandae ad pariatur laborum.',
                           style: GoogleFonts.inter(
                             color: Theme.of(context).hintColor,
-                            fontSize: MediaQuery.of(context).size.height * 0.01,
+                            fontSize: MediaQuery.of(context).size.width * 0.02,
                             fontWeight: FontWeight.w400,
                           ))
                     ],
@@ -1098,12 +1121,21 @@ class _RentalBodyState extends State<RentalBody> {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const Testimonials()));
               },
-              child: Text("View more testimonials",
-                  style: GoogleFonts.inter(
-                      color: Theme.of(context).primaryColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.017,
-                      fontWeight: FontWeight.w400,
-                      decoration: TextDecoration.underline)),
+              child: Row(
+                children: [
+                  Text("View more testimonials",
+                      style: GoogleFonts.inter(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: MediaQuery.of(context).size.width * 0.03,
+                        fontWeight: FontWeight.w400,
+                      )),
+                  Icon(
+                    Icons.arrow_right_alt,
+                    size: MediaQuery.of(context).size.width * 0.06,
+                    color: Theme.of(context).primaryColor,
+                  )
+                ],
+              ),
             ),
           ],
         ),

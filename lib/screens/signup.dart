@@ -73,7 +73,7 @@ class _SignUpState extends State<SignUp> {
           icon: Icon(
             Icons.arrow_back,
             color: Theme.of(context).primaryColor,
-            size: MediaQuery.of(context).size.width * 0.08,
+            size: MediaQuery.of(context).size.width * 0.07,
           ),
         ),
       ),
@@ -89,7 +89,7 @@ class _SignUpState extends State<SignUp> {
                       'Welcome Back!',
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.024,
+                        fontSize: MediaQuery.of(context).size.width * 0.045,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -100,7 +100,7 @@ class _SignUpState extends State<SignUp> {
                         cursorColor: Theme.of(context).primaryColor,
                         style: GoogleFonts.inter(
                           color: Theme.of(context).hintColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.018,
+                          fontSize: MediaQuery.of(context).size.width * 0.039,
                           fontWeight: FontWeight.w400,
                         ),
                         decoration: InputDecoration(
@@ -111,8 +111,7 @@ class _SignUpState extends State<SignUp> {
                           labelText: 'First Name',
                           labelStyle: GoogleFonts.poppins(
                             color: Theme.of(context).primaryColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.019,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
                             fontWeight: FontWeight.w400,
                           ),
                         )),
@@ -123,7 +122,7 @@ class _SignUpState extends State<SignUp> {
                         cursorColor: Theme.of(context).primaryColor,
                         style: GoogleFonts.inter(
                           color: Theme.of(context).hintColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.018,
+                          fontSize: MediaQuery.of(context).size.width * 0.039,
                           fontWeight: FontWeight.w400,
                         ),
                         decoration: InputDecoration(
@@ -134,8 +133,7 @@ class _SignUpState extends State<SignUp> {
                           labelText: 'Last Name',
                           labelStyle: GoogleFonts.poppins(
                             color: Theme.of(context).primaryColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.019,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
                             fontWeight: FontWeight.w400,
                           ),
                         )),
@@ -146,7 +144,7 @@ class _SignUpState extends State<SignUp> {
                         cursorColor: Theme.of(context).primaryColor,
                         style: GoogleFonts.inter(
                           color: Theme.of(context).hintColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.018,
+                          fontSize: MediaQuery.of(context).size.width * 0.039,
                           fontWeight: FontWeight.w400,
                         ),
                         decoration: InputDecoration(
@@ -157,8 +155,7 @@ class _SignUpState extends State<SignUp> {
                           labelText: 'Email',
                           labelStyle: GoogleFonts.poppins(
                             color: Theme.of(context).primaryColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.019,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
                             fontWeight: FontWeight.w400,
                           ),
                         )),
@@ -169,7 +166,7 @@ class _SignUpState extends State<SignUp> {
                         cursorColor: Theme.of(context).primaryColor,
                         style: GoogleFonts.inter(
                           color: Theme.of(context).hintColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.018,
+                          fontSize: MediaQuery.of(context).size.width * 0.039,
                           fontWeight: FontWeight.w400,
                         ),
                         decoration: InputDecoration(
@@ -180,8 +177,7 @@ class _SignUpState extends State<SignUp> {
                           labelText: 'Contact No.',
                           labelStyle: GoogleFonts.poppins(
                             color: Theme.of(context).primaryColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.019,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
                             fontWeight: FontWeight.w400,
                           ),
                         )),
@@ -192,7 +188,7 @@ class _SignUpState extends State<SignUp> {
                         cursorColor: Theme.of(context).primaryColor,
                         style: GoogleFonts.inter(
                           color: Theme.of(context).hintColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.018,
+                          fontSize: MediaQuery.of(context).size.width * 0.039,
                           fontWeight: FontWeight.w400,
                         ),
                         obscureText: obscuretext,
@@ -218,8 +214,7 @@ class _SignUpState extends State<SignUp> {
                           labelText: 'Password',
                           labelStyle: GoogleFonts.poppins(
                             color: Theme.of(context).primaryColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.019,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
                             fontWeight: FontWeight.w400,
                           ),
                         )),
@@ -240,7 +235,7 @@ class _SignUpState extends State<SignUp> {
                               style: GoogleFonts.poppins(
                                 color: Theme.of(context).hintColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.025,
+                                    MediaQuery.of(context).size.width * 0.045,
                                 fontWeight: FontWeight.w500,
                               ),
                               textAlign: TextAlign.center,

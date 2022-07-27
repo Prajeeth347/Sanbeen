@@ -4,6 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class ForgotPassword extends StatelessWidget {
   TextEditingController email = TextEditingController();
+
+  ForgotPassword({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

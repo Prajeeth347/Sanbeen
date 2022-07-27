@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sanbeen_zedital/screens/aboutuspage.dart';
 import 'package:sanbeen_zedital/screens/begin_posting.dart';
 import 'package:sanbeen_zedital/screens/properties_all.dart';
@@ -47,7 +48,14 @@ class MainDrawer extends StatelessWidget {
             leading: const Icon(
               Icons.sell_sharp,
             ),
-            title: const Text('Post your property'),
+            title: Text(
+              'Post your property',
+              style: GoogleFonts.poppins(
+                color: Theme.of(context).backgroundColor,
+                fontSize: MediaQuery.of(context).size.width * 0.033,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
             onTap: () {
               Navigator.pop(context);
               Navigator.of(context).push(MaterialPageRoute(
@@ -61,7 +69,14 @@ class MainDrawer extends StatelessWidget {
             leading: const Icon(
               Icons.house_rounded,
             ),
-            title: const Text('Find houses or property'),
+            title: Text(
+              'Find houses or property',
+              style: GoogleFonts.poppins(
+                color: Theme.of(context).backgroundColor,
+                fontSize: MediaQuery.of(context).size.width * 0.033,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
             onTap: () {
               Navigator.pop(context);
               Navigator.of(context).push(MaterialPageRoute(
@@ -75,7 +90,14 @@ class MainDrawer extends StatelessWidget {
             leading: const Icon(
               Icons.house_rounded,
             ),
-            title: const Text('Find rental apartments'),
+            title: Text(
+              'Find rental apartments',
+              style: GoogleFonts.poppins(
+                color: Theme.of(context).backgroundColor,
+                fontSize: MediaQuery.of(context).size.width * 0.033,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
             onTap: () {
               Navigator.pop(context);
               Navigator.of(context).push(MaterialPageRoute(
@@ -89,7 +111,14 @@ class MainDrawer extends StatelessWidget {
             leading: const Icon(
               Icons.notifications,
             ),
-            title: const Text('Notifications'),
+            title: Text(
+              'Notifications',
+              style: GoogleFonts.poppins(
+                color: Theme.of(context).backgroundColor,
+                fontSize: MediaQuery.of(context).size.width * 0.033,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
             onTap: () {
               Navigator.pop(context);
               // Navigator.of(context).push(MaterialPageRoute(builder: (context) => begin_posting(),));
@@ -101,7 +130,14 @@ class MainDrawer extends StatelessWidget {
             leading: const Icon(
               Icons.info_rounded,
             ),
-            title: const Text('About us'),
+            title: Text(
+              'About us',
+              style: GoogleFonts.poppins(
+                color: Theme.of(context).backgroundColor,
+                fontSize: MediaQuery.of(context).size.width * 0.033,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
             onTap: () {
               Navigator.pop(context);
               Navigator.of(context).push(MaterialPageRoute(
@@ -115,7 +151,14 @@ class MainDrawer extends StatelessWidget {
             leading: const Icon(
               Icons.logout_sharp,
             ),
-            title: const Text('Logout'),
+            title: Text(
+              'Logout',
+              style: GoogleFonts.poppins(
+                color: Theme.of(context).backgroundColor,
+                fontSize: MediaQuery.of(context).size.width * 0.033,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
             onTap: () async {
               SharedPreferences prefs = await SharedPreferences.getInstance();
               prefs.remove('Email');

@@ -24,7 +24,7 @@ class _ExploringPageState extends State<ExploringPage> {
             icon: Icon(
               Icons.arrow_back,
               color: Theme.of(context).primaryColor,
-              size: MediaQuery.of(context).size.height * 0.05,
+              size: MediaQuery.of(context).size.width * 0.08,
             )),
       ),
       backgroundColor: Theme.of(context).backgroundColor,
@@ -38,7 +38,7 @@ class _ExploringPageState extends State<ExploringPage> {
                 'Start Exploring',
                 style: GoogleFonts.poppins(
                   color: Theme.of(context).primaryColor,
-                  fontSize: MediaQuery.of(context).size.height * 0.024,
+                  fontSize: MediaQuery.of(context).size.width * 0.045,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -136,8 +136,7 @@ class ExploringCards extends StatelessWidget {
                         textreq,
                         style: GoogleFonts.inter(
                             color: Theme.of(context).hintColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.017),
+                            fontSize: MediaQuery.of(context).size.width * 0.03),
                       ),
                     ),
                   ),

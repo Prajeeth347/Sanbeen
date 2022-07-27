@@ -73,7 +73,7 @@ class PropertiesState extends State<ShortProperties> {
                       "My Shortlisted Properties",
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.024,
+                        fontSize: MediaQuery.of(context).size.width * 0.045,
                         fontWeight: FontWeight.w500,
                       ),
                       textAlign: TextAlign.start,
@@ -133,100 +133,109 @@ class PropertiesCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => PropertySinglePage(id: id)));
-        },
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Column(
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width * 0.9,
-                height: MediaQuery.of(context).size.height * 0.27,
-                color: Theme.of(context).primaryColor,
-                child: Column(children: [
-                  Row(children: [
-                    Stack(children: <Widget>[
-                      Image.network(img,
-                          height: MediaQuery.of(context).size.height * 0.19,
-                          width: MediaQuery.of(context).size.width * 0.43,
-                          fit: BoxFit.cover),
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                          child: IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.favorite_outline,
-                                size: MediaQuery.of(context).size.width * 0.08,
-                              )),
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => PropertySinglePage(id: id)));
+      },
+      child: Column(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: MediaQuery.of(context).size.height * 0.25,
+              color: Theme.of(context).primaryColor,
+              child: Column(children: [
+                Row(children: [
+                  Stack(children: <Widget>[
+                    Image.network(img,
+                        height: MediaQuery.of(context).size.height * 0.17,
+                        width: MediaQuery.of(context).size.width * 0.43,
+                        fit: BoxFit.cover),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.favorite_outline,
+                              size: MediaQuery.of(context).size.width * 0.07,
+                            )),
+                      ),
+                    ),
+                  ]),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.03,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.02,
+                      ),
+                      Text(
+                        name.toString(),
+                        style: GoogleFonts.inter(
+                          color: Theme.of(context).backgroundColor,
+                          fontSize: MediaQuery.of(context).size.width * 0.032,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
-                    ]),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.03,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.02,
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.01,
+                      ),
+                      Text(
+                        indiaFormat.format(cost),
+                        style: GoogleFonts.inter(
+                          color: Theme.of(context).backgroundColor,
+                          fontSize: MediaQuery.of(context).size.width * 0.03,
+                          fontWeight: FontWeight.w500,
                         ),
-                        Text(
-                          name.toString(),
-                          style: GoogleFonts.inter(
-                            color: Theme.of(context).backgroundColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
-                            fontWeight: FontWeight.w500,
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.01,
+                      ),
+                      Text(
+                        city.toString(),
+                        style: GoogleFonts.inter(
+                          color: Theme.of(context).backgroundColor,
+                          fontSize: MediaQuery.of(context).size.width * 0.03,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.01,
+                      ),
+                      Text(
+                        "${bedrooms}BHK",
+                        style: GoogleFonts.inter(
+                          color: Theme.of(context).backgroundColor,
+                          fontSize: MediaQuery.of(context).size.width * 0.03,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.005,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            "Owner - ",
+                            style: GoogleFonts.inter(
+                              color: Theme.of(context).backgroundColor,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.022,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.01,
-                        ),
-                        Text(
-                          indiaFormat.format(cost),
-                          style: GoogleFonts.inter(
-                            color: Theme.of(context).backgroundColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.01,
-                        ),
-                        Text(
-                          city.toString(),
-                          style: GoogleFonts.inter(
-                            color: Theme.of(context).backgroundColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.01,
-                        ),
-                        Text(
-                          "${bedrooms}BHK",
-                          style: GoogleFonts.inter(
-                            color: Theme.of(context).backgroundColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.005,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              "Owner - ",
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.30,
+                            child: Text(
+                              dealer.toString(),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
                               style: GoogleFonts.inter(
                                 color: Theme.of(context).backgroundColor,
                                 fontSize:
@@ -234,56 +243,43 @@ class PropertiesCard extends StatelessWidget {
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.30,
-                              child: Text(
-                                dealer.toString(),
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 2,
-                                style: GoogleFonts.inter(
-                                  color: Theme.of(context).backgroundColor,
-                                  fontSize: MediaQuery.of(context).size.height *
-                                      0.012,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ]),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.01,
-                  ),
-                  ElevatedButton(
-                      onPressed: () {
-                        FlutterPhoneDirectCaller.callNumber('7989772884');
-                      },
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                            Theme.of(context).backgroundColor),
+                          ),
+                        ],
                       ),
-                      child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              15, 0, 15, 0),
-                          child: Text(
-                            'Call Owner',
-                            style: GoogleFonts.inter(
-                              color: Theme.of(context).primaryColor,
-                              fontSize:
-                                  MediaQuery.of(context).size.height * 0.018,
-                              fontWeight: FontWeight.w500,
-                            ),
-                            textAlign: TextAlign.center,
-                          )))
+                    ],
+                  ),
                 ]),
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.03,
-              )
-            ],
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.01,
+                ),
+                ElevatedButton(
+                    onPressed: () {
+                      FlutterPhoneDirectCaller.callNumber('7989772884');
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                          Theme.of(context).backgroundColor),
+                    ),
+                    child: Padding(
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(15, 0, 15, 0),
+                        child: Text(
+                          'Call Owner',
+                          style: GoogleFonts.inter(
+                            color: Theme.of(context).primaryColor,
+                            fontSize: MediaQuery.of(context).size.width * 0.032,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          textAlign: TextAlign.center,
+                        )))
+              ]),
+            ),
           ),
-        ));
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.025,
+          )
+        ],
+      ),
+    );
   }
 }

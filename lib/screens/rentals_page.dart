@@ -221,7 +221,7 @@ class _RentalBodyState extends State<RentalBody> {
               child: Text("View all",
                   style: GoogleFonts.inter(
                       color: Theme.of(context).primaryColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.018,
+                      fontSize: MediaQuery.of(context).size.width * 0.03,
                       fontWeight: FontWeight.w400,
                       decoration: TextDecoration.underline)),
             )
@@ -287,7 +287,7 @@ class _RentalBodyState extends State<RentalBody> {
                             style: GoogleFonts.inter(
                               color: Theme.of(context).primaryColor,
                               fontSize:
-                                  MediaQuery.of(context).size.height * 0.017,
+                                  MediaQuery.of(context).size.width * 0.035,
                               fontWeight: FontWeight.w500,
                             )),
                       ],
@@ -298,81 +298,84 @@ class _RentalBodyState extends State<RentalBody> {
               })),
         ),
       Center(
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.88,
-          height: MediaQuery.of(context).size.height * 0.2,
-          color: Theme.of(context).primaryColor,
-          child: Row(
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.03,
-              ),
-              Column(
-                children: [
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.02,
-                  ),
-                  Text(
-                    'Want to sell/rent',
-                    style: GoogleFonts.poppins(
-                        color: Theme.of(context).backgroundColor,
-                        fontSize: MediaQuery.of(context).size.width * 0.045,
-                        fontWeight: FontWeight.w500),
-                    textAlign: TextAlign.left,
-                  ),
-                  Text(
-                    'your property?',
-                    style: GoogleFonts.poppins(
-                        color: Theme.of(context).backgroundColor,
-                        fontSize: MediaQuery.of(context).size.width * 0.045,
-                        fontWeight: FontWeight.w500),
-                    textAlign: TextAlign.left,
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.01,
-                  ),
-                  ClipRRect(
-                      borderRadius: BorderRadius.circular(25),
-                      child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const BeginPosting()));
-                          },
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                Theme.of(context).backgroundColor),
-                          ),
-                          child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  8, 0, 8, 0),
-                              child: Text(
-                                'Post Property',
-                                style: GoogleFonts.poppins(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width *
-                                            0.038,
-                                    color: Theme.of(context).primaryColor,
-                                    fontWeight: FontWeight.w400),
-                                textAlign: TextAlign.center,
-                              ))))
-                ],
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.06,
-              ),
-              Container(
-                height: MediaQuery.of(context).size.height * 0.19,
-                width: MediaQuery.of(context).size.width * 0.3,
-                alignment: Alignment.centerRight,
-                child: Image.asset(
-                  'assets/images/house.png',
-                  fit: BoxFit.cover,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Container(
+            width: MediaQuery.of(context).size.width * 0.9,
+            height: MediaQuery.of(context).size.height * 0.19,
+            color: Theme.of(context).primaryColor,
+            child: Row(
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.08,
                 ),
-              )
-            ],
+                Column(
+                  children: [
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.03,
+                    ),
+                    Text(
+                      'Want to sell/rent',
+                      style: GoogleFonts.poppins(
+                          color: Theme.of(context).backgroundColor,
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
+                          fontWeight: FontWeight.w500),
+                      textAlign: TextAlign.left,
+                    ),
+                    Text(
+                      'your property?',
+                      style: GoogleFonts.poppins(
+                          color: Theme.of(context).backgroundColor,
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
+                          fontWeight: FontWeight.w500),
+                      textAlign: TextAlign.left,
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
+                    ),
+                    ClipRRect(
+                        borderRadius: BorderRadius.circular(25),
+                        child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const BeginPosting()));
+                            },
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all(
+                                  Theme.of(context).backgroundColor),
+                            ),
+                            child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    8, 0, 8, 0),
+                                child: Text(
+                                  'Post Property',
+                                  style: GoogleFonts.poppins(
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.035,
+                                      color: Theme.of(context).primaryColor,
+                                      fontWeight: FontWeight.w400),
+                                  textAlign: TextAlign.center,
+                                ))))
+                  ],
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.06,
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.15,
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  alignment: Alignment.centerRight,
+                  child: Image.asset(
+                    'assets/images/house.png',
+                    fit: BoxFit.cover,
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
@@ -385,7 +388,7 @@ class _RentalBodyState extends State<RentalBody> {
           "Rental Collections",
           style: GoogleFonts.poppins(
               color: Theme.of(context).primaryColor,
-              fontSize: MediaQuery.of(context).size.width * 0.045,
+              fontSize: MediaQuery.of(context).size.width * 0.04,
               fontWeight: FontWeight.w500),
           textAlign: TextAlign.start,
         ),
@@ -393,7 +396,7 @@ class _RentalBodyState extends State<RentalBody> {
       Padding(
         padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.22,
+          height: MediaQuery.of(context).size.height * 0.2,
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
@@ -406,8 +409,8 @@ class _RentalBodyState extends State<RentalBody> {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Container(
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          height: MediaQuery.of(context).size.height * 0.25,
+                          width: MediaQuery.of(context).size.width * 0.45,
+                          height: MediaQuery.of(context).size.height * 0.2,
                           color: const Color.fromARGB(255, 225, 214, 182),
                           child: Image.asset(
                             collectio[index],
@@ -426,7 +429,7 @@ class _RentalBodyState extends State<RentalBody> {
                                   style: GoogleFonts.inter(
                                       fontSize:
                                           MediaQuery.of(context).size.width *
-                                              0.05,
+                                              0.045,
                                       fontWeight: FontWeight.w600,
                                       color: Theme.of(context).backgroundColor),
                                   textAlign: TextAlign.center,
@@ -436,7 +439,7 @@ class _RentalBodyState extends State<RentalBody> {
                                   style: GoogleFonts.inter(
                                       fontSize:
                                           MediaQuery.of(context).size.width *
-                                              0.035,
+                                              0.03,
                                       fontWeight: FontWeight.w300,
                                       color: Theme.of(context).backgroundColor),
                                   textAlign: TextAlign.center,
@@ -464,7 +467,7 @@ class _RentalBodyState extends State<RentalBody> {
           "Homes by furnishing",
           style: GoogleFonts.poppins(
               color: Theme.of(context).primaryColor,
-              fontSize: MediaQuery.of(context).size.width * 0.044,
+              fontSize: MediaQuery.of(context).size.width * 0.04,
               fontWeight: FontWeight.w500),
           textAlign: TextAlign.start,
         ),
@@ -498,7 +501,7 @@ class _RentalBodyState extends State<RentalBody> {
                         furnishing[index],
                         style: GoogleFonts.inter(
                             color: Theme.of(context).primaryColor,
-                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            fontSize: MediaQuery.of(context).size.width * 0.035,
                             fontWeight: FontWeight.w400),
                       ),
                     ],
@@ -521,7 +524,7 @@ class _RentalBodyState extends State<RentalBody> {
           "Popular Localities",
           style: GoogleFonts.poppins(
               color: Theme.of(context).primaryColor,
-              fontSize: MediaQuery.of(context).size.width * 0.045,
+              fontSize: MediaQuery.of(context).size.width * 0.04,
               fontWeight: FontWeight.w500),
           textAlign: TextAlign.start,
         ),
@@ -530,7 +533,7 @@ class _RentalBodyState extends State<RentalBody> {
         height: MediaQuery.of(context).size.height * 0.01,
       ),
       Padding(
-        padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
+        padding: const EdgeInsets.fromLTRB(16, 4, 8, 0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -541,9 +544,9 @@ class _RentalBodyState extends State<RentalBody> {
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
-                    childAspectRatio: 0.35,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 20),
+                    childAspectRatio: 0.45,
+                    crossAxisSpacing: 0,
+                    mainAxisSpacing: 0),
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 itemCount: locality.length,
@@ -574,7 +577,7 @@ class _RentalBodyState extends State<RentalBody> {
                             style: GoogleFonts.poppins(
                                 color: Theme.of(context).hintColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.width * 0.037),
+                                    MediaQuery.of(context).size.width * 0.035),
                             textAlign: TextAlign.left,
                           ),
                           SizedBox(
@@ -585,7 +588,7 @@ class _RentalBodyState extends State<RentalBody> {
                             style: GoogleFonts.inter(
                                 color: Theme.of(context).hintColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.width * 0.033),
+                                    MediaQuery.of(context).size.width * 0.03),
                             textAlign: TextAlign.left,
                           ),
                           Divider(
@@ -608,12 +611,20 @@ class _RentalBodyState extends State<RentalBody> {
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const PropertiesAll()));
               },
-              child: Text("View all new localities",
-                  style: GoogleFonts.inter(
-                      color: Theme.of(context).primaryColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.017,
-                      fontWeight: FontWeight.w400,
-                      decoration: TextDecoration.underline)),
+              child: Row(
+                children: [
+                  Text("View all new localities",
+                      style: GoogleFonts.inter(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
+                          fontWeight: FontWeight.w400)),
+                  Icon(
+                    Icons.arrow_right_alt,
+                    size: MediaQuery.of(context).size.width * 0.06,
+                    color: Theme.of(context).primaryColor,
+                  )
+                ],
+              ),
             ),
           ],
         ),
@@ -625,7 +636,7 @@ class _RentalBodyState extends State<RentalBody> {
           "Residential Zones",
           style: GoogleFonts.poppins(
               color: Theme.of(context).primaryColor,
-              fontSize: MediaQuery.of(context).size.width * 0.045,
+              fontSize: MediaQuery.of(context).size.width * 0.04,
               fontWeight: FontWeight.w500),
           textAlign: TextAlign.start,
         ),
@@ -633,7 +644,7 @@ class _RentalBodyState extends State<RentalBody> {
       Padding(
         padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.2,
+          height: MediaQuery.of(context).size.height * 0.19,
           child: ListView.builder(
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
@@ -645,7 +656,7 @@ class _RentalBodyState extends State<RentalBody> {
                     children: [
                       Container(
                         width: MediaQuery.of(context).size.width * 0.48,
-                        height: MediaQuery.of(context).size.height * 0.15,
+                        height: MediaQuery.of(context).size.height * 0.14,
                         color: const Color.fromARGB(255, 225, 214, 182),
                         child: Image.asset(
                           collectio[index],
@@ -659,7 +670,7 @@ class _RentalBodyState extends State<RentalBody> {
                         zones[index],
                         style: GoogleFonts.inter(
                             color: Theme.of(context).primaryColor,
-                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            fontSize: MediaQuery.of(context).size.width * 0.035,
                             fontWeight: FontWeight.w500),
                         textAlign: TextAlign.start,
                       ),
@@ -681,17 +692,17 @@ class _RentalBodyState extends State<RentalBody> {
               width: MediaQuery.of(context).size.width * 1,
               color: Theme.of(context).primaryColor,
               child: Text(
-                'Featured Dealers',
+                '   Featured Dealers',
                 style: GoogleFonts.poppins(
                     color: Theme.of(context).backgroundColor,
-                    fontSize: MediaQuery.of(context).size.width * 0.045,
+                    fontSize: MediaQuery.of(context).size.width * 0.04,
                     fontWeight: FontWeight.w500),
                 textAlign: TextAlign.justify,
               ))),
       Padding(
         padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
         child: SizedBox(
-          height: MediaQuery.of(context).size.height * 0.35,
+          height: MediaQuery.of(context).size.height * 0.3,
           width: MediaQuery.of(context).size.width * 1,
           child: ListView.builder(
             shrinkWrap: true,
@@ -699,8 +710,8 @@ class _RentalBodyState extends State<RentalBody> {
             itemCount: locality.length,
             itemBuilder: ((context, index) {
               return Container(
-                height: MediaQuery.of(context).size.height * 0.33,
-                width: MediaQuery.of(context).size.width * 0.57,
+                height: MediaQuery.of(context).size.height * 0.25,
+                width: MediaQuery.of(context).size.width * 0.5,
                 color: Theme.of(context).primaryColor,
                 child: Padding(
                   padding: const EdgeInsets.all(10),
@@ -711,8 +722,8 @@ class _RentalBodyState extends State<RentalBody> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(10),
                       child: Container(
-                        height: MediaQuery.of(context).size.height * 0.3,
-                        width: MediaQuery.of(context).size.width * 0.55,
+                        height: MediaQuery.of(context).size.height * 0.25,
+                        width: MediaQuery.of(context).size.width * 0.48,
                         color: Theme.of(context).backgroundColor,
                         child: Column(
                           children: [
@@ -731,7 +742,7 @@ class _RentalBodyState extends State<RentalBody> {
                                     color: Theme.of(context).hintColor,
                                     fontSize:
                                         MediaQuery.of(context).size.width *
-                                            0.035,
+                                            0.032,
                                     fontWeight: FontWeight.w500)),
                             SizedBox(
                               height:
@@ -747,7 +758,7 @@ class _RentalBodyState extends State<RentalBody> {
                               height:
                                   MediaQuery.of(context).size.height * 0.005,
                             ),
-                            Text('${'Member Since ' + time[index]}.',
+                            Text('Member Since ' + time[index],
                                 style: GoogleFonts.inter(
                                     color: Theme.of(context).hintColor,
                                     fontSize:
@@ -799,7 +810,7 @@ class _RentalBodyState extends State<RentalBody> {
                                     IconButton(
                                       onPressed: () async {
                                         var whatsappURlandroid =
-                                            "whatsapp://send?phone=$number&text=Hello";
+                                            "${"whatsapp://send?phone=" + number}&text=Hello";
                                         var whatappURLios =
                                             "https://wa.me/$number?text=${Uri.parse("Hello")}";
                                         if (Platform.isIOS) {
@@ -822,15 +833,15 @@ class _RentalBodyState extends State<RentalBody> {
                                             ScaffoldMessenger.of(context)
                                                 .showSnackBar(const SnackBar(
                                                     content: Text(
-                                                        "whatsapp not installed")));
+                                                        "whatsapp no installed")));
                                           }
                                         }
                                       },
-                                      icon: Image.network(
-                                          'https://cdn-icons-png.flaticon.com/512/124/124034.png?w=740&t=st=1656751163~exp=1656751763~hmac=3e5cd586eb711d53069f6ec6c5f9fdbd67c451cca7915d8684aae3d1a53cee94'),
+                                      icon: Image.asset(
+                                          'assets/images/whatsapp.png'),
                                       iconSize:
                                           MediaQuery.of(context).size.width *
-                                              0.01,
+                                              0.005,
                                     ),
                                     Text('Whatsapp',
                                         style: GoogleFonts.inter(
@@ -844,7 +855,7 @@ class _RentalBodyState extends State<RentalBody> {
                                 ),
                                 SizedBox(
                                   width:
-                                      MediaQuery.of(context).size.width * 0.06,
+                                      MediaQuery.of(context).size.width * 0.03,
                                 ),
                                 GestureDetector(
                                   onTap: () {

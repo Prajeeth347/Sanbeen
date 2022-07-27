@@ -44,12 +44,12 @@ class _AccountDetailsState extends State<AccountDetails> {
                 'Account Details',
                 style: GoogleFonts.poppins(
                   color: Theme.of(context).primaryColor,
-                  fontSize: MediaQuery.of(context).size.height * 0.025,
+                  fontSize: MediaQuery.of(context).size.width * 0.045,
                   fontWeight: FontWeight.w400,
                 ),
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.02),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.1,
               width: MediaQuery.of(context).size.width * 0.95,
@@ -66,7 +66,7 @@ class _AccountDetailsState extends State<AccountDetails> {
                         'Name - ',
                         style: GoogleFonts.poppins(
                           color: Theme.of(context).primaryColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.02,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
@@ -116,7 +116,7 @@ class _AccountDetailsState extends State<AccountDetails> {
                         'Phone Number - ',
                         style: GoogleFonts.poppins(
                           color: Theme.of(context).primaryColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.02,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
@@ -166,7 +166,7 @@ class _AccountDetailsState extends State<AccountDetails> {
                         'Address - ',
                         style: GoogleFonts.poppins(
                           color: Theme.of(context).primaryColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.02,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
@@ -203,12 +203,13 @@ class _AccountDetailsState extends State<AccountDetails> {
             Center(
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.4,
-                child: RaisedButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                        side:
-                            BorderSide(color: Theme.of(context).primaryColor)),
-                    color: Theme.of(context).backgroundColor,
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: Theme.of(context).backgroundColor,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0),
+                            side: BorderSide(
+                                color: Theme.of(context).primaryColor))),
                     onPressed: () {
                       setState(() {
                         iseditablename = false;
@@ -220,7 +221,7 @@ class _AccountDetailsState extends State<AccountDetails> {
                       "SAVE",
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontSize: MediaQuery.of(context).size.width * 0.04,
                         fontWeight: FontWeight.w400,
                       ),
                     )),

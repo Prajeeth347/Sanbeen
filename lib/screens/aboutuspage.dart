@@ -17,7 +17,7 @@ class AboutUs extends StatelessWidget {
               icon: Icon(
                 Icons.arrow_back,
                 color: Theme.of(context).primaryColor,
-                size: MediaQuery.of(context).size.width * 0.08,
+                size: MediaQuery.of(context).size.width * 0.07,
               ),
             )),
         body: SingleChildScrollView(
@@ -30,14 +30,20 @@ class AboutUs extends StatelessWidget {
                         'About Us',
                         style: GoogleFonts.poppins(
                           color: Theme.of(context).primaryColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.03,
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                       SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.03),
-                      Image.network(
-                          'https://st2.depositphotos.com/1006472/5665/i/600/depositphotos_56658541-stock-photo-faceless-hooded-anonymous-computer-hacker.jpg'),
+                          height: MediaQuery.of(context).size.height * 0.02),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.25,
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        child: Image.network(
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZNp_NidXN04al4mK6-_ea0ut3ySY6wl7WhA&usqp=CAU',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                       SizedBox(width: MediaQuery.of(context).size.width * 0.8),
                       Padding(
                           padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
@@ -45,18 +51,18 @@ class AboutUs extends StatelessWidget {
                               'To lose fat, you need to consume fewer calories than you burn each day and exercise regularly. Frequent physical activity helps get rid of fat. If you lose weight without exercise. you are more likely to lose both muscle and fat.',
                               style: GoogleFonts.inter(
                                   color: Theme.of(context).primaryColor,
-                                  fontSize: MediaQuery.of(context).size.height *
-                                      0.018))),
+                                  fontSize: MediaQuery.of(context).size.width *
+                                      0.035))),
                       SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.03),
+                          height: MediaQuery.of(context).size.height * 0.02),
                       Padding(
                           padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
                           child: Text(
                               'To lose fat, you need to consume fewer calories than you burn each day and exercise regularly. Frequent physical activity helps get rid of fat. If you lose weight without exercise. you are more likely to lose both muscle and fat.',
                               style: TextStyle(
                                   color: Theme.of(context).primaryColor,
-                                  fontSize: MediaQuery.of(context).size.height *
-                                      0.018))),
+                                  fontSize: MediaQuery.of(context).size.width *
+                                      0.035))),
                     ]))));
   }
 }

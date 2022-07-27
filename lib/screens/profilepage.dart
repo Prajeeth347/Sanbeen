@@ -63,14 +63,14 @@ class _ProfilePageState extends State<ProfilePage> {
                   'My Profile',
                   style: GoogleFonts.poppins(
                     color: Theme.of(context).primaryColor,
-                    fontSize: MediaQuery.of(context).size.height * 0.025,
+                    fontSize: MediaQuery.of(context).size.width * 0.045,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
             ),
             CircleAvatar(
-              radius: MediaQuery.of(context).size.width * 0.15,
+              radius: MediaQuery.of(context).size.width * 0.13,
               backgroundImage:
                   NetworkImage(profile == null ? '' : profile![2].img ?? ''),
               backgroundColor: profile == null
@@ -86,7 +86,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         : '',
                 style: GoogleFonts.poppins(
                   color: Theme.of(context).backgroundColor,
-                  fontSize: MediaQuery.of(context).size.height * 0.03,
+                  fontSize: MediaQuery.of(context).size.width * 0.05,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -96,7 +96,7 @@ class _ProfilePageState extends State<ProfilePage> {
               profile == null ? 'Name' : profile![2].name,
               style: GoogleFonts.poppins(
                 color: Theme.of(context).primaryColor,
-                fontSize: MediaQuery.of(context).size.height * 0.026,
+                fontSize: MediaQuery.of(context).size.width * 0.04,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -105,7 +105,7 @@ class _ProfilePageState extends State<ProfilePage> {
               email,
               style: GoogleFonts.poppins(
                 color: Theme.of(context).primaryColor,
-                fontSize: MediaQuery.of(context).size.height * 0.02,
+                fontSize: MediaQuery.of(context).size.width * 0.04,
                 fontWeight: FontWeight.w300,
               ),
             ),
@@ -114,7 +114,7 @@ class _ProfilePageState extends State<ProfilePage> {
               profile == null ? 'Number' : profile![2].number,
               style: GoogleFonts.poppins(
                 color: Theme.of(context).primaryColor,
-                fontSize: MediaQuery.of(context).size.height * 0.02,
+                fontSize: MediaQuery.of(context).size.width * 0.04,
                 fontWeight: FontWeight.w300,
               ),
             ),
@@ -131,7 +131,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         builder: (context) => const AccountDetails()));
                   },
                   child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.07,
+                    height: MediaQuery.of(context).size.height * 0.055,
                     width: MediaQuery.of(context).size.width * 0.95,
                     child: Row(
                       children: [
@@ -149,14 +149,14 @@ class _ProfilePageState extends State<ProfilePage> {
                         SizedBox(
                             width: MediaQuery.of(context).size.width * 0.03),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.04,
+                          height: MediaQuery.of(context).size.height * 0.035,
                           width: MediaQuery.of(context).size.width * 0.55,
                           child: Text(
                             'Account Details',
                             style: GoogleFonts.poppins(
                               color: Theme.of(context).primaryColor,
                               fontSize:
-                                  MediaQuery.of(context).size.height * 0.02,
+                                  MediaQuery.of(context).size.width * 0.038,
                               fontWeight: FontWeight.w300,
                             ),
                           ),
@@ -171,6 +171,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             child: Icon(
                               Icons.arrow_forward_ios,
                               color: Theme.of(context).primaryColor,
+                              size: MediaQuery.of(context).size.width * 0.06,
                             ),
                           ),
                         )
@@ -186,7 +187,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         builder: (context) => const ChangePassword()));
                   },
                   child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.07,
+                    height: MediaQuery.of(context).size.height * 0.055,
                     width: MediaQuery.of(context).size.width * 0.95,
                     child: Row(
                       children: [
@@ -204,14 +205,14 @@ class _ProfilePageState extends State<ProfilePage> {
                         SizedBox(
                             width: MediaQuery.of(context).size.width * 0.03),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.04,
+                          height: MediaQuery.of(context).size.height * 0.035,
                           width: MediaQuery.of(context).size.width * 0.55,
                           child: Text(
                             'Change Password',
                             style: GoogleFonts.poppins(
                               color: Theme.of(context).primaryColor,
                               fontSize:
-                                  MediaQuery.of(context).size.height * 0.02,
+                                  MediaQuery.of(context).size.width * 0.038,
                               fontWeight: FontWeight.w300,
                             ),
                           ),
@@ -226,6 +227,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             child: Icon(
                               Icons.arrow_forward_ios,
                               color: Theme.of(context).primaryColor,
+                              size: MediaQuery.of(context).size.width * 0.06,
                             ),
                           ),
                         )
@@ -241,7 +243,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         builder: (context) => const FeedBack()));
                   },
                   child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.07,
+                    height: MediaQuery.of(context).size.height * 0.055,
                     width: MediaQuery.of(context).size.width * 0.95,
                     child: Row(
                       children: [
@@ -259,14 +261,14 @@ class _ProfilePageState extends State<ProfilePage> {
                         SizedBox(
                             width: MediaQuery.of(context).size.width * 0.03),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.04,
+                          height: MediaQuery.of(context).size.height * 0.035,
                           width: MediaQuery.of(context).size.width * 0.55,
                           child: Text(
                             'Feedback',
                             style: GoogleFonts.poppins(
                               color: Theme.of(context).primaryColor,
                               fontSize:
-                                  MediaQuery.of(context).size.height * 0.02,
+                                  MediaQuery.of(context).size.width * 0.038,
                               fontWeight: FontWeight.w300,
                             ),
                           ),
@@ -281,6 +283,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             child: Icon(
                               Icons.arrow_forward_ios,
                               color: Theme.of(context).primaryColor,
+                              size: MediaQuery.of(context).size.width * 0.06,
                             ),
                           ),
                         )
@@ -316,7 +319,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         'Logout',
                         style: GoogleFonts.poppins(
                           color: Theme.of(context).primaryColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.02,
+                          fontSize: MediaQuery.of(context).size.width * 0.035,
                           fontWeight: FontWeight.w300,
                         ),
                       ),

@@ -55,7 +55,7 @@ class _RecentActivityState extends State<RecentActivity> {
                 'Recent Activity',
                 style: GoogleFonts.poppins(
                   color: Theme.of(context).primaryColor,
-                  fontSize: MediaQuery.of(context).size.height * 0.025,
+                  fontSize: MediaQuery.of(context).size.width * 0.045,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -195,6 +195,7 @@ class Contacted extends StatelessWidget {
   }) : super(key: key);
 
   //@override
+  var number;
   final List collection = [
     'assets/images/home.png',
     'assets/images/house.png',
@@ -224,7 +225,7 @@ class Contacted extends StatelessWidget {
         itemCount: dealer.length,
         itemBuilder: (context, index) {
           return SizedBox(
-            height: MediaQuery.of(context).size.height * 0.23,
+            height: MediaQuery.of(context).size.height * 0.2,
             child: Column(
               children: [
                 Row(
@@ -250,8 +251,7 @@ class Contacted extends StatelessWidget {
                           dealer[index].toString(),
                           style: GoogleFonts.poppins(
                             color: Theme.of(context).primaryColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
+                            fontSize: MediaQuery.of(context).size.width * 0.032,
                             fontWeight: FontWeight.w500,
                           ),
                           textAlign: TextAlign.start,
@@ -263,8 +263,7 @@ class Contacted extends StatelessWidget {
                           'Company name',
                           style: GoogleFonts.poppins(
                             color: Theme.of(context).primaryColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
+                            fontSize: MediaQuery.of(context).size.width * 0.032,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -275,8 +274,7 @@ class Contacted extends StatelessWidget {
                           "Contacted for rental apartments near ",
                           style: GoogleFonts.poppins(
                             color: Theme.of(context).primaryColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.011,
+                            fontSize: MediaQuery.of(context).size.width * 0.024,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -284,8 +282,7 @@ class Contacted extends StatelessWidget {
                           " Delhi apartments",
                           style: GoogleFonts.poppins(
                             color: Theme.of(context).primaryColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.011,
+                            fontSize: MediaQuery.of(context).size.width * 0.024,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -296,29 +293,29 @@ class Contacted extends StatelessWidget {
                     )
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.local_phone_rounded,
-                      color: Theme.of(context).primaryColor,
-                    ),
-                    TextButton(
-                        onPressed: () {
-                          FlutterPhoneDirectCaller.callNumber('7989772884');
-                        },
-                        child: Text(
-                          'Call again',
+                GestureDetector(
+                  onTap: () {
+                    FlutterPhoneDirectCaller.callNumber(number);
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.phone,
+                        color: Theme.of(context).primaryColor,
+                        size: MediaQuery.of(context).size.width * 0.04,
+                      ),
+                      Text('Call Now',
                           style: GoogleFonts.inter(
-                            color: Theme.of(context).primaryColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.015,
-                            fontWeight: FontWeight.w500,
-                          ),
-                          textAlign: TextAlign.center,
-                        )),
-                  ],
+                              color: Theme.of(context).primaryColor,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.03,
+                              fontWeight: FontWeight.w500))
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.01,
                 ),
                 Divider(
                   height: 10,
@@ -486,19 +483,19 @@ class ShortlistedProp extends StatelessWidget {
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => PropertySinglePage(id: id)));
         },
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Column(
-            children: [
-              Container(
+        child: Column(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Container(
                 width: MediaQuery.of(context).size.width * 0.9,
-                height: MediaQuery.of(context).size.height * 0.23,
+                height: MediaQuery.of(context).size.height * 0.2,
                 color: Theme.of(context).primaryColor,
                 child: Column(children: [
                   Row(children: [
                     Stack(children: <Widget>[
                       Image.network(img,
-                          height: MediaQuery.of(context).size.height * 0.23,
+                          height: MediaQuery.of(context).size.height * 0.2,
                           width: MediaQuery.of(context).size.width * 0.43,
                           fit: BoxFit.cover),
                       Align(
@@ -509,7 +506,7 @@ class ShortlistedProp extends StatelessWidget {
                               onPressed: () {},
                               icon: Icon(
                                 Icons.favorite_outline,
-                                size: MediaQuery.of(context).size.width * 0.08,
+                                size: MediaQuery.of(context).size.width * 0.07,
                               )),
                         ),
                       ),
@@ -525,8 +522,7 @@ class ShortlistedProp extends StatelessWidget {
                           name.toString(),
                           style: GoogleFonts.inter(
                             color: Theme.of(context).backgroundColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
+                            fontSize: MediaQuery.of(context).size.width * 0.032,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -537,8 +533,7 @@ class ShortlistedProp extends StatelessWidget {
                           indiaFormat.format(cost),
                           style: GoogleFonts.inter(
                             color: Theme.of(context).backgroundColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
+                            fontSize: MediaQuery.of(context).size.width * 0.032,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -549,8 +544,7 @@ class ShortlistedProp extends StatelessWidget {
                           "$type, ${bedrooms}BHK",
                           style: GoogleFonts.inter(
                             color: Theme.of(context).backgroundColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
+                            fontSize: MediaQuery.of(context).size.width * 0.032,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -561,48 +555,48 @@ class ShortlistedProp extends StatelessWidget {
                           city.toString(),
                           style: GoogleFonts.inter(
                             color: Theme.of(context).backgroundColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
+                            fontSize: MediaQuery.of(context).size.width * 0.032,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width * 0.02,
                         ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.local_phone_rounded,
-                              color: Theme.of(context).hintColor,
-                            ),
-                            TextButton(
-                                onPressed: () {
-                                  FlutterPhoneDirectCaller.callNumber(
-                                      '7989772884');
-                                },
-                                child: Text(
-                                  'Call now',
-                                  style: GoogleFonts.inter(
-                                    color: Theme.of(context).hintColor,
-                                    fontSize:
-                                        MediaQuery.of(context).size.height *
-                                            0.018,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                )),
-                          ],
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.015,
                         ),
+                        GestureDetector(
+                          onTap: () {
+                            FlutterPhoneDirectCaller.callNumber(number);
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.phone,
+                                color: Theme.of(context).backgroundColor,
+                                size: MediaQuery.of(context).size.width * 0.04,
+                              ),
+                              Text('Call Now',
+                                  style: GoogleFonts.inter(
+                                      color: Theme.of(context).backgroundColor,
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.03,
+                                      fontWeight: FontWeight.w400))
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ]),
                 ]),
               ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.03,
-              )
-            ],
-          ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.03,
+            )
+          ],
         ));
   }
 }
@@ -647,12 +641,12 @@ class ViewedProp extends StatelessWidget {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width * 0.9,
-                height: MediaQuery.of(context).size.height * 0.23,
+                height: MediaQuery.of(context).size.height * 0.2,
                 color: Theme.of(context).primaryColor,
                 child: Column(children: [
                   Row(children: [
                     Image.network(img,
-                        height: MediaQuery.of(context).size.height * 0.23,
+                        height: MediaQuery.of(context).size.height * 0.2,
                         width: MediaQuery.of(context).size.width * 0.43,
                         fit: BoxFit.cover),
                     SizedBox(
@@ -666,8 +660,7 @@ class ViewedProp extends StatelessWidget {
                           name.toString(),
                           style: GoogleFonts.inter(
                             color: Theme.of(context).backgroundColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
+                            fontSize: MediaQuery.of(context).size.width * 0.032,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -678,8 +671,7 @@ class ViewedProp extends StatelessWidget {
                           indiaFormat.format(cost),
                           style: GoogleFonts.inter(
                             color: Theme.of(context).backgroundColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
+                            fontSize: MediaQuery.of(context).size.width * 0.032,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -690,8 +682,7 @@ class ViewedProp extends StatelessWidget {
                           "$type, ${bedrooms}BHK",
                           style: GoogleFonts.inter(
                             color: Theme.of(context).backgroundColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
+                            fontSize: MediaQuery.of(context).size.width * 0.032,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -702,45 +693,45 @@ class ViewedProp extends StatelessWidget {
                           city.toString(),
                           style: GoogleFonts.inter(
                             color: Theme.of(context).backgroundColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
+                            fontSize: MediaQuery.of(context).size.width * 0.032,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                         SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.015,
+                        ),
+                        SizedBox(
                           width: MediaQuery.of(context).size.width * 0.02,
                         ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.local_phone_rounded,
-                              color: Theme.of(context).hintColor,
-                            ),
-                            TextButton(
-                                onPressed: () {
-                                  FlutterPhoneDirectCaller.callNumber(
-                                      '7989772884');
-                                },
-                                child: Text(
-                                  'Call now',
+                        GestureDetector(
+                          onTap: () {
+                            FlutterPhoneDirectCaller.callNumber(number);
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.phone,
+                                color: Theme.of(context).backgroundColor,
+                                size: MediaQuery.of(context).size.width * 0.04,
+                              ),
+                              Text('Call Now',
                                   style: GoogleFonts.inter(
-                                    color: Theme.of(context).hintColor,
-                                    fontSize:
-                                        MediaQuery.of(context).size.height *
-                                            0.018,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                )),
-                          ],
-                        ),
+                                      color: Theme.of(context).backgroundColor,
+                                      fontSize:
+                                          MediaQuery.of(context).size.width *
+                                              0.03,
+                                      fontWeight: FontWeight.w400))
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ]),
                 ]),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.03,
+                height: MediaQuery.of(context).size.height * 0.025,
               )
             ],
           ),

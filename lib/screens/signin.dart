@@ -92,7 +92,7 @@ class _SignInState extends State<SignIn> {
                         'SANBEEN REAL ESTATE',
                         style: GoogleFonts.poppins(
                           color: Theme.of(context).primaryColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.025,
+                          fontSize: MediaQuery.of(context).size.width * 0.05,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -100,7 +100,7 @@ class _SignInState extends State<SignIn> {
                         '& Realtors Pvt. Ltd.',
                         style: GoogleFonts.poppins(
                           color: Theme.of(context).primaryColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.021,
+                          fontSize: MediaQuery.of(context).size.width * 0.045,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
@@ -112,8 +112,7 @@ class _SignInState extends State<SignIn> {
                           cursorColor: Theme.of(context).primaryColor,
                           style: GoogleFonts.inter(
                             color: Theme.of(context).hintColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.019,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
                             fontWeight: FontWeight.w300,
                           ),
                           decoration: InputDecoration(
@@ -125,7 +124,7 @@ class _SignInState extends State<SignIn> {
                             labelStyle: GoogleFonts.poppins(
                               color: Theme.of(context).primaryColor,
                               fontSize:
-                                  MediaQuery.of(context).size.height * 0.02,
+                                  MediaQuery.of(context).size.width * 0.04,
                               fontWeight: FontWeight.w300,
                             ),
                           )),
@@ -139,8 +138,7 @@ class _SignInState extends State<SignIn> {
                           obscuringCharacter: '*',
                           style: GoogleFonts.inter(
                             color: Theme.of(context).hintColor,
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.019,
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
                             fontWeight: FontWeight.w300,
                           ),
                           decoration: InputDecoration(
@@ -165,7 +163,7 @@ class _SignInState extends State<SignIn> {
                             labelStyle: GoogleFonts.poppins(
                               color: Theme.of(context).primaryColor,
                               fontSize:
-                                  MediaQuery.of(context).size.height * 0.02,
+                                  MediaQuery.of(context).size.width * 0.04,
                               fontWeight: FontWeight.w300,
                             ),
                           )),
@@ -183,7 +181,7 @@ class _SignInState extends State<SignIn> {
                               style: GoogleFonts.inter(
                                 color: Theme.of(context).hintColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.015,
+                                    MediaQuery.of(context).size.width * 0.03,
                                 fontWeight: FontWeight.w400,
                               ),
                               textAlign: TextAlign.center,
@@ -201,13 +199,13 @@ class _SignInState extends State<SignIn> {
                           ),
                           child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  75, 15, 75, 15),
+                                  70, 10, 70, 10),
                               child: Text(
                                 'LOGIN',
                                 style: GoogleFonts.inter(
                                   color: Theme.of(context).hintColor,
                                   fontSize:
-                                      MediaQuery.of(context).size.height * 0.02,
+                                      MediaQuery.of(context).size.width * 0.045,
                                   fontWeight: FontWeight.w400,
                                 ),
                                 textAlign: TextAlign.center,
@@ -225,11 +223,11 @@ class _SignInState extends State<SignIn> {
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 5, 5, 5, 5),
                             child: Text(
-                              'Don`t have an account? Join us',
+                              "Don't have an account? Join us",
                               style: GoogleFonts.inter(
                                 color: Theme.of(context).primaryColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.018,
+                                    MediaQuery.of(context).size.width * 0.038,
                                 fontWeight: FontWeight.w400,
                               ),
                               textAlign: TextAlign.center,

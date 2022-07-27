@@ -49,8 +49,8 @@ class _BeginPostingState extends State<BeginPosting> {
                 'Begin Posting your Property',
                 style: GoogleFonts.poppins(
                   color: Theme.of(context).primaryColor,
-                  fontSize: MediaQuery.of(context).size.height * 0.025,
-                  fontWeight: FontWeight.w400,
+                  fontSize: MediaQuery.of(context).size.width * 0.042,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.015),
@@ -58,8 +58,8 @@ class _BeginPostingState extends State<BeginPosting> {
                 'Add Basic Details',
                 style: GoogleFonts.poppins(
                   color: Theme.of(context).primaryColor,
-                  fontSize: MediaQuery.of(context).size.height * 0.022,
-                  fontWeight: FontWeight.w300,
+                  fontSize: MediaQuery.of(context).size.width * 0.04,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.015),
@@ -69,7 +69,7 @@ class _BeginPostingState extends State<BeginPosting> {
                   'You are looking to',
                   style: GoogleFonts.poppins(
                     color: Theme.of(context).primaryColor,
-                    fontSize: MediaQuery.of(context).size.height * 0.02,
+                    fontSize: MediaQuery.of(context).size.width * 0.04,
                     fontWeight: FontWeight.w300,
                   ),
                 ),
@@ -82,14 +82,16 @@ class _BeginPostingState extends State<BeginPosting> {
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.25,
-                    child: RaisedButton(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0),
-                            side: BorderSide(
-                                color: Theme.of(context).primaryColor)),
-                        color: pressAttention
-                            ? Theme.of(context).primaryColor
-                            : Theme.of(context).scaffoldBackgroundColor,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                              side: BorderSide(
+                                  color: Theme.of(context).primaryColor)),
+                          primary: pressAttention
+                              ? Theme.of(context).primaryColor
+                              : Theme.of(context).scaffoldBackgroundColor,
+                        ),
                         onPressed: () => setState(() {
                               if (_sellingtype != 'Sell') {
                                 press = !press;
@@ -105,20 +107,22 @@ class _BeginPostingState extends State<BeginPosting> {
                                   : Theme.of(context).backgroundColor,
                               fontWeight: FontWeight.w400,
                               fontSize:
-                                  MediaQuery.of(context).size.height * 0.02),
+                                  MediaQuery.of(context).size.width * 0.035),
                         )),
                   ),
                   SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.25,
-                    child: RaisedButton(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0),
-                            side: BorderSide(
-                                color: Theme.of(context).primaryColor)),
-                        color: press
-                            ? Theme.of(context).primaryColor
-                            : Theme.of(context).scaffoldBackgroundColor,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                              side: BorderSide(
+                                  color: Theme.of(context).primaryColor)),
+                          primary: press
+                              ? Theme.of(context).primaryColor
+                              : Theme.of(context).scaffoldBackgroundColor,
+                        ),
                         onPressed: () => setState(() {
                               if (_sellingtype != 'Rent') {
                                 press = !press;
@@ -134,7 +138,7 @@ class _BeginPostingState extends State<BeginPosting> {
                                   : Theme.of(context).backgroundColor,
                               fontWeight: FontWeight.w400,
                               fontSize:
-                                  MediaQuery.of(context).size.height * 0.02),
+                                  MediaQuery.of(context).size.width * 0.035),
                         )),
                   ),
                 ],
@@ -157,14 +161,16 @@ class _BeginPostingState extends State<BeginPosting> {
                   children: [
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.3,
-                      child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                              side: BorderSide(
-                                  color: Theme.of(context).primaryColor)),
-                          color: secpressAttention
-                              ? Theme.of(context).primaryColor
-                              : Theme.of(context).scaffoldBackgroundColor,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                                side: BorderSide(
+                                    color: Theme.of(context).primaryColor)),
+                            primary: secpressAttention
+                                ? Theme.of(context).primaryColor
+                                : Theme.of(context).scaffoldBackgroundColor,
+                          ),
                           onPressed: () => setState(() {
                                 if (_sellingtype != 'Apartment') {
                                   secpress = false;
@@ -182,20 +188,22 @@ class _BeginPostingState extends State<BeginPosting> {
                                     : Theme.of(context).backgroundColor,
                                 fontWeight: FontWeight.w400,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.019),
+                                    MediaQuery.of(context).size.width * 0.035),
                           )),
                     ),
                     SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.55,
-                      child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                              side: BorderSide(
-                                  color: Theme.of(context).primaryColor)),
-                          color: secpress
-                              ? Theme.of(context).primaryColor
-                              : Theme.of(context).scaffoldBackgroundColor,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                                side: BorderSide(
+                                    color: Theme.of(context).primaryColor)),
+                            primary: secpress
+                                ? Theme.of(context).primaryColor
+                                : Theme.of(context).scaffoldBackgroundColor,
+                          ),
                           onPressed: () => setState(() {
                                 if (_sellingtype != 'independent house') {
                                   secpress = true;
@@ -213,7 +221,7 @@ class _BeginPostingState extends State<BeginPosting> {
                                     : Theme.of(context).backgroundColor,
                                 fontWeight: FontWeight.w400,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.018),
+                                    MediaQuery.of(context).size.width * 0.034),
                           )),
                     ),
                     SizedBox(
@@ -221,14 +229,16 @@ class _BeginPostingState extends State<BeginPosting> {
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.6,
-                      child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                              side: BorderSide(
-                                  color: Theme.of(context).primaryColor)),
-                          color: secpress2
-                              ? Theme.of(context).primaryColor
-                              : Theme.of(context).scaffoldBackgroundColor,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                                side: BorderSide(
+                                    color: Theme.of(context).primaryColor)),
+                            primary: secpress2
+                                ? Theme.of(context).primaryColor
+                                : Theme.of(context).scaffoldBackgroundColor,
+                          ),
                           onPressed: () => setState(() {
                                 if (_sellingtype != 'Independent/builder') {
                                   secpress = false;
@@ -246,20 +256,22 @@ class _BeginPostingState extends State<BeginPosting> {
                                     : Theme.of(context).backgroundColor,
                                 fontWeight: FontWeight.w400,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.017),
+                                    MediaQuery.of(context).size.width * 0.034),
                           )),
                     ),
                     SizedBox(width: MediaQuery.of(context).size.width * 0.03),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.18,
-                      child: RaisedButton(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5.0),
-                              side: BorderSide(
-                                  color: Theme.of(context).primaryColor)),
-                          color: secpress1
-                              ? Theme.of(context).primaryColor
-                              : Theme.of(context).scaffoldBackgroundColor,
+                      child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                                side: BorderSide(
+                                    color: Theme.of(context).primaryColor)),
+                            primary: secpress1
+                                ? Theme.of(context).primaryColor
+                                : Theme.of(context).scaffoldBackgroundColor,
+                          ),
                           onPressed: () => setState(() {
                                 if (_sellingtype != 'Land') {
                                   secpress = false;
@@ -277,7 +289,7 @@ class _BeginPostingState extends State<BeginPosting> {
                                     : Theme.of(context).backgroundColor,
                                 fontWeight: FontWeight.w400,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.017),
+                                    MediaQuery.of(context).size.width * 0.035),
                           )),
                     ),
                   ],
@@ -289,7 +301,7 @@ class _BeginPostingState extends State<BeginPosting> {
                   'Your contact details for the buyer to reach you',
                   style: GoogleFonts.poppins(
                     color: Theme.of(context).primaryColor,
-                    fontSize: MediaQuery.of(context).size.height * 0.02,
+                    fontSize: MediaQuery.of(context).size.width * 0.04,
                     fontWeight: FontWeight.w300,
                   ),
                 ),
@@ -301,7 +313,7 @@ class _BeginPostingState extends State<BeginPosting> {
                   maxLength: 10,
                   style: GoogleFonts.inter(
                     color: Theme.of(context).hintColor,
-                    fontSize: MediaQuery.of(context).size.height * 0.02,
+                    fontSize: MediaQuery.of(context).size.width * 0.038,
                     fontWeight: FontWeight.w300,
                   ),
                   keyboardType: TextInputType.number,
@@ -310,7 +322,7 @@ class _BeginPostingState extends State<BeginPosting> {
                     counterText: '',
                     hintStyle: GoogleFonts.inter(
                       color: Theme.of(context).hintColor,
-                      fontSize: MediaQuery.of(context).size.height * 0.02,
+                      fontSize: MediaQuery.of(context).size.width * 0.038,
                       fontWeight: FontWeight.w300,
                     ),
                     hintText: 'Phone number',
@@ -327,12 +339,14 @@ class _BeginPostingState extends State<BeginPosting> {
               Center(
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.8,
-                  child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          side: BorderSide(
-                              color: Theme.of(context).primaryColor)),
-                      color: Theme.of(context).primaryColor,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0),
+                            side: BorderSide(
+                                color: Theme.of(context).primaryColor)),
+                        primary: Theme.of(context).primaryColor,
+                      ),
                       onPressed: () {
                         if (mobilecontroller.text.length < 10) {
                           Fluttertoast.showToast(
@@ -352,7 +366,7 @@ class _BeginPostingState extends State<BeginPosting> {
                             color: Theme.of(context).hintColor,
                             fontWeight: FontWeight.w500,
                             fontSize:
-                                MediaQuery.of(context).size.height * 0.02),
+                                MediaQuery.of(context).size.width * 0.038),
                       )),
                 ),
               ),

@@ -7,9 +7,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:sanbeen_zedital/models/properties_model(20).dart';
 import 'package:sanbeen_zedital/screens/profilepage.dart';
-import 'package:sanbeen_zedital/screens/properties_all.dart';
-import 'package:sanbeen_zedital/screens/property_display.dart';
-import 'package:sanbeen_zedital/services/properties_20_helper.dart';
+// import 'package:sanbeen_zedital/screens/properties_all.dart';
+// import 'package:sanbeen_zedital/screens/property_display.dart';
+// import 'package:sanbeen_zedital/services/properties_20_helper.dart';
 import 'package:sanbeen_zedital/services/property_single_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -58,7 +58,7 @@ class _PropertySinglePageState extends State<PropertySinglePage> {
   List<Properties>? property;
   var prop20loaded = false;
   final controller = ScrollController();
-  @override
+  //@override
   getProfileData() async {
     property = await PropertySingleServices().getprofiles(widget.id);
     if (property != null) {
@@ -203,7 +203,7 @@ class _PropertyBodyState extends State<PropertyBody> {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.02,
                   ),
-                  if (aminities.length != 0) ...[
+                  if (aminities.isNotEmpty) ...[
                     Column(
                       children: [
                         for (int i = 0; i < aminities.length; i++) ...[

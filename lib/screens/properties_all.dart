@@ -108,7 +108,7 @@ class Properties20Card extends StatelessWidget {
       },
       child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.99,
-        height: MediaQuery.of(context).size.height * 0.49,
+        height: MediaQuery.of(context).size.height * 0.45,
         child: Stack(
           children: <Widget>[
             Image.network(img,
@@ -133,12 +133,12 @@ class Properties20Card extends StatelessWidget {
                 children: [
                   SizedBox(
                     height: MediaQuery.of(context).size.height *
-                        0.15, //gap between property container and information container
+                        0.13, //gap between property container and information container
                   ),
                   Text(name,
                       style: GoogleFonts.poppins(
                           color: Theme.of(context).hintColor,
-                          fontSize: MediaQuery.of(context).size.width * 0.055,
+                          fontSize: MediaQuery.of(context).size.width * 0.05,
                           fontWeight: FontWeight.w600)),
                   SizedBox(
                       height: MediaQuery.of(context).size.height *

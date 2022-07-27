@@ -130,7 +130,7 @@ class PropertySingleBody extends StatelessWidget {
                         SizedBox(
                           height: MediaQuery.of(context).size.height * 0.02,
                         ),
-                        if (aminities.length != 0) ...[
+                        if (aminities.isNotEmpty) ...[
                           Column(
                             children: [
                               for (int i = 0; i < aminities.length; i++) ...[

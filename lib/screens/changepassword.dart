@@ -24,7 +24,7 @@ class _AccountDetailsState extends State<ChangePassword> {
             icon: Icon(
               Icons.arrow_back,
               color: Theme.of(context).primaryColor,
-              size: MediaQuery.of(context).size.width * 0.08,
+              size: MediaQuery.of(context).size.width * 0.07,
             )),
       ),
       backgroundColor: Theme.of(context).backgroundColor,
@@ -38,16 +38,16 @@ class _AccountDetailsState extends State<ChangePassword> {
                 'Change Password',
                 style: GoogleFonts.poppins(
                   color: Theme.of(context).primaryColor,
-                  fontSize: MediaQuery.of(context).size.height * 0.023,
+                  fontSize: MediaQuery.of(context).size.width * 0.045,
                   fontWeight: FontWeight.w400,
                 ),
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.03,
+              height: MediaQuery.of(context).size.height * 0.02,
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
+              height: MediaQuery.of(context).size.height * 0.08,
               width: MediaQuery.of(context).size.width * 0.95,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -60,7 +60,7 @@ class _AccountDetailsState extends State<ChangePassword> {
                       'Current password',
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontSize: MediaQuery.of(context).size.width * 0.035,
                         fontWeight: FontWeight.w300,
                       ),
                       textAlign: TextAlign.start,
@@ -84,9 +84,9 @@ class _AccountDetailsState extends State<ChangePassword> {
                 ],
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+            //SizedBox(height: MediaQuery.of(context).size.height * 0.01),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
+              height: MediaQuery.of(context).size.height * 0.08,
               width: MediaQuery.of(context).size.width * 0.95,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -99,7 +99,7 @@ class _AccountDetailsState extends State<ChangePassword> {
                       'New password',
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontSize: MediaQuery.of(context).size.width * 0.035,
                         fontWeight: FontWeight.w300,
                       ),
                       textAlign: TextAlign.start,
@@ -123,9 +123,9 @@ class _AccountDetailsState extends State<ChangePassword> {
                 ],
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+            //SizedBox(height: MediaQuery.of(context).size.height * 0.01),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
+              height: MediaQuery.of(context).size.height * 0.08,
               width: MediaQuery.of(context).size.width * 0.95,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -138,7 +138,7 @@ class _AccountDetailsState extends State<ChangePassword> {
                       'Confirm new password',
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontSize: MediaQuery.of(context).size.width * 0.035,
                         fontWeight: FontWeight.w300,
                       ),
                       textAlign: TextAlign.start,
@@ -162,22 +162,24 @@ class _AccountDetailsState extends State<ChangePassword> {
                 ],
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
             Center(
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.25,
-                child: RaisedButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5.0),
-                        side:
-                            BorderSide(color: Theme.of(context).primaryColor)),
-                    color: Theme.of(context).backgroundColor,
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0),
+                          side: BorderSide(
+                              color: Theme.of(context).primaryColor)),
+                      primary: Theme.of(context).backgroundColor,
+                    ),
                     onPressed: () {},
                     child: Text(
                       "Save",
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontSize: MediaQuery.of(context).size.width * 0.04,
                         fontWeight: FontWeight.w300,
                       ),
                     )),

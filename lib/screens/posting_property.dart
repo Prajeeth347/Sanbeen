@@ -48,7 +48,7 @@ class _PostingPropState extends State<PostingProp> {
             icon: Icon(
               Icons.arrow_back,
               color: Theme.of(context).primaryColor,
-              size: MediaQuery.of(context).size.width * 0.08,
+              size: MediaQuery.of(context).size.width * 0.07,
             )),
       ),
       body: SingleChildScrollView(
@@ -61,7 +61,7 @@ class _PostingPropState extends State<PostingProp> {
                 'Posting your Property',
                 style: GoogleFonts.poppins(
                   color: Theme.of(context).primaryColor,
-                  fontSize: MediaQuery.of(context).size.height * 0.028,
+                  fontSize: MediaQuery.of(context).size.width * 0.04,
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -70,7 +70,7 @@ class _PostingPropState extends State<PostingProp> {
                 'Add Basic Details',
                 style: GoogleFonts.poppins(
                   color: Theme.of(context).primaryColor,
-                  fontSize: MediaQuery.of(context).size.height * 0.02,
+                  fontSize: MediaQuery.of(context).size.width * 0.035,
                   fontWeight: FontWeight.w300,
                 ),
               ),
@@ -83,7 +83,7 @@ class _PostingPropState extends State<PostingProp> {
                       'Name of the property is',
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontSize: MediaQuery.of(context).size.width * 0.035,
                         fontWeight: FontWeight.w300,
                       ),
                     ),
@@ -107,7 +107,7 @@ class _PostingPropState extends State<PostingProp> {
                       'Starting price is',
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontSize: MediaQuery.of(context).size.width * 0.035,
                         fontWeight: FontWeight.w300,
                       ),
                     ),
@@ -131,7 +131,7 @@ class _PostingPropState extends State<PostingProp> {
                       'Add address of the property',
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontSize: MediaQuery.of(context).size.width * 0.035,
                         fontWeight: FontWeight.w300,
                       ),
                     ),
@@ -163,7 +163,7 @@ class _PostingPropState extends State<PostingProp> {
                               style: GoogleFonts.poppins(
                                 color: Theme.of(context).primaryColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.02,
+                                    MediaQuery.of(context).size.width * 0.035,
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
@@ -181,8 +181,8 @@ class _PostingPropState extends State<PostingProp> {
                                     style: GoogleFonts.poppins(
                                       color: Theme.of(context).primaryColor,
                                       fontSize:
-                                          MediaQuery.of(context).size.height *
-                                              0.02,
+                                          MediaQuery.of(context).size.width *
+                                              0.035,
                                       fontWeight: FontWeight.w300,
                                     ),
                                   ),
@@ -207,7 +207,7 @@ class _PostingPropState extends State<PostingProp> {
                               style: GoogleFonts.poppins(
                                 color: Theme.of(context).primaryColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.02,
+                                    MediaQuery.of(context).size.width * 0.035,
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
@@ -225,8 +225,8 @@ class _PostingPropState extends State<PostingProp> {
                                     style: GoogleFonts.poppins(
                                       color: Theme.of(context).primaryColor,
                                       fontSize:
-                                          MediaQuery.of(context).size.height *
-                                              0.02,
+                                          MediaQuery.of(context).size.width *
+                                              0.035,
                                       fontWeight: FontWeight.w300,
                                     ),
                                   ),
@@ -251,7 +251,7 @@ class _PostingPropState extends State<PostingProp> {
                               style: GoogleFonts.poppins(
                                 color: Theme.of(context).primaryColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.02,
+                                    MediaQuery.of(context).size.width * 0.035,
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
@@ -281,7 +281,7 @@ class _PostingPropState extends State<PostingProp> {
                       'Priority Area',
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontSize: MediaQuery.of(context).size.width * 0.035,
                         fontWeight: FontWeight.w300,
                       ),
                     ),
@@ -311,7 +311,7 @@ class _PostingPropState extends State<PostingProp> {
                               style: GoogleFonts.poppins(
                                 color: Theme.of(context).primaryColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.02,
+                                    MediaQuery.of(context).size.width * 0.035,
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
@@ -345,7 +345,7 @@ class _PostingPropState extends State<PostingProp> {
                               style: GoogleFonts.poppins(
                                 color: Theme.of(context).primaryColor,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.02,
+                                    MediaQuery.of(context).size.width * 0.035,
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
@@ -375,7 +375,7 @@ class _PostingPropState extends State<PostingProp> {
                       'Write something about the property',
                       style: GoogleFonts.poppins(
                         color: Theme.of(context).primaryColor,
-                        fontSize: MediaQuery.of(context).size.height * 0.02,
+                        fontSize: MediaQuery.of(context).size.width * 0.035,
                         fontWeight: FontWeight.w300,
                       ),
                     ),
@@ -404,12 +404,14 @@ class _PostingPropState extends State<PostingProp> {
               Center(
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.44,
-                  child: RaisedButton(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0),
-                          side: BorderSide(
-                              color: Theme.of(context).primaryColor)),
-                      color: Theme.of(context).primaryColor,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0),
+                            side: BorderSide(
+                                color: Theme.of(context).primaryColor)),
+                        primary: Theme.of(context).primaryColor,
+                      ),
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => const PhotosProp()));
@@ -418,7 +420,7 @@ class _PostingPropState extends State<PostingProp> {
                         "Upload Photos",
                         style: GoogleFonts.poppins(
                           color: Theme.of(context).hintColor,
-                          fontSize: MediaQuery.of(context).size.height * 0.02,
+                          fontSize: MediaQuery.of(context).size.width * 0.04,
                           fontWeight: FontWeight.w400,
                         ),
                       )),
